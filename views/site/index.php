@@ -1,6 +1,11 @@
-<?
-$command = "/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'";
-$ip = exec ($command);
-?>
 
-本机IP：<?= $ip ?>
+<div class="column">
+    <div class="col-5 left">
+
+    </div>
+    
+    <div class="col-10 right">
+
+    </div>
+</div>
+
