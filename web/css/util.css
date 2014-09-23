@@ -13,18 +13,24 @@
 .bw a { color: #999; }
 .db a { color: #444; }
 .wt {color: #fff; }
+.bg-wt { background-color: #ffffff; }
 .bg-grey { background-color: #D7D7D7; color: #fff; }
 .bg-pink { background-color: #e63c5a; color: #fff; }
 .bg-cyan { background-color: #14465a; color: #fff; }
 .bg-green { background-color: #96af1e; color: #fff; }
 .bg-click { background-color: #f7f7f7; }
+.bg-designer { background-color: #737d89}
+.l-designer { color: #737d89;}
 .bold { font-weight: bold; }
+.hr { margin: 0;display: block;}
+.mediate { margin: 0 auto;}
 .fs-10 { font-size: 10px; }
 .fs-12 { font-size: 12px; }
 .fs-13 { font-size: 13px; }
 .fs-14 { font-size: 14px; }
 .fs-15 { font-size: 15px; }
 .fs-16 { font-size: 16px; }
+.fs-17 { font-size: 17px; }
 .fs-18 { font-size: 18px; }
 .fs-20 { font-size: 20px; }
 .fs-21 { font-size: 21px; }
@@ -74,21 +80,27 @@
 .mr-10 { margin-right: 10px; }
 .mr-20 { margin-right: 20px; }
 .mr-40 { margin-right: 40px; }
+.mr-60 { margin-right: 60px; }
 .mb-0{ margin-bottom: 0px; }
 .mb-5 { margin-bottom: 5px; }
 .mb-10 { margin-bottom: 10px; }
 .mb-15 { margin-bottom: 15px; }
 .mb-20 { margin-bottom: 20px; }
 .mt-5 { margin-top: 5px; }
+.mt-8 { margin-top: 8px; }
 .mt-10 { margin-top: 10px; }
+.mt-12 { margin-top: 12px; }
+.mt-13 { margin-top: 13px; }
 .mt-15 { margin-top: 15px; }
 .mt-20 { margin-top: 20px; }
 .mt-30 { margin-top: 30px; }
 .mt-25 { margin-top: 25px; }
 .mt-45 { margin-top: 45px; }
+.mt-70 { margin-top: 70px; }
 .ml-5 { margin-left: 5px; }
 .ml-10 { margin-left: 10px; }
 .ml-20 { margin-left: 20px; }
+.ml-25 { margin-left: 25px; }
 .ml-30 { margin-left: 30px; }
 .ml-40 { margin-left: 40px; }
 .ml-60 { margin-left: 60px; }
@@ -97,6 +109,9 @@
 .ml-20 { margin-left: 20px; }
 .ml-15 { margin-left: 15px; }
 .ml-85 { margin-left: 85px; }
+.ml-130 { margin-left: 130px; }
+.ml-487 { margin-left: 487px; }
+.ml-564 { margin-left: 564px; }
 .m-10 { margin: 10px; }
 .hide  { display: none; }
 .show  { display: block; }
@@ -249,8 +264,14 @@
 	border-bottom: 6px solid #5f5f5f;
 }
 
+.bg-orange {
+	background: #ee6350;
+}
 .orange{
 	color: #ee6350;
+}
+.grass {
+	color: #38ad5a;
 }
 .lightgray{
 	color: #888988;
@@ -263,3 +284,27 @@
 .loadnext{
 	color: #686868;
 }
+.img-line-up { 
+	background: #90bb32;height: 6px;
+}
+.img-line-down { 
+	background: #00bbe9;height: 6px;
+}
+
+.divider {
+	border-bottom: 2px solid #e5e5e5;
+}
+.sbtn {
+	width: 125px;
+	height: 36px;
+	border: 1px solid;
+	border-radius: 2em;
+}
+.circle {
+width: 50px; 
+height: 50px; 
+background: #ee6350; 
+-moz-border-radius: 50px; 
+-webkit-border-radius: 50px; 
+border-radius: 50px; 
+} 

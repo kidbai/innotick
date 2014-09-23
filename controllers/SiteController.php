@@ -28,9 +28,9 @@ class SiteController extends Controller
         return $this->render('/site/index');
     }
 
-    public function actionPost()
+    public function actionArticle()
     {
-        return $this->render('/site/post');
+        return $this->render('/site/article');
     }
 
     public function actionCalColumn()

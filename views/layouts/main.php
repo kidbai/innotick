@@ -21,12 +21,13 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="menu">
                    <ul>
-                       <a href="#"><li>产品</li></a>
-                       <a href="#"><li>观点</li></a>
-                       <a href="#"><li>专栏</li></a>
-                       <a href="#"><li>社区</li></a>
+                       <li><a class="fs-17" href="#">产品</a></li>
+                       <li><a class="fs-17" href="#">观点</a></li>
+                       <li><a class="fs-17" href="#">专栏</a></li>
+                       <li><a class="fs-17" href="#">社区</a></li>
                    </ul>
                 </div>
+                
                 <div class="search">
                     <div class="search-btn">
                        <a href=""><img src="/img/icon/search.png" height="30" width="30" alt=""/> </a>
@@ -35,18 +36,34 @@ use yii\web\JqueryAsset;
                         <input id="top-search-field" type="text" placeholder="搜索文章"/>
                     </div>
                 </div>
-                <div class="login">
-                    <a href="javascript:;" class="btn">登陆</a>
+                <div class="user fr">
+                    <div class="info mt-20 ml-25">
+                        <img class="fl ml-30 mt-10" src="#" width="20" height="20" alt=""/>
+                        <a class="fs-14 orange fl ml-10" href="#">用户名</a> 
+                    </div>
+                    
                 </div>
+                <div class="item fr bg-orange">
+                   <ul>
+                        <li class="fs-17"><img src="/img/icon/homepage.png" width="20" height="20" alt=""><p>我的主页</p></li>
+                        <li class="fs-14"><img src="/img/icon/notification.png" width="10" height="10" alt=""><p>通知中心</p></li>
+                        <li class="fs-14"><img src="/img/icon/" width="10" height="10" alt=""><p>个人设置</p></li>
+                        <li class="fs-14"><img src="/img/icon/save.png" width="10" height="10" alt=""><p>我的收藏</p></li>
+                        <li class="fs-14"><img src="/img/icon/logout.png" width="10" height="10" alt=""><p>注销登陆</p></li>
+                    </ul> 
+                </div>
+                <!--<div class="login">
+                    <a href="javascript:;" class="btn">登陆</a>
+                </div>-->
             </div>
-            <div class="carousel">
+            <!--<div class="carousel">
                 <div class="carousel-inner">
                     <div class="navigation-left">
                         
                     </div>
 
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <?= $content ?>
@@ -88,20 +105,29 @@ use yii\web\JqueryAsset;
             <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
         </div>    
     </div>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script>
-    $(function (){
-        $("#post").each(function(){
-            if($(this).mouseover()){
-                $(this).addClass("bg-click");
-            }
-            if($(this).mouseout()){
-                $(this).removeClass("bg-click");
-            }
+    $(function(){
+        $(".post").mouseover(function(){
+         $(this).addClass("bg-click");
+       });
+        $(".post").mouseout(function(){
+            $(this).removeClass("bg-click");
         });
+        $(".user").mouseenter(function(){
+            $(".user").addClass("bg-orange");
+            $(".user a").removeClass("orange").addClass("wt");
+            $(".item").show();
+        });
+        $(".user").mouseleave(function(){
+            $(".user").removeClass("bg-orange");
+            $(".user a").addClass("orange").removeClass("wt");
+            $(".item").hide();
+        });
+
     });
     </script>
 <?php $this->endBody() ?>
 </body>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 </html>
 <?php $this->endPage() ?>
