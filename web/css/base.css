@@ -82,6 +82,36 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .load { width:880px; height: 40px; float: left; line-height: 40px;}
 #content .load p { margin-left: 60px;}
 #content .load a { margin-right: 10px;}
+
+#info .column .info { height: 230px;position: relative;}
+#info .column .info { background: url("/img/icon/restaurant.png") repeat fixed; }
+#info .column .info .menu { width: 590px; height: 50px;position: absolute;margin-top: 180px;}
+#info .column .info .menu .color-line { width: 120px; height: 4px;position: absolute;}
+#info .column .info .menu li { float: left;width: 120px; height: 50px; line-height: 50px;text-align: center;}
+#info .column .fill { width: 100%; height: 15px; background-color: #f3f6f9;}
+#info .column .setting { width: 86.66666667%; height: 1800px; overflow: hidden;}
+#info .column .setting .layout { width: 100%;height: 66px;padding: 10px 0px 10px 0px;position: relative;}
+#info .column .setting .layout label { width: 180px; float: left;}
+#info .column .setting .layout span { float: right; margin-right: 20px;color:#737d89; font-size: 15px;line-height: 46px;}
+#info .column .setting .layout input { width: 380px; height: 46px; font-size: 14px; border: 1px solid #d9d9da;border-radius: 4px;}
+#info .column .setting .avatar { width: 100%; height: 166px;}
+#info .column .setting .avatar img { width: 166px; height: 166px;}
+#info .column .setting .avatar .circle { width: 106px; height: 106px;}
+#info .column .setting .avatar .img p { text-align: center;position: absolute; top:135px; left:202px;}
+#info .column .setting .tel .getcode { margin: 4px 0px 0px 20px; width: 220px; height: 36px; border: 1px solid #27b5c6; float: left; background-color: #27b5c6; border-radius: 4px; line-height: 36px; text-align: center;}
+#info .column .setting .sex input { width: 20px; height: 20px;margin-top: 15px;}
+#info .column .setting .sex p { line-height: 46px; color:#737d89}
+#info .column .setting .area { position: relative;}
+#info .column .setting select { width: 115px; height: 46px; border: 1px solid #d9d9da; border-radius: 4px; background-color: #ffffff; font-size: 14px;color: #737d89;}
+#info .column .setting option { width: 100%; height: 20px; color:#737d89;}
+#info .column .setting .weibo .http { width: 60px; height: 46px; border: 1px solid #d9d9da;  border-radius: 4px;line-height: 46px;}
+#info .column .setting .weibo input { width: 321px;}
+#info .column .setting .weibo .http p {font-size: 14px;color:#737d89; }
+#info .column .setting .introduce { position: relative;}
+#info .column .setting .introduce textarea { width: 380px; height: 150px; background-color: #ffffff; border: 1px solid #d9d9da; border-radius: 4px; font-size: 14px; color:#737d89; padding: 10px;}
+#info .column .setting .add { padding-left: 185px;}
+#info .column .setting .submit { padding-left: 180px;}
+#info .column .setting .submit input { width: 80px; height: 46px;background-color: #ee6350; border-radius: 4px;color: white;font-size: 14px;}
 .column { margin: 0 auto; width: 1200px; display: block; clear: both; }
 @media (min-width: 992px) {
   .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-13, .col-14, .col-15 {

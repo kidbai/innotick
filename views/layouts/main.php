@@ -105,7 +105,11 @@ use yii\web\JqueryAsset;
             <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
         </div>    
     </div>
-    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/PCASClass.js" charset="gb2312"></script>
+    <script>
+        new PCAS("Province, 请选择省份", "City, 请选择城市", "Area, 请选择地区");
+    </script>
     <script>
     $(function(){
         $(document).bind("mousemove", function(e){

@@ -20,6 +20,7 @@
 .bg-green { background-color: #96af1e; color: #fff; }
 .bg-click { background-color: #f7f7f7; }
 .bg-designer { background-color: #737d89}
+.bg-item-grey { background-color: #f3f6f9;}
 .l-designer { color: #737d89;}
 .bold { font-weight: bold; }
 .hr { margin: 0;display: block;}
@@ -43,6 +44,7 @@
 .lp-1 { letter-spacing: 1px; }
 .lp-2 { letter-spacing: 2px; }
 .lp-3 { letter-spacing: 3px; }
+.lp-4 { letter-spacing: 4px; }
 .ti { text-indent: 2em; }
 .lb { border-left: 2px solid #f0a0a1; padding-left: 5px; }
 .segoe-l { font-family: 'Segoe UI light', Arial; }
@@ -75,6 +77,7 @@
 #back-to-top { position: fixed; bottom: 100px; left: 50%; margin-left: 240px; width: 54px; height: 54px; display: none; }
 .fl { float: left; }
 .fr { float: right; }
+.t-15 { top: 15px;}
 .mr-5 { margin-right: 5px; }
 .mr-0 { margin-right: 0px; }
 .mr-10 { margin-right: 10px; }
@@ -98,7 +101,11 @@
 .mt-30 { margin-top: 30px; }
 .mt-25 { margin-top: 25px; }
 .mt-45 { margin-top: 45px; }
+.mt-55 { margin-top: 55px; }
+.mt-60 { margin-top: 60px; }
+.mt-65 { margin-top: 65px; }
 .mt-70 { margin-top: 70px; }
+.mt-101 { margin-top: 101px; }
 .ml-5 { margin-left: 5px; }
 .ml-8 { margin-left: 8px; }
 .ml-10 { margin-left: 10px; }
@@ -114,6 +121,7 @@
 .ml-72 { margin-left: 72px; }
 .ml-20 { margin-left: 20px; }
 .ml-15 { margin-left: 15px; }
+.ml-80 { margin-left: 80px; }
 .ml-85 { margin-left: 85px; }
 .ml-130 { margin-left: 130px; }
 .ml-487 { margin-left: 487px; }
@@ -128,6 +136,7 @@
 .pl-10 { padding-left: 10px; }
 .pl-20 { padding-left: 20px; }
 .pl-70 { padding-left: 70px; }
+.pl-130 { padding-left: 130px; }
 .pr-0 { padding-right: 0px; }
 .pr-5 { padding-right: 5px; }
 .pt-4 { padding-top: 4px; }
@@ -274,6 +283,10 @@
 .bg-orange {
 	background: #ee6350;
 }
+
+.bg-setting {
+	background: #f3f6f9;
+}
 .orange{
 	color: #ee6350;
 }
@@ -313,8 +326,19 @@
 .circle {
 width: 50px; 
 height: 50px; 
-background: #ee6350; 
 -moz-border-radius: 50px; 
 -webkit-border-radius: 50px; 
 border-radius: 50px; 
 } 
+
+.info-circle {
+width: 110px; 
+height: 110px; 
+-moz-border-radius: 50px; 
+-webkit-border-radius: 50px; 
+border-radius: 50px; 
+} 
+.hid{
+	overflow: hidden;
+}
+

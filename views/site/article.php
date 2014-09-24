@@ -22,7 +22,7 @@
 						<p class="fl fs-15">&nbsp;&nbsp;#&nbsp;<a class="orange fs-15" href="#">LinkedIn</a>&nbsp;#&nbsp;<a class="orange fs-15" href="#">领英</a></p>
 					</div>
 					<div class="designer divider">
-						<div class="circle ml-60 mt-20 fl"></div>
+						<div class="circle ml-60 mt-20 fl bg-orange"></div>
 						<div class="description fl mt-30 ml-10">
 							<p class="fs-14 fl l-designer">作者用户名</p>
 							<div class="wrap-designer fl bg-designer ml-10">
@@ -40,7 +40,7 @@
 					</div>
 					<div class="comment">
 						<div class="block divider">
-							<div class="circle mt-20 fl"></div>
+							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl"><p class="fs-14 orange">人生路</p></div>
 								<div class="fl ml-10"><p class="l-designer fs-13">· 3小时前</p></div>
@@ -54,7 +54,7 @@
 							</div>
 						</div>	
 						<div class="block divider">
-							<div class="circle mt-20 fl"></div>
+							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl"><p class="fs-14 orange">人生路</p></div>
 								<div class="fl ml-10"><p class="l-designer fs-13">· 3小时前</p></div>
@@ -68,7 +68,7 @@
 							</div>	
 						</div>	
 						<div class="block divider">
-							<div class="circle mt-20 fl"></div>
+							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl"><p class="fs-14 orange">人生路</p></div>
 								<div class="fl ml-10"><p class="l-designer fs-13">· 3小时前</p></div>
