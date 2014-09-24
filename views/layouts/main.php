@@ -38,18 +38,18 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="user fr">
                     <div class="info mt-20 ml-25">
-                        <img class="fl ml-30 mt-10" src="#" width="20" height="20" alt=""/>
+                        <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/>
                         <a class="fs-14 orange fl ml-10" href="#">用户名</a> 
                     </div>
                     
                 </div>
                 <div class="item fr bg-orange">
                    <ul>
-                        <li class="fs-17"><img src="/img/icon/homepage.png" width="20" height="20" alt=""><p>我的主页</p></li>
-                        <li class="fs-14"><img src="/img/icon/notification.png" width="10" height="10" alt=""><p>通知中心</p></li>
-                        <li class="fs-14"><img src="/img/icon/" width="10" height="10" alt=""><p>个人设置</p></li>
-                        <li class="fs-14"><img src="/img/icon/save.png" width="10" height="10" alt=""><p>我的收藏</p></li>
-                        <li class="fs-14"><img src="/img/icon/logout.png" width="10" height="10" alt=""><p>注销登陆</p></li>
+                        <li><img class="fl ml-55 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
+                        <li><img class="fl ml-55 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
+                        <li><img class="fl ml-55 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
+                        <li><img class="fl ml-55 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
+                        <li><img class="fl ml-55 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
                     </ul> 
                 </div>
                 <!--<div class="login">
@@ -108,22 +108,44 @@ use yii\web\JqueryAsset;
     <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
     <script>
     $(function(){
+        $(document).bind("mousemove", function(e){
+            //console.log("X:" + e.pageX + "Y:" + e.pageY);
+        })
         $(".post").mouseover(function(){
-         $(this).addClass("bg-click");
+            $(this).addClass("bg-click");
        });
         $(".post").mouseout(function(){
-            $(this).removeClass("bg-click");
+            $(".post").removeClass("bg-click");
         });
-        $(".user").mouseenter(function(){
-            $(".user").addClass("bg-orange");
-            $(".user a").removeClass("orange").addClass("wt");
-            $(".item").show();
+        $(".user").mouseenter(function(e){
+                $(".user").addClass("bg-orange");
+                $(".user a").removeClass("orange").addClass("wt");
+                $(".item").show();
         });
-        $(".user").mouseleave(function(){
-            $(".user").removeClass("bg-orange");
-            $(".user a").addClass("orange").removeClass("wt");
-            $(".item").hide();
+        $(".user").mouseleave(function(e){
+            if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
+                $(".user").removeClass("bg-orange");
+                $(".user a").addClass("orange").removeClass("wt");
+                $(".item").hide();
+            }
         });
+        $(".item").mouseleave(function(e){
+            console.log(e);
+            if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){
+                $(".user").removeClass("bg-orange");
+                $(".user a").addClass("orange").removeClass("wt");
+                $(".item").hide();
+            }
+        })
+        $(".item li").each(function(){
+            $(this).mouseover(function(){
+                $(this).addClass("nav-active");
+            });
+            $(this).mouseout(function(){
+                $(this).removeClass("nav-active");
+            });
+        });
+        
 
     });
     </script>

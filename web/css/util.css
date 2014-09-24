@@ -87,6 +87,8 @@
 .mb-15 { margin-bottom: 15px; }
 .mb-20 { margin-bottom: 20px; }
 .mt-5 { margin-top: 5px; }
+.mt-4 { margin-top: 4px; }
+.mt-7 { margin-top: 7px; }
 .mt-8 { margin-top: 8px; }
 .mt-10 { margin-top: 10px; }
 .mt-12 { margin-top: 12px; }
@@ -98,11 +100,15 @@
 .mt-45 { margin-top: 45px; }
 .mt-70 { margin-top: 70px; }
 .ml-5 { margin-left: 5px; }
+.ml-8 { margin-left: 8px; }
 .ml-10 { margin-left: 10px; }
+.ml-12 { margin-left: 12px; }
 .ml-20 { margin-left: 20px; }
 .ml-25 { margin-left: 25px; }
 .ml-30 { margin-left: 30px; }
+.ml-35 { margin-left: 35px; }
 .ml-40 { margin-left: 40px; }
+.ml-55 { margin-left: 55px; }
 .ml-60 { margin-left: 60px; }
 .ml-70 { margin-left: 70px; }
 .ml-72 { margin-left: 72px; }
@@ -124,6 +130,7 @@
 .pl-70 { padding-left: 70px; }
 .pr-0 { padding-right: 0px; }
 .pr-5 { padding-right: 5px; }
+.pt-4 { padding-top: 4px; }
 .pt-28 { padding-top: 28px; }
 .pt-20 { padding-top: 20px; }
 .pt-5 { padding-top: 5px; }
@@ -299,6 +306,9 @@
 	height: 36px;
 	border: 1px solid;
 	border-radius: 2em;
+}
+.nav-active{
+	background-color: #c55444;
 }
 .circle {
 width: 50px; 

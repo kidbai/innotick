@@ -16,8 +16,8 @@
 #top .nav .login .btn:hover { }
 #top .nav .user { width: 200px; height: 80px; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
-#top .nav .item { width: 200px; height: 160px;display: none;line-height: 32px;text-align: center;}
-#top .nav .item li { width: 200px; height: 32px;}
+#top .nav .item { width: 200px; height: 180px;display: none;}
+#top .nav .item li { width: 200px; height: 36px; line-height: 25px; text-align: center;}
 #top .nav { height: 320px; position: relative;}
 #top .carousel .carousel.inner{ padding: 20px 114px 33px 114px;}
 body { background: #fff; }
