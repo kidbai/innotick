@@ -12,7 +12,8 @@
 .bw { color: #999; }
 .bw a { color: #999; }
 .db a { color: #444; }
-.wt {color: #fff; }
+.wt { color: #fff; }
+.sw { color: #f1f1f1;}
 .bg-wt { background-color: #ffffff; }
 .bg-grey { background-color: #D7D7D7; color: #fff; }
 .bg-pink { background-color: #e63c5a; color: #fff; }
@@ -83,6 +84,7 @@
 .mr-10 { margin-right: 10px; }
 .mr-20 { margin-right: 20px; }
 .mr-40 { margin-right: 40px; }
+.mr-50 { margin-right: 50px; }
 .mr-60 { margin-right: 60px; }
 .mb-0{ margin-bottom: 0px; }
 .mb-5 { margin-bottom: 5px; }
@@ -110,16 +112,18 @@
 .ml-8 { margin-left: 8px; }
 .ml-10 { margin-left: 10px; }
 .ml-12 { margin-left: 12px; }
+.ml-17 { margin-left: 17px; }
 .ml-20 { margin-left: 20px; }
 .ml-25 { margin-left: 25px; }
 .ml-30 { margin-left: 30px; }
 .ml-35 { margin-left: 35px; }
+.ml-38 { margin-left: 38px; }
 .ml-40 { margin-left: 40px; }
-.ml-55 { margin-left: 55px; }
+.ml-46 { margin-left: 46px; }
+.ml-52 { margin-left: 52px; }
 .ml-60 { margin-left: 60px; }
 .ml-70 { margin-left: 70px; }
 .ml-72 { margin-left: 72px; }
-.ml-20 { margin-left: 20px; }
 .ml-15 { margin-left: 15px; }
 .ml-80 { margin-left: 80px; }
 .ml-85 { margin-left: 85px; }
@@ -340,5 +344,25 @@ border-radius: 50px;
 } 
 .hid{
 	overflow: hidden;
+}
+
+.collection-green {
+	color: #90bb32;
+}
+
+.collection-blue{
+	color: #00bbe9;
+}
+
+.collection-purple{
+	content: #aa5398;
+}
+
+.collection-red {
+	color: #ff0000;
+}
+
+.collection-orange {
+	color: #f7be00;
 }
 

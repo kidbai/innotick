@@ -41,6 +41,10 @@ class SiteController extends Controller
         return $this->render('/site/post');
     }
 
+    public function actionCollection(){
+        return $this->render('/site/collection');
+    }
+
     // public function actionCalColumn()
     // {
     //     dump(sprintf("%.8f", 80.0 / 1200));

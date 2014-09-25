@@ -45,11 +45,11 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="item fr bg-orange">
                    <ul>
-                        <li><img class="fl ml-55 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
-                        <li><img class="fl ml-55 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
-                        <li><img class="fl ml-55 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
-                        <li><img class="fl ml-55 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
-                        <li><img class="fl ml-55 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><p class="fl fs-14 wt pt-4 ml-8">我的主页</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">我的主页</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">通知中心</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">个人设置</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">我的收藏</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">注销登录</p></li>
                     </ul> 
                 </div>
                 <!--<div class="login">
@@ -108,7 +108,7 @@ use yii\web\JqueryAsset;
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/PCASClass.js" charset="gb2312"></script>
     <script>
-        new PCAS("Province, 请选择省份", "City, 请选择城市", "Area, 请选择地区");
+        new PCAS("province, 请选择省份", "city, 请选择城市", "area, 请选择地区");
     </script>
     <script>
     $(function(){
@@ -123,13 +123,13 @@ use yii\web\JqueryAsset;
         });
         $(".user").mouseenter(function(e){
                 $(".user").addClass("bg-orange");
-                $(".user a").removeClass("orange").addClass("wt");
+                $(".user a").removeClass("orange").addClass("sw");
                 $(".item").show();
         });
         $(".user").mouseleave(function(e){
             if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
                 $(".user").removeClass("bg-orange");
-                $(".user a").addClass("orange").removeClass("wt");
+                $(".user a").addClass("orange").removeClass("sw");
                 $(".item").hide();
             }
         });
@@ -137,7 +137,7 @@ use yii\web\JqueryAsset;
             console.log(e);
             if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){
                 $(".user").removeClass("bg-orange");
-                $(".user a").addClass("orange").removeClass("wt");
+                $(".user a").addClass("orange").removeClass("sw");
                 $(".item").hide();
             }
         })

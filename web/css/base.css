@@ -90,6 +90,11 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .column .info .menu li { float: left;width: 120px; height: 50px; line-height: 50px;text-align: center;}
 #info .column .fill { width: 100%; height: 15px; background-color: #f3f6f9;}
 #info .column .setting { width: 86.66666667%; height: 1800px; overflow: hidden;}
+#info .column .setting .collection { width: 96.153846153846% ; height: 38px;}
+#info .column .setting .collection li { font-size: 18px;color: #f1f1f1; line-height: 38px;}
+#info .column .setting .collection-cont { width: 96.153846153846% ; height: 60px; line-height: 60px; border-bottom: 2px solid #e8e8e8 ;}
+#info .column .setting .collection-cont p { font-size: 18px;text-align: center;}
+#info .column .setting .collection-cont .comment-num { width: 54px;}
 #info .column .setting .layout { width: 100%;height: 66px;padding: 10px 0px 10px 0px;position: relative;}
 #info .column .setting .layout label { width: 180px; float: left;}
 #info .column .setting .layout span { float: right; margin-right: 20px;color:#737d89; font-size: 15px;line-height: 46px;}

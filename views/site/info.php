@@ -80,13 +80,13 @@
 					<p>成都</p>
 					<p>成都</p>
 				</div> -->
-				<select name="Province">
+				<select name="province">
 				 	 
 				</select>
-				<select class="ml-15" name="City">
+				<select class="ml-15" name="city">
 					
 				</select>
-				<select class="ml-15" name="Area">
+				<select class="ml-15" name="area">
 					
 				</select>
 			</div>	
