@@ -45,11 +45,11 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="item fr bg-orange">
                    <ul>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">我的主页</p></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">通知中心</p></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">个人设置</p></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">我的收藏</p></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><p class="fl fs-14 sw pt-4 ml-17">注销登录</p></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的主页</a></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">通知中心</a></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">个人设置</a></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的收藏</a></li>
+                        <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">注销登录</a></li>
                     </ul> 
                 </div>
                 <!--<div class="login">
@@ -112,27 +112,68 @@ use yii\web\JqueryAsset;
     </script>
     <script>
     $(function(){
-        $(document).bind("mousemove", function(e){
-            //console.log("X:" + e.pageX + "Y:" + e.pageY);
-        })
-        $(".post").mouseover(function(){
+         
+        //动态加载post右上角btn (可优化)
+        var btndiv = document.createElement("div"); //btn
+        $(btndiv).addClass("btn");
+        $(".post").append(btndiv);
+        var hint = document.createElement("div"); // hint
+        $(hint).addClass("hint");
+        $(".post .btn").append(hint);
+        var img_1 = document.createElement("img");
+        img_1.src = "/img/icon/green-long.png";
+        $(".post .hint").append(img_1);
+        var icon_menu = document.createElement("div"); // icon-menu
+        $(icon_menu).addClass("icon-menu");
+        $(".post .btn").append(icon_menu);
+
+        var icon_1 = document.createElement("div"); // icon-1
+        $(icon_1).addClass("icon icon-1 fl");
+        $(".post .btn .icon-menu").append(icon_1);
+        var img_2 = document.createElement("img"); // img
+        img_2.src = "/img/icon/btn-1.png";
+        $(".post .btn .icon-menu .icon-1").append(img_2);
+
+        var icon_2 = document.createElement("div"); // icon-2
+        $(icon_2).addClass("icon icon-2 fl");
+        $(".post .btn .icon-menu").append(icon_2);
+        var img_3 = document.createElement("img"); // img
+        img_3.src = "/img/icon/btn-1.png";
+        $(".post .btn .icon-menu .icon-2").append(img_3);
+
+        var icon_3 = document.createElement("div"); // icon-3
+        $(icon_3).addClass("icon icon-3 fl");
+        $(".post .btn .icon-menu").append(icon_3);
+        var img_4 = document.createElement("img"); // img
+        img_4.src = "/img/icon/btn-1.png";
+        $(".post .btn .icon-menu .icon-3").append(img_4);
+
+        var label = document.createElement("span");
+        $(label).addClass("orange").text("#移动互联网&nbsp;#电子商务&nbsp;#融资");
+        $(".post .text p").append(label); 
+
+        // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
+        $(".post").mouseenter(function(){
             $(this).addClass("bg-click");
-       });
-        $(".post").mouseout(function(){
-            $(".post").removeClass("bg-click");
+            $(this).children(".btn").show();
+            $(this).children(".text").children("p:eq(1)").children("span").show();
+        }),$(".post").mouseleave(function(){
+            $(this).removeClass("bg-click");
+            $(this).children(".btn").hide();
+            $(this).children(".text").children("p:eq(1)").children("span").hide();
         });
         $(".user").mouseenter(function(e){
                 $(".user").addClass("bg-orange");
                 $(".user a").removeClass("orange").addClass("sw");
                 $(".item").show();
-        });
-        $(".user").mouseleave(function(e){
+        }),$(".user").mouseleave(function(e){
             if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
                 $(".user").removeClass("bg-orange");
                 $(".user a").addClass("orange").removeClass("sw");
                 $(".item").hide();
             }
         });
+        
         $(".item").mouseleave(function(e){
             console.log(e);
             if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){

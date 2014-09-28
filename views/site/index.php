@@ -37,14 +37,11 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span></p>
+	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26 </p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
-	    			<div class="btn">
-	    				<a href="#"><img src="#" alt=""/></a>
-	    				<a href="#"><img src="#" alt=""/></a>
-	    				<a href="#"><img src="#" alt=""/></a>
-	    			</div>	
+	    			
 	    		</div>
+	    	
 	    	</div>
 	    	<div class="post divider">
 	    		<div class="img-holder">
