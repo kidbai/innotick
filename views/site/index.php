@@ -43,6 +43,15 @@
 	    		</div>
 	    	
 	    	</div>
+	    	<div class="login bg-login-green">
+	    		<div class="text pt-12 pb-10 ml-60"><p class="fs-13 lp-1 sw">登陆账号，我们将为您提供更多这类的文章</p></div>	
+	    		<div class="login-btn">
+	    			<div class="lgbtn fl ml-60"><p class="fs-14">微博登陆</p></div>	
+		    		<div class="text_or fl ml-14 mr-14"><p class="fs-14">或</p></div>
+		    		<div class="lgbtn fl"><p class="fs-14">QQ登陆</p></div>	
+	    		</div>
+	    		
+	    	</div>
 	    	<div class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>

@@ -112,55 +112,60 @@ use yii\web\JqueryAsset;
     </script>
     <script>
     $(function(){
-         
-        //动态加载post右上角btn (可优化)
-        var btndiv = document.createElement("div"); //btn
-        $(btndiv).addClass("btn");
-        $(".post").append(btndiv);
-        var hint = document.createElement("div"); // hint
-        $(hint).addClass("hint");
-        $(".post .btn").append(hint);
-        var img_1 = document.createElement("img");
-        img_1.src = "/img/icon/green-long.png";
-        $(".post .hint").append(img_1);
-        var icon_menu = document.createElement("div"); // icon-menu
-        $(icon_menu).addClass("icon-menu");
-        $(".post .btn").append(icon_menu);
-
-        var icon_1 = document.createElement("div"); // icon-1
-        $(icon_1).addClass("icon icon-1 fl");
-        $(".post .btn .icon-menu").append(icon_1);
-        var img_2 = document.createElement("img"); // img
-        img_2.src = "/img/icon/btn-1.png";
-        $(".post .btn .icon-menu .icon-1").append(img_2);
-
-        var icon_2 = document.createElement("div"); // icon-2
-        $(icon_2).addClass("icon icon-2 fl");
-        $(".post .btn .icon-menu").append(icon_2);
-        var img_3 = document.createElement("img"); // img
-        img_3.src = "/img/icon/btn-1.png";
-        $(".post .btn .icon-menu .icon-2").append(img_3);
-
-        var icon_3 = document.createElement("div"); // icon-3
-        $(icon_3).addClass("icon icon-3 fl");
-        $(".post .btn .icon-menu").append(icon_3);
-        var img_4 = document.createElement("img"); // img
-        img_4.src = "/img/icon/btn-1.png";
-        $(".post .btn .icon-menu .icon-3").append(img_4);
-
-        var label = document.createElement("span");
-        $(label).addClass("orange").text("#移动互联网&nbsp;#电子商务&nbsp;#融资");
-        $(".post .text p").append(label); 
-
         // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
         $(".post").mouseenter(function(){
+            //加载POST右上角TAG
+            var btndiv = document.createElement("div"); //btn
+            $(btndiv).addClass("btn");
+            $(this).append(btndiv);
+            var hint = document.createElement("div"); // hint
+            $(hint).addClass("hint");
+            $(this).children(".btn").append(hint);
+            var img_cont = document.createElement("p");
+            $(img_cont).text("更多这类文章");
+            $(this).children(".btn").children(".hint").append(img_cont);
+
+            var icon_menu = document.createElement("div"); // icon-menu
+            $(icon_menu).addClass("icon-menu");
+            $(this).children(".btn").append(icon_menu);
+            //TAG-1
+            var icon_like = document.createElement("div");
+            var img_icon_like = document.createElement("img");
+            $(icon_like).addClass("icon icon-like fl");
+            $(this).children(".btn").children(".icon-menu").append(icon_like);
+            $(this).children(".btn").children(".icon-menu").children(".icon-like").append(img_icon_like);
+            $(this).children(".btn").children(".icon-menu").children(".icon-like").children("img").attr({src:"/img/icon/btn-1.png"});
+ 
+            //TAG-3
+            var icon_add = document.createElement("div");
+            var img_icon_add = document.createElement("img");
+            $(icon_add).addClass("icon icon-add fl");
+            $(this).children(".btn").children(".icon-menu").append(icon_add);
+            $(this).children(".btn").children(".icon-menu").children(".icon-add").append(img_icon_add);
+            $(this).children(".btn").children(".icon-menu").children(".icon-add").children("img").attr({src:"/img/icon/btn-1.png"});
+
+            //TAG-3
+            var icon_del = document.createElement("div");
+            var img_icon_del = document.createElement("img");
+            $(icon_del).addClass("icon icon-del fl");
+            $(this).children(".btn").children(".icon-menu").append(icon_del);
+            $(this).children(".btn").children(".icon-menu").children(".icon-del").append(img_icon_del);
+            $(this).children(".btn").children(".icon-menu").children(".icon-del").children("img").attr({src:"/img/icon/delete.png"});
+
+            $(".icon-add").click(function(){
+                console.log("hehe");
+            });
+
+            //加载 #移动互联网 #电子商务 #融资 标签
+            var label = document.createElement("span");
+            $(label).addClass("orange").text("#移动互联网 ;#电子商务 ;#融资");
             $(this).addClass("bg-click");
             $(this).children(".btn").show();
-            $(this).children(".text").children("p:eq(1)").children("span").show();
         }),$(".post").mouseleave(function(){
             $(this).removeClass("bg-click");
             $(this).children(".btn").hide();
-            $(this).children(".text").children("p:eq(1)").children("span").hide();
+            $(this).children(".text").children("p:eq(1)").children("span").remove();
+            $(this).children(".btn").remove();
         });
         $(".user").mouseenter(function(e){
                 $(".user").addClass("bg-orange");
