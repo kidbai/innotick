@@ -327,10 +327,16 @@
 .divider {
 	border-bottom: 2px solid #e5e5e5;
 }
-.sbtn {
+.sbtn-orange {
 	width: 125px;
 	height: 36px;
-	border: 1px solid;
+	border: 1px solid #ee6350;
+	border-radius: 2em;
+}
+.sbtn-grass {
+	width: 125px;
+	height: 36px;
+	border: 1px solid #38ad5a;
 	border-radius: 2em;
 }
 .lgbtn {

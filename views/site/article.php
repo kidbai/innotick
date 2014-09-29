@@ -16,8 +16,8 @@
 							<li class="fl ml-20"><a href="#"><img src="/img/icon/dislike.png" width="25px" height="25px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
 							<li class="fl ml-20"><a href="#"><img src="/img/icon/share.png" width="25px" height="23px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
 							<li class="fl ml-20"><a href="#"><img src="/img/icon/collected.png" width="25px" height="23px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
-							<li class="sbtn orange ml-130 fl"><a href="#"><p class="orange fs-15">分享到微信</p></a></li>
-							<li class="sbtn grass ml-20 fl"><a href="#"><p class="grass fs-15">分享到微博</p></a></li>
+							<li class="sbtn-orange ml-130 fl"><a href="#"><p class="orange fs-15">分享到微信</p></a></li>
+							<li class="sbtn-grass ml-20 fl"><a href="#"><p class="grass fs-15">分享到微博</p></a></li>
 						</ul>
 					</div>
 					<div class="link divider">
@@ -168,3 +168,23 @@
 		</div>
 	</div>	
 </div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+	console.log($("#content .main .icon .sbtn-orange").children().children());
+	$("#content .main .icon .sbtn-orange").mouseover(function(){
+		console.log("aaa");
+		$(this).css({"backgroundColor":"#d44137"});
+		$(this).children().children().removeClass("orange").addClass("wt");
+	}).mouseout(function(){
+		$(this).css({"backgroundColor":"#ffffff","color":"#d44137"});
+		$(this).children().children().addClass("orange").removeClass("wt");
+	});
+	$("#content .main .icon .sbtn-grass").mouseover(function(){
+		console.log("aaa");
+		$(this).css({"backgroundColor":"#38ad5a"});
+		$(this).children().children().removeClass("grass").addClass("wt");
+	}).mouseout(function(){
+		$(this).css({"backgroundColor":"#ffffff","color":"#38ad5a"});
+		$(this).children().children().addClass("grass").removeClass("wt");
+	});
+</script>

@@ -105,44 +105,42 @@ use yii\web\JqueryAsset;
             <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
         </div>    
     </div>
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script src="/js/PCASClass.js" charset="gb2312"></script>
-    
-    <script>
-   
-    
-        $(".user").mouseenter(function(e){
-                $(".user").addClass("bg-orange");
-                $(".user a").removeClass("orange").addClass("sw");
-                $(".item").show();
-        }),$(".user").mouseleave(function(e){
-            if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
-                $(".user").removeClass("bg-orange");
-                $(".user a").addClass("orange").removeClass("sw");
-                $(".item").hide();
-            }
-        });
-        
-        $(".item").mouseleave(function(e){
-            console.log(e);
-            if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){
-                $(".user").removeClass("bg-orange");
-                $(".user a").addClass("orange").removeClass("sw");
-                $(".item").hide();
-            }
-        })
-        $(".item li").each(function(){
-            $(this).mouseover(function(){
-                $(this).addClass("nav-active");
-            });
-            $(this).mouseout(function(){
-                $(this).removeClass("nav-active");
-            });
-        });
-        
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/PCASClass.js" charset="gb2312"></script>
+<script>
 
+
+    $(".user").mouseenter(function(e){
+            $(".user").addClass("bg-orange");
+            $(".user a").removeClass("orange").addClass("sw");
+            $(".item").show();
+    }),$(".user").mouseleave(function(e){
+        if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
+            $(".user").removeClass("bg-orange");
+            $(".user a").addClass("orange").removeClass("sw");
+            $(".item").hide();
+        }
     });
-    </script>
+    
+    $(".item").mouseleave(function(e){
+        console.log(e);
+        if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){
+            $(".user").removeClass("bg-orange");
+            $(".user a").addClass("orange").removeClass("sw");
+            $(".item").hide();
+        }
+    });
+    $(".item li").each(function(){
+        $(this).mouseover(function(){
+            $(this).addClass("nav-active");
+        });
+        $(this).mouseout(function(){
+            $(this).removeClass("nav-active");
+        });
+    });
+    
+
+</script>
 <?php $this->endBody() ?>
 </body>
 </html>

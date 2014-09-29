@@ -409,7 +409,6 @@ function createLoginInfo(icon){
     // $(icon_add).addClass("login"); // bg-login-green
     var icon_add = "<div class='login'></div>";
     icon.parent().parent().after(icon_add);
-    console.log(icon);
     //添加提示信息
     
     var login_text = "<div class='text pt-12 pb-10 ml-60'><p class='fs-13 lp-1 sw'></p></div>";
@@ -430,7 +429,6 @@ function createLoginInfo(icon){
 	$(function(){
         // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
         var label = "<span class='orange'>#移动互联网 ;#电子商务 ;#融资</span>";
-        console.log($("#post-label"));
         $(".post-label").append(label);
 
         //TAG 事件
@@ -455,6 +453,11 @@ function createLoginInfo(icon){
 	       		$(".login").addClass("bg-login-red").slideDown("fast");
 			}
 			flag = false;
+			$("#content .lgbtn").mouseenter(function(){
+				$(this).css({"backgroundColor": "#e86163"});
+       		}).mouseleave(function(){
+				$(this).css({"backgroundColor": "#e23a3c"});
+       		});
 	       	if($(this).hasClass("on"))
 	       	{
 	       		$(".login").slideUp("fast",function(){
@@ -491,6 +494,11 @@ function createLoginInfo(icon){
 	       		$(".login").addClass("bg-login-green").slideDown("fast");
 			}
 			flag = false;
+			$("#content .lgbtn").mouseenter(function(){
+				$(this).css({"backgroundColor": "#e23a3c"});
+       		}).mouseleave(function(){
+				$(this).css({"backgroundColor": "#129592"}); //颜色
+       		});
        		if($(this).hasClass("on"))
        		{
        			$(".login").slideUp("fast",function(){
@@ -505,7 +513,9 @@ function createLoginInfo(icon){
        		}
        	});
 
-       	$(".post tag-del").mouseover(function(){
+       	console.log($(".post .tag-del"));
+       	$(".post tag-del").mouseenter(function(){
+       		console.log("hhh");
 			$(this).parent().siblings(".tag-label").children(".tag-label-del").show();
        	}).mouseleave(function(){
 			$(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
@@ -521,6 +531,16 @@ function createLoginInfo(icon){
        		}
        	});
 
+       	//login
+       	// $("#content").children(".content-down").children(".col-11").children(".login");
+       	//评论 周鸿祎
+       $("#content .from a").mouseover(function(){
+       		$(this).addClass("orange");
+       }).mouseout(function(){
+       		$(this).removeClass("orange");
+       });
+
+       	//post样式
         $(".post").mouseenter(function(){
         	$(this).children(".tag-list").show();
             $(this).addClass("bg-click");
