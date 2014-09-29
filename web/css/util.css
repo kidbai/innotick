@@ -20,6 +20,8 @@
 .bg-cyan { background-color: #14465a; color: #fff; }
 .bg-green { background-color: #96af1e; color: #fff; }
 .bg-login-green { background-color: #129592; }
+.bg-login-red { background-color: #e23a3c; }
+.bg-login-blue { background-color: #4d67ae; }
 .bg-click { background-color: #f7f7f7; }
 .bg-designer { background-color: #737d89}
 .bg-item-grey { background-color: #f3f6f9;}
@@ -110,6 +112,8 @@
 .mt-65 { margin-top: 65px; }
 .mt-70 { margin-top: 70px; }
 .mt-101 { margin-top: 101px; }
+.ml-1 { margin-left: 1px; }
+.ml-2 { margin-left: 2px; }
 .ml-5 { margin-left: 5px; }
 .ml-8 { margin-left: 8px; }
 .ml-10 { margin-left: 10px; }

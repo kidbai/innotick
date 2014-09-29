@@ -28,7 +28,7 @@
 	</div>
 	<div class="column content-down">
 	    <div class="col-11 left">
-	    	<div class="post divider">
+	    	<div id="post-1" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -37,22 +37,51 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26 </p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26 </p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
 	    		</div>
-	    	
-	    	</div>
-	    	<div class="login bg-login-green">
-	    		<div class="text pt-12 pb-10 ml-60"><p class="fs-13 lp-1 sw">登陆账号，我们将为您提供更多这类的文章</p></div>	
-	    		<div class="login-btn">
-	    			<div class="lgbtn fl ml-60"><p class="fs-14">微博登陆</p></div>	
-		    		<div class="text_or fl ml-14 mr-14"><p class="fs-14">或</p></div>
-		    		<div class="lgbtn fl"><p class="fs-14">QQ登陆</p></div>	
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
 	    		</div>
-	    		
+	    		<!-- <div class="tip-list">
+	    			<div class="tip-like"></div>
+	    			<div class="tip-add"></div>
+	    			<div class="tip-like"></div>
+	    		</div> -->
 	    	</div>
-	    	<div class="post divider">
+	    	
+	    	<div id="post-2" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -61,12 +90,46 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26</p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26</p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
 	    		</div>
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
+	    		</div>
+	    		
 	    	</div>
-	    	<div class="post divider">
+	    	<div id="post-3" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -75,12 +138,46 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26</p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26</p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
 	    		</div>
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
+	    		</div>
 	    	</div>
-	    	<div class="post divider">
+
+	    	<div id="post-4" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -89,12 +186,46 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26</p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26</p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
 	    		</div>
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
+	    		</div>
 	    	</div>
-	    	<div class="post divider">
+
+	    	<div id="post-5" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -103,12 +234,46 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26</p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26</p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
 	    		</div>
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
+	    		</div>
 	    	</div>
-	    	<div class="post divider">
+
+	    	<div id="post-6" class="post divider">
 	    		<div class="img-holder">
 	    			<img src="" width="260" height="180"/>
 	    			<div class="icon-type">
@@ -117,9 +282,42 @@
 	    		</div>	
 	    		<div class="text">
 	    			<p class="fs-21 lp-3">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</p>	
-	    			<p class="fs-12 lp-1">作者<strong>Betty</strong> - 2014/08/26</p>
+	    			<p class="fs-12 lp-1 post-label">作者<strong>Betty</strong> - 2014/08/26</p>
 	    			<p class="fs-14 lp-3">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo。<a class="" href="#"><strong>阅读全文</strong></a></p>
 	    			
+	    		</div>
+	    		<div class="tag-label">
+	    			<div class="tag-label-like">
+	    				<img src="/img/icon/red-long.png" alt=""/>
+	    				<div class="words-save">保存这篇文章</div>
+	    			</div>
+	    			<div class="tag-label-like-recall">
+	    				<img src="/img/icon/red.png" alt=""/>	
+	    				<div class="words-like-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-more">
+	    				<img src="/img/icon/green-long.png" alt=""/>
+	    				<div class="words-more">更多这类文章</div>
+	    			</div>
+	    			<div class="tag-label-more-recall">
+	    				<img src="/img/icon/green.png" alt="">
+	    				<div class="words-more-recall">撤回</div>
+	    			</div>
+	    			<div class="tag-label-del">
+	    				<img src="/img/icon/blue-long.png" alt=""/>
+	    				<div class="words-del">删除这类文章</div>
+	    			</div>
+	    		</div>	
+	    		<div class="tag-list">
+	    			<div class="tag-like ml-1">
+	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-add ml-1">
+	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			</div>
+	    			<div class="tag-del ml-1">
+	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			</div>
 	    		</div>
 	    	</div>
 	    	<div class="load loadgray">
@@ -202,3 +400,135 @@
 	</div>
 	
 </div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+var flag = true;
+function createLoginInfo(icon){
+    // console.log("createLoginInfo");
+    // var icon_add = document.createElement("div");
+    // $(icon_add).addClass("login"); // bg-login-green
+    var icon_add = "<div class='login'></div>";
+    icon.parent().parent().after(icon_add);
+    console.log(icon);
+    //添加提示信息
+    
+    var login_text = "<div class='text pt-12 pb-10 ml-60'><p class='fs-13 lp-1 sw'></p></div>";
+    // console.log($(icon_add));
+    $(".login").append(login_text);
+    //添加BTN
+    var login_btn = "<div class='login_btn'></div>"
+    $(".login").append(login_btn);
+    var login_lgbtn_weibo = "<div class='lgbtn fl ml-60'><p class='fs-14'>微博登陆</p></div>"
+    $(".login").append(login_lgbtn_weibo);
+    //
+    var login_text_or = "<div class='text_or fl ml-14 mr-14'><p class='fs-14'>或</p></div>"
+    $(".login").append(login_text_or);
+    //
+    var login_lgbtn_qq = "<div class='lgbtn fl'><p class='fs-14'>QQ登陆</p></div>"
+    $(".login").append(login_lgbtn_qq);
+}
+	$(function(){
+        // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
+        var label = "<span class='orange'>#移动互联网 ;#电子商务 ;#融资</span>";
+        console.log($("#post-label"));
+        $(".post-label").append(label);
+
+        //TAG 事件
+       	$(".post .tag-like").mouseenter(function(){
+       		if($(this).hasClass("on"))
+       		{
+				$(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
+       		}
+       		else
+       		{
+				$(this).parent().siblings(".tag-label").children(".tag-label-like").show();
+       		}
+       	}).mouseleave(function(){
+			$(this).parent().siblings(".tag-label").children(".tag-label-like-recall").hide();
+			$(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
+       	});
+       	$(".post .tag-like").click(function(){
+       		if(flag)
+			{
+				createLoginInfo($(this));
+       			$(".login").children(".text").children("p").text("登陆账号，保存此文章后稍后阅读");
+	       		$(".login").addClass("bg-login-red").slideDown("fast");
+			}
+			flag = false;
+	       	if($(this).hasClass("on"))
+	       	{
+	       		$(".login").slideUp("fast",function(){
+	       			$(this).remove();
+	       			flag = true;
+	       		});
+	       		$(this).removeClass("on");
+	       	}
+	       	else
+	       	{
+	       		$(this).addClass("on");
+	       	}
+       	});
+
+       	$(".post .tag-add").mouseenter(function(){
+       		if($(this).hasClass("on"))
+       		{
+       			$(this).parent().siblings(".tag-label").children(".tag-label-more-recall").show();
+       		}
+       		else
+       		{
+       			$(this).parent().siblings(".tag-label").children(".tag-label-more").show();	
+       		}
+
+       	}).mouseleave(function(){
+			$(this).parent().siblings(".tag-label").children(".tag-label-more").hide();
+   			$(this).parent().siblings(".tag-label").children(".tag-label-more-recall").hide();
+       	});
+       	$(".post .tag-add").click(function(){
+       		if(flag)
+			{
+				createLoginInfo($(this));
+       			$(".login").children(".text").children("p").text("登陆账号，我们将为您提供更多文章");
+	       		$(".login").addClass("bg-login-green").slideDown("fast");
+			}
+			flag = false;
+       		if($(this).hasClass("on"))
+       		{
+       			$(".login").slideUp("fast",function(){
+	       			$(this).remove();
+	       			flag = true;
+	       		});
+       			$(this).removeClass("on");
+       		}
+       		else
+       		{
+	       		$(this).addClass("on");
+       		}
+       	});
+
+       	$(".post tag-del").mouseover(function(){
+			$(this).parent().siblings(".tag-label").children(".tag-label-del").show();
+       	}).mouseleave(function(){
+			$(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
+       	});
+       	$(".post .tag-del").click(function(){
+       		if($(this).hasClass("on"))
+       		{
+       			$(this).removeClass("on");
+       		}
+       		else
+       		{
+	       		$(this).addClass("on");
+       		}
+       	});
+
+        $(".post").mouseenter(function(){
+        	$(this).children(".tag-list").show();
+            $(this).addClass("bg-click");
+            $(this).children(".text").children("p:eq(1)").children("span").show();
+        }),$(".post").mouseleave(function(){
+        	$(this).children(".tag-list").hide();
+            $(this).removeClass("bg-click");
+            $(this).children(".text").children("p:eq(1)").children("span").hide();
+        });
+    });
+</script>
