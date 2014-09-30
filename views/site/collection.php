@@ -66,8 +66,28 @@
 				<p class="fr comment-num mr-60">22123</p>
 				<p class="fr time mr-50">五月前</p>
 			</div>
+
+			<div class="pagination">
+				<div class="next pagination-btn orange fr">下一页</div>
+				<div class="previous pagination-btn orange fr">上一页</div>
+			</div>
 		</div>	
 	</div>
 	
 	
 </div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+	$("#info .pagination .previous").mouseover(function(){
+		// $(this).css({"backgroundColor":"#ee6350",});
+		$(this).addClass("bg-orange wt").removeClass("orange");
+	}).mouseout(function(){
+		$(this).addClass("orange").removeClass("bg-orange wt");
+	});
+	$("#info .pagination .next").mouseover(function(){
+		// $(this).css({"backgroundColor":"#ee6350",});
+		$(this).addClass("bg-orange wt").removeClass("orange");
+	}).mouseout(function(){
+		$(this).addClass("orange").removeClass("bg-orange wt");
+	});
+</script>

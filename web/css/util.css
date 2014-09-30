@@ -87,10 +87,12 @@
 .mr-10 { margin-right: 10px; }
 .mr-14 { margin-right: 14px; }
 .mr-20 { margin-right: 20px; }
+.mr-30 { margin-right: 30px; }
 .mr-40 { margin-right: 40px; }
 .mr-50 { margin-right: 50px; }
 .mr-60 { margin-right: 60px; }
 .mb-0{ margin-bottom: 0px; }
+.mb-2 { margin-bottom: 2px; }
 .mb-5 { margin-bottom: 5px; }
 .mb-10 { margin-bottom: 10px; }
 .mb-15 { margin-bottom: 15px; }
@@ -134,6 +136,7 @@
 .ml-15 { margin-left: 15px; }
 .ml-80 { margin-left: 80px; }
 .ml-85 { margin-left: 85px; }
+.ml-100 { margin-left: 100px; }
 .ml-130 { margin-left: 130px; }
 .ml-487 { margin-left: 487px; }
 .ml-564 { margin-left: 564px; }
@@ -331,19 +334,27 @@
 	width: 125px;
 	height: 36px;
 	border: 1px solid #ee6350;
-	border-radius: 2em;
+	border-radius: 18px;
 }
 .sbtn-grass {
 	width: 125px;
 	height: 36px;
 	border: 1px solid #38ad5a;
-	border-radius: 2em;
+	border-radius: 18px;
 }
+.pagination-btn {
+	width: 126px;
+	height: 36px;
+	border: 1px solid #ee6350;
+	border-radius: 18px;
+}
+
 .lgbtn {
 	width: 125px;
 	height: 36px;
 	border: 1px solid #f1f1f1;
 	border-radius: 10px;
+	cursor: pointer;
 }
 .nav-active{
 	background-color: #c55444;

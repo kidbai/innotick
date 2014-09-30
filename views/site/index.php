@@ -62,6 +62,10 @@
 	    				<img src="/img/icon/blue-long.png" alt=""/>
 	    				<div class="words-del">删除这类文章</div>
 	    			</div>
+	    			<div class="tag-label-del-recall">
+	    				<img src="/img/icon/blue.png" alt="">
+	    				<div class="words-del-recall">撤回</div>
+	    			</div>
 	    		</div>	
 	    		<div class="tag-list">
 	    			<div class="tag-like ml-1">
@@ -415,17 +419,15 @@ function createLoginInfo(icon){
     // console.log($(icon_add));
     $(".login").append(login_text);
     //添加BTN
-    var login_btn = "<div class='login_btn'></div>"
+    var login_btn = "<div class='login_btn'><div class='lgbtn fl ml-60'><p class='fs-14'>微博登陆</p></div><div class='text_or fl ml-14 mr-14'><p class='fs-14'>或</p></div><div class='lgbtn fl'><p class='fs-14'>QQ登陆</p></div></div>"
     $(".login").append(login_btn);
-    var login_lgbtn_weibo = "<div class='lgbtn fl ml-60'><p class='fs-14'>微博登陆</p></div>"
-    $(".login").append(login_lgbtn_weibo);
-    //
-    var login_text_or = "<div class='text_or fl ml-14 mr-14'><p class='fs-14'>或</p></div>"
-    $(".login").append(login_text_or);
-    //
-    var login_lgbtn_qq = "<div class='lgbtn fl'><p class='fs-14'>QQ登陆</p></div>"
-    $(".login").append(login_lgbtn_qq);
 }
+
+function createDelInfo(del_sign){
+	var del = "<div class='del-info'><div class='left_text'>很好，您将不会看到这篇文章了</div><div class='right_text'>撤回</div><div class='mid_text'>误删除可以马上</div></div>";
+	$(del_sign).parent().parent().after(del);
+}
+
 	$(function(){
         // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
         var label = "<span class='orange'>#移动互联网 ;#电子商务 ;#融资</span>";
@@ -513,16 +515,62 @@ function createLoginInfo(icon){
        		}
        	});
 
-       	console.log($(".post .tag-del"));
-       	$(".post tag-del").mouseenter(function(){
-       		console.log("hhh");
-			$(this).parent().siblings(".tag-label").children(".tag-label-del").show();
-       	}).mouseleave(function(){
-			$(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
-       	});
-       	$(".post .tag-del").click(function(){
+       	$(".post .tag-del").mouseenter(function(){
        		if($(this).hasClass("on"))
        		{
+       			$(this).parent().siblings(".tag-label").children(".tag-label-del-recall").show();
+       		}
+       		else
+       		{
+       			$(this).parent().siblings(".tag-label").children(".tag-label-del").show();	
+       		}
+       		console.log("hhh");
+			$(this).children("img").prop("src","/img/icon/delete-dark.png");
+       	}).mouseleave(function(){
+			$(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
+			$(this).parent().siblings(".tag-label").children(".tag-label-del-recall").hide();
+			$(this).children("img").prop("src","/img/icon/delete.png");
+       	});
+       	$(".post .tag-del").click(function(){
+
+       		if(flag)
+			{
+				createLoginInfo($(this));
+				var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
+				$(".login .login_btn").append(del_btn);
+       			$(".login").children(".text").children("p").text("登陆账号，我们将减少为您提供这类文章");
+	       		$(".login").addClass("bg-login-blue").slideDown("fast");
+			}
+			flag = false;
+			$("#content .lgbtn").mouseenter(function(){
+				$(this).css({"backgroundColor":"#7185be"});
+       		}).mouseleave(function(){
+				$(this).css({"backgroundColor":"#4d67ae"}); //颜色
+       		});
+       		$("#content .lgbtn:eq(2)").click(function(){
+       			createDelInfo($(this));
+       			$(".login").slideUp("fast",function(){
+       				$(this).remove();
+       			});
+       			flag = true;
+       			$("#content .del-info .right_text").click(function(){
+       				if(!$(this).hasClass("on"))
+       				{
+       					$(this).addClass("on");	
+       				}
+       				else
+       				{
+       					$(this).removeClass("on");
+       				}
+       			});
+       			
+       		});
+       		if($(this).hasClass("on"))
+       		{
+       			$(".login").slideUp("fast",function(){
+	       			$(this).remove();
+	       			flag = true;
+	       		});
        			$(this).removeClass("on");
        		}
        		else

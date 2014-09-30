@@ -4,6 +4,7 @@
 #top .nav { height: 80px; position: relative; }
 #top .nav .logo { height: 80px; width: 80px; margin-right: 34px; float: left; }
 #top .nav .menu { height: 80px; width: 290px; float: left;}
+#top .nav .menu li { cursor: pointer; font-size: 17px;}
 #top .nav .search { margin: 0; display: block; height: 80px; width: 550px; float: left;}
 #top .nav .search .search-btn { height: 80px; width: 80px; float: left;}
 #top .nav .search .search-btn img { margin: 30px 35px;}
@@ -16,10 +17,15 @@
 #top .nav .login .btn:hover { }
 #top .nav .user { width: 200px; height: 80px; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
-#top .nav .item { width: 200px; height: 180px;display: none;}
-#top .nav .item li { width: 200px; height: 36px; line-height: 25px; text-align: center;}
-#top .nav { height: 320px; position: relative;}
-#top .carousel .carousel.inner{ padding: 20px 114px 33px 114px;}
+#top .item { position: absolute; display: none; width: 200px; height: 180px;left: 1081px;top: 80px;z-index: 999;}
+#top .item li { width: 200px; height: 36px; line-height: 25px; text-align: center;}
+#top .carousel { height: 320px; width: 100%;display: none;}
+#top .carousel.active { display: block;}
+#top .carousel .previous { margin-left: 114px; margin-top: 140px;cursor: pointer;}
+#top .carousel .next { margin-right: 114px; margin-top: 140px;cursor: pointer;}
+#top .carousel .cont li { width: 220px; height: 123px;cursor: pointer; float: left; margin-top: 20px;}
+#top .carousel .cont .li-cont { width: 220px; height: 100px;background-color: #e4e4e5; }
+#top .carousel .cont p { line-height: 23px; font-size: 13px;letter-spacing: 1px;}
 body { background: #fff; }
 * { -webkit-box-sizing: border-box; color: #111;
 -moz-box-sizing: border-box;
@@ -37,7 +43,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-up .nav .list .list-ul li{ margin-left: 10px; float: left; width:80px; height: 40px; line-height: 40px;}
 #content .content-up .nav .list .list-ul p{ font-size: 20px;color:#ffffff;text-align: center;}
 #content .content-down { margin: 0 auto; overflow: hidden;}
-#content .content-down .left { padding-top: 25px; float: left;}
+#content .content-down .left { padding-top: 25px; float: left;z-index: 999;}
 #content .content-down .col-11 .post { height:230px;width:880px;position: relative;}
 #content .content-down .col-11 .post .img-holder { position: relative; height: 230px; width: 352px;padding:25px 32px 25px 60px;float: left;}
 #content .content-down .col-11 .post .icon-type { position: absolute;top:35px;left:56px;}
@@ -55,26 +61,32 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-down .col-11 .post .tag-label .tag-label-more .words-more { position: absolute; line-height: 27px; text-align: center; font-size: 12px; color:#f1f1f1; z-index: 999; top: 0px; left: 6px;}
 #content .content-down .col-11 .post .tag-label .tag-label-del { display: none; width: 86px; height: 35px; left:46px; position: absolute; background-size: 86px 32px; background-repeat: no-repeat; z-index: 888;}
 #content .content-down .col-11 .post .tag-label .tag-label-del .words-del { position: absolute;line-height: 27px; text-align: center; font-size: 12px; color:#f1f1f1; z-index: 999; top: 0px; left: 6px;}
+#content .content-down .col-11 .post .tag-label .tag-label-del-recall { display: none; position: absolute; width: 86px; height: 35px;left: 68px;}
+#content .content-down .col-11 .post .tag-label .tag-label-del-recall .words-del-recall { position: absolute; line-height: 27px; text-align: center; font-size: 12px; color: #f1f1f1; z-index: 999; top: 0px; left: 10px;}
 #content .content-down .col-11 .post .tag-list { display: none; position: absolute; top: 25px; right: -10px; width: 80px; height: 25px;}
-#content .content-down .col-11 .post .tag-list .tag-like { width: 25px; height: 25px;float: left; background-color: #a9acb5; }
+#content .content-down .col-11 .post .tag-list .tag-like { width: 25px; height: 25px;float: left; background-color: #a9acb5; cursor: pointer;}
 #content .content-down .col-11 .post .tag-list .tag-like img {  background-position: center; background-repeat: no-repeat; margin: 5px 0px 0px 5px; }
 #content .content-down .col-11 .post .tag-list .tag-like:hover { background-color: #e23a3c; }
 #content .content-down .col-11 .post .tag-list .tag-like.on { background-color: #e23a3c; }
 #content .content-down .col-11 .post .tag-list .tag-add:hover { background-color: #129592;}
 #content .content-down .col-11 .post .tag-list .tag-add.on { background-color: #129592;}
-#content .content-down .col-11 .post .tag-list .tag-add { width: 25px; height: 25px;float: left;background-color: #a9acb5;}
+#content .content-down .col-11 .post .tag-list .tag-add { width: 25px; height: 25px;float: left;background-color: #a9acb5;cursor: pointer;}
 #content .content-down .col-11 .post .tag-list .tag-add img {  background-position: center; background-repeat: no-repeat; margin: 5px 0px 0px 5px; }
-#content .content-down .col-11 .post .tag-list .tag-del { width: 25px;height: 30px;float: left; background-repeat: no-repeat; }
-#content .content-down .col-11 .post .tag-list .tag-del:hover { background: url(/img/icon/delete-dark.png); z-index: 999; }
-#content .content-down .col-11 .post .tag-list .tag-del.on { background: url(/img/icon/delete-dark.png); z-index: 999;}
+#content .content-down .col-11 .post .tag-list .tag-del { width: 25px;height: 30px;float: left; background-repeat: no-repeat; cursor: pointer;}
 
-#content .content-down .col-11 .login { height: 90px; width: 880px;display: none;}
-#content .content-down .col-11 .login .login-btn { overflow: hidden;}
+
+#content .content-down .col-11 .login { height: 90px; width: 880px; display: none;}
+#content .content-down .col-11 .login .login_btn { height: 48px;}
 #content .content-down .col-11 .login .text { line-height: 20px;}
 #content .content-down .col-11 .login .text_or { height: 36px; line-height: 33px; text-align: center;  }
 #content .content-down .col-11 .login .text_or p {color: #f1f1f1; }
 #content .content-down .col-11 .login .lgbtn p { line-height: 33px; text-align: center;color: #f1f1f1;}
-#content .content-down .right {height: auto;float: left;}
+#content .content-down .del-info { height: 60px; width: 880px; background-color: #4d67ae;}
+#content .content-down .del-info .left_text { float: left; width: 300px; height: 30px; line-height: 30px; text-align: center; font-size: 15px;margin: 14px 0px 0px 14px; color: #bac8e5;}
+#content .content-down .del-info .mid_text { float: right;width: 122px; height: 30px; line-height: 30px; text-align: center; font-size: 15px; margin-top: 14px; color: #bac8e5; }
+#content .content-down .del-info .right_text { float: right; width: 36px; height: 30px;line-height: 30px; text-align: center; font-size: 15px;margin: 14px 36px 0px 0px; color: #bac8e5; cursor: pointer;}
+#content .content-down .del-info .right_text.on { color: #ffffff;}
+#content .content-down .right {height: auto;float: left;z-index: 0;}
 #content .content-down .col-4 .hot-list { height: auto; width: auto;margin: 25px 0px 0px 20px;overflow: hidden;}
 #content .content-down .col-4 .hot-list .hot { position:relative;height: 180px;width: 86.66666667%;margin:25px 20px 0px 20px;font-size: 10px;float: left;}
 #content .content-down .col-4 .hot-list .hot img { width: 100%;height: 174px;}
@@ -93,10 +105,29 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-down .col-4 .hot-list .qrcode p { width: 150px; height: 60px;text-align: left;margin: auto;color: #9fa0a0;}
 #content .content-down .col-4 .hot-list .qrcode img { height: 150px;width: 150px;float: left;margin: 0px 55px 0px 55px;border: 0;background: #cccccc;}
 #content .content-down .offset .left .main { width: 800px;}
-#content .content-down .offset .left .main .text p { padding: 10px 20px 0px 20px;line-height: 20px;text-indent: 1cm;text-align: left;}
-#content .content-down .offset .left .main .icon { width: 800px; height: 60px;}
-#content .content-down .offset .left .main .icon span { color: #686868;line-height: 27px;}
-#content .content-down .offset .left .main .icon p { line-height: 36px;text-align: center;}
+#content .content-down .offset .left .main .article p { padding: 10px 20px 0px 20px;line-height: 20px;text-indent: 1cm;text-align: left;}
+#content .content-down .offset .left .main .icon { width: 800px; height: 60px;position: relative;}
+#content .content-down .offset .left .main .icon li { cursor: pointer; line-height: 36px; text-align: center; overflow: hidden; };
+#content .content-down .offset .left .main .icon .icon-list { overflow: hidden;}
+#content .content-down .offset .left .main .icon .icon-list .off { position: absolute;display: block;}
+#content .content-down .offset .left .main .icon .icon-list .on { position: absolute;top:0px;display: none;}
+#content .content-down .offset .left .main .icon .icon-list:hover .on { display: block;}
+#content .content-down .offset .left .main .icon .icon-list:hover .off { display: none;}
+#content .content-down .offset .left .main .icon .icon-list.active .on { display: block;}
+#content .content-down .offset .left .main .icon .icon-list.active .off { display: none;}
+#content .content-down .offset .left .main .icon .icon-like { width: 30px; height: 30px;}
+#content .content-down .offset .left .main .icon .icon-like-num { color: #686868;line-height: 27px;}
+#content .content-down .offset .left .main .icon .icon-like p { line-height: 36px;text-align: center;}
+#content .content-down .offset .left .main .icon .icon-dislike { width: 30px; height: 30px;}
+#content .content-down .offset .left .main .icon .icon-dislike-num { color: #686868;line-height: 27px;}
+#content .content-down .offset .left .main .icon .icon-dislike p { line-height: 36px;text-align: center;}
+#content .content-down .offset .left .main .icon .icon-share { width: 30px; height: 30px;}
+#content .content-down .offset .left .main .icon .icon-share-num { color: #686868;line-height: 27px;}
+#content .content-down .offset .left .main .icon .icon-share p { line-height: 36px;text-align: center;}
+#content .content-down .offset .left .main .icon .icon-collected { width: 30px; height: 30px;}
+#content .content-down .offset .left .main .icon .icon-collected-num { color: #686868;line-height: 27px;}
+#content .content-down .offset .left .main .icon .icon-collected p { line-height: 36px;text-align: center;}
+
 #content .content-down .offset .left .main .link { width: 800px; height: 60px;line-height: 60px;}
 #content .content-down .offset .left .main .designer { width: 800px; height: 90px;}
 #content .content-down .offset .left .main .designer .description { height: 40px;}
@@ -124,6 +155,9 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .column .setting .collection-cont { width: 96.153846153846% ; height: 60px; line-height: 60px; border-bottom: 2px solid #e8e8e8 ;}
 #info .column .setting .collection-cont p { font-size: 18px;text-align: center;}
 #info .column .setting .collection-cont .comment-num { width: 54px;}
+#info .column .setting .pagination { width: 100%; height: 100px;}
+#info .column .setting .pagination .previous { line-height: 36px; text-align: center; font-size: 16px; letter-spacing: 1px; margin: 50px 20px 0px 0px;}
+#info .column .setting .pagination .next { line-height: 36px; text-align: center; font-size: 16px; letter-spacing: 1px; margin: 50px 50px 0px 0px;}
 #info .column .setting .layout { width: 100%;height: 66px;padding: 10px 0px 10px 0px;position: relative;}
 #info .column .setting .layout label { width: 180px; float: left;}
 #info .column .setting .layout span { float: right; margin-right: 20px;color:#737d89; font-size: 15px;line-height: 46px;}

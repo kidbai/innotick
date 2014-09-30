@@ -4,7 +4,7 @@
 			<div class="left col-11">
 				<img src="/img/icon/article.png" width="800" height="179" alt=""/>
 				<div class="main bg-wt">
-					<div class="text mt-20">
+					<div class="article mt-20">
 						<p class="fs-14 lp-2">第一次看到本书名《设计师式认知》的时候，我就对这个话题充满了极大的兴趣。浮现在脑子中的就罗杰·马丁说的一句经典的话：“管理者们要学会像设计师一样思考。”那为什么是设计师思考？设计师到底是怎么思考的呢？对于这个话题我思考了好久，我想我能在这本书中找到下答案</p>
 						<p class="fs-14 lp-2">在我2007年入学浙大工业设计的时候，正好是教学改革的第一年，将工业设计分为两个方向，艺术生源为产品造型设计，工科生源为信息产品设计（更好的理解为HCI或TUI）。交叉课程引入当时较为新鲜的用户体验和交互设计。两类人群在一起的摩擦，让我第一次强烈的感受到艺术家式思维和工程师式思维的碰撞。 　</p>
 						<p class="fs-14 lp-2">08年的时候，浙大工设在竺可桢学院下组建了设计创新班（类似于斯坦福Dshcool，面向全校各专业二年级报名的学生中择优录取，发放设计辅修学位）。第二年的宣讲会上，有人问我：“你本来就是学工业设计的，你又去修设计创新班的意义是什么呢？”我回答了一段具有争议的话：“我觉得设计应该有两种教育方式，一种是作为专业的技术教育，就像我的主修工业设计一样可能会作为自己的职业，另外设计应该作为一种通识教育，每个人都应该学会设计的语言。据我了解，许多国家如，英国、俄罗斯，从小学课程中就有设计课程。”</p>
@@ -12,17 +12,47 @@
 					</div>
 					<div class="icon divider">
 						<ul class="ml-40 mt-70">
-							<li class="fl ml-20"><a href="#"><img src="/img/icon/like.png" width="25px" height="25px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
-							<li class="fl ml-20"><a href="#"><img src="/img/icon/dislike.png" width="25px" height="25px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
-							<li class="fl ml-20"><a href="#"><img src="/img/icon/share.png" width="25px" height="23px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
-							<li class="fl ml-20"><a href="#"><img src="/img/icon/collected.png" width="25px" height="23px" alt=""/><span class="fs-15 ml-5">(45)</span></a></li>
-							<li class="sbtn-orange ml-130 fl"><a href="#"><p class="orange fs-15">分享到微信</p></a></li>
-							<li class="sbtn-grass ml-20 fl"><a href="#"><p class="grass fs-15">分享到微博</p></a></li>
+							<li class="fl ml-25">
+								<div class="icon-list icon-like fl">
+									<img class="off" src="/img/icon/like.png" width="25" height="25" alt=""/>
+									<img class="on" src="/img/icon/like-light.png" width="25" height="25" alt="">
+									<div class="clear"></div>
+								</div>
+								<span class="fs-15 ml-2 icon-like-num fl">(45)</span>
+							</li>
+							<li class="fl ml-25">
+								<div class="icon-list icon-dislike fl">
+									<img class="off" src="/img/icon/dislike.png" width="25" height="25" alt=""/>
+									<img class="on" src="/img/icon/dislike-light.png" width="25" height="25" alt="">
+									<div class="clear"></div>
+								</div>
+								<span class="fs-15 ml-2 icon-dislike-num fl">(45)</span>
+							</li>
+							<li class="fl ml-25">
+								<div class="icon-list icon-share fl">
+									<img class="off" src="/img/icon/share.png" width="25" height="25" alt=""/>
+									<img class="on" src="/img/icon/share-light.png" width="25" height="25" alt="">
+									<div class="clear"></div>
+								</div>
+								<span class="fs-15 ml-2 icon-share-num fl">(45)</span>
+							</li>
+							<li class="fl ml-25">
+								<div class="icon-list icon-collected fl">
+									<img class="off" src="/img/icon/collected.png" width="30" height="25" alt=""/>
+									<img class="on" src="/img/icon/collected-light.png" width="30" height="25" alt="">
+									<div class="clear"></div>
+								</div>
+								<span class="fs-15 ml-2 icon-collected-num fl">(45)</span>
+							</li>
+
+							
+							<li class="sbtn-orange weixin ml-130 fl"><a href=""><p class="orange fs-15">分享到微信</p></a></li>
+							<li class="sbtn-grass weibo ml-20 fl"><a href=""><p class="grass fs-15">分享到微博</p></a></li>
 						</ul>
 					</div>
 					<div class="link divider">
 						<img src="/img/icon/keyword.png" width="17" height="17" alt="" class="fl ml-60 mt-20"/>
-						<p class="fl fs-15">&nbsp;&nbsp;#&nbsp;<a class="orange fs-15" href="#">LinkedIn</a>&nbsp;#&nbsp;<a class="orange fs-15" href="#">领英</a></p>
+						<p class="fl fs-15">&nbsp;&nbsp;#&nbsp;<a class="fs-15" href="#">LinkedIn</a>&nbsp;#&nbsp;<a class="fs-15" href="">领英</a></p>
 					</div>
 					<div class="designer divider">
 						<div class="circle ml-60 mt-20 fl bg-orange"></div>
@@ -187,4 +217,22 @@
 		$(this).css({"backgroundColor":"#ffffff","color":"#38ad5a"});
 		$(this).children().children().addClass("grass").removeClass("wt");
 	});
+
+	$("#content .main .link p a").mouseover(function(){
+		$("#content .main .link p a").addClass("orange");
+	}).mouseout(function(){
+		$("#content .main .link p a").removeClass("orange");
+	});
+
+	$("#content .main .icon .icon-list").click(function(){
+		if($(this).hasClass("active"))
+		{
+			$(this).removeClass("active");
+		}
+		else
+		{
+			$(this).addClass("active");
+		}
+	});
+		
 </script>

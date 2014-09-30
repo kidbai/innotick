@@ -21,10 +21,10 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="menu">
                    <ul>
-                       <li><a class="fs-17" href="#">产品</a></li>
-                       <li><a class="fs-17" href="#">观点</a></li>
-                       <li><a class="fs-17" href="#">专栏</a></li>
-                       <li><a class="fs-17" href="#">社区</a></li>
+                       <li>产品<img class="ml-5 mb-2" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li>观点</li>
+                       <li>专栏<img class="ml-5 mb-2" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li>社区</li>
                    </ul>
                 </div>
                 
@@ -43,18 +43,19 @@ use yii\web\JqueryAsset;
                     </div>
                     
                 </div>
-                <div class="item fr bg-orange">
-                   <ul>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的主页</a></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">通知中心</a></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">个人设置</a></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的收藏</a></li>
-                        <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">注销登录</a></li>
-                    </ul> 
-                </div>
+                
                 <!--<div class="login">
                     <a href="javascript:;" class="btn">登陆</a>
                 </div>-->
+            </div>
+            <div class="item fr bg-orange">
+                <ul>
+                    <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的主页</a></li>
+                    <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">通知中心</a></li>
+                    <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">个人设置</a></li>
+                    <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">我的收藏</a></li>
+                    <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><a class="fl fs-14 sw pt-4 ml-17" href="#">注销登录</a></li>
+                </ul> 
             </div>
             <!--<div class="carousel">
                 <div class="carousel-inner">
@@ -64,6 +65,45 @@ use yii\web\JqueryAsset;
 
                 </div>
             </div>-->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="previous fl">
+                        <img src="/img/icon/left.png" alt="">
+                    </div>
+                    <div class="cont fl">
+                        <ul>
+                            <li class="ml-30">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                            <li class="ml-100">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                            <li class="ml-100">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                            <div class="clear"></div>
+                            <li class="ml-30">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                            <li class="ml-100">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                            <li class="ml-100">
+                               <div class="li-one li-cont"></div> 
+                               <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="next fr">
+                        <img src="/img/icon/right.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <?= $content ?>
@@ -108,7 +148,15 @@ use yii\web\JqueryAsset;
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script src="/js/PCASClass.js" charset="gb2312"></script>
 <script>
-
+    
+    $("#top .nav .menu li").mouseover(function(){
+        $(this).addClass("orange");
+       // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
+       $(this).children("img").prop("src","/img/icon/dropdown-light.png");
+    }).mouseout(function(){
+        $(this).removeClass("orange");
+       $(this).children("img").prop("src","/img/icon/dropdown.png");
+    });
 
     $(".user").mouseenter(function(e){
             $(".user").addClass("bg-orange");
@@ -138,7 +186,30 @@ use yii\web\JqueryAsset;
             $(this).removeClass("nav-active");
         });
     });
+
+    $("#top .carousel li").mouseover(function(){
+        $(this).children("p").addClass("orange");
+    }).mouseout(function(){
+        $(this).children("p").removeClass("orange");
+    });
     
+    $("#top .nav .menu li:eq(0)").mouseenter(function(){
+        $("#top .carousel").slideDown("fast");
+    }).mouseleave(function(e){
+        if(e.offsetX < 0 && e.offsetY < 90 || e.offsetX > 70 && e.offsetY < 90)
+        {
+            $("#top .carousel").slideUp("fast");
+        }
+    });
+
+    $("#top .carousel").mouseleave(function(e){
+        console.log(e);
+        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0)
+        {
+            $("#top .carousel").slideUp("fast");
+        }
+    });
+
 
 </script>
 <?php $this->endBody() ?>
