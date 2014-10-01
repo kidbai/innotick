@@ -74,9 +74,15 @@
 	    			<div class="tag-add ml-1">
 	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-del ml-1">
-	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+	    			<div class="tag-del-cont">
+	    				<div class="tag-del ml-1">
+		    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
+		    			</div>
+		    			<div class="tag-del-dark">
+		    				<img src="/img/icon/delete-dark.png" width="25" height="30" alt=""/>
+		    			</div>
 	    			</div>
+	    			
 	    		</div>
 	    		<!-- <div class="tip-list">
 	    			<div class="tip-like"></div>
@@ -274,6 +280,7 @@
 	    			<div class="tag-del ml-1">
 	    				<img src="/img/icon/delete.png" width="25" height="30" alt=""/>
 	    			</div>
+	    			
 	    		</div>
 	    	</div>
 
@@ -515,8 +522,8 @@ function createDelInfo(del_sign){
        		}
        	});
 
-       	$(".post .tag-del").mouseenter(function(){
-       		if($(this).hasClass("on"))
+       	$(".post .tag-del-cont").mouseenter(function(){
+       		if($(this).hasClass("active"))
        		{
        			$(this).parent().siblings(".tag-label").children(".tag-label-del-recall").show();
        		}
@@ -525,13 +532,12 @@ function createDelInfo(del_sign){
        			$(this).parent().siblings(".tag-label").children(".tag-label-del").show();	
        		}
        		console.log("hhh");
-			$(this).children("img").prop("src","/img/icon/delete-dark.png");
        	}).mouseleave(function(){
 			$(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
-			$(this).parent().siblings(".tag-label").children(".tag-label-del-recall").hide();
-			$(this).children("img").prop("src","/img/icon/delete.png");
+   			$(this).parent().siblings(".tag-label").children(".tag-label-del-recall").hide();
+    		$(this).children(".tag-del-dark").removeClass("on");
        	});
-       	$(".post .tag-del").click(function(){
+       	$(".post .tag-del-cont").click(function(){
 
        		if(flag)
 			{
@@ -547,6 +553,17 @@ function createDelInfo(del_sign){
        		}).mouseleave(function(){
 				$(this).css({"backgroundColor":"#4d67ae"}); //颜色
        		});
+
+       		
+   			if($(this).hasClass("active"))
+   			{
+
+   				$(this).removeClass("active");
+   			}
+   			else
+   			{
+   				$(this).addClass("active");
+   			}
        		$("#content .lgbtn:eq(2)").click(function(){
        			createDelInfo($(this));
        			$(".login").slideUp("fast",function(){

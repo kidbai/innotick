@@ -13,6 +13,30 @@ use yii\web\JqueryAsset;
 </head>
 <body>
 <?php $this->beginBody() ?>
+    <div id="lg-window" class="login-window">
+        <div class="login up">
+            <div class="close fr">关闭</div>
+            <div class="no-sign-in fs-20">
+                <p>无需注册，直接使用社交账号登陆</p>
+            </div>
+            <div class="weibo">weibo</div>
+            <div class="weixin">weixin</div>
+        </div>
+        <div class="sign-input mid">
+            <div class="id"></div>
+            <div class="password"></div>
+            <div class="info">
+                <div>忘记密码</div>
+                <div class="login-btn">
+                    登陆
+                </div>
+            </div>
+        </div>
+        <div class="other bottom">
+            <div class="no-id">没有账号</div>
+            <div class="sign-in">注册</div>
+        </div>
+    </div>
     <div class="wrapper">
         <div id="top" class="column">
             <div class="nav">
@@ -21,13 +45,13 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="menu">
                    <ul>
-                       <li>产品<img class="ml-5 mb-2" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li>观点</li>
-                       <li>专栏<img class="ml-5 mb-2" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li>社区</li>
+                       <li><p class="fl">产品</p><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li><p>观点</p></li>
+                       <li><p class="fl">专栏</p><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li><p>社区</p></li>
                    </ul>
-                </div>
-                
+                </div>  
+
                 <div class="search">
                     <div class="search-btn">
                        <a href=""><img src="/img/icon/search.png" height="30" width="30" alt=""/> </a>
@@ -44,9 +68,9 @@ use yii\web\JqueryAsset;
                     
                 </div>
                 
-                <!--<div class="login">
-                    <a href="javascript:;" class="btn">登陆</a>
-                </div>-->
+                <div class="login">
+                    <a class="btn">登陆</a>
+                </div>
             </div>
             <div class="item fr bg-orange">
                 <ul>
@@ -68,34 +92,93 @@ use yii\web\JqueryAsset;
             <div class="carousel">
                 <div class="carousel-inner">
                     <div class="previous fl">
-                        <img src="/img/icon/left.png" alt="">
+                        <img src="/img/icon/left.png" alt=""/>
                     </div>
-                    <div class="cont fl">
+                    <div class="cont-product fl">
                         <ul>
                             <li class="ml-30">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
                             </li>
                             <li class="ml-100">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
                             </li>
                             <li class="ml-100">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
                             </li>
                             <div class="clear"></div>
                             <li class="ml-30">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
                             </li>
                             <li class="ml-100">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
                             </li>
                             <li class="ml-100">
-                               <div class="li-one li-cont"></div> 
+                               <div class="product-list"></div> 
                                <p>总部在韩国首尔的创业公司</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont-special">
+                        <ul>
+                            <li class="ml-30 special-list">
+                                <div class="website imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="website-text fl ml-10">
+                                    <p class="fs-20 mb-5">网站</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>
+                            </li>
+                            <li class="ml-100 special-list">
+                                <div class="app imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="app-text fl ml-10">
+                                    <p class="fs-20 mb-5">应用</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>
+                            </li>
+                            <li class="ml-100 special-list">
+                                <div class="hardware imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="hardware-text fl ml-10">
+                                    <p class="fs-20 mb-5">硬件</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>
+                            </li>
+                            <div class="clear"></div>
+                            <li class="ml-30 special-list">
+                                <div class="brand imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="brand-text fl ml-10">
+                                    <p class="fs-20 mb-5">品牌</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>                                    
+                            </li>
+                            <li class="ml-100 special-list">
+                                <div class="idea imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="idea-text fl ml-10">
+                                    <p class="fs-20 mb-5">品牌</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>
+                            </li>
+                            <li class="ml-100 special-list">
+                                <div class="viewpoint imgbcolor fl">
+                                    <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
+                                </div>
+                                <div class="viewpoint-text fl ml-10">
+                                    <p class="fs-20 mb-5">观点</p>
+                                    <p class="fs-14">PC互联网项目</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -104,6 +187,8 @@ use yii\web\JqueryAsset;
                     </div>
                 </div>
             </div>
+            
+
         </div>
 
         <?= $content ?>
@@ -139,22 +224,22 @@ use yii\web\JqueryAsset;
                         </div>
                         <p class="lightgray fl fs-14 lp-2">光华设计基金会</br>中国工业设计协会</br>创新设计工程实验室</br></p> 
                 </div>
-            
-        </div>    
-        <div class="bottom">
-            <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
-        </div>    
-    </div>
+            </div>    
+            <div class="bottom">
+                <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
+            </div>    
+        </div>
+        
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script src="/js/PCASClass.js" charset="gb2312"></script>
 <script>
     
     $("#top .nav .menu li").mouseover(function(){
-        $(this).addClass("orange");
+        $(this).children("p").addClass("orange");
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
        $(this).children("img").prop("src","/img/icon/dropdown-light.png");
     }).mouseout(function(){
-        $(this).removeClass("orange");
+       $(this).children("p").removeClass("orange");
        $(this).children("img").prop("src","/img/icon/dropdown.png");
     });
 
@@ -193,20 +278,47 @@ use yii\web\JqueryAsset;
         $(this).children("p").removeClass("orange");
     });
     
-    $("#top .nav .menu li:eq(0)").mouseenter(function(){
+    $("#top .nav .menu li:eq(0) p").mouseenter(function(){
+        $("#top .carousel .cont-product").addClass("on");
         $("#top .carousel").slideDown("fast");
     }).mouseleave(function(e){
-        if(e.offsetX < 0 && e.offsetY < 90 || e.offsetX > 70 && e.offsetY < 90)
+        if(e.offsetX < -1 || e.offsetY < -3 || e.offsetX > 40 )
         {
+            $("#top .carousel .cont-product").removeClass("on");
+            $("#top .carousel").slideUp("fast");
+        }
+    });
+    $("#top .nav .menu li:eq(2) p").mouseenter(function(){
+        $("#top .carousel .cont-special").addClass("on");
+        $("#top .carousel").slideDown("fast");
+    }).mouseleave(function(e){
+        console.log(e);
+        if(e.offsetX < -1 && e.offsetY < 90 || e.offsetX > 46 && e.offsetY < 90)
+        {
+            $("#top .carousel .cont-special").removeClass("on");
             $("#top .carousel").slideUp("fast");
         }
     });
 
     $("#top .carousel").mouseleave(function(e){
-        console.log(e);
-        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0)
+        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < -10  )
         {
             $("#top .carousel").slideUp("fast");
+        }
+    });
+
+    //创建登陆窗口
+    $("#top .nav .login .btn").click(function(){
+        console.log($("#lg-window"));
+        if(!$("#lg-window").hasClass("on"))
+        {
+            $("#lg-window").addClass("on");
+        }
+    });
+    $("#lg-window .login .close").click(function(){
+        if($("#lg-window").hasClass("on"))
+        {
+            $("#lg-window").removeClass("on");
         }
     });
 

@@ -1,6 +1,12 @@
 .wrapper { width: 100%; position: relative; }
 .wrapper.grey { background: #f8f8f8; }
 .offset { margin: 80px 0px 0px 80px; overflow: hidden;}
+
+#lg-window  { position: absolute; display: none; width: 550px; height: 400px; background-color: #ee6350; left: 400px; top: 80px; z-index: 99999;}
+#lg-window .close { cursor: pointer;}
+#lg-window.on { display: block; }
+#lg-window .up { height: 150px; }
+#lg-window .mid { height: 225px; }
 #top .nav { height: 80px; position: relative; }
 #top .nav .logo { height: 80px; width: 80px; margin-right: 34px; float: left; }
 #top .nav .menu { height: 80px; width: 290px; float: left;}
@@ -10,22 +16,40 @@
 #top .nav .search .search-btn img { margin: 30px 35px;}
 #top .nav .search .field { float: left; margin-top: 28px;}
 #top .nav .search .field input{ border: 0px; font-size: 17px;}
-#top .nav .menu ul li { list-style: none; float: left; width: 70px; height: 80px; line-height: 80px; text-align: center; font-weight: bold; }
-#top .nav .menu li { margin: 0 auto;display: inline;}
-#top .nav .login { width: 160px; height: 80px; float: left;}
+#top .nav .menu ul li { list-style: none; float: left; width: 70px; height: 80px;}
+#top .nav .menu li { margin: 0 auto;}
+#top .nav .menu p { height: 30px ; width: 46px; line-height: 30px; text-align: center; font-weight: bold; font-size: 16px; margin-top: 28px;}
+#top .nav .menu img { margin-top: 42px;}
+#top .nav .login { width: 160px; height: 80px; float: right;}
 #top .nav .login .btn { text-align: center; line-height: 41px; width: 100px; height: 41px; margin-top: 24px; margin-bottom: 4px; background: #EE6350; font-size: 17px; color: white;}
 #top .nav .login .btn:hover { }
-#top .nav .user { width: 200px; height: 80px; }
+#top .nav .user { width: 200px; height: 80px; display: none; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
 #top .item { position: absolute; display: none; width: 200px; height: 180px;left: 1081px;top: 80px;z-index: 999;}
 #top .item li { width: 200px; height: 36px; line-height: 25px; text-align: center;}
 #top .carousel { height: 320px; width: 100%;display: none;}
+#top .carousel .inner { position: relative;}
 #top .carousel.active { display: block;}
 #top .carousel .previous { margin-left: 114px; margin-top: 140px;cursor: pointer;}
 #top .carousel .next { margin-right: 114px; margin-top: 140px;cursor: pointer;}
-#top .carousel .cont li { width: 220px; height: 123px;cursor: pointer; float: left; margin-top: 20px;}
-#top .carousel .cont .li-cont { width: 220px; height: 100px;background-color: #e4e4e5; }
-#top .carousel .cont p { line-height: 23px; font-size: 13px;letter-spacing: 1px;}
+#top .carousel .cont-product { display: none;}
+#top .carousel .cont-product.on { display: block;}
+#top .carousel .cont-special { display: none;}
+#top .carousel .cont-special.on { display: block;}
+#top .carousel .cont-special { position: absolute;left: 220px; top: 72px; }
+#top .carousel .cont-special li { width: 220px; height: 100px;cursor: pointer; float: left; margin-top: 46px;}
+#top .carousel .cont-special .special-list { width: 220px; height: 100px;}
+#top .carousel .cont-special .special-list .imgbcolor:hover { background-color: #494a4a;}
+#top .carousel .cont-special img { margin: 28px 0px 0px 25px;}
+#top .carousel .cont-special .website { width: 100px; height: 100px; background-color: #90bb32;}
+#top .carousel .cont-special .app { width: 100px; height: 100px; background-color: #00bbe9;}
+#top .carousel .cont-special .hardware { width: 100px; height: 100px; background-color: #a44791;}
+#top .carousel .cont-special .brand { width: 100px; height: 100px; background-color: #ff0600;}
+#top .carousel .cont-special .idea { width: 100px; height: 100px; background-color: #f7be00;}
+#top .carousel .cont-special .viewpoint { width: 100px; height: 100px; background-color: #ee4589;}
+#top .carousel .cont-product li { width: 220px; height: 123px;cursor: pointer; float: left; margin-top: 20px;}
+#top .carousel .cont-product .product-list { width: 220px; height: 100px;background-color: #e4e4e5; }
+#top .carousel .cont-product p { line-height: 23px; font-size: 13px;letter-spacing: 1px;}
 body { background: #fff; }
 * { -webkit-box-sizing: border-box; color: #111;
 -moz-box-sizing: border-box;
@@ -63,7 +87,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-down .col-11 .post .tag-label .tag-label-del .words-del { position: absolute;line-height: 27px; text-align: center; font-size: 12px; color:#f1f1f1; z-index: 999; top: 0px; left: 6px;}
 #content .content-down .col-11 .post .tag-label .tag-label-del-recall { display: none; position: absolute; width: 86px; height: 35px;left: 68px;}
 #content .content-down .col-11 .post .tag-label .tag-label-del-recall .words-del-recall { position: absolute; line-height: 27px; text-align: center; font-size: 12px; color: #f1f1f1; z-index: 999; top: 0px; left: 10px;}
-#content .content-down .col-11 .post .tag-list { display: none; position: absolute; top: 25px; right: -10px; width: 80px; height: 25px;}
+#content .content-down .col-11 .post .tag-list { display: none; position: absolute; top: 25px; right: -8px; width: 80px; height: 25px;}
 #content .content-down .col-11 .post .tag-list .tag-like { width: 25px; height: 25px;float: left; background-color: #a9acb5; cursor: pointer;}
 #content .content-down .col-11 .post .tag-list .tag-like img {  background-position: center; background-repeat: no-repeat; margin: 5px 0px 0px 5px; }
 #content .content-down .col-11 .post .tag-list .tag-like:hover { background-color: #e23a3c; }
@@ -72,8 +96,12 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-down .col-11 .post .tag-list .tag-add.on { background-color: #129592;}
 #content .content-down .col-11 .post .tag-list .tag-add { width: 25px; height: 25px;float: left;background-color: #a9acb5;cursor: pointer;}
 #content .content-down .col-11 .post .tag-list .tag-add img {  background-position: center; background-repeat: no-repeat; margin: 5px 0px 0px 5px; }
-#content .content-down .col-11 .post .tag-list .tag-del { width: 25px;height: 30px;float: left; background-repeat: no-repeat; cursor: pointer;}
-
+#content .content-down .col-11 .post .tag-list .tag-del { display: block; width: 25px;height: 30px;float: left; background-repeat: no-repeat; cursor: pointer;}
+#content .content-down .col-11 .post .tag-list .tag-del-dark { position: absolute; left: 53px;display: none;}
+#content .content-down .col-11 .post .tag-del-cont:hover .tag-del-dark { display: block;}
+#content .content-down .col-11 .post .tag-del-cont:hover .tag-del { display: none;}
+#content .content-down .col-11 .post .tag-del-cont.active .tag-del-dark { display: block;}
+#content .content-down .col-11 .post .tag-del-cont.active .tag-del { display: none;}
 
 #content .content-down .col-11 .login { height: 90px; width: 880px; display: none;}
 #content .content-down .col-11 .login .login_btn { height: 48px;}
