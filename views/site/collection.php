@@ -4,14 +4,14 @@
 			<div class="img info-circle bg-pink fl ml-80 mt-45">
 			</div>
 			<div class="text fl ml-30 mt-65">
-				<p class="fs-32 lp-4">用户名</p>
-				<p class="fs-14 l-designer">weibo.com/1944780395</p>
+				<div class="fs-32 lp-4 wt">用户名</div>
+				<div class="fs-14 l-designer lp-1">weibo.com/1944780395</div>
 			</div>
 			<div class="menu ml-80">
 				<ul>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="#"><p class="fs-17 orange">基本信息</p></a></div>
+						<div class="list bg-wt"><a href="/site/info"><p class="fs-17 orange">基本信息</p></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
@@ -23,7 +23,7 @@
 					</li>
 					<li>
 						<div class="color-line  bg-orange"></div>
-						<div class="list bg-item-grey"><a href="#"><p class="fs-17 orange">我的收藏</p></a></div>
+						<div class="list bg-wt active"><a href="/site/collection"><p class="fs-17 orange">我的收藏</p></a></div>
 					</li>
 				</ul>
 			</div>
@@ -78,6 +78,13 @@
 </div>
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script>
+	$("#info .column .info .menu li").mouseover(function(){
+		$("#info .column .info .menu li .list").removeClass("active");
+		$("#info .column .info .menu li .color-line").removeClass("bg-orange");
+		$(this).children(".color-line").addClass("bg-orange");
+		$(this).children(".list").addClass("active");
+	});	
+
 	$("#info .pagination .previous").mouseover(function(){
 		// $(this).css({"backgroundColor":"#ee6350",});
 		$(this).addClass("bg-orange wt").removeClass("orange");
