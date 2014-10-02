@@ -1,6 +1,17 @@
 KindEditor.ready(function(K) {
     window.editor = K.create('#post-content', {
         minHeight : 300,
+        pasteType: 1,
+        items: [
+            'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'code', 'cut', 'copy', 'paste',
+            'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+            'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+            'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+            'formatblock', '|', 'forecolor', 'hilitecolor', 'bold',
+            'italic', 'underline', 'strikethrough', 'removeformat', '|', 'image', 'multiimage',
+            'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+            'anchor', 'link', 'unlink'
+        ]
     });
 
 	if (window.editor)
