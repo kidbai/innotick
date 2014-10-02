@@ -43,8 +43,5 @@ use yii\widgets\ActiveForm;
 		<?php ActiveForm::end(); ?>
 
   </div>
-
-
-  <div class="server tc grey"><?= getServerIp() ?></div>
   <div class="clear-40"></div>  
 </div> <!-- /container -->
