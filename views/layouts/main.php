@@ -28,7 +28,7 @@ use yii\web\JqueryAsset;
             <div class="info">
                 <div>忘记密码</div>
                 <div class="login-btn">
-                    登陆
+                    登录
                 </div>
             </div>
         </div>
@@ -45,10 +45,10 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="menu">
                    <ul>
-                       <li><p class="fl">产品</p><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li><p>观点</p></li>
-                       <li><p class="fl">专栏</p><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li><p>社区</p></li>
+                       <li><div class="fl nav-item">产品</div><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li><div class="nav-item">观点</div></li>
+                       <li><div class="fl nav-item">专栏</div><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
+                       <li><div class="nav-item">社区</div></li>
                    </ul>
                 </div>  
 
@@ -69,7 +69,7 @@ use yii\web\JqueryAsset;
                 </div>
                 
                 <div class="login">
-                    <a class="btn">登陆</a>
+                    <a class="btn lp-1">登录</a>
                 </div>
             </div>
             <div class="item fr bg-orange">
@@ -94,36 +94,36 @@ use yii\web\JqueryAsset;
                     <div class="previous fl">
                         <img src="/img/icon/left.png" alt=""/>
                     </div>
-                    <div class="cont-product fl">
+                    <div class="content-product fl">
                         <ul>
                             <li class="ml-30">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                             <li class="ml-100">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                             <li class="ml-100">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                             <div class="clear"></div>
                             <li class="ml-30">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                             <li class="ml-100">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                             <li class="ml-100">
                                <div class="product-list"></div> 
-                               <p>总部在韩国首尔的创业公司</p>
+                               <div class="product-text fs-12">总部在韩国首尔的创业公司</div>
                             </li>
                         </ul>
                     </div>
-                    <div class="cont-special">
+                    <div class="content-special">
                         <ul>
                             <li class="ml-30 special-list">
                                 <div class="website imgbcolor fl">
@@ -198,35 +198,35 @@ use yii\web\JqueryAsset;
                 <div class="left">
                    <div class="left-up">
                         <div class="about">
-                            <label class="fs-18 orange">关于我们</label>
-                            <a class="fr fs-13 wt" href="#">了解更多>></a>
+                            <label class="fs-18 orange lp-1">关于我们</label>
+                            <a class="fr fs-14 wt mt-5 lp-1" href="#">了解更多>></a>
                         </div>
-                        <p class="lightgray fl fs-14 lp-2">是一家全球视野的前沿科技媒体，提供关于中国于美国的最前沿科技创业资讯，致力于成为沟通者两个全球最大互联网/移动市场的互联网社区。</p>
+                        <div class="lightgray fl fs-13 lp-2 about-content">是一家全球视野的前沿科技媒体，提供关于中国于美国的最前沿科技创业资讯，致力于成为沟通者两个全球最大互联网/移动市场的互联网社区。</div>
                    </div> 
                    <div class="left-down">
                         <div class="about">
                             <label class="fs-18 orange">联系我们</label>
-                            <a class="fr fs-13 wt" href="#">详细信息</a>
+                            <a class="fr fs-14 wt mt-5" href="#">详细信息>></a>
                         </div>
-                        <p class="lightgray fl fs-14 lp-2">电话：400-633-5715</br>邮件：hi@chuangxinsheji.com</p>
+                        <div class="lightgray fl fs-14 lp-1 about-content">电话：400-633-5715</br>邮件：hi@chuangxinsheji.com</div>
                    </div>
                 </div>
                 <div class="mid">
                    <div class="about">
                        <label class="fs-18 orange">加入我们</label>
-                       <a class="fr fs-13 wt" href="#">了解更多>></a>
+                       <a class="fr fs-14 wt mt-5" href="#">了解更多>></a>
                    </div>
-                   <p class="lightgray fl fs-14 lp-2">我们欢迎那些聪明、热衷科技创新、视野开阔、反传统思维、能双语工作、行动力强、对创造高质量的科技新闻和评论充满兴趣的家伙加入团队，无论你在那里（不过北京与硅谷优先）。</p>
+                   <div class="lightgray fl fs-14 lp-2 about-content">我们欢迎那些聪明、热衷科技创新、视野开阔、反传统思维、能双语工作、行动力强、对创造高质量的科技新闻和评论充满兴趣的家伙加入团队，无论你在那里（不过北京与硅谷优先）。</div>
                 </div>
                 <div class="right">
                         <div class="about">
                             <label class="fs-18 orange">合作伙伴</label>
                         </div>
-                        <p class="lightgray fl fs-14 lp-2">光华设计基金会</br>中国工业设计协会</br>创新设计工程实验室</br></p> 
+                        <div class="lightgray fl fs-14 lp-1 about-content">光华设计基金会</br>中国工业设计协会</br>创新设计工程实验室</br></div> 
                 </div>
             </div>    
             <div class="bottom">
-                <p class="text fs-12 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
+                <p class="text fs-14 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
             </div>    
         </div>
         
@@ -235,11 +235,11 @@ use yii\web\JqueryAsset;
 <script>
     
     $("#top .nav .menu li").mouseover(function(){
-        $(this).children("p").addClass("orange");
+        $(this).children(".nav-item").addClass("orange");
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
        $(this).children("img").prop("src","/img/icon/dropdown-light.png");
     }).mouseout(function(){
-       $(this).children("p").removeClass("orange");
+       $(this).children(".nav-item").removeClass("orange");
        $(this).children("img").prop("src","/img/icon/dropdown.png");
     });
 
@@ -278,24 +278,24 @@ use yii\web\JqueryAsset;
         $(this).children("p").removeClass("orange");
     });
     
-    $("#top .nav .menu li:eq(0) p").mouseenter(function(){
-        $("#top .carousel .cont-product").addClass("on");
+    $("#top .nav .menu li:eq(0) .nav-item").mouseenter(function(){
+        $("#top .carousel .content-product").addClass("on");
         $("#top .carousel").slideDown("fast");
     }).mouseleave(function(e){
         if(e.offsetX < -1 || e.offsetY < -3 || e.offsetX > 40 )
         {
-            $("#top .carousel .cont-product").removeClass("on");
+            $("#top .carousel .content-product").removeClass("on");
             $("#top .carousel").slideUp("fast");
         }
     });
-    $("#top .nav .menu li:eq(2) p").mouseenter(function(){
-        $("#top .carousel .cont-special").addClass("on");
+    $("#top .nav .menu li:eq(2) .nav-item").mouseenter(function(){
+        $("#top .carousel .content-special").addClass("on");
         $("#top .carousel").slideDown("fast");
     }).mouseleave(function(e){
         console.log(e);
         if(e.offsetX < -1 && e.offsetY < 90 || e.offsetX > 46 && e.offsetY < 90)
         {
-            $("#top .carousel .cont-special").removeClass("on");
+            $("#top .carousel .content-special").removeClass("on");
             $("#top .carousel").slideUp("fast");
         }
     });
