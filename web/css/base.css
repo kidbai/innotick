@@ -165,6 +165,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-down .col-4 .hot-list .qrcode img { float: left;margin: 0px 55px 0px 55px;border: 0;background: #cccccc;}
 #content .content-down .offset .left .main { width: 800px;}
 #content .content-down .offset .left .main .article p { font-size: 18px; letter-spacing: 1px; padding: 10px 20px 0px 20px;line-height: 33px;text-indent: 2em;text-align: left; color: #3f484f;}
+#content .content-down .offset .left .main .article p * { font-size: 18px; }
 #content .content-down .offset .left .main .icon { width: 800px; height: 60px;position: relative;}
 #content .content-down .offset .left .main .icon li { height: 40px; cursor: pointer; line-height: 40px; text-align: center; overflow: hidden; list-style-type: none; };
 #content .content-down .offset .left .main .icon .icon-list { overflow: hidden;}
