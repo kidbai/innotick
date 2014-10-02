@@ -9,48 +9,132 @@ use yii\web\JqueryAsset;
     <meta charset="<?= Yii::$app->charset ?>"/>
     <link href="/css/util.css" rel="stylesheet" />
     <link href="/css/base.css" rel="stylesheet" />
-    <link href="/res/font-awesome/font-awesome.css" rel="stylesheet"/>
+    <link href="/res/font-awesome/css/font-awesome.css" rel="stylesheet"/>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
+
+<!--遮罩-->
+<div class="shade"></div>
+    
+    <!-- 登陆窗口 -->
     <div id="lg-window" class="login-window">
-        <div class="login up">
-            <div class="fa fa-times close fr">关闭</div>
-            <div class="clear"></div>
-            <div class="no-sign-in fs-20">
-                无需注册，直接使用社交账号登陆
+        <div class="lg-window-login">
+            <div class="login up">
+                <div class="close fr">
+                    <i class="fa fa-times"></i>
+                </div>
+                <div class="clear"></div>
+                <div class="no-sign-in fs-20">
+                    无需注册，直接使用社交账号登陆
+                </div>
+                <div class="weibo"><img src="/img/icon/sina.png" width="25" heigh="20" alt=""/><div class="fr weibo-text">微博</div></div>
+                <div class="weixin"><img src="/img/icon/wechat.png" width="25" heigh="20" alt=""><div class="fr weixin-text">微信</div></div>
             </div>
-            <div class="weibo"><img src="/img/icon/sina.png" width="25" heigh="20" alt=""/><div class="fr weibo-text">微博</div></div>
-            <div class="weixin"><img src="/img/icon/wechat.png" width="25" heigh="20" alt=""><div class="fr weixin-text">微信</div></div>
+            <div class="solid-line"></div>
+            <div class="login-input mid mt-20">
+                <div class="id">
+                    <div class="id-img fl">
+                        <img class="fl" src="/img/icon/user.png" alt=""/>
+                    </div>
+                    <input class="fl" type="text" placeholder="用户名或邮箱"/>
+                </div>
+                <div class="clear"></div>
+                <div class="password mt-20">
+                    <div class="password-img fl">
+                        <img class="fl" src="/img/icon/key.png" alt=""/>
+                    </div>
+                    <input class="fl" type="password" placeholder="密码"/>
+                </div>
+                <div class="clear"></div>
+                <div class="info fl">
+                    <div class="fl fs-16 forget-password">
+                        忘记密码
+                    </div>
+                    <div class="login-btn fr">
+                        登录
+                    </div>
+                </div>
+            </div>
+            <div class="solid-line"></div>
+            <div class="other bottom">
+                <div class="no-id fs-16 fl">没有账号</div>
+                <div class="sign-in fs-16 fl">注册</div>
+            </div>
         </div>
-        <div class="solid-line"></div>
-        <div class="sign-input mid mt-20">
-            <div class="id">
-                <div class="avatar-img fl">
-                    <img class="fl" src="/img/icon/user.png" alt=""/>
+
+        <!-- 注册窗口  -->
+        <div class="lg-window-signin">
+            <div class="login up">
+                <div class="close fr">
+                    <i class="fa fa-times"></i>
                 </div>
-                <input class="fl" type="text" placeholder="用户名或邮箱"/>
-            </div>
-            <div class="clear"></div>
-            <div class="password">
-                <div class="password-img fl">
-                    <img class="fl" src="/img/icon/key.png" alt=""/>
+                <div class="clear"></div>
+                <div class="no-sign-in fs-20">
+                    无需注册，直接使用社交账号登陆
                 </div>
-                <input class="fl" type="password" placeholder="密码"/>
+                <div class="weibo"><img src="/img/icon/sina.png" width="25" heigh="20" alt=""/><div class="fr weibo-text">微博</div></div>
+                <div class="weixin"><img src="/img/icon/wechat.png" width="25" heigh="20" alt=""><div class="fr weixin-text">微信</div></div>
             </div>
-            <div class="clear"></div>
-            <div class="info fl">
-                <div class="fl fs-16 forget-password">忘记密码</div>
-                <div class="login-btn fr">
-                    登录
+            <div class="solid-line"></div>
+            <div class="signin-input fl mt-20">
+               <div class="id">
+                    <div class="id-img signin-input-item fl">
+                        <img class="fl" src="/img/icon/user.png" alt=""/>
+                    </div>
+                    <input class="fl" type="text" placeholder="用户名 英文或数字"/>
+                </div> 
+                <div class="clear"></div>
+                <div class="email mt-20">
+                    <div class="email-img signin-input-item fl">
+                        <img src="/img/icon/email.png" alt="" class="fl">
+                    </div>
+                    <input type="text" class="fl" placeholder="邮箱"/>
+                </div>
+                <div class="clear"></div>
+                <div class="password mt-20">
+                    <div class="password-img signin-input-item fl">
+                        <img src="/img/icon/key.png" alt="" class="fl">
+                    </div>
+                    <input type="text" class="fl" placeholder="密码"/>
+                </div>
+                <div class="clear"></div>
+                <div class="signin-bottom">
+                    <div class="no-id fs-16 fl">已有账号?</div>
+                    <div class="sign-in fs-16 fl">登陆</div>
+                    <div class="login-btn fr">
+                        登录
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="solid-line"></div>
-        <div class="other bottom">
-            <div class="no-id fs-16 fl">没有账号</div>
-            <div class="sign-in fs-16 fl">注册</div>
+        <!--  忘记密码 --> 
+        <div class="fpassword">
+           <div class="login fup">
+                <div class="fpassword-text fl fs-20 lp-1">
+                    忘记密码 
+                </div>
+                <div class="back fl">
+                    <img class="fl" src="/img/icon/return.png" width="16" height="21" alt=""/>
+                    <div class="fl fs-16 lp-1 ml-6">返回</div>
+                </div>
+           </div> 
+           <div class="mid">
+               <div class="label fl fs-16 ml-40">
+                   输入邮箱
+               </div>
+               <div class="clear"></div>
+               <input type="text">
+               <div class="clear"></div>
+               <div class="text mt-40 fs-12 ml-40 lp-1">
+                    此功能将会发送一个找回密码的特别链接到您的邮箱，通过改链接可以进入重置密码的页面。
+               </div>
+           </div>
+           <div class="clear"></div>
+           <div class="fp-btn">
+                找回密码 
+           </div>
         </div>
     </div>
     <div class="wrapper">
@@ -264,7 +348,6 @@ use yii\web\JqueryAsset;
                 <p class="text fs-14 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
             </div>    
         </div>
-        
 <script src="/js/jquery-1.11.1.min.js"></script>
     
 <script>
@@ -346,13 +429,50 @@ use yii\web\JqueryAsset;
         if(!$("#lg-window").hasClass("on"))
         {
             $("#lg-window").addClass("on");
+            $(".shade").show();
         }
     });
+    //窗口遮罩
     $("#lg-window .login .close").click(function(){
+        $("#lg-window .lg-window-signin").removeClass("on"); 
+        $("#lg-window .lg-window-login").removeClass("on"); 
+        $("#lg-window .fpassword").removeClass("on");
         if($("#lg-window").hasClass("on"))
         {
             $("#lg-window").removeClass("on");
+            $("#lg-window .lg-window-signin").removeClass("on");
+            $("#lg-window .fpassword").removeClass("on");
+            $(".shade").hide();
         }
+    });
+    $(".shade").click(function(){
+        $("#lg-window").removeClass("on");
+        $("#lg-window .lg-window-login").removeClass("on");
+        $("#lg-window .lg-window-signin").removeClass("on"); 
+        $("#lg-window .fpassword").removeClass("on");
+        $(".shade").hide();
+        console.log("shade hide");
+    });   
+
+    //注册
+    $("#lg-window .bottom .sign-in").click(function(){
+        $("#lg-window .lg-window-login").addClass("on");
+        $("#lg-window .lg-window-signin").addClass("on");
+    });
+    //登陆
+    $("#lg-window .lg-window-signin .signin-input .signin-bottom .sign-in").click(function(){
+        $("#lg-window .lg-window-signin").removeClass("on");
+        $("#lg-window .lg-window-login").removeClass("on");
+    });
+    //忘记密码
+    $("#lg-window .mid .forget-password").click(function(){
+        $("#lg-window .lg-window-login").addClass("on");
+        $("#lg-window .fpassword").addClass("on");
+    });
+
+    $("#lg-window .fpassword .back").click(function(){
+        $("#lg-window .fpassword").removeClass("on");
+        $("#lg-window .lg-window-login").removeClass("on");
     });
 
 

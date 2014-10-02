@@ -2,10 +2,14 @@
 .wrapper.grey { background: #f8f8f8; }
 .offset { margin: 80px 0px 0px 80px; overflow: hidden;}
 
+.shade { display: none; position: fixed; width: 100%; height: 100%; background: #686868; z-index: 99998; opacity: 0.7;}
 #lg-window  { position: absolute;  width: 550px; height: 400px; left: 400px; top: 80px; z-index: 99999; background-color: #ffffff; display: none;}
+#lg-window .lg-window-login { display: block; width: 550px; height: 400px; left: 400px; top: 80px; z-index: 99999; }
+#lg-window .lg-window-login.on { display: none; }
+
 #lg-window .close { cursor: pointer;}
 #lg-window.on { display: block; }
-#lg-window .up { height: 150px; }
+#lg-window .up { height: 140px; }
 #lg-window .up .no-sign-in { line-height: 30px; text-align: center;}
 #lg-window .up .weibo { cursor: pointer; height: 50px; width: 160px; line-height: 50px;  float: left; background-color: #d44137; margin: 20px 0px 0px 80px;}
 #lg-window .up .weibo img { margin-left: 40px; margin-top: 15px;}
@@ -13,20 +17,43 @@
 #lg-window .up .weixin { cursor: pointer; height: 50px; width: 160px; line-height: 50px;  float: left; background-color: #38ad5a; margin: 20px 0px 0px 80px;}
 #lg-window .up .weixin img { margin-left: 40px; margin-top: 15px;  }
 #lg-window .up .weixin .weixin-text { margin-right: 46px; color: #ffffff; font-size: 18px;text-align: center; }
-#lg-window .mid { height: 170px; }
+#lg-window .mid { height: 180px; }
 #lg-window .mid input { width: 430px; height: 40px; background-color: #e6eaed; margin: 0 auto; border: 0; font-size: 16px; }
-#lg-window .mid .avatar-img { width: 32px; height: 40px; background-color: #e6eaed; }
-#lg-window .mid .avatar-img img { margin: 10px 0px 0px 10px; }
+#lg-window .mid .id-img { width: 32px; height: 40px; background-color: #e6eaed; }
+#lg-window .mid .id-img img { margin: 10px 0px 0px 10px; }
 #lg-window .mid .password-img { width: 32px; height: 40px; background-color: #e6eaed; }
-#lg-window .mid .password-img img { margin: 10px 0px 0px 10px; }
+#lg-window .mid .password-img img { margin: 10px 0px 0px 13px; }
 #lg-window .mid .id { margin-left: 44px; }
 #lg-window .mid .password { margin-left: 44px; }
-#lg-window .mid .forget-password { color: #898989; margin: 30px 0px 0px 42px; cursor: pointer;}
-#lg-window .mid .login-btn { cursor: pointer; color: #ffffff; background-color: #ee6350; width: 135px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 30px 0px 0px 266px}
+#lg-window .mid .forget-password { color: #898989; margin: 25px 0px 0px 42px; cursor: pointer;}
+#lg-window .mid .login-btn { cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 25px 0px 0px 260px}
 #lg-window .bottom { height: 56px; line-height: 56px; }
-#lg-window .bottom .no-id { color: #898989; margin-left: 42px; } 
-#lg-window .bottom .sign-in { color: #898989; margin-left: 22px; } 
-
+#lg-window .bottom .no-id { color: #898989; margin-left: 45px; } 
+#lg-window .bottom .sign-in { color: #5d5d5d; margin-left: 22px; cursor: pointer; } 
+#lg-window .lg-window-signin { position: absolute; width: 550px; height: 400px; display: none; }
+#lg-window .lg-window-signin.on { display: block; }
+#lg-window .lg-window-signin .signin-input .id-img { width: 32px; height: 40px; background-color: #e6eaed;}
+#lg-window .lg-window-signin .signin-input .id-img img { margin: 10px 0px 0px 10px; }
+#lg-window .lg-window-signin .signin-input input { width: 430px; height: 40px; background-color: #e6eaed; margin: 0 auto; border: 0; font-size: 16px; }
+#lg-window .lg-window-signin .signin-input .email-img { width: 32px; height: 40px; background-color: #e6eaed;}
+#lg-window .lg-window-signin .signin-input .email-img img { margin: 10px 0px 0px 10px; }
+#lg-window .lg-window-signin .signin-input .password-img { width: 32px; height: 40px; background-color: #e6eaed;}
+#lg-window .lg-window-signin .signin-input .password-img img { margin: 10px 0px 0px 13px; }
+#lg-window .lg-window-signin .signin-input .signin-input-item { margin-left: 44px;}
+#lg-window .lg-window-signin .signin-input .signin-bottom {height: 68px; line-height: 68px;}
+#lg-window .lg-window-signin .signin-input .signin-bottom .no-id { color: #898989; margin-left: 45px; }
+#lg-window .lg-window-signin .signin-input .signin-bottom .sign-in { color: #5d5d5d; margin-left: 22px; cursor: pointer; } 
+#lg-window .lg-window-signin .signin-input .signin-bottom .login-btn { cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 24px 0px 0px 194px}
+#lg-window .fpassword { position: absolute; width: 550px; height: 400px; display: none;}
+#lg-window .fpassword.on { display: block;}
+#lg-window .fpassword .fup { height: 100px; }
+#lg-window .fpassword .fpassword-text{ color: #38485a; line-height: 70px; width: 400px; height: 70px; margin-left: 40px;}
+#lg-window .fpassword .back { height: 70px; line-height: 70px; color: #898989; cursor: pointer;}
+#lg-window .fpassword .back img { margin-top: 23px; }
+#lg-window .fpassword .mid .label { color: #898989; }
+#lg-window .fpassword .mid input { margin: 16px 0px 0px 40px; width: 460px; }
+#lg-window .fpassword .mid .text { width: 318px; color: #898989; }
+#lg-window .fpassword .fp-btn {cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 10px 0px 0px 360px }
 #top .nav { height: 80px; position: relative; }
 #top .nav .logo { height: 80px; width: 80px; margin-right: 34px; float: left; }
 #top .nav .menu { height: 80px; width: 290px; float: left; border-right: 2px solid #e8e8e8;}

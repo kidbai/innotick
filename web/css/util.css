@@ -110,11 +110,13 @@
 .mt-12 { margin-top: 12px; }
 .mt-13 { margin-top: 13px; }
 .mt-15 { margin-top: 15px; }
+.mt-16 { margin-top: 16px; }
 .mt-20 { margin-top: 20px; }
 .mt-30 { margin-top: 30px; }
 .mt-25 { margin-top: 25px; }
 .mt-26 { margin-top: 26px; }
 .mt-28 { margin-top: 28px; }
+.mt-40 { margin-top: 40px; }
 .mt-45 { margin-top: 45px; }
 .mt-55 { margin-top: 55px; }
 .mt-60 { margin-top: 60px; }
@@ -322,7 +324,7 @@
 	color: #38ad5a;
 }
 .lightgray{
-	color: #686868;;
+	color: #686868;
 }
 
 /*.loadgray{
