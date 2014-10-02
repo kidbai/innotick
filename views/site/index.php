@@ -4,7 +4,7 @@
 				
 		</div>	
 		<div class="nav">
-			<div class="btn">
+			<!-- <div class="btn">
 				<div class="btn-top">
 				</div>
 				<div class="btn-down">
@@ -23,7 +23,17 @@
 					<li><a href=""><p>比特币</p></a></li>
 					<li><a href=""><p>更多</p></a></li>
 				</ul>
-			</div>
+			</div> -->
+			<ul>
+				<li class="ml-60 wt active"><div class="line"></div>最新</li>
+				<li class="wt ml-10">智能</li>
+				<li class="wt ml-400 mr-15">小米</li>
+				<li class="wt mr-15">Tesla</li>
+				<li class="wt mr-15">Oculus</li>
+				<li class="wt mr-15">Uber</li>
+				<li class="wt mr-15">比特币</li>
+				<li class="wt mr-10">更多</li>
+			</ul>
 		</div>
 	</div>
 	<div class="column content-down">
@@ -31,14 +41,16 @@
 	    	<div id="post-1" class="post border-bottom-1">
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
-	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag3.png') no-repeat;width:44px;height:25px"><p class="fs-10">网站</p></div>
+	    			<div class="icon-type">   <!-- 44 x 25 -->
+	    				<img src="/img/icon/tag3.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
+	    				<!-- <div style="background:url('/img/icon/tag3.png') no-repeat;width:44px;height:25px"><p class="fs-10">网站</p></div> -->
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
-	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4 author">Betty</strong> - 2014/08/26 </div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -90,13 +102,14 @@
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag2.png') no-repeat;width:44px;height:25px"><p class="fs-10">应用</p></div>
+	    				<img src="/img/icon/tag2.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
 	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -148,13 +161,14 @@
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag4.png') no-repeat;width:44px;height:25px"><p class="fs-10">硬件</p></div>
+	    				<img src="/img/icon/tag4.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
 	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -206,13 +220,14 @@
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag1.png') no-repeat;width:44px;height:25px"><p class="fs-10">品牌</p></div>
+	    				<img src="/img/icon/tag1.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
 	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -264,13 +279,14 @@
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag5.png') no-repeat;width:44px;height:25px"><p class="fs-10">专栏</p></div>
+	    				<img src="/img/icon/tag5.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
-	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4 author">Betty</strong> - 2014/08/26 </div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -322,13 +338,14 @@
 	    		<div class="img-holder">
 	    			<img src="#" width="260" height="180"/>
 	    			<div class="icon-type">
-	    				<div style="background:url('/img/icon/tag7.png') no-repeat;width:44px;height:25px"><p class="fs-10">专栏</p></div>
+	    				<img src="/img/icon/tag7.png" alt=""/>
+	    				<div class="tag3-text">网站</div>
 	    			</div>
 	    		</div>	
 	    		<div class="text">
 	    			<div class="fs-21 lp-3 title">韩国电子优惠券服务Spoqa融资200万美元，并进入日本市场</div>	
 	    			<div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4">Betty</strong> - 2014/08/26 </div>
-	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15" href="#">阅读全文</a></div>
+	    			<div class="fs-15 lp-2 content">总部是在韩国首尔的创业公司Spoqa做的一种积分服务Dodo Points,这是一个平板电脑上的本地商户用户积分系统，2012年4月份发布。在其合作下...<a class="fs-15 read-all" href="#">阅读全文</a></div>
 	    			
 	    		</div>
 	    		<div class="tag-label">
@@ -482,6 +499,22 @@ function createDelInfo(del_sign){
 }
 
 	$(function(){
+		//nav事件
+		$("#content .content-up .nav li").mouseover(function(){
+			if($("#content .content-up .nav li").hasClass("active"))
+			{
+				$("#content .content-up .nav li").removeClass("active");
+				$("#content .content-up .nav li .line").remove();
+				$(this).addClass("active");
+				var line = '<div class="line"></div>';
+				$(this).prepend(line);
+			}
+			// $("#content .content-up .nav li:eq(0)").removeClass("active");
+			// $("#content .content-up .nav li .line").
+		}).mouseout(function(){
+		});
+
+
         // post滑过效果 <span class="orange">#移动互联网&nbsp;#电子商务&nbsp;#融资</span>
         var label = '<div class="keyword"><div class="keyword-1 fl ml-8 orange">#移动互联网</div><div class="keyword-2 fl ml-8 orange">#电子商务</div><div class="keyword-3 fl ml-8 orange">#融资</div></div>';
         $(".post-label").after(label);

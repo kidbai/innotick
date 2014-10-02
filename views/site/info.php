@@ -4,26 +4,26 @@
 			<div class="img info-circle bg-pink fl ml-80 mt-45">
 			</div>
 			<div class="text fl ml-30 mt-65">
-				<p class="fs-32 lp-4">用户名</p>
-				<p class="fs-14 l-designer">weibo.com/1944780395</p>
+				<div class="fs-32 lp-4 wt">用户名</div>
+				<div class="fs-14 l-designer lp-1">weibo.com/1944780395</div>
 			</div>
 			<div class="menu ml-80">
 				<ul>
 					<li>
 						<div class="color-line bg-orange"></div>
-						<div class="list bg-item-grey"><a href="#"><p class="fs-17 orange">基本信息</p></a></div>
+						<div class="list bg-wt active"><a href="/site/info"><div class="fs-17 orange">基本信息</div></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="#"><p class="fs-17 orange">账号绑定</p></a></div>
+						<div class="list bg-wt"><a href="#"><div class="fs-17 orange">账号绑定</div></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="#"><p class="fs-17 orange">通知设定</p></a></div>
+						<div class="list bg-wt"><a href="#"><div class="fs-17 orange">通知设定</div></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="#"><p class="fs-17 orange">我的收藏</p></a></div>
+						<div class="list bg-wt"><a href="/site/collection"><div class="fs-17 orange">我的收藏</div></a></div>
 					</li>
 				</ul>
 			</div>
@@ -96,14 +96,14 @@
 			</div>
 			<div class="weibo layout mt-101">
 				<label><span>网站或微博</span></label>
-				<div class="http fl"><p>http://</p></div>
-				<input type="text fl" placeholder="weibo/194480395">
+				<input class="http fl" type="text" value="http://">
+				<input class="gray-2 pl-10" type="text fl" value="weibo/194480395">
 			</div>
 			<div class="add mt-15">
-				<a href="#"><p class="orange fs-17">继续添加</p></a>		
+				<a href="#"><p class="orange fs-16">继续添加</p></a>		
 			</div>
 			<div class="submit mt-15">
-				<input type="submit" value="提交"/>
+				<input type="submit" value="保存"/>
 			</div>
 			
 			
@@ -112,6 +112,16 @@
 	
 	
 </div>
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/PCASClass.js" charset="gb2312"></script>
 <script>
     new PCAS("province, 请选择省份", "city, 请选择城市", "area, 请选择地区");
+</script>
+<script>
+	$("#info .column .info .menu li").mouseover(function(){
+		$("#info .column .info .menu li .list").removeClass("active");
+		$("#info .column .info .menu li .color-line").removeClass("bg-orange");
+		$(this).children(".color-line").addClass("bg-orange");
+		$(this).children(".list").addClass("active");
+	});	
 </script>

@@ -9,32 +9,48 @@ use yii\web\JqueryAsset;
     <meta charset="<?= Yii::$app->charset ?>"/>
     <link href="/css/util.css" rel="stylesheet" />
     <link href="/css/base.css" rel="stylesheet" />
+    <link href="/res/font-awesome/font-awesome.css" rel="stylesheet"/>
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
     <div id="lg-window" class="login-window">
         <div class="login up">
-            <div class="close fr">关闭</div>
+            <div class="fa fa-times close fr">关闭</div>
+            <div class="clear"></div>
             <div class="no-sign-in fs-20">
-                <p>无需注册，直接使用社交账号登陆</p>
+                无需注册，直接使用社交账号登陆
             </div>
-            <div class="weibo">weibo</div>
-            <div class="weixin">weixin</div>
+            <div class="weibo"><img src="/img/icon/sina.png" width="25" heigh="20" alt=""/><div class="fr weibo-text">微博</div></div>
+            <div class="weixin"><img src="/img/icon/wechat.png" width="25" heigh="20" alt=""><div class="fr weixin-text">微信</div></div>
         </div>
-        <div class="sign-input mid">
-            <div class="id"></div>
-            <div class="password"></div>
-            <div class="info">
-                <div>忘记密码</div>
-                <div class="login-btn">
+        <div class="solid-line"></div>
+        <div class="sign-input mid mt-20">
+            <div class="id">
+                <div class="avatar-img fl">
+                    <img class="fl" src="/img/icon/user.png" alt=""/>
+                </div>
+                <input class="fl" type="text" placeholder="用户名或邮箱"/>
+            </div>
+            <div class="clear"></div>
+            <div class="password">
+                <div class="password-img fl">
+                    <img class="fl" src="/img/icon/key.png" alt=""/>
+                </div>
+                <input class="fl" type="password" placeholder="密码"/>
+            </div>
+            <div class="clear"></div>
+            <div class="info fl">
+                <div class="fl fs-16 forget-password">忘记密码</div>
+                <div class="login-btn fr">
                     登录
                 </div>
             </div>
         </div>
+        <div class="solid-line"></div>
         <div class="other bottom">
-            <div class="no-id">没有账号</div>
-            <div class="sign-in">注册</div>
+            <div class="no-id fs-16 fl">没有账号</div>
+            <div class="sign-in fs-16 fl">注册</div>
         </div>
     </div>
     <div class="wrapper">
@@ -45,16 +61,35 @@ use yii\web\JqueryAsset;
                 </div>
                 <div class="menu">
                    <ul>
-                       <li><div class="fl nav-item">产品</div><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li><div class="nav-item">观点</div></li>
-                       <li><div class="fl nav-item">专栏</div><img class="fl" src="/img/icon/dropdown.png" alt=""/></li>
-                       <li><div class="nav-item">社区</div></li>
+                       <li>
+                            <div class="nav-item-list">
+                                <div class="fl nav-item">产品</div>
+                                <img class="fl" src="/img/icon/dropdown.png" alt=""/>
+                            </div>
+                           
+                       </li>
+                       <li>
+                            <div class="nav-item-list">
+                                <div class="nav-item">观点</div>
+                            </div>
+                        </li>
+                       <li>
+                            <div class="nav-item-list">
+                                <div class="fl nav-item">专栏</div>
+                                <img class="fl" src="/img/icon/dropdown.png" alt=""/>
+                            </div>
+                        </li>
+                       <li>
+                            <div class="nav-item-list">
+                                <div class="nav-item">社区</div>
+                            </div>
+                        </li>
                    </ul>
                 </div>  
 
                 <div class="search">
                     <div class="search-btn">
-                       <a href=""><img src="/img/icon/search.png" height="30" width="30" alt=""/> </a>
+                       <a href=""><img src="/img/icon/search.png" height="25" width="25" alt=""/> </a>
                     </div>
                     <div class="field">
                         <input id="top-search-field" type="text" placeholder="搜索文章"/>
@@ -231,15 +266,13 @@ use yii\web\JqueryAsset;
         </div>
         
 <script src="/js/jquery-1.11.1.min.js"></script>
-<script src="/js/PCASClass.js" charset="gb2312"></script>
+    
 <script>
     
-    $("#top .nav .menu li").mouseover(function(){
-        $(this).children(".nav-item").addClass("orange");
+    $("#top .nav .menu li .nav-item-list").mouseover(function(){
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
        $(this).children("img").prop("src","/img/icon/dropdown-light.png");
     }).mouseout(function(){
-       $(this).children(".nav-item").removeClass("orange");
        $(this).children("img").prop("src","/img/icon/dropdown.png");
     });
 

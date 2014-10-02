@@ -14,40 +14,40 @@
 						<ul class="ml-40 mt-70">
 							<li class="fl ml-25">
 								<div class="icon-list icon-like fl">
-									<img class="off" src="/img/icon/like.png" width="25" height="23" alt=""/>
-									<img class="on" src="/img/icon/like-light.png" width="25" height="23" alt="">
+									<img class="off" src="/img/icon/like.png" width="25" height="30" alt=""/>
+									<img class="on" src="/img/icon/like-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
 								</div>
-								<span class="fs-15 ml-2 icon-like-num fl">(45)</span>
+								<span class="fs-15 ml-1 icon-like-num fl mt-6">(45)</span>
 							</li>
 							<li class="fl ml-25">
 								<div class="icon-list icon-dislike fl">
-									<img class="off" src="/img/icon/dislike.png" width="25" height="23" alt=""/>
-									<img class="on" src="/img/icon/dislike-light.png" width="25" height="23" alt="">
+									<img class="off mt-6" src="/img/icon/dislike.png" width="25" height="30" alt=""/>
+									<img class="on mt-6" src="/img/icon/dislike-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
 								</div>
-								<span class="fs-15 ml-2 icon-dislike-num fl">(45)</span>
+								<span class="fs-15 ml-1 icon-dislike-num fl mt-6">(45)</span>
 							</li>
 							<li class="fl ml-25">
 								<div class="icon-list icon-share fl">
-									<img class="off" src="/img/icon/share.png" width="25" height="23" alt=""/>
-									<img class="on" src="/img/icon/share-light.png" width="25" height="23" alt="">
+									<img class="off mt-6" src="/img/icon/share.png" width="25" height="23" alt=""/>
+									<img class="on mt-6" src="/img/icon/share-light.png" width="25" height="23" alt="">
 									<div class="clear"></div>
 								</div>
-								<span class="fs-15 ml-2 icon-share-num fl">(45)</span>
+								<span class="fs-15 ml-1 icon-share-num fl mt-6">(45)</span>
 							</li>
 							<li class="fl ml-25">
 								<div class="icon-list icon-collected fl">
-									<img class="off" src="/img/icon/collected.png" width="30" height="23" alt=""/>
-									<img class="on" src="/img/icon/collected-light.png" width="30" height="23" alt="">
+									<img class="off mt-6" src="/img/icon/collected.png" width="30" height="23" alt=""/>
+									<img class="on mt-6" src="/img/icon/collected-light.png" width="30" height="23" alt="">
 									<div class="clear"></div>
 								</div>
-								<span class="fs-15 ml-2 icon-collected-num fl">(45)</span>
+								<span class="fs-15 ml-4 icon-collected-num fl mt-6">(45)</span>
 							</li>
 
 							
-							<li class="sbtn-orange weixin ml-130 fl"><a href=""><p class="orange fs-15">分享到微信</p></a></li>
-							<li class="sbtn-grass weibo ml-20 fl"><a href=""><p class="grass fs-15">分享到微博</p></a></li>
+							<li class="sbtn-orange weixin ml-130 fl"><a href=""><div class="orange sharetoweixin fs-15">分享到微信</div></a></li>
+							<li class="sbtn-grass weibo ml-20 fl"><a href=""><div class="grass sharetoweibo fs-15">分享到微博</div></a></li>
 						</ul>
 					</div>
 					<div class="link border-bottom-1">
@@ -67,8 +67,8 @@
 					</div>
 					<div class="comment-board border-bottom-1">
 						<div class="l-designer fs-13 ml-60 mt-20">文章评论(10)</div>
-						<textarea class="fs-14 mt-15 ml-60 " cols="95" rows="5" placeholder="你怎么看?"></textarea>
-						<div class="fl l-designer ml-60 mt-15"><div class="fl fs-13 l-designer">登陆</div><div class="discuss fl ml-5 gray-1">后参与讨论</div></div>
+						<textarea class="fs-13 mt-15 ml-60 lp-1" cols="95" rows="5" placeholder="你怎么看?"></textarea>
+						<div class="fl l-designer ml-60 mt-15"><div class="fl fs-13 l-designer">登陆</div><div class="discuss fl ml-5 gray-1 mt-1">后参与讨论</div></div>
 						<div class="fs-14 fr submit-btn">提交评论</div>
 					</div>
 					<div class="comment">
