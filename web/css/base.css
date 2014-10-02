@@ -28,7 +28,7 @@
 #top .item { position: absolute; display: none; width: 200px; height: 180px;left: 1081px;top: 80px;z-index: 999;}
 #top .item li { width: 200px; height: 36px; line-height: 25px; text-align: center;}
 #top .carousel { height: 320px; width: 100%;display: none;}
-#top .carousel .inner { position: relative;}
+#top .carousel .carousel-inner { position: relative;}
 #top .carousel.active { display: block;}
 #top .carousel .previous { margin-left: 114px; margin-top: 140px;cursor: pointer;}
 #top .carousel .next { margin-right: 114px; margin-top: 140px;cursor: pointer;}
@@ -36,7 +36,7 @@
 #top .carousel .content-product.on { display: block;}
 #top .carousel .content-special { display: none;}
 #top .carousel .content-special.on { display: block;}
-#top .carousel .content-special { position: absolute;left: 220px; top: 72px; }
+#top .carousel .content-special { position: absolute;left: 139px; top: -28px; }
 #top .carousel .content-special li { width: 220px; height: 100px;cursor: pointer; float: left; margin-top: 46px;}
 #top .carousel .content-special .special-list { width: 220px; height: 100px;}
 #top .carousel .content-special .special-list .imgbcolor:hover { background-color: #494a4a;}
