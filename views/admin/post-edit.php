@@ -76,7 +76,7 @@ $model->category_id = $category_id;
 <script type="text/javascript" src="/res/datetimepicker/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="/res/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
 <script type='text/javascript' charset="utf-8" src="/res/kindeditor/kindeditor-min.js"></script>
-<script type='text/javascript' charset="utf-8" src="/res/kindeditor/zh_CN.js"></script>
+<script type='text/javascript' charset="utf-8" src="/res/kindeditor/lang/zh_CN.js"></script>
 <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.fileupload.js"></script>
