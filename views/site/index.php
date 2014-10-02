@@ -412,22 +412,27 @@
 	
 </div>
 <script src="/js/jquery-1.11.1.min.js"></script>
-<script>
+<script type="text/javascript">
 var flag = true;
 function createLoginInfo(icon){
     // console.log("createLoginInfo");
     // var icon_add = document.createElement("div");
     // $(icon_add).addClass("login"); // bg-login-green
-    var icon_add = "<div class='login'></div>";
+    var icon_add = '<div class="login">' + 
+    					'<div class="text pt-12 pb-10 ml-60"><p class="fs-13 lp-1 sw"></p></div>' +
+    					'<div class="login_btn">' +
+    						'<div class="lgbtn fl ml-60">' +
+    							'<p class="fs-14">微博登陆</p>' +
+    						'</div>' +
+    						'<div class="text-or fl ml-14 mr-14">' +
+    							'<p class="fs-14">或</p>' +
+    						'</div>' +
+    						'<div class="lgbtn fl">' +
+    							'<p class="fs-14">QQ登陆</p>' +
+    						'</div>' +
+    					'</div>' +
+    				'</div>' ;
     icon.parent().parent().after(icon_add);
-    //添加提示信息
-    
-    var login_text = "<div class='text pt-12 pb-10 ml-60'><p class='fs-13 lp-1 sw'></p></div>";
-    // console.log($(icon_add));
-    $(".login").append(login_text);
-    //添加BTN
-    var login_btn = "<div class='login_btn'><div class='lgbtn fl ml-60'><p class='fs-14'>微博登陆</p></div><div class='text_or fl ml-14 mr-14'><p class='fs-14'>或</p></div><div class='lgbtn fl'><p class='fs-14'>QQ登陆</p></div></div>"
-    $(".login").append(login_btn);
 }
 
 function createDelInfo(del_sign){

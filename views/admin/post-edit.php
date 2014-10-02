@@ -1,13 +1,9 @@
 <?php
 use yii\widgets\ActiveForm;
 
-$section = '';
-if (!$model->id)
-{
-	$section = '1-0';
-}
+$section = '1-' . $category_id;
 
-$category_map = param('post-category');
+$model->category_id = $category_id;
 
 ?>
 
@@ -17,7 +13,7 @@ $category_map = param('post-category');
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?= $this->render('/admin/post-menu', ['section' => $section]) ?>
+            <?= $this->render('/admin/post-menu', ['section' => $section, 'category' => $category]) ?>
         </div>
 
         <input type="hidden" id="class-id" value="<?= $model->id ?>" />
@@ -33,19 +29,31 @@ $category_map = param('post-category');
 		        ],
 		    ]); ?>
 
-		    <?= $form->field($model, 'name', ['inputOptions' => ['class' => 'form-control']]) ?>
+		    <?= $form->field($model, 'title', ['inputOptions' => ['class' => 'form-control']]) ?>
 		    <div class="clear-2"></div>		    
 
+		    <?= $form->field($model, 'category_id', ['inputOptions' => ['class' => 'form-control']])->dropDownList($category) ?>
+		    <div class="clear-2"></div>
+
+            <?= $form->field($model, 'tag', ['inputOptions' => ['class' => 'form-control', 'placeholder' => '用半角逗号分割，如: apple,iOS']]) ?>
+            <div class="clear-2"></div>             
 	    
-		    <?= $form->field($model, 'content', ['template' => '{label}{input}
-		    													<div class="col-sm-5 pl-15">
+		    <?= $form->field($model, 'img', ['template' => '{label}{input}
+		    													<div class="col-sm-7 pl-15">
 		    														<span class="btn btn-success fl file-upload-btn" >
 																		上传<input type="file" id="file-upload" name="file" />
 																	</span>
 																	<span class="fl file-upload-status" id="file-upload-status"></span>
 																	<div class="clear-10"></div>
-																</div>'
+																	<img id="file-upload-img" width="150" height="150" src="/upload/img/'. $model->img .'" />
+																</div>
+                                                                <div class="error-msg col-sm-2 ml">{error}</div>'
 												])->hiddenInput() ?>
+
+
+		    <?= $form->field($model, 'content', ['template' => "{label}<div class=\"col-sm-9\">{input}</div>\n<div class=\"clear-10\"></div><div class=\"error-msg col-sm-offset-1 col-sm-4\">{error}</div>", 'inputOptions' => ['placeholder' => '介绍', 'class' => 'form-control']])->textarea() ?>		    
+		    <div class="clear-2"></div>
+
 		    <div class="clear-2"></div>
 			<div class="form-group ">
                 <div class="col-sm-offset-1 col-sm-2">

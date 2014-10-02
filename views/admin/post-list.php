@@ -2,7 +2,7 @@
 use yii\widgets\ListView;
 use app\component\BootstrapPager;
 
-$section = '1-1';
+$section = '1-' . $category_id;
 
 ?>
 
@@ -10,13 +10,12 @@ $section = '1-1';
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?= $this->render('/admin/post-menu', ['section' => $section]) ?>
+            <?= $this->render('/admin/post-menu', ['section' => $section, 'category' => $category]) ?>
         </div>
 
         <div class="col-md-10">
-
             <div class="">
-                <a href="/admin/post-edit" class="btn btn-success ml-15">添加文章</a>
+                <a href="/admin/post-edit?category_id=<?= $category_id ?>" class="btn btn-success">添加资讯</a>
             </div>
             <div class="clear-10"></div>
 
@@ -24,16 +23,19 @@ $section = '1-1';
 			echo ListView::widget([
 			    'dataProvider' => $provider,
 			  	'itemView' => '/admin/post-list-item-view',
-			  	'layout' => '<div class="table-holder col-md-8">
+			  	'layout' => '<div class="table-holder">
 			  					<table class="table table-condensed table-hover table-bordered data-table">
-				                    <thread>
+				                    <thead>
 				                      <tr>
 				                      	<th class="tc">编辑</th>
 				                        <th class="tc">删除</th>
 				                        <th class="tc">ID</th>
 				                        <th class="tc">标题</th>
+				                        <th class="tc">发布时间</th>
+				                        <th class="tc">更新时间</th>
+				                        <th class="tc">发布者</th>
 				                      </tr>
-				                    </thred>
+				                    </thead>
 				                  {items}  
 				                  </table>
 				              </div>

@@ -9,7 +9,7 @@ function deletePost(id)
         data: { id: id, '_csrf': global.csrfToken },
         success: function(data)
         {
-            if (data.error == 0)
+            if (data.code == 0)
             {
                 alert('删除成功');
                 window.location.reload();

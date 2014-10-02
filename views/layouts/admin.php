@@ -29,11 +29,7 @@ JqueryAsset::register($this);
 
     <ul id="top-nav" class="nav nav-tabs nav-tabs-google">
         <li><span href="javascript:;" id="logo">后台管理</span></li>
-        <li id="nav-1" class="nav-item <? if ($page == 1) echo 'active'; ?>"><a href="/admin/meeting">会议管理</a></li>
-        <li id="nav-2" class="nav-item <? if ($page == 2) echo 'active'; ?>"><a href="/admin/user">用户管理</a></li>
-        <li id="nav-3" class="nav-item <? if ($page == 3) echo 'active'; ?>"><a href="/admin/questionnaire">问卷管理</a></li>
-        <li id="nav-4" class="nav-item <? if ($page == 4) echo 'active'; ?>"><a href="/admin/vote">投票管理</a></li>
-        <li id="nav-5" class="nav-item <? if ($page == 5) echo 'active'; ?>"><a href="/admin/post">文章管理</a></li>
+        <li id="nav-5" class="nav-item <? if ($page == 1) echo 'active'; ?>"><a href="/admin/post">文章管理</a></li>
         <li><a href="javascript:;"><?= getServerIp() ?></a></li>
     </ul>
 

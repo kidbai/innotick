@@ -7,15 +7,23 @@ use Yii;
 /**
  * This is the model class for table "tbl_post".
  *
- * @property integer $ID
- * @property string $name
- * @property integer $type
+ * @property integer $id
+ * @property string $title
+ * @property string $img
  * @property string $content
+ * @property string $tag
+ * @property integer $category_id
+ * @property integer $type
+ * @property integer $status
+ * @property integer $user_id
  * @property integer $created
  * @property integer $updated
  */
 class Post extends \yii\db\ActiveRecord
 {
+    const STATUS_OFF = 0;
+    const STATUS_ON = 1;    
+
     /**
      * @inheritdoc
      */
@@ -30,10 +38,10 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'content'], 'required'],
-            [['type', 'created', 'updated'], 'integer'],
-            [['content'], 'string'],
-            [['name'], 'string', 'max' => 99]
+            [['title', 'img', 'content', 'category_id', 'status', 'user_id'], 'required', 'message' => '{attribute}不能为空'],
+            [['img', 'content', 'tag'], 'string'],
+            [['category_id', 'type', 'status', 'user_id', 'created', 'updated'], 'integer'],
+            [['title'], 'string', 'max' => 999]
         ];
     }
 
@@ -43,12 +51,44 @@ class Post extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => 'ID',
-            'name' => '标题',
-            'type' => 'Type',
-            'content' => 'PDF',
+            'id' => 'ID',
+            'title' => '标题',
+            'img' => '图片',
+            'content' => '内容',
+            'tag' => '标签',
+            'category_id' => '分类',
+            'type' => '类型',
+            'status' => '状态',
+            'user_id' => 'User ID',
             'created' => 'Created',
             'updated' => 'Updated',
         ];
     }
+
+    public function beforeSave($insert) 
+    {   
+        if (parent::beforeSave($insert)) 
+        {
+            $this->updated = time();
+            if ($insert) 
+            {
+                $this->created = $this->updated;
+            }  
+            return true;
+        } 
+        else 
+        {
+            return false;
+        } 
+    }  
+
+    public function getAdmin()
+    {
+        return $this->hasOne(Admin::className(), ['id' => 'user_id']);
+    }  
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }            
 }
