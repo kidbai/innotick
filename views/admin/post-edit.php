@@ -45,7 +45,7 @@ $model->category_id = $category_id;
 																	</span>
 																	<span class="fl file-upload-status" id="file-upload-status"></span>
 																	<div class="clear-10"></div>
-																	<img id="file-upload-img" width="150" height="150" src="/upload/img/'. $model->img .'" />
+																	<img id="file-upload-img" width="150" src="/upload/img/'. $model->img .'" />
 																</div>
                                                                 <div class="error-msg col-sm-2 ml">{error}</div>'
 												])->hiddenInput() ?>
