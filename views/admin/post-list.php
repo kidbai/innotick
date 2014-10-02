@@ -15,7 +15,7 @@ $section = '1-' . $category_id;
 
         <div class="col-md-10">
             <div class="">
-                <a href="/admin/post-edit?category_id=<?= $category_id ?>" class="btn btn-success">添加资讯</a>
+                <a href="/admin/post-edit?category_id=<?= $category_id ?>" class="btn btn-success">发布文章</a>
             </div>
             <div class="clear-10"></div>
 
