@@ -5,7 +5,7 @@ use app\component\DXConst;
 
 $id = $model->id;
 $edit_url = url(['/admin/post-edit', 'id' => $id]);
-$view_url = url(['/p/view', 'id' => $id]);
+$view_url = $model->url;
 
 
 $post = $model;
