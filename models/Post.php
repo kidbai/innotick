@@ -11,6 +11,9 @@ use Yii;
  * @property string $title
  * @property string $img
  * @property string $content
+ * @property string $author
+ * @property string $source_name
+ * @property string $source_url
  * @property string $tag
  * @property integer $category_id
  * @property integer $type
@@ -39,7 +42,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'img', 'content', 'category_id', 'status', 'user_id'], 'required', 'message' => '{attribute}不能为空'],
-            [['img', 'content', 'tag'], 'string'],
+            [['img', 'content', 'tag', 'author', 'source_name', 'source_url'], 'string'],
             [['category_id', 'type', 'status', 'user_id', 'created', 'updated'], 'integer'],
             [['title'], 'string', 'max' => 999]
         ];
@@ -55,6 +58,9 @@ class Post extends \yii\db\ActiveRecord
             'title' => '标题',
             'img' => '图片',
             'content' => '内容',
+            'author' => '作者',
+            'source_name' => '来源名',
+            'source_url' => '来源网址',
             'tag' => '标签',
             'category_id' => '分类',
             'type' => '类型',

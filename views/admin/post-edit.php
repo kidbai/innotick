@@ -36,7 +36,16 @@ $model->category_id = $category_id;
 		    <div class="clear-2"></div>
 
             <?= $form->field($model, 'tag', ['inputOptions' => ['class' => 'form-control', 'placeholder' => '用半角逗号分割，如: apple,iOS']]) ?>
-            <div class="clear-2"></div>             
+            <div class="clear-2"></div>   
+
+            <?= $form->field($model, 'author', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div> 
+
+            <?= $form->field($model, 'source_name', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div> 
+
+            <?= $form->field($model, 'source_url', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>                                               
 	    
 		    <?= $form->field($model, 'img', ['template' => '{label}{input}
 		    													<div class="col-sm-7 pl-15">
