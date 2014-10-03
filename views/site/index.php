@@ -83,8 +83,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -142,8 +150,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -201,8 +217,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -260,8 +284,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -319,8 +351,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -378,8 +418,16 @@
 	    			<div class="tag-like ml-1">
 	    				<img src="/img/icon/save.png" width="15" height="15" alt=""/>
 	    			</div>
-	    			<div class="tag-add ml-1">
-	    				<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    			<div class="tag-add-cont fl ml-1">
+	    				<div class="tag-add active">
+		    				<img src="/img/icon/more2.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-green active">
+	    					<img src="/img/icon/more.png" width="15" height="15" alt=""/>
+	    				</div>
+	    				<div class="tag-add-cancel">
+	    					<img src="/img/icon/cancel.png" width="15" height="15" alt=""/>
+	    				</div>
 	    			</div>
 	    			<div class="tag-del-cont">
 	    				<div class="tag-del ml-1">
@@ -481,20 +529,35 @@ function createLoginInfo(icon){
     // console.log("createLoginInfo");
     // var icon_add = document.createElement("div");
     // $(icon_add).addClass("login"); // bg-login-green
-    var icon_add = "<div class='login'></div>";
+    var icon_add = '<div class="login" id="login">'+
+    					'<div class="text pt-12 pb-10 ml-60">'+
+    						'<p class="fs-13 lp-1 sw"></p>'+
+    					'</div>'+
+    					'<div class="login_btn">'+
+    						'<div class="lgbtn fl ml-60">'+
+    							'<p class="fs-14">微博登陆</p>'+
+    						'</div>'+
+    						'<div class="text_or fl ml-14 mr-14">'+
+    							'<p class="fs-14">或</p>'+
+    						'</div>'+
+    						'<div class="lgbtn fl">'+
+    							'<p class="fs-14">QQ登陆</p>'+
+    							'</div>'+
+    						'</div>'
+    				'</div>';
     icon.parent().parent().after(icon_add);
     //添加提示信息
     
-    var login_text = "<div class='text pt-12 pb-10 ml-60'><p class='fs-13 lp-1 sw'></p></div>";
-    // console.log($(icon_add));
-    $(".login").append(login_text);
-    //添加BTN
-    var login_btn = "<div class='login_btn'><div class='lgbtn fl ml-60'><p class='fs-14'>微博登陆</p></div><div class='text_or fl ml-14 mr-14'><p class='fs-14'>或</p></div><div class='lgbtn fl'><p class='fs-14'>QQ登陆</p></div></div>"
-    $(".login").append(login_btn);
+  
 }
 
+
 function createDelInfo(del_sign){
-	var del = "<div class='del-info'><div class='left_text'>很好，您将不会看到这篇文章了</div><div class='right_text'>撤回</div><div class='mid_text'>误删除可以马上</div></div>";
+	var del = "<div class='del-info'>" +
+				"<div class='left_text'>很好，您将不会看到这篇文章了</div>"+
+				"<div class='right_text'>撤回</div>"+
+				"<div class='mid_text'>误删除可以马上</div>"+
+			  "</div>";
 	$(del_sign).parent().parent().after(del);
 }
 
@@ -560,7 +623,7 @@ function createDelInfo(del_sign){
 	       	}
        	});
 
-       	$(".post .tag-add").mouseenter(function(){
+       	$(".post .tag-add-cont").mouseenter(function(){
        		if($(this).hasClass("on"))
        		{
        			$(this).parent().siblings(".tag-label").children(".tag-label-more-recall").show();
@@ -573,8 +636,9 @@ function createDelInfo(del_sign){
        	}).mouseleave(function(){
 			$(this).parent().siblings(".tag-label").children(".tag-label-more").hide();
    			$(this).parent().siblings(".tag-label").children(".tag-label-more-recall").hide();
+       		//问题点
        	});
-       	$(".post .tag-add").click(function(){
+       	$(".post .tag-add-cont").click(function(){
        		if(flag)
 			{
 				createLoginInfo($(this));
@@ -599,6 +663,24 @@ function createDelInfo(del_sign){
        		{
 	       		$(this).addClass("on");
        		}
+       		if($(this).children(".tag-add-cancel").hasClass("active"))
+       		{
+       			$(this).children(".tag-add-cancel").removeClass("active");
+       		}
+       		else
+       		{
+	       		$(this).children(".tag-add-cancel").addClass("active");
+       		}
+
+      //  		if($(this).hasClass("active"))
+   			// {
+
+   			// 	$(this).removeClass("active");
+   			// }
+   			// else
+   			// {
+   			// 	$(this).addClass("active");
+   			// }
        	});
 
        	$(".post .tag-del-cont").mouseenter(function(){
@@ -622,11 +704,16 @@ function createDelInfo(del_sign){
 			{
 				createLoginInfo($(this));
 				var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
-				$(".login .login_btn").append(del_btn);
+				$("#login .login_btn").append(del_btn);
        			$(".login").children(".text").children("p").text("登陆账号，我们将减少为您提供这类文章");
 	       		$(".login").addClass("bg-login-blue").slideDown("fast");
 			}
 			flag = false;
+			// $(this).parent().parent().slideUp("fast", function(){
+			// 	$(this).remove();
+			// 	$(".login").remove();
+			// });
+
 			$("#content .lgbtn").mouseenter(function(){
 				$(this).css({"backgroundColor":"#7185be"});
        		}).mouseleave(function(){
@@ -646,8 +733,14 @@ function createDelInfo(del_sign){
        		$("#content .lgbtn:eq(2)").click(function(){
        			createDelInfo($(this));
        			$(".login").slideUp("fast",function(){
-       				$(this).remove();
+       				console.log($(this).prev());
+       				$(this).prev().remove();
+       				$(this).slideUp("fast", function(){
+       					$(this).remove();
+       				});
        			});
+       			setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
+       			// $("")
        			flag = true;
        			$("#content .del-info .right_text").click(function(){
        				if(!$(this).hasClass("on"))
@@ -673,6 +766,8 @@ function createDelInfo(del_sign){
        		{
 	       		$(this).addClass("on");
        		}
+       		setTimeout('$(".login").slideUp("fast", function(){$(this).prev().remove(); $(this).remove();flag=true})', 3000);
+       		// setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
        	});
 
        	//login

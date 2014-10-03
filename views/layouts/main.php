@@ -21,7 +21,7 @@ use yii\web\JqueryAsset;
     <!-- 登陆窗口 -->
     <div id="lg-window" class="login-window">
         <div class="lg-window-login">
-            <div class="login up">
+            <div class="login-title up">
                 <div class="close fr">
                     <i class="fa fa-times"></i>
                 </div>
@@ -66,7 +66,7 @@ use yii\web\JqueryAsset;
 
         <!-- 注册窗口  -->
         <div class="lg-window-signin">
-            <div class="login up">
+            <div class="login-title up">
                 <div class="close fr">
                     <i class="fa fa-times"></i>
                 </div>
@@ -111,7 +111,7 @@ use yii\web\JqueryAsset;
         </div>
         <!--  忘记密码 --> 
         <div class="fpassword">
-           <div class="login fup">
+           <div class="login-title fup">
                 <div class="fpassword-text fl fs-20 lp-1">
                     忘记密码 
                 </div>
@@ -187,7 +187,7 @@ use yii\web\JqueryAsset;
                     
                 </div>
                 
-                <div class="login">
+                <div class="login-nav-right">
                     <a class="btn lp-1">登录</a>
                 </div>
             </div>
@@ -424,7 +424,7 @@ use yii\web\JqueryAsset;
     });
 
     //创建登陆窗口
-    $("#top .nav .login .btn").click(function(){
+    $("#top .nav .login-nav-right .btn").click(function(){
         console.log($("#lg-window"));
         if(!$("#lg-window").hasClass("on"))
         {
