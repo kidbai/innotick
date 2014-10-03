@@ -2,10 +2,11 @@
 	<div class="column">
 		<div class="info col-15">
 			<div class="img info-circle bg-pink fl ml-80 mt-45">
+				<div class="avatar-circle"></div>
 			</div>
 			<div class="text fl ml-30 mt-65">
 				<div class="fs-32 lp-4 wt">用户名</div>
-				<div class="fs-14 l-designer lp-1">weibo.com/1944780395</div>
+				<div class="fs-14 weibolink-color lp-1">weibo.com/1944780395</div>
 			</div>
 			<div class="menu ml-80">
 				<ul>
@@ -37,35 +38,54 @@
 			<div class="collection ml-20 mr-20 mt-20 bg-orange">
 				<ul>
 					<li class="fl ml-38">分类</li>
-					<li class="fl ml-46">标题</li>
+					<li class="fl ml-50">标题</li>
 					<li class="fr mr-60">回复数</li>
 					<li class="fr mr-60">时间</li>
 				</ul>	
 			</div>	
 			<div class="collection-cont mr-20 ml-20">
-				<a class="site fl ml-38" href="#"><p class="collection-green">网站</p></a>
-				<a class="title fl ml-46" href="#"><p>韩国电子优惠券服务Spoqa融资200万美</p></a>
-				<p class="fr comment-num mr-60">22123</p>
-				<p class="fr time mr-50">五月前</p>
+				<div class="collection-green site fl ml-38 category">网站</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">22123</div>
+				<div class="fr time mr-50">五月前</div>
 			</div>
 			<div class="collection-cont mr-20 ml-20">
-				<a class="site fl ml-38" href="#"><p class="collection-blue">应用</p></a>
-				<a class="title fl ml-46" href="#"><p>韩国电子优惠券服务Spoqa融资200万美</p></a>
-				<p class="fr comment-num mr-60">22123</p>
-				<p class="fr time mr-50">五月前</p>
+				<div class="collection-blue app fl ml-38 category">应用</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">22</div>
+				<div class="fr time mr-50">十二月前</div>
 			</div>
 			<div class="collection-cont mr-20 ml-20">
-				<a class="site fl ml-38" href="#"><p class="collection-orange">硬件</p></a>
-				<a class="title fl ml-46" href="#"><p>韩国电子优惠券服务Spoqa融资200万美</p></a>
-				<p class="fr comment-num mr-60">22123</p>
-				<p class="fr time mr-50">五月前</p>
+				<div class="collection-purple hardware fl ml-38 category">硬件</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">3</div>
+				<div class="fr time mr-50">十二月前</div>
 			</div>
 			<div class="collection-cont mr-20 ml-20">
-				<a class="site fl ml-38" href="#"><p class="collection-red">品牌</p></a>
-				<a class="title fl ml-46" href="#"><p>韩国电子优惠券服务Spoqa融资200万美</p></a>
-				<p class="fr comment-num mr-60">22123</p>
-				<p class="fr time mr-50">五月前</p>
+				<div class="collection-red brand fl ml-38 category">品牌</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">123</div>
+				<div class="fr time mr-50">五月前</div>
 			</div>
+			<div class="collection-cont mr-20 ml-20">
+				<div class="collection-yellow idea fl ml-38 category">创意</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">22123</div>
+				<div class="fr time mr-50">五月前</div>
+			</div>
+			<div class="collection-cont mr-20 ml-20">
+				<div class="collection-pink viewpoint fl ml-38 category">观点</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">22123</div>
+				<div class="fr time mr-50">五月前</div>
+			</div>
+			<div class="collection-cont mr-20 ml-20">
+				<div class="collection-orange special fl ml-38 category">专栏</div>
+				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
+				<div class="fr comment-num mr-60">22123</div>
+				<div class="fr time mr-50">五月前</div>
+			</div>
+			
 
 			<div class="pagination">
 				<div class="next pagination-btn orange fr">下一页</div>

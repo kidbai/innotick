@@ -2,10 +2,11 @@
 	<div class="column">
 		<div class="info col-15">
 			<div class="img info-circle bg-pink fl ml-80 mt-45">
+				<div class="avatar-circle"></div>
 			</div>
 			<div class="text fl ml-30 mt-65">
 				<div class="fs-32 lp-4 wt">用户名</div>
-				<div class="fs-14 l-designer lp-1">weibo.com/1944780395</div>
+				<div class="fs-14 weibolink-color lp-1">weibo.com/1944780395</div>
 			</div>
 			<div class="menu ml-80">
 				<ul>
