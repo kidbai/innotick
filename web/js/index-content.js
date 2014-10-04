@@ -84,9 +84,26 @@ $(function(){
       totalheight = parseFloat($(window).height()) + parseFloat(scrollPos);  
       if(($(document).height() - distance) <= totalheight && load_cout!=load_maxnum )
       {
+
+        var lastPostId = $('.post').last().attr('data-id');
+        if (!lastPostId)
+        {
+          lastPostId = 0;
+        }
+
+        $.ajax({
+          url: '/site/post-list',
+          type: 'POST',
+          data: { 'last_post_id': lastPostId },
+          success: function(html)
+          {
+            $('#post-holder').append(html);
+          }
+        });
+
         
         $(".spinner .load-animation").addClass("show");
-        main.append('<div style = "border:1px solid ; height:200px; width:230px;">headsfasdfa' + load_cout + '</div>');
+        // main.append('<div style = "border:1px solid ; height:200px; width:230px;">headsfasdfa' + load_cout + '</div>');
         load_cout++;
         if(load_cout == 9) // 加载上限，停止动画
         {
