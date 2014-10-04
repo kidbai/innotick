@@ -85,7 +85,7 @@ $(function(){
       if(($(document).height() - distance) <= totalheight && load_cout!=load_maxnum )
       {
 
-        var lastPostId = $('.post').last().prop('data-id');
+        var lastPostId = $('.post').last().attr('data-id');
         if (!lastPostId)
         {
           lastPostId = 0;
