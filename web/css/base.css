@@ -111,7 +111,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .content-up{height:320px;}
 #content .title-img{ background-color: #D3D3D3; height: 600px;}
 #content .nav{ background-color: #EE6350; height: 40px;}
-#content .nav li { cursor: pointer; float: left; width: 80px; height: 40px; line-height: 40px; text-align: center; font-size: 20px; letter-spacing: 1px;}
+#content .nav li { cursor: pointer; float: left; width: 80px; height: 40px; line-height: 40px; text-align: center; font-size: 20px; letter-spacing: 1px; list-style-type: none;}
 #content .nav li .line { width: 80px; height: 4px; background-color: #babdba; position: absolute;}
 #content .nav li .line_2 { width: 80px; height: 4px; background-color: #babdba; position: absolute;}
 #content .nav li.active { background-color: #ffffff; color: #636262;}
@@ -123,8 +123,8 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .post .icon-type { position: absolute;top:35px;left:56px;}
 #content .post .icon-type .tag3-text{ position: absolute; text-align: center; line-height: 20px;color:#ffffff; top: 1px; left: 9px;}
 #content .post .text { position: relative; height: 180px; width: 476px;float: left;margin-top: 25px;}
-#content .post .text .title { color: #38485a ; cursor: pointer; }
-#content .post .text .title:hover { color: #ee6350;}
+#content .post .text .title a { color: #38485a ; cursor: pointer; }
+#content .post .text .title:hover a { color: #ee6350;}
 #content .post .text .author:hover { color: #ee6350; }
 #content .post .text .keyword { height: 16px; margin: 12px 0px 12px 180px; display: none;}
 #content .post .text .keyword-1:hover { cursor: pointer; color: #000000; }
@@ -266,7 +266,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .info .menu .color-line { width: 120px; height: 4px;position: absolute;}
 #info .info .menu li { float: left;width: 120px; height: 50px; line-height: 50px;text-align: center;}
 #info .info .menu li .list.active { background-color: #f3f6f9; }
-#info .info .menu li .list.active-2 { background-color: #f3f6f9; }
+#info .info .menu li .list.active_2 { background-color: #f3f6f9; }
 #info .fill { width: 100%; height: 15px; background-color: #f3f6f9;}
 #info .setting { width: 86.66666667%; height: 1800px; overflow: hidden;}
 #info .collection { width: 96.153846153846% ; height: 38px;}
