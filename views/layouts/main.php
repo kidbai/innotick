@@ -50,7 +50,7 @@ use yii\web\JqueryAsset;
                 <div class="clear"></div>
                 <div class="info fl">
                     <div class="fl fs-16 forget-password">
-                        忘记密码
+                        忘记密码?
                     </div>
                     <div class="login-btn fr">
                         登录
@@ -59,7 +59,7 @@ use yii\web\JqueryAsset;
             </div>
             <div class="solid-line"></div>
             <div class="other bottom">
-                <div class="no-id fs-16 fl">没有账号</div>
+                <div class="no-id fs-16 fl">没有账号?</div>
                 <div class="sign-in fs-16 fl">注册</div>
             </div>
         </div>

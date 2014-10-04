@@ -52,7 +52,7 @@
 #lg-window .fpassword .back { height: 70px; line-height: 70px; color: #898989; cursor: pointer;}
 #lg-window .fpassword .back img { margin-top: 23px; }
 #lg-window .fpassword .mid .label { color: #898989; }
-#lg-window .fpassword .mid input { margin: 16px 0px 0px 40px; width: 460px; }
+#lg-window .fpassword .mid input { margin: 16px 0px 0px 40px; width: 460px; padding: 8px ;}
 #lg-window .fpassword .mid .text { width: 318px; color: #898989; padding: 8px; }
 #lg-window .fpassword .fp-btn {cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 10px 0px 0px 360px }
 #top .nav { height: 80px; position: relative; }
