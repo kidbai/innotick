@@ -63,5 +63,5 @@ return $(this).each(function() {
 };
 
 //绑定
-$(".qrcode_2").smartFloat();
+// $(".qrcode_2").smartFloat();
 	
