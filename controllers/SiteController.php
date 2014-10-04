@@ -24,11 +24,26 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($page = 1)
     {
-        $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->all();
+        $page = intval($page);
+
+        $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->offset(($page - 1) * 20)->all();
 
         return $this->render('/site/index', ['post_list' => $post_list]);
+    }
+
+    public function actionPostList()
+    {
+        $last_post_id = intval($_REQUEST['last_post_id']);
+        $post_list = Post::find()->where(" id < $last_post_id ")->orderBy(['created' => SORT_DESC])->limit(5)->all();
+        $html = '';
+        foreach ($post_list as $post)
+        {
+            $html .= $this->renderPartial('/site/post-item', ['post' => $post]) . "\n";
+        }
+
+        return $html;
     }
 
     public function actionArticle()
