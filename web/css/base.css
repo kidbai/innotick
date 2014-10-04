@@ -123,7 +123,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .post .icon-type { position: absolute;top:35px;left:56px;}
 #content .post .icon-type .tag3-text{ position: absolute; text-align: center; line-height: 20px;color:#ffffff; top: 1px; left: 9px;}
 #content .post .text { position: relative; height: 180px; width: 476px;float: left;margin-top: 25px;}
-#content .post .text .title { color: #38485a ; cursor: pointer;}
+#content .post .text .title { color: #38485a ; cursor: pointer; }
 #content .post .text .title:hover { color: #ee6350;}
 #content .post .text .author:hover { color: #ee6350; }
 #content .post .text .keyword { height: 16px; margin: 12px 0px 12px 180px; display: none;}
@@ -132,7 +132,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .post .text .keyword-3:hover { cursor: pointer; color: #000000; }
 #content .post .text .post-label { color: #989898; margin: 12px 0px 12px 0px;}
 #content .post .text .post-label .author:hover { cursor: pointer;}
-#content .post .text .content { color: #686969; position: absolute; top: 96px;}
+#content .post .text .content { color: #686969; position: relative; }
 #content .post .text .content a {color: #231815;}
 #content .post .text .content a:hover { color: #ee6350;}
 #content .post .tag-label { position: absolute; top: -10px; right: -25px; width: 120px; height: 30px;}
