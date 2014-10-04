@@ -45,6 +45,11 @@ class SiteController extends Controller
         return $this->render('/site/collection');
     }
 
+    public function actionPass()
+    {
+        dump(md5(md5('inno')));
+    }
+
     // public function actionCalColumn()
     // {
     //     dump(sprintf("%.8f", 80.0 / 1200));

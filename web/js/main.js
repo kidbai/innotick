@@ -64,7 +64,8 @@
     });
 
     $("#top .carousel").mouseleave(function(e){
-        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < -10  )
+        console.log(e);
+        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0  )
         {
             $("#top .carousel").slideUp("fast");
         }

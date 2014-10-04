@@ -121,7 +121,7 @@
 				</div>
 			</div>	
 			<div class="right col-4">
-				<div class="hot-list bg-wt">
+				<div class="hot-list bg-wt article">
 		    		<div class="hot">
 		    			<div class="img-line-up"></div>	
 		    			<a href="#"><img src="#" alt=""/></a>	

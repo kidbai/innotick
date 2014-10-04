@@ -246,8 +246,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="website-text fl ml-10">
-                                    <p class="fs-20 mb-5">网站</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <div class="fs-20 mb-5 lightgray">网站</div>
+                                    <div class="fs-14 lightgray">PC互联网项目</div>
                                 </div>
                             </li>
                             <li class="ml-100 special-list">
@@ -255,8 +255,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="app-text fl ml-10">
-                                    <p class="fs-20 mb-5">应用</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <p class="fs-20 mb-5 lightgray">应用</p>
+                                    <p class="fs-14 lightgray">PC互联网项目</p>
                                 </div>
                             </li>
                             <li class="ml-100 special-list">
@@ -264,8 +264,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="hardware-text fl ml-10">
-                                    <p class="fs-20 mb-5">硬件</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <p class="fs-20 mb-5 lightgray">硬件</p>
+                                    <p class="fs-14 lightgray">PC互联网项目</p>
                                 </div>
                             </li>
                             <div class="clear"></div>
@@ -274,8 +274,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="brand-text fl ml-10">
-                                    <p class="fs-20 mb-5">品牌</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <p class="fs-20 mb-5 lightgray">品牌</p>
+                                    <p class="fs-14 lightgray">PC互联网项目</p>
                                 </div>                                    
                             </li>
                             <li class="ml-100 special-list">
@@ -283,8 +283,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="idea-text fl ml-10">
-                                    <p class="fs-20 mb-5">品牌</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <p class="fs-20 mb-5 lightgray">创意</p>
+                                    <p class="fs-14 lightgray">PC互联网项目</p>
                                 </div>
                             </li>
                             <li class="ml-100 special-list">
@@ -292,8 +292,8 @@ use yii\web\JqueryAsset;
                                     <img src="/img/icon/icon1.png" width="50" height="50" alt=""/> 
                                 </div>
                                 <div class="viewpoint-text fl ml-10">
-                                    <p class="fs-20 mb-5">观点</p>
-                                    <p class="fs-14">PC互联网项目</p>
+                                    <p class="fs-20 mb-5 lightgray">观点</p>
+                                    <p class="fs-14 lightgray">PC互联网项目</p>
                                 </div>
                             </li>
                         </ul>

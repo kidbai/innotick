@@ -10,7 +10,7 @@ function dump($target)
 	return yii\helpers\VarDumper::dump($target, 10, true);
 }
 
-function sql($sql) 
+function sql($sql = null) 
 {
 	$connection = \Yii::$app->db;
 	$command = $connection->createCommand($sql);
@@ -111,3 +111,16 @@ function getServerIp()
 
 	return @$lines[0];
 }
+
+function getCategory()
+{
+	$db_category_list = sql(' select id, name from {{%post_category}} ')->queryAll();
+	$category = [];
+	foreach ($db_category_list as $db_category)
+	{
+		$id = intval($db_category['id']);
+		$name = $db_category['name'];
+		$category[$id] = $name;
+	}
+	return $category;
+}	

@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=dd;dbname=zhmeeting',
-    'username' => 'zhmeeting',
-    'password' => '3XPxrCyt8PTzmzRZ',
+    'dsn' => 'mysql:host=dd;dbname=innodesign',
+    'username' => 'innodesign',
+    'password' => '8VTvUfbBEuTPpKzJ',
     'charset' => 'utf8',
     'tablePrefix' => 'tbl_',
 ];

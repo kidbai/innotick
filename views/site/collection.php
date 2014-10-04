@@ -99,11 +99,14 @@
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script>
 	$("#info .column .info .menu li").mouseover(function(){
-		$("#info .column .info .menu li .list").removeClass("active");
-		$("#info .column .info .menu li .color-line").removeClass("bg-orange");
-		$(this).children(".color-line").addClass("bg-orange");
-		$(this).children(".list").addClass("active");
-	});	
+		$("#info .column .info .menu li .list").removeClass("active-2");
+		$("#info .column .info .menu li .color-line").removeClass("bg-orange-2");
+		$(this).children(".color-line").addClass("bg-orange-2");
+		$(this).children(".list").addClass("active-2");
+	}).mouseout(function(){
+		$("#info .column .info .menu li .list").removeClass("active-2");
+		$("#info .column .info .menu li .color-line").removeClass("bg-orange-2");
+	});
 
 	$("#info .pagination .previous").mouseover(function(){
 		// $(this).css({"backgroundColor":"#ee6350",});
