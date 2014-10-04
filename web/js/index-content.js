@@ -10,7 +10,7 @@ var position = function(element) {
             if (window.XMLHttpRequest) {
                 element.css({
                     position: "fixed",
-                    top: 0
+                    top: 0,
                 });    
             } else {
                 element.css({
@@ -31,7 +31,7 @@ return $(this).each(function() {
 };
 
 //绑定
-$(".qrcode").smartFloat();
+// $(".qrcode").smartFloat();
 
 var flag = true;
 function createLoginInfo(icon){
@@ -282,7 +282,9 @@ $(function(){
      			createDelInfo($(this));
      			$(".login").slideUp("fast",function(){
      				console.log($(this).prev());
-     				$(this).prev().remove();
+     				$(this).prev().slideUp("fast", function(){
+                $(this).remove();
+            });
      				$(this).slideUp("fast", function(){
      					$(this).remove();
      				});
@@ -314,7 +316,7 @@ $(function(){
      		{
        		$(this).addClass("on");
      		}
-     		setTimeout('$(".login").slideUp("fast", function(){$(this).prev().remove(); $(this).remove();flag=true})', 3000);
+     		setTimeout('$(".login").slideUp("fast", function(){$(this).prev().slideUp("fast",function(){$(this).remove()}); $(this).remove();flag=true})', 3000);
      		// setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
      	});
 

@@ -183,13 +183,13 @@
 		    		
 		    		
 					
-					<!-- 二维码-->
-					<div class="qrcode">
-						<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
-						<img src="#" alt="" width="155" height="155" />
-					</div>
 
 		    	</div>
+			</div>
+			<!-- 二维码-->
+			<div class="qrcode_2">
+				<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
+				<img src="#" alt="" width="155" height="155" />
 			</div>
 		</div>
 	</div>	
