@@ -22,7 +22,7 @@ $desc = mb_substr($desc, 0, 80);
         </div>
     </div>  
     <div class="text">
-        <div class="fs-21 lp-3 title"><?= $post->title ?></div>  
+        <a class="fs-21 lp-3 title" href="<?= $post->url ?>"><?= $post->title ?></a>  
         <div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4 author"><?= $post->author ?></strong> - <?= timeFormat($post->created) ?> </div>
         <div class="fs-15 lp-2 content"><?= $desc ?>...<a class="fs-15 read-all" href="<?= $post->url ?>">阅读全文</a></div>
         
