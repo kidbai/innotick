@@ -12,7 +12,7 @@ $desc = trim(strip_tags($post->content));
 $desc = mb_substr($desc, 0, 80);
 ?>
 
-<div id="post-<?= $post->id ?>" class="post border-bottom-1">
+<div id="post-<?= $post->id ?>" data-id="<?= $post->id ?>" class="post border-bottom-1">
     <div class="img-holder">
         <img src="/upload/img/<?= $post->img ?>" width="260" height="180"/>
         <div class="icon-type">   <!-- 44 x 25 -->
