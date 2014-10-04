@@ -86,7 +86,7 @@ $(function(){
       {
         
         $(".spinner .load-animation").addClass("show");
-        main.append('<div style = "border:1px solid ; height:200px; width:230px;">headsfasdfa' + load_cout + '</div>');
+        // main.append('<div style = "border:1px solid ; height:200px; width:230px;">headsfasdfa' + load_cout + '</div>');
         load_cout++;
         if(load_cout == 9) // 加载上限，停止动画
         {

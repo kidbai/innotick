@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Process;
+use app\models\Post;
 
 class SiteController extends Controller
 {
@@ -25,7 +26,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('/site/index');
+        $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->all();
+
+        return $this->render('/site/index', ['post_list' => $post_list]);
     }
 
     public function actionArticle()
