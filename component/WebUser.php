@@ -8,9 +8,8 @@ use app\models\Admin;
 
 class WebUser extends \yii\web\User  
 {
-  	const TYPE_STUDENT = 1;
-  	const TYPE_TEACHER = 2;
-  	const TYPE_ADMIN = 3;	
+  	const TYPE_USER = 1;
+  	const TYPE_ADMIN = 2;	
 
 	protected function afterLogin( $identity, $cookieBased, $duration )
 	{

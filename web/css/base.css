@@ -107,14 +107,14 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .search .search-btn img { margin: 30px 24px;}
 #top .nav .search .field { float: left; margin-top: 28px;}
 #top .nav .search .field input{ border: 0px; font-size: 16px; padding-left: 0px; margin-top: -5px;}
-#top .nav .menu ul li { list-style: none; float: left; width: 70px; height: 80px;}
+#top .nav .menu ul li { list-style: none; float: left; width: 70px; height: 80px; margin-left: 15px;}
 #top .nav .menu .nav-item { height: 30px ; width: 46px; line-height: 30px; text-align: center; font-weight: bold; font-size: 16px; margin-top: 28px; color: #5d5d5e;}
 #top .nav .menu .nav-item-list:hover .nav-item { color: #ee6350;}
 #top .nav .menu img { margin-top: 42px;}
-#top .nav .login-nav-right { width: 160px; height: 80px; float: right; display: block; }
+#top .nav .login-nav-right { width: 160px; height: 80px; float: right; }
 #top .nav .login-nav-right.on { display: none; }
-#top .nav .login-nav-right .btn { text-align: center; line-height: 41px; width: 100px; height: 41px; margin-top: 24px; margin-bottom: 4px; background: #EE6350; font-size: 17px; color: white;}
-#top .nav .user { width: 200px; height: 80px; display: none; }
+#top .nav .login-nav-right .btn {  text-align: center; line-height: 41px; width: 100px; height: 41px; margin-top: 24px; margin-bottom: 4px; background: #EE6350; font-size: 17px; color: white;}
+#top .nav .user { width: 200px; height: 80px;}
 #top .nav .user.on { display: block; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
 #top .nav .user .info .user-avatar { margin-left: 14px; }

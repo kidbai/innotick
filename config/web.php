@@ -31,7 +31,14 @@ $config = [
             'identityCookie' => ['name' => '_identity_admin', 'httpOnly' => true],
             'idParam' => '__admin_id',
             'enableAutoLogin' => false,
-        ],        
+        ], 
+        'user' => [
+            'class' => 'app\component\WebUser',
+            'identityClass' => 'app\models\User',
+            'identityCookie' => ['name' => '_identity_user', 'httpOnly' => true],
+            'idParam' => '__user_id',
+            'enableAutoLogin' => true,
+        ],                
         'urlManager' => [
             'rules' => [
                 '<controller:.+>/<id:\d+>' => '<controller>/view',

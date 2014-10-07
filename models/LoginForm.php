@@ -48,11 +48,19 @@ class LoginForm extends Model
      */
     public function validatePassword()
     {
-        if (!$this->hasErrors()) {
+        if (!$this->hasErrors()) 
+        {
             $user = $this->getUser();
+            if (!$user) 
+            {
+                $this->addError('username', '用户不存在');
+                return;
+            }
 
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError('password', '用户名或密码错误');
+            if (!$user->validatePassword($this->password))
+            {
+                $this->addError('username', '用户名或密码错误');
+                return;
             }
         }
     }
@@ -61,12 +69,16 @@ class LoginForm extends Model
      * Logs in a user using the provided username and password.
      * @return boolean whether the user is logged in successfully
      */
-    public function login($type = WebUser::TYPE_STUDENT)
+    public function login($type = WebUser::TYPE_USER)
     {
         $this->_type = $type;
 
         if ($this->validate()) 
         {
+            if ($this->_type == WebUser::TYPE_USER)
+            {
+                return app()->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            }
             if ($this->_type == WebUser::TYPE_ADMIN) 
             {
                 $this->rememberMe = false;
@@ -88,8 +100,13 @@ class LoginForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
-            if ($this->_type == WebUser::TYPE_ADMIN) 
+        if ($this->_user === false) 
+        {
+            if ($this->_type == WebUser::TYPE_USER)
+            {
+                $this->_user = User::findByUsername($this->username);
+            }
+            else if ($this->_type == WebUser::TYPE_ADMIN) 
             {
                 $this->_user = Admin::findByUsername($this->username); 
             }

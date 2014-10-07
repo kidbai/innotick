@@ -1,3 +1,33 @@
+function login()
+{
+    var username = $('#login-username').val();
+    var password = $('#login-password').val();
+
+    $.ajax({
+        url: '/user/login-ajax',
+        type: 'POST',
+        dataType: 'json',
+        data: { username: username, password: password, '_csrf': global.csrfToken },
+        success: function(data)
+        {
+            if (data.code == 0)
+            {
+                window.location.reload();
+            }
+            else
+            {
+                alert('用户名或密码错误');
+            }
+        }
+    });
+}
+
+
+
+
+
+
+
 $(function(){
     $("#top .nav .menu li .nav-item-list").mouseover(function(){
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
@@ -125,6 +155,7 @@ $(function(){
         $("#lg-window .fpassword").removeClass("on");
         $("#lg-window .lg-window-login").removeClass("on");
     });
+
     // $("#lg-window .mid .login-btn").click(function(){
     //     $("#lg-window").removeClass("on");
     //     $(".shade").hide();
@@ -138,3 +169,4 @@ $(function(){
 
 });
     
+
