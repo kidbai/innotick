@@ -40,8 +40,6 @@ class AdminController extends BaseController
             }
         }
 
-        
-
         return parent::beforeAction($action);
     }
 
