@@ -2,7 +2,7 @@
     <div class="column content-down bg-click">
         <div class="offset border-right-1">
             <div class="left col-11">
-                <img src="/img/icon/article.png" width="800" height="179" alt=""/>
+                <div class="article-banner" style="background: url(/upload/img/<?= $post->img ?>); background-size: cover;"></div>
                 <div class="main bg-wt">
                     <div class="article mt-20">
                         <?= $post->content ?>
