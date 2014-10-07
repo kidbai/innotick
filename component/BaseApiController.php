@@ -99,7 +99,7 @@ class BaseApiController extends Controller
         {
             if (!isset($this->params[$p]))
             {
-            	$error = [];
+                $error = [];
                 $error['code'] = DXConst::ERROR_PARAM_NOT_SET;
                 $error['message'] = 'param ' . $p . ' not set';
                 $this->finish($error);

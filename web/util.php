@@ -79,6 +79,11 @@ function admin()
 	return app()->admin->identity;
 }
 
+function user()
+{
+	return app()->user->identity;
+}
+
 function getConfig($key)
 {
 	return sql('select value from {{%config}} where `key` = :key ')->bindValues([':key' => $key])->queryScalar();

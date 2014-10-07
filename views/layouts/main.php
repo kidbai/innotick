@@ -38,21 +38,21 @@ use yii\web\JqueryAsset;
                 <div class="id-img fl">
                     <img class="fl" src="/img/icon/user.png" alt=""/>
                 </div>
-                <input class="fl" type="text" placeholder="用户名或邮箱"/>
+                <input id="login-username" class="fl" type="text" placeholder="用户名或邮箱"/>
             </div>
             <div class="clear"></div>
             <div class="password mt-20">
                 <div class="password-img fl">
                     <img class="fl" src="/img/icon/key.png" alt=""/>
                 </div>
-                <input class="fl" type="password" placeholder="密码"/>
+                <input id="login-password" class="fl" type="password" placeholder="密码"/>
             </div>
             <div class="clear"></div>
             <div class="info fl">
                 <div class="fl fs-16 forget-password">
                     忘记密码?
                 </div>
-                <div class="login-btn fr">
+                <div class="login-btn fr" onclick="login()">
                     登录
                 </div>
             </div>
@@ -187,21 +187,35 @@ use yii\web\JqueryAsset;
                     <input id="top-search-field" type="text" placeholder="搜索文章"/>
                 </div>
             </div>
-            <div class="user fr">
-                <div class="info mt-20 ml-25">
-                    <!-- <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/> -->
-                    <div class="user-avatar mt-10 fl">
-                        <!-- img -->
+            <?
+            if (!app()->user->isGuest)
+            {
+            ?>
+                <div class="user fr">
+                    <div class="info mt-20 ml-25">
+                        <!-- <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/> -->
+                        <div class="user-avatar mt-10 fl">
+                            <!-- img -->
+                        </div>
+                        <a class="fs-16 orange fl ml-10 mt-5" href="#"><?= user()->username ?></a> 
+                        <img src="/img/icon/dropdown.png" alt="">
                     </div>
-                    <a class="fs-16 orange fl ml-10 mt-5" href="#">用户名</a> 
-                    <img src="/img/icon/dropdown.png" alt="">
+                    
                 </div>
-                
-            </div>
+            <?
+            }
+            else
+            {
+            ?>
+                <div class="login-nav-right">
+                    <a class="btn lp-1">登录</a>
+                </div>
+            <?
+            }
+            ?>
+
             
-            <div class="login-nav-right">
-                <a class="btn lp-1">登录</a>
-            </div>
+
         </div>
         <div class="item fr bg-orange">
             <ul>
@@ -209,7 +223,7 @@ use yii\web\JqueryAsset;
                 <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">通知中心</div></li>
                 <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">个人设置</div></li>
                 <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的收藏</div></li>
-                <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li>
+                <a href="/user/logout"><li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
             </ul> 
         </div>
       
@@ -352,6 +366,12 @@ use yii\web\JqueryAsset;
             <p class="text fs-14 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
         </div>    
     </div>
+
+
+<script type="text/javascript">
+var global = global ? global : {};
+global.csrfToken = '<?= app()->request->csrfToken ?>';
+</script>      
 <script src="/js/jquery-1.11.1.min.js"></script>
 <script src="/js/main.js"></script>
 <?php $this->endBody() ?>
