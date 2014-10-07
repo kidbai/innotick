@@ -27,7 +27,7 @@
 #lg-window .mid .id { margin-left: 44px; }
 #lg-window .mid .password { margin-left: 44px; }
 #lg-window .mid .forget-password { color: #898989; margin: 25px 0px 0px 45px; cursor: pointer;}
-#lg-window .mid .login-btn { cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 25px 0px 0px 260px}
+#lg-window .mid .login-btn { cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 25px 0px 0px 248px}
 #lg-window .bottom { height: 56px; line-height: 56px; }
 #lg-window .bottom .no-id { color: #898989; margin-left: 45px; } 
 #lg-window .bottom .sign-in { color: #5d5d5d; margin-left: 22px; cursor: pointer; } 
@@ -55,6 +55,10 @@
 #lg-window .fpassword .mid input { margin: 16px 0px 0px 40px; width: 460px; padding: 8px ;}
 #lg-window .fpassword .mid .text { width: 318px; color: #898989; padding: 8px; }
 #lg-window .fpassword .fp-btn {cursor: pointer; color: #ffffff; background-color: #ee6350; width: 140px; height: 40px; font-size: 16px; line-height: 40px; text-align: center;margin: 10px 0px 0px 360px }
+#lg-window .window_1 { display: block;}
+#lg-window .window_1.on { display: none; }
+#lg-window .window_2 { position: absolute;  top: 142px; display: none; }
+#lg-window .window_2.on { display: block; }
 #top .nav { height: 80px; position: relative; }
 #top .nav .logo { height: 80px; width: 80px; margin-right: 34px; float: left; }
 #top .nav .menu { height: 80px; width: 290px; float: left; border-right: 2px solid #e8e8e8;}
