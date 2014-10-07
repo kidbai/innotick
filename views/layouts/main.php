@@ -47,6 +47,70 @@ use yii\web\JqueryAsset;
                 </div>
                 <input id="login-password" class="fl" type="password" placeholder="密码"/>
             </div>
+            <div class="solid-line"></div>
+            <div class="window_1">
+                <div class="login-input mid mt-20">
+                    <div class="id">
+                        <div class="id-img fl">
+                            <img class="fl" src="/img/icon/user.png" alt=""/>
+                        </div>
+                        <input class="fl" type="text" placeholder="用户名或邮箱"/>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="password mt-20">
+                        <div class="password-img fl">
+                            <img class="fl" src="/img/icon/key.png" alt=""/>
+                        </div>
+                        <input class="fl" type="password" placeholder="密码"/>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="info fl">
+                        <div class="fl fs-16 forget-password">
+                            忘记密码?
+                        </div>
+                        <div class="login-btn fr">
+                            登录
+                        </div>
+                    </div>
+                </div>
+                <div class="solid-line"></div>
+                <div class="other bottom">
+                    <div class="no-id fs-16 fl">没有账号?</div>
+                    <div class="sign-in fs-16 fl">注册</div>
+                </div>
+            </div>
+            <div class="window_2">
+                <div class="signin-input fl mt-20">
+                   <div class="id">
+                        <div class="id-img signin-input-item fl">
+                            <img class="fl" src="/img/icon/user.png" alt=""/>
+                        </div>
+                        <input class="fl" type="text" placeholder="用户名 英文或数字"/>
+                    </div> 
+                    <div class="clear"></div>
+                    <div class="email mt-20">
+                        <div class="email-img signin-input-item fl">
+                            <img src="/img/icon/email.png" alt="" class="fl">
+                        </div>
+                        <input type="text" class="fl" placeholder="邮箱"/>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="password mt-20">
+                        <div class="password-img signin-input-item fl">
+                            <img src="/img/icon/key.png" alt="" class="fl">
+                        </div>
+                        <input type="text" class="fl" placeholder="密码"/>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="signin-bottom">
+                        <div class="no-id fs-16 fl">已有账号?</div>
+                        <div class="sign-in fs-16 fl">登陆</div>
+                        <div class="login-btn fr">
+                            登录
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="clear"></div>
             <div class="info fl">
                 <div class="fl fs-16 forget-password">
@@ -107,34 +171,34 @@ use yii\web\JqueryAsset;
                     登录
                 </div>
             </div>
+            
         </div>
-    </div>
-    <!--  忘记密码 --> 
-    <div class="fpassword">
-       <div class="login-title fup">
-            <div class="fpassword-text fl fs-20 lp-1">
-                忘记密码 
+
+       
+        <!--  忘记密码 --> 
+        <div class="fpassword">
+           <div class="login-title fup">
+                <div class="fpassword-text fl fs-20 lp-1">
+                    忘记密码 
+                </div>
+                <div class="back fl">
+                    <img class="fl" src="/img/icon/return.png" width="16" height="21" alt=""/>
+                    <div class="fl fs-16 lp-1 ml-6">返回</div>
+                </div>
+           </div> 
+           <div class="mid">
+               <div class="label fl fs-16 ml-40">
+                   输入邮箱
+               </div>
+               <div class="clear"></div>
+               <input type="text">
+               <div class="clear"></div>
+               <div class="text mt-40 fs-12 ml-40 lp-1">
+                    此功能将会发送一个找回密码的特别链接到您的邮箱，通过改链接可以进入重置密码的页面。
+               </div>
             </div>
-            <div class="back fl">
-                <img class="fl" src="/img/icon/return.png" width="16" height="21" alt=""/>
-                <div class="fl fs-16 lp-1 ml-6">返回</div>
-            </div>
-       </div> 
-       <div class="mid">
-           <div class="label fl fs-16 ml-40">
-               输入邮箱
-           </div>
-           <div class="clear"></div>
-           <input type="text">
-           <div class="clear"></div>
-           <div class="text mt-40 fs-12 ml-40 lp-1">
-                此功能将会发送一个找回密码的特别链接到您的邮箱，通过改链接可以进入重置密码的页面。
-           </div>
-       </div>
-       <div class="clear"></div>
-       <div class="fp-btn">
-            找回密码 
-       </div>
+   
+        </div>
     </div>
 </div>
 

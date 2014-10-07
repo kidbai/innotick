@@ -75,7 +75,8 @@ $(function(){
         $("#top .carousel .content-product").addClass("on");
         $("#top .carousel").slideDown("fast");
     }).mouseleave(function(e){
-        if(e.offsetX < -1 || e.offsetY < -3 || e.offsetX > 40 )
+        console.log(e);
+        if(e.offsetX < -1 || e.offsetY < -8 || e.offsetX > 40 )
         {
             $("#top .carousel .content-product").removeClass("on");
             $("#top .carousel").slideUp("fast");
@@ -97,6 +98,8 @@ $(function(){
         console.log(e);
         if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0  )
         {
+            $("#top .carousel .content-product").removeClass("on");
+            $("#top .carousel .content-special").removeClass("on");
             $("#top .carousel").slideUp("fast");
         }
     });
@@ -134,13 +137,13 @@ $(function(){
 
     //注册
     $("#lg-window .bottom .sign-in").click(function(){
-        $("#lg-window .lg-window-login").addClass("on");
-        $("#lg-window .lg-window-signin").addClass("on");
+        $("#lg-window .window_1").addClass("on");
+        $("#lg-window .window_2").addClass("on");
     });
     //登陆
-    $("#lg-window .lg-window-signin .signin-input .signin-bottom .sign-in").click(function(){
-        $("#lg-window .lg-window-signin").removeClass("on");
-        $("#lg-window .lg-window-login").removeClass("on");
+    $("#lg-window .signin-input .signin-bottom .sign-in").click(function(){
+        $("#lg-window .window_1").removeClass("on");
+        $("#lg-window .window_2").removeClass("on");
     });
     //忘记密码
     $("#lg-window .mid .forget-password").click(function(){
