@@ -109,6 +109,8 @@ use yii\web\JqueryAsset;
                             登录
                         </div>
                     </div>
+                </div>
+            </div>
             <div class="clear"></div>
             <div class="info fl">
                 <div class="fl fs-16 forget-password">
@@ -194,8 +196,10 @@ use yii\web\JqueryAsset;
                <div class="text mt-40 fs-12 ml-40 lp-1">
                     此功能将会发送一个找回密码的特别链接到您的邮箱，通过改链接可以进入重置密码的页面。
                </div>
-    </div>
+            </div>
    
+        </div>
+    </div>
 </div>
 
 
