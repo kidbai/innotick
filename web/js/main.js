@@ -1,4 +1,4 @@
-
+$(function(){
     $("#top .nav .menu li .nav-item-list").mouseover(function(){
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
        $(this).children("img").prop("src","/img/icon/dropdown-light.png");
@@ -135,3 +135,6 @@
     //     $("#top .nav .login-nav-right").removeClass("on"); 
     //     $("#top .nav .user").removeClass("on"); 
     // });
+
+});
+    
