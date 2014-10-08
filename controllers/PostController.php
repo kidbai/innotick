@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\Post;
 use app\models\PostAction;
 use app\models\PostComment;
+use app\models\PostFavourite;
 
 class PostController extends BaseController
 {
@@ -28,12 +29,50 @@ class PostController extends BaseController
         return parent::beforeAction($action);
     }
 
+    public function actionList()
+    {
+
+    }
+
+    public function actionTag()
+    {
+        $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->offset(($page - 1) * 20)->all();
+
+        $this->render('/post/');
+
+    }
+
     public function actionView($id)
     {
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
 
         return $this->render('/post/view', ['post' => $post]);
+    }
+
+    public function actionFavouriteAdd()
+    {
+        $this->checkParams(['post_id']);
+        $data['code'] = 0;
+        $post_id = intval($_REQUEST['post_id']);
+        $user_id = intval(user()->id);
+
+        $fav = sql(' select * from {{%post_favourite}} where post_id = :post_id and user_id = :user_id ')
+                ->bindValues([':post_id' => $post_id, ':user_id' => $user_id])->query();
+        if (!$fav)
+        {
+            $this->finishError(-1, 'favourite post exists');
+        }
+
+        $favourite = new PostFavourite();
+        $favourite->post_id = $post_id;
+        $favourite->user_id = user()->id;
+        if (!$favourite->save())
+        {
+            $this->finishError(-2, 'save favourite post error');
+        }
+
+        $this->finish($data);
     }
 
     public function actionCommentAdd()
