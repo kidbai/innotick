@@ -1,4 +1,4 @@
-<?php
+    <?php
 use yii\helpers\Html;
 use yii\web\JqueryAsset;
 ?>
@@ -22,7 +22,7 @@ use yii\web\JqueryAsset;
 <div id="lg-window" class="login-window">
     <div class="lg-window-login">
         <div class="login-title up">
-            <!-- <div class="close fr">
+           <!--  <div class="close fr">
                 <i class="fa fa-times"></i>
             </div>
             <div class="clear"></div>
@@ -31,6 +31,7 @@ use yii\web\JqueryAsset;
             </div>
             <div class="weibo"><img src="/img/icon/sina.png" width="25" heigh="20" alt=""/><div class="fr weibo-text">微博</div></div>
             <div class="weixin"><img src="/img/icon/wechat.png" width="25" heigh="20" alt=""><div class="fr weixin-text">微信</div></div> -->
+            <div class="title">登录</div>
         </div>
         <div class="solid-line"></div>
         <div class="login-input mid mt-20">
@@ -39,21 +40,21 @@ use yii\web\JqueryAsset;
                     <div class="id-img fl">
                         <img class="fl" src="/img/icon/user.png" alt=""/>
                     </div>
-                    <input class="fl" type="text" placeholder="用户名或邮箱"/>
+                    <input id="login-username" class="fl" type="text" placeholder="用户名或邮箱"/>
                 </div>
                 <div class="clear"></div>
                 <div class="password mt-20">
                     <div class="password-img fl">
                         <img class="fl" src="/img/icon/key.png" alt=""/>
                     </div>
-                    <input class="fl" type="password" placeholder="密码"/>
+                    <input id="login-password" class="fl" type="password" placeholder="密码"/>
                 </div>
                 <div class="clear"></div>
                 <div class="info fl">
                     <div class="fl fs-16 forget-password">
                         忘记密码?
                     </div>
-                    <div class="login-btn fr">
+                    <div class="login-btn fr" onclick="login()">
                         登录
                     </div>
                 </div>
@@ -92,7 +93,7 @@ use yii\web\JqueryAsset;
                         <div class="no-id fs-16 fl">已有账号?</div>
                         <div class="sign-in fs-16 fl">登陆</div>
                         <div class="login-btn fr">
-                            登录
+                            注册
                         </div>
                     </div>
                 </div>
@@ -213,6 +214,15 @@ use yii\web\JqueryAsset;
                             <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li>
                         </ul> 
                     </div>  -->
+                     <div class="item fr bg-orange">
+                        <ul>
+                            <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的主页</div></li>
+                            <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">通知中心</div></li>
+                            <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">个人设置</div></li>
+                            <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的收藏</div></li>
+                            <a href="/user/logout"><li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
+                        </ul> 
+                    </div>
                 </div>
                
             <?
@@ -231,15 +241,7 @@ use yii\web\JqueryAsset;
 
         </div>
 
-        <div class="item fr bg-orange">
-            <ul>
-                <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的主页</div></li>
-                <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">通知中心</div></li>
-                <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">个人设置</div></li>
-                <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的收藏</div></li>
-                <a href="/user/logout"><li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
-            </ul> 
-        </div>
+       
       
         <div class="carousel">
             <div class="carousel-inner">

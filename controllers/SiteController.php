@@ -30,7 +30,7 @@ class SiteController extends Controller
 
         $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->offset(($page - 1) * 20)->all();
 
-        return $this->render('/site/index', ['post_list' => $post_list]);
+        return $this->render('/site/index', ['post_list' => $post_list, 'page' => $page]);
     }
 
     public function actionPostList()

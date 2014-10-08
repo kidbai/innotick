@@ -28,14 +28,14 @@
 								</div>
 								<span class="fs-15 ml-1 icon-dislike-num fl mt-6">(45)</span>
 							</li>
-							<li class="fl ml-25">
+							<!-- <li class="fl ml-25">
 								<div class="icon-list icon-share fl">
 									<img class="off mt-6" src="/img/icon/share.png" width="25" height="23" alt=""/>
 									<img class="on mt-6" src="/img/icon/share-light.png" width="25" height="23" alt="">
 									<div class="clear"></div>
 								</div>
 								<span class="fs-15 ml-1 icon-share-num fl mt-6">(45)</span>
-							</li>
+							</li> -->
 							<li class="fl ml-25">
 								<div class="icon-list icon-collected fl">
 									<img class="off mt-6" src="/img/icon/collected.png" width="30" height="23" alt=""/>
@@ -46,15 +46,15 @@
 							</li>
 
 							
-							<li class="sbtn-orange weixin ml-130 fl"><a href=""><div class="orange sharetoweixin fs-15">分享到微信</div></a></li>
+							<!-- <li class="sbtn-orange weixin ml-130 fl"><a href=""><div class="orange sharetoweixin fs-15">分享到微信</div></a></li>
 							<li class="sbtn-grass weibo ml-20 fl"><a href=""><div class="grass sharetoweibo fs-15">分享到微博</div></a></li>
-						</ul>
+					 -->	</ul>
 					</div>
 					<div class="link border-bottom-1">
 						<img src="/img/icon/keyword.png" width="17" height="17" alt="" class="fl ml-60 mt-20"/>
 						<div class="fl fs-15"><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl linkedin ml-10" href="#">LinkedIn</div><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl lingying ml-10" href="">领英</div></div>
 					</div>
-					<div class="designer border-bottom-1">
+					<!-- <div class="designer border-bottom-1">
 						<div class="circle ml-60 mt-20 fl bg-orange"></div>
 						<div class="description fl mt-26 ml-10">
 							<div class="fs-14 fl l-designer lp-1 bold pt-1">作者用户名</div>
@@ -64,7 +64,7 @@
 							<div class="clear"></div>
 							<p class="l-designer mt-5">人生路，真慌张。WeChat: zhangyuxin87</p>
 						</div>
-					</div>
+					</div> -->
 					<div class="comment-board border-bottom-1">
 						<div class="l-designer fs-13 ml-60 mt-20">文章评论(10)</div>
 						<textarea class="fs-13 mt-15 ml-60 lp-1" cols="95" rows="5" placeholder="你怎么看?"></textarea>
