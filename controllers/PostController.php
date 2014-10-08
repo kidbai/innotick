@@ -89,7 +89,8 @@ class PostController extends BaseController
         {
             $this->finishError(-1, 'save comment error');
         }
-
+        $data['post_id'] = $post_id;
+        $data['content'] = $content;
         $this->finish($data);
     }
 
@@ -105,7 +106,7 @@ class PostController extends BaseController
             $this->finishError(-1, 'wrong type');
         }
 
-        $post = sql(' select id from {{%post}} where id = :id ')->bindValues(['id' => $post_id])->queryScalar();
+        $post = Post::find()->where(['id' => $post_id])->one(); // 获取文章
         if (!$post)
         {
             $this->finishError(-2, 'post not exists');
@@ -152,6 +153,20 @@ class PostController extends BaseController
         {
             $this->finishError(-5, 'save action error');
         }
+
+        $count = 0;
+        switch ($type) {
+            case PostAction::TYPE_LIKE:
+                $count = $post->getLikeCount();
+                break;
+            case PostAction::TYPE_DISLIKE:
+                $count = $post->getDisLikeCount();
+
+            default:
+                # code...
+                break;
+        }
+        $data['count'] = $count;
 
         $this->finish($data);
     }
