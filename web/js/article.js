@@ -1,5 +1,16 @@
+function like()
+{
+    if(!$("#content .icon-like").hasClass("active"))
+    {
+        console.log("yes");
+    }
+
+     
+}
+
 $(function(){
-    console.log($("#content .main .icon .sbtn-orange").children().children());
+
+    // console.log($("#content .main .icon .sbtn-orange").children().children());
     $("#content .main .icon .sbtn-orange").mouseover(function(){
         console.log("aaa");
         $(this).css({"backgroundColor":"#d44137"});
@@ -30,40 +41,42 @@ $(function(){
         }
     });
 
-    //智能浮动
-    $.fn.smartFloat = function() {
-    var position = function(element) {
-        var top = element.position().top, pos = element.css("position");
-        console.log(element.position().top);
-        $(window).scroll(function() {
-            var scrolls = $(this).scrollTop();
-            console.log(scrolls);
-            if (scrolls > top + 70) {
-                
-                if (window.XMLHttpRequest) {
-                    element.css({
-                        position: "fixed",
-                        top: 0
-                    });    
-                } else {
-                    element.css({
-                        top: scrolls
-                    });    
-                }
-            }else {
-                element.css({
-                    position: "absolute",
-                    top: top
-                });    
-            }
-        });
-    };
-    return $(this).each(function() {
-        position($(this));                         
-    });
-    };
 
-    //绑定
-    // $(".qrcode_2").smartFloat();
+
+    // //智能浮动
+    // $.fn.smartFloat = function() {
+    // var position = function(element) {
+    //     var top = element.position().top, pos = element.css("position");
+    //     console.log(element.position().top);
+    //     $(window).scroll(function() {
+    //         var scrolls = $(this).scrollTop();
+    //         console.log(scrolls);
+    //         if (scrolls > top + 70) {
+                
+    //             if (window.XMLHttpRequest) {
+    //                 element.css({
+    //                     position: "fixed",
+    //                     top: 0
+    //                 });    
+    //             } else {
+    //                 element.css({
+    //                     top: scrolls
+    //                 });    
+    //             }
+    //         }else {
+    //             element.css({
+    //                 position: "absolute",
+    //                 top: top
+    //             });    
+    //         }
+    //     });
+    // };
+    // return $(this).each(function() {
+    //     position($(this));                         
+    // });
+    // };
+
+    // //绑定
+    // // $(".qrcode_2").smartFloat();
         
 });

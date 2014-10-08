@@ -13,7 +13,7 @@
 					<div class="icon border-bottom-1">
 						<ul class="ml-40 mt-70">
 							<li class="fl ml-25">
-								<div class="icon-list icon-like fl">
+								<div class="icon-list icon-like fl" onclick="like()">
 									<img class="off" src="/img/icon/like.png" width="25" height="30" alt=""/>
 									<img class="on" src="/img/icon/like-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
@@ -21,7 +21,7 @@
 								<span class="fs-15 ml-1 icon-like-num fl mt-6">(45)</span>
 							</li>
 							<li class="fl ml-25">
-								<div class="icon-list icon-dislike fl">
+								<div class="icon-list icon-dislike fl" onclick="dislike()">
 									<img class="off mt-6" src="/img/icon/dislike.png" width="25" height="30" alt=""/>
 									<img class="on mt-6" src="/img/icon/dislike-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
@@ -72,7 +72,7 @@
 						<div class="fs-14 fr submit-btn">提交评论</div>
 					</div>
 					<div class="comment">
-						<div class="block border-bottom-1">
+						<div id="comment_1" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>
@@ -87,7 +87,7 @@
 								</ul>
 							</div>
 						</div>	
-						<div class="block border-bottom-1">
+						<div id="comment_2" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>
@@ -102,7 +102,7 @@
 								</ul>
 							</div>
 						</div>	
-						<div class="block border-bottom-1">
+						<div id="comment_3" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>
