@@ -46,8 +46,9 @@ class PostController extends BaseController
     {
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
+        $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_DESC])->all();
 
-        return $this->render('/post/view', ['post' => $post]);
+        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list]);
     }
 
     public function actionFavouriteAdd()

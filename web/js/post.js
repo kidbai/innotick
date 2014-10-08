@@ -48,10 +48,7 @@ function submit_comment(post_id)
         data: { post_id: post_id, content: comment_content, '_csrf': global.csrfToken },
         success: function(data)
         {
-            console.log("success");
-            console.log(data);
-            console.log(data.content);
-            console.log(data.post_id);
+            
         }
     });
 }
