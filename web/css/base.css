@@ -274,16 +274,16 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .icon-list.active .on { display: block;}
 #content .icon-list.active .off { display: none;}
 #content .icon-like { width: 30px; height: 30px;}
-#content .icon-like-num { color: #686868;line-height: 27px;}
+#content .icon-like-num { color: #686868;line-height: 27px; margin-top: 6px;}
 #content .icon-like p { line-height: 36px;text-align: center;}
-#content .icon-dislike { width: 30px; height: 30px;}
-#content .icon-dislike-num { color: #686868;line-height: 27px;}
+#content .icon-dislike { width: 30px; height: 30px; margin-top: 5px;}
+#content .icon-dislike-num { color: #686868;line-height: 27px; margin-top: 6px;}
 #content .icon-dislike p { line-height: 36px;text-align: center;}
 #content .icon-share { width: 30px; height: 30px;}
 #content .icon-share-num { color: #686868;line-height: 27px;}
 #content .icon-share p { line-height: 36px;text-align: center;}
-#content .icon-collected { width: 30px; height: 30px;}
-#content .icon-collected-num { color: #686868;line-height: 27px;}
+#content .icon-collected { width: 30px; height: 30px; margin-top: 6px;}
+#content .icon-collected-num { color: #686868;line-height: 27px; margin-top: 6px; }
 #content .icon-collected p { line-height: 36px;text-align: center;}
 
 #content .link { width: 800px; height: 60px;line-height: 60px;}
@@ -294,7 +294,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .designer .description p { font-weight: bold;}
 #content .designer .description .wrap-designer { width: 60px; height: 23px; line-height: 23px; border-radius: 5px;}
 #content .comment-board { width: 800px; height: 180px;}
-#content .comment-board .submit-btn { height: 28px; width: 100px;background-color: #ee6350; line-height: 28px; text-align: center; color: #ffffff; margin: 12px 42px 0px 0px; }
+#content .comment-board .submit-btn { cursor: pointer; height: 28px; width: 100px;background-color: #ee6350; line-height: 28px; text-align: center; color: #ffffff; margin: 12px 42px 0px 0px; }
 #content .comment-board textarea { width: 698px;}
 #content .comment { width: 800px; height: 300px;}
 #content .comment .block { width: 660px; height: 100px;margin: auto;}
