@@ -1,6 +1,6 @@
 <div id="content" class="wrapper">
 	<div class="column content-down bg-click">
-		<div class="offset border-right-1">
+		<div class="article_content border-right-1">
 			<div class="left col-11">
 				<img src="/img/icon/article.png" width="800" height="179" alt=""/>
 				<div class="main bg-wt">
