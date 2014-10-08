@@ -71,7 +71,7 @@ use yii\web\JqueryAsset;
                         <div class="id-img signin-input-item fl">
                             <img class="fl" src="/img/icon/user.png" alt=""/>
                         </div>
-                        <input class="fl" type="text" placeholder="用户名 英文或数字"/>
+                        <input id="username" class="fl" type="text" placeholder="用户名 英文或数字"/>
                     </div> 
                     <div class="clear"></div>
                     <div class="email mt-20">

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\PostAction;
 
 /**
  * This is the model class for table "tbl_post".
@@ -101,5 +102,25 @@ class Post extends \yii\db\ActiveRecord
     public function getUrl()
     {
         return url(['/post/view', 'id' => $this->id]);
-    }          
+    }  
+
+    public function isLikedByUser($user_id)
+    {
+        $fav = sql(' select id from {{%post_action}} where user_id = :user_id and post_id = :post_id and type = :type ')
+                        ->bindValues([':user_id' => $user_id, ':post_id' => $this->id, ':type' => PostAction::TYPE_LIKE])->queryScalar();
+        return $fav != null;
+    }
+
+    public function getLikeCount()
+    {
+        return sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
+                ->bindValues([':post_id' => $this->id, ':type' => PostAction::TYPE_LIKE])->queryScalar();
+    }
+
+    public function getDisLikeCount()
+    {
+        return sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
+                ->bindValues([':post_id' => $this->id, ':type' => PostAction::TYPE_DISLIKE])->queryScalar();
+    }    
+
 }

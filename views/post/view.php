@@ -9,21 +9,21 @@
                     </div>
                     <div class="icon border-bottom-1">
                         <ul class="ml-40 mt-70">
-                            <li class="fl ml-25">
+                            <li class="fl ml-25" onclick="like(<?= $post->id ?>)">
                                 <div class="icon-list icon-like fl">
                                     <img class="off" src="/img/icon/like.png" width="25" height="23" alt=""/>
                                     <img class="on" src="/img/icon/like-light.png" width="25" height="23" alt="">
                                     <div class="clear"></div>
                                 </div>
-                                <span class="fs-15 ml-2 icon-like-num fl">(45)</span>
+                                <span class="fs-15 ml-2 icon-like-num fl">(<?= $post->likeCount ?>)</span>
                             </li>
-                            <li class="fl ml-25">
+                            <li class="fl ml-25" onclick="dislike(<?= $post->id ?>)">
                                 <div class="icon-list icon-dislike fl">
                                     <img class="off" src="/img/icon/dislike.png" width="25" height="23" alt=""/>
                                     <img class="on" src="/img/icon/dislike-light.png" width="25" height="23" alt="">
                                     <div class="clear"></div>
                                 </div>
-                                <span class="fs-15 ml-2 icon-dislike-num fl">(45)</span>
+                                <span class="fs-15 ml-2 icon-dislike-num fl">(<?= $post->dislikeCount ?>)</span>
                             </li>
                             <li class="fl ml-25">
                                 <div class="icon-list icon-share fl">
@@ -192,7 +192,10 @@
     </div>  
 </div>
 <script src="/js/jquery-1.11.1.min.js"></script>
-<script>
+<script src="/js/post.js"></script>
+<script type="text/javascript">
+var post_id = <?= $post->id ?>;
+
     console.log($("#content .main .icon .sbtn-orange").children().children());
     $("#content .main .icon .sbtn-orange").mouseover(function(){
         console.log("aaa");

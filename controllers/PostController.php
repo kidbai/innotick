@@ -20,7 +20,7 @@ class PostController extends BaseController
 
     public function beforeAction($action)
     {
-        if (in_array($this->action->id, ['action', 'comment-add']) && app()->user->isGuest)
+        if (in_array($this->action->id, ['action-save', 'comment-add']) && app()->user->isGuest)
         {
             $this->redirect('/user/login');
             return false;
@@ -93,7 +93,7 @@ class PostController extends BaseController
         $this->finish($data);
     }
 
-    public function actionAction()
+    public function actionActionSave()
     {
         $this->checkParams(['post_id', 'type']);
         $data['code'] = 0;
@@ -111,6 +111,8 @@ class PostController extends BaseController
             $this->finishError(-2, 'post not exists');
         }
 
+        $user_id = intval(user()->id);
+
         $post_action = new PostAction();
         $post_action->post_id = $post_id;
         $post_action->comment_id = 0;
@@ -127,8 +129,8 @@ class PostController extends BaseController
                 $this->finishError(-3, 'comment not exists');
             }
 
-            $action = sql(' select id from {{%post_action}} where comment_id = :comment_id and type = :type ')
-                        ->bindValues([':comment_id' => $comment_id, ':type' => $type])->queryScalar();
+            $action = sql(' select id from {{%post_action}} where user_id = :user_id and comment_id = :comment_id and type = :type ')
+                        ->bindValues([':user_id' => $user_id, ':comment_id' => $comment_id, ':type' => $type])->queryScalar();
             if ($action)
             {
                 $this->finishError(-4, 'action exists');
@@ -138,8 +140,8 @@ class PostController extends BaseController
         }
         else if ($type == PostAction::TYPE_LIKE || $type == PostAction::TYPE_DISLIKE)
         {
-            $action = sql(' select id from {{%post_action}} where post_id = :post_id and type = :type ')
-                        ->bindValues([':post_id' => $post_id, ':type' => $type])->queryScalar();
+            $action = sql(' select id from {{%post_action}} where user_id = :user_id and post_id = :post_id and type = :type ')
+                        ->bindValues([':user_id' => $user_id, ':post_id' => $post_id, ':type' => $type])->queryScalar();
             if ($action)
             {
                 $this->finishError(-4, 'action exists');
