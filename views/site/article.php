@@ -13,7 +13,7 @@
 					<div class="icon border-bottom-1">
 						<ul class="ml-40 mt-70">
 							<li class="fl ml-25">
-								<div class="icon-list icon-like fl">
+								<div class="icon-list icon-like fl" onclick="like()">
 									<img class="off" src="/img/icon/like.png" width="25" height="30" alt=""/>
 									<img class="on" src="/img/icon/like-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
@@ -21,21 +21,21 @@
 								<span class="fs-15 ml-1 icon-like-num fl mt-6">(45)</span>
 							</li>
 							<li class="fl ml-25">
-								<div class="icon-list icon-dislike fl">
+								<div class="icon-list icon-dislike fl" onclick="dislike()">
 									<img class="off mt-6" src="/img/icon/dislike.png" width="25" height="30" alt=""/>
 									<img class="on mt-6" src="/img/icon/dislike-light.png" width="25" height="30" alt="">
 									<div class="clear"></div>
 								</div>
 								<span class="fs-15 ml-1 icon-dislike-num fl mt-6">(45)</span>
 							</li>
-							<li class="fl ml-25">
+							<!-- <li class="fl ml-25">
 								<div class="icon-list icon-share fl">
 									<img class="off mt-6" src="/img/icon/share.png" width="25" height="23" alt=""/>
 									<img class="on mt-6" src="/img/icon/share-light.png" width="25" height="23" alt="">
 									<div class="clear"></div>
 								</div>
 								<span class="fs-15 ml-1 icon-share-num fl mt-6">(45)</span>
-							</li>
+							</li> -->
 							<li class="fl ml-25">
 								<div class="icon-list icon-collected fl">
 									<img class="off mt-6" src="/img/icon/collected.png" width="30" height="23" alt=""/>
@@ -46,15 +46,15 @@
 							</li>
 
 							
-							<li class="sbtn-orange weixin ml-130 fl"><a href=""><div class="orange sharetoweixin fs-15">分享到微信</div></a></li>
+							<!-- <li class="sbtn-orange weixin ml-130 fl"><a href=""><div class="orange sharetoweixin fs-15">分享到微信</div></a></li>
 							<li class="sbtn-grass weibo ml-20 fl"><a href=""><div class="grass sharetoweibo fs-15">分享到微博</div></a></li>
-						</ul>
+					 -->	</ul>
 					</div>
 					<div class="link border-bottom-1">
 						<img src="/img/icon/keyword.png" width="17" height="17" alt="" class="fl ml-60 mt-20"/>
 						<div class="fl fs-15"><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl linkedin ml-10" href="#">LinkedIn</div><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl lingying ml-10" href="">领英</div></div>
 					</div>
-					<div class="designer border-bottom-1">
+					<!-- <div class="designer border-bottom-1">
 						<div class="circle ml-60 mt-20 fl bg-orange"></div>
 						<div class="description fl mt-26 ml-10">
 							<div class="fs-14 fl l-designer lp-1 bold pt-1">作者用户名</div>
@@ -64,7 +64,7 @@
 							<div class="clear"></div>
 							<p class="l-designer mt-5">人生路，真慌张。WeChat: zhangyuxin87</p>
 						</div>
-					</div>
+					</div> -->
 					<div class="comment-board border-bottom-1">
 						<div class="l-designer fs-13 ml-60 mt-20">文章评论(10)</div>
 						<textarea class="fs-13 mt-15 ml-60 lp-1" cols="95" rows="5" placeholder="你怎么看?"></textarea>
@@ -72,7 +72,7 @@
 						<div class="fs-14 fr submit-btn">提交评论</div>
 					</div>
 					<div class="comment">
-						<div class="block border-bottom-1">
+						<div id="comment_1" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>
@@ -87,7 +87,7 @@
 								</ul>
 							</div>
 						</div>	
-						<div class="block border-bottom-1">
+						<div id="comment_2" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>
@@ -102,7 +102,7 @@
 								</ul>
 							</div>
 						</div>	
-						<div class="block border-bottom-1">
+						<div id="comment_3" class="block border-bottom-1">
 							<div class="circle mt-20 fl bg-orange"></div>
 							<div class="fl mt-20 ml-10 text">
 								<div class="fl fs-14 orange">人生路</div>

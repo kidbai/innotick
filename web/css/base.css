@@ -47,6 +47,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #lg-window .close { cursor: pointer;}
 #lg-window.on { display: block; }
 #lg-window .up { height: 140px; }
+#lg-window .up .title { width: 100%; height: 40px; line-height: 40px; font-size: 25px; margin-left: 44px; padding-top: 70px; color: #898989;}
 #lg-window .up .no-sign-in { line-height: 30px; text-align: center; color: #38485a;}
 #lg-window .up .weibo { cursor: pointer; height: 50px; width: 160px; line-height: 50px;  float: left; background-color: #d44137; margin: 20px 0px 0px 80px;}
 #lg-window .up .weibo img { margin-left: 40px; margin-top: 15px;}
@@ -117,12 +118,13 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .user { width: 200px; height: 80px;}
 #top .nav .user.on { display: block; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
-#top .nav .user .info .user-avatar { margin-left: 14px; }
+#top .nav .user .info .user-avatar { margin-left: 30px; }
 #top .nav .user .info img { margin: 22px 0px 0px 20px; }
 #top .item { position: absolute; display: none; width: 200px; height: 180px;top: 80px;z-index: 999;}
 #top .item li { width: 200px; height: 36px;text-align: center; }
 #top .item .item-sub { line-height: 36px; cursor: pointer; }
 #top .carousel { height: 320px; width: 1200px; z-index: 99999; display: none; background-color: #f7f7f7;}
+#top .carousel.on { display: block;}
 #top .carousel .carousel-inner { position: relative; }
 #top .carousel.active { display: block; }
 #top .carousel .previous { margin-left: 114px; margin-top: 140px;cursor: pointer; }
@@ -131,7 +133,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .content-product.on { display: block;}
 #top .content-special { display: none;}
 #top .content-special.on { display: block;}
-#top .content-special { position: absolute;left: 139px; top: -28px; }
+#top .content-special { position: absolute;left: 139px; top: -14px; }
 #top .content-special li { width: 220px; height: 100px;cursor: pointer; float: left; margin-top: 46px;}
 #top .content-special .special-list { width: 220px; height: 100px;}
 #top .content-special .special-list .imgbcolor:hover { background-color: #494a4a;}

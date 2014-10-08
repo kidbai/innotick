@@ -34,7 +34,7 @@
 			        <div class="bounce3 load-animation"></div>
 			    </div>
 				<div class="fs-14 fl loadnext">正在为您加载第X页面</div>	
-				<a class="fs-14 fr" href="#">下一页</a>
+				<a class="fs-14 fr" href="javascript:;" onclick="nextPage(<?= $page?>)">下一页</a>
 			</div>
 	    </div>
 
@@ -116,8 +116,10 @@
 			<img src="#" alt="" width="155" height="155" />
 		</div>
 	</div>
-	
+		
 </div>
+
 <script src="/js/jquery-1.11.1.min.js"></script>
+<!-- // var page = <?= $page ?>; -->
 <script src="/js/index-content.js"></script>
 

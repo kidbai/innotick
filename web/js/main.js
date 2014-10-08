@@ -22,6 +22,38 @@ function login()
     });
 }
 
+function get_scroll_top()
+{
+    var scrollTop = 0;
+    if(document.documentElement && document.documentElement.scrollTop)
+    {
+        scrollTop = document.documentElement.scrollTop;
+    }
+    else if(document.body)
+    {
+        scrollTop = document.body.scrollTop;
+    }
+    return scrollTop;
+}
+
+function get_client_height()
+{
+    var clientHeight = 0;
+    if(document.body.clientHeight && document.documentElement.clientHeight)
+    {
+        var clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;        
+    }
+    else
+    {
+        var clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;    
+    }
+    return clientHeight;
+}
+
+function get_scroll_height()
+{
+    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+}
 
 
 
@@ -73,38 +105,40 @@ $(function(){
         $(this).children("p").removeClass("orange");
     });
     
-    $("#top .nav .menu li:eq(0) .nav-item").mouseenter(function(){
-        $("#top .carousel .content-product").addClass("on");
-        $("#top .carousel").slideDown("fast");
-    }).mouseleave(function(e){
-        console.log(e);
-        if(e.offsetX < -1 || e.offsetY < -8 || e.offsetX > 40 )
+    $("#top .nav .menu li:eq(0) .nav-item").click(function(){
+        if(!$("#top .carousel .content-special").hasClass("on"))
         {
-            $("#top .carousel .content-product").removeClass("on");
-            $("#top .carousel").slideUp("fast");
+            $("#top .carousel").slideDown("fast");
+            $("#top .carousel .content-special").addClass("on");
+        }
+        else
+        {
+           $("#top .carousel").slideUp("fast");
+           $("#top .carousel .content-special").removeClass("on");
         }
     });
-    $("#top .nav .menu li:eq(2) .nav-item").mouseenter(function(){
-        $("#top .carousel .content-special").addClass("on");
-        $("#top .carousel").slideDown("fast");
-    }).mouseleave(function(e){
-        console.log(e);
-        if(e.offsetX < -1 && e.offsetY < 90 || e.offsetX > 46 && e.offsetY < 90)
+    $("#top .nav .menu li:eq(2) .nav-item").click(function(){
+        if(!$("#top .carousel .content-product").hasClass("on"))
         {
-            $("#top .carousel .content-special").removeClass("on");
+            $("#top .carousel").slideDown("fast");
+            $("#top .carousel .content-product").addClass("on");
+        }
+        else
+        {
             $("#top .carousel").slideUp("fast");
+            $("#top .carousel .content-product").removeClass("on");
         }
     });
 
-    $("#top .carousel").mouseleave(function(e){
-        console.log(e);
-        if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0  )
-        {
-            $("#top .carousel .content-product").removeClass("on");
-            $("#top .carousel .content-special").removeClass("on");
-            $("#top .carousel").slideUp("fast");
-        }
-    });
+    // $("#top .carousel").mouseleave(function(e){
+    //     console.log(e);
+    //     if(e.offsetX < 0 || e.offsetX > 1200 || e.offsetY > 320 || e.offsetY < 0  )
+    //     {
+    //         $("#top .carousel .content-product").removeClass("on");
+    //         $("#top .carousel .content-special").removeClass("on");
+    //         $("#top .carousel").slideUp("fast");
+    //     }
+    // });
 
     //创建登陆窗口
     $("#top .nav .login-nav-right .btn").click(function(){
