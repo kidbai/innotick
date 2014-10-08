@@ -71,7 +71,7 @@
                     <?
                         foreach ($comment_list as $comment)
                         {
-                            echo $this->render('/site/comment-item', ['comment' => $comment]);
+                            echo $this->render('/site/comment-item', ['comment' => $comment, 'post' => $post]);
                         }
                     ?> 
                               

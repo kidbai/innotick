@@ -163,7 +163,8 @@ class PostController extends BaseController
                 break;
             case PostAction::TYPE_DISLIKE:
                 $count = $post->getDisLikeCount();
-
+            case PostAction::TYPE_COMMENT_LIKE:
+                $count = $post->getCommentLikeCount();
             default:
                 # code...
                 break;

@@ -48,16 +48,29 @@ function submit_comment(post_id)
         data: { post_id: post_id, content: comment_content, '_csrf': global.csrfToken },
         success: function(data)
         {
-            
+            console.log(data.content);
+            window.location.reload(false);
         }
     });
 }
 
-// //comment_like
-// function comment_like(post_id)
-// {
 
-// }
+//comment_like
+function comment_like(post_id)
+{
+    $.ajax({
+        url: '/post/action-save',
+        type: 'POST',
+        dataType: 'json',
+        data: { post_id: post_id, type: 3, '_csrf': global.csrfToken },
+        success: function(data)
+        {
+            console.log("success");
+            console.log(data.count);
+            console.log(data);
+        }
+    });
+}
 
 
 $(function(){
