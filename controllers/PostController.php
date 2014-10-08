@@ -84,6 +84,7 @@ class PostController extends BaseController
 
         $post_comment = new PostComment();
         $post_comment->post_id = $post_id;
+        $post_comment->user_id = intval(user()->id);
         $post_comment->content = $content;
         if (!$post_comment->save())
         {
