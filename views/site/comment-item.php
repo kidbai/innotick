@@ -9,8 +9,8 @@
         <div class="clear"></div>
         <div class="l-designer fs-14 mt-12 fl"><?= $comment->content?></div>
         <ul class="fr mt-13">
-            <li class="fl " id="<?= $comment->id?>" onclick="comment_like(<?= $post->id?>, this.id)"><div class="fs-13 l-designer like">顶(<? echo $post->commentlikecount ?>)</div></li>
-            <li class="fl  ml-15" id="<?= $comment->id?>" onclick="comment_dislike(<?= $post->id?>, this.id)"><div class="fs-13 l-designer dislike">踩(<? echo $post->commentdislikecount ?>)</div></li>
+            <li class="fl " id="<?= $comment->id?>" onclick="comment_like(<?= $post->id?>, this.id)"><div class="fs-13 l-designer like">顶(<? echo $comment->commentlikecount ?>)</div></li>
+            <li class="fl  ml-15" id="<?= $comment->id?>" onclick="comment_dislike(<?= $post->id?>, this.id)"><div class="fs-13 l-designer dislike">踩(<? echo $comment->commentdislikecount ?>)</div></li>
         </ul>
     </div>
 </div> 
