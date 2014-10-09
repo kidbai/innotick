@@ -114,6 +114,8 @@ class PostController extends BaseController
             $this->finishError(-2, 'post not exists');
         }
 
+        $post_comment = null;
+
         $user_id = intval(user()->id);
 
         $post_action = new PostAction();
@@ -126,8 +128,8 @@ class PostController extends BaseController
         {
             $this->checkParams(['comment_id']);
             $comment_id = intval($_REQUEST['comment_id']);
-            $comment = sql(' select id from {{%post_comment}} where id = :id ')->bindValues(['id' => $comment_id])->queryScalar();
-            if (!$comment)
+            $post_comment = PostComment::find()->where(['id' => $comment_id])->one();
+            if (!$post_comment)
             {
                 $this->finishError(-3, 'comment not exists');
             }
@@ -165,10 +167,10 @@ class PostController extends BaseController
                 $count = $post->getDisLikeCount();
                 break;
             case PostAction::TYPE_COMMENT_LIKE:
-                $count = $post->getCommentLikeCount();
+                $count = $post_comment->getCommentLikeCount();
                 break;
             case PostAction::TYPE_COMMENT_DISLIKE:
-                $count = $post->getCommentDisLikeCount();
+                $count = $post_comment->getCommentDisLikeCount();
                 break;
             default:
                 # code...
