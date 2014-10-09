@@ -259,7 +259,9 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .qrcode_2 .text { width: 150px; height: 82px;text-align: left;margin: auto;color: #9fa0a0;line-height: 25px;}
 #content .qrcode_2 img { float: left;margin: 0px 55px 0px 70px;border: 0;background: #cccccc;}
 
-#content .article-banner { width: 800px; height: 180px;  }
+#content .post-title { width: 800px; height: 180px;  overflow: hidden; }
+#content .post-title .content {  }
+#content .post-title .banner { width: 800px; height: 180px;  }
 
 #content .article_content .main { width: 800px;}
 #content .left .main .article p { font-size: 18px; letter-spacing: 1px; padding: 10px 20px 0px 20px;line-height: 33px;text-indent: 2em;text-align: left; color: #3f484f;}
