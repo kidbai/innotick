@@ -129,6 +129,9 @@ function scrollHandler()
       }
       if (loading_post) return;
       loading_post = true;
+
+      $("#content .loadnext").addClass("on");
+      $("#content .load .spinner").addClass("on");
       $.ajax({
         url: '/site/post-list',
         type: 'POST',
@@ -138,12 +141,14 @@ function scrollHandler()
           //console.log(html);
           loading_post = false;
           $('#post-holder').append(html);
+          $("#content .loadnext").removeClass("on");
+          $("#content .load .spinner").removeClass("on");
         }
       });
-      if(num == 1)
-      {
-        $(".spinner > div").css({"-webkit-animation": "null"});      
-      }
+      // if(num == 1)
+      // {
+      //   $(".spinner > div").css({"-webkit-animation": "null"});      
+      // }
       
       num++;
     }

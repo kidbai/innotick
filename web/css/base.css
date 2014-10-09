@@ -117,11 +117,19 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .login-nav-right .btn {  text-align: center; line-height: 41px; width: 100px; height: 41px; margin-top: 24px; margin-bottom: 4px; background: #EE6350; font-size: 17px; color: white;}
 #top .nav .user { width: 200px; height: 80px;}
 #top .nav .user.on { display: block; }
-#top .nav .user .info { height: 40px;width: 150px;line-height: 40px; }
-#top .nav .user .info .user-avatar { margin-left: 30px; }
-#top .nav .user .info img { margin: 22px 0px 0px 20px; }
-#top .item { position: absolute; display: none; width: 200px; height: 180px;top: 80px;z-index: 999;}
-#top .item li { width: 200px; height: 36px;text-align: center; }
+#top .nav .user .info { height: 40px;width: 150px;line-height: 40px; position: relative; }
+#top .nav .user .info .username { height: 30px; line-height: 30px; text-align: center; font-size: 16px; margin: 10px 0px 0px 14px;}
+#top .nav .user .info .user-avatar { margin-left: 14px; }
+#top .nav .user .info .down { display: none;}
+#top .nav .user .info .up { display: block;}
+#top .nav .user .info .down.on { display: block;}
+#top .nav .user .info .up.on { display: none;}
+#top .nav .user .info img { position: absolute; left: 122px; top: 21px; }
+#top .item { position: absolute; display: none; width: 200px; height: 184px;top: 80px;z-index: 999;}
+#top .item li { width: 200px; height: 36px;text-align: center;}
+#top .item li img {margin-left: 46px; } 
+#top .item li > div { font-size: 15px; font-weight: bold; }
+#top .item li.ml-0{ width: 200px; height: 36px;text-align: center; margin-left: 0px; }
 #top .item .item-sub { line-height: 36px; cursor: pointer; }
 #top .carousel { height: 320px; width: 1200px; z-index: 99999; display: none; background-color: #f7f7f7;}
 #top .carousel.on { display: block;}
@@ -305,8 +313,11 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .block .text li { cursor: pointer; }
 #content .block .text .like { margin-right: 10px; }
 #content .load { width:880px; height: 40px; float: left; line-height: 40px; background-color: #f4f4f4;}
-#content .load .load-next { margin-left: 60px; color: #9fa0a0;}
+#content .load .loadnext { color: #9fa0a0; display: none;}
+#content .load .loadnext.on { display: block;} 
 #content .load a { margin-right: 10px; color: #9fa0a0;}
+#content .load .spinner { display: none; }
+#content .load .spinner.on { display: block; }
 #info .info .info-circle .avatar-circle { margin: 5px 0px 0px 5px; }
 #info .info { height: 230px;position: relative;}
 #info .info { background: url("/img/icon/restaurant.png") repeat fixed; }

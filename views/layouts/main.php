@@ -202,25 +202,21 @@ use yii\web\JqueryAsset;
                         <div class="user-avatar mt-10 fl">
                             <!-- img -->
                         </div>
-                        <a class="fs-16 orange fl ml-10 mt-5" href="#"><?= user()->username ?></a> 
-                        <img src="/img/icon/dropdown.png" alt="">
+                        <div class="fl orange username"><?= user()->username ?></div>
+                        <div class="down-up">
+                            
+                            <img class="down" src="/img/icon/icon2-3.png" width="9" height="4" alt=""/>
+                            <img class="up" src="/img/icon/dropdown-light.png" width="9" height="4" alt=""/>
+                        </div>
                     </div>
-                    <!-- <div class="item fr bg-orange">
-                        <ul>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的主页</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">通知中心</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">个人设置</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的收藏</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li>
-                        </ul> 
-                    </div>  -->
+                    
                      <div class="item fr bg-orange">
                         <ul>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/homepage.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的主页</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/notification.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">通知中心</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/settings.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">个人设置</div></li>
-                            <li><img class="fl ml-52 mt-7" src="/img/icon/save.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub" href="#">我的收藏</div></li>
-                            <a href="/user/logout"><li><img class="fl ml-52 mt-7" src="/img/icon/log-out.png" width="20" height="20" alt=""><div class="fl fs-16 sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
+                            <li><img class="fl mt-7" src="/img/icon/homepage.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">我的主页</div></li>
+                            <li><img class="fl mt-7" src="/img/icon/notification.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">通知中心</div></li>
+                            <li><img class="fl mt-7" src="/img/icon/settings.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">个人设置</div></li>
+                            <li><img class="fl mt-7" src="/img/icon/save.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">我的收藏</div></li>
+                            <a href="/user/logout"><li class="ml-0"><img class="fl mt-7 ml-46" src="/img/icon/log-out.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
                         </ul> 
                     </div>
                 </div>

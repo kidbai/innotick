@@ -48,8 +48,10 @@ function submit_comment(post_id)
         data: { post_id: post_id, content: comment_content, '_csrf': global.csrfToken },
         success: function(data)
         {
-            console.log(data.content);
-            window.location.reload(false);  //重载界面
+            console.log(data);
+            console.log(data.likecount);
+            console.log(data.dislikecount);
+            // window.location.reload(false);  //重载界面
         }
     });
 }

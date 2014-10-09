@@ -72,12 +72,16 @@ $(function(){
 
     $(".user").mouseenter(function(e){
             $(".user").addClass("bg-orange");
-            $(".user a").removeClass("orange").addClass("sw");
+            $(".user .username").removeClass("orange").addClass("sw");
+            $(".user .info .down").addClass("on");
+            $(".user .info .up").addClass("on");
             $(".item").show();
     }),$(".user").mouseleave(function(e){
         if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY < 0){
             $(".user").removeClass("bg-orange");
-            $(".user a").addClass("orange").removeClass("sw");
+            $(".user .username").addClass("orange").removeClass("sw");
+            $(".user .info .down").removeClass("on");
+            $(".user .info .up").removeClass("on");
             $(".item").hide();
         }
     });

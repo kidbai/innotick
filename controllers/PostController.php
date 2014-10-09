@@ -81,7 +81,7 @@ class PostController extends BaseController
         $this->checkParams(['post_id', 'content']);
         $data['code'] = 0;
         $post_id = intval($_REQUEST['post_id']);
-        $content = $_REQUEST['content'];
+        $content = $_REQUEST['content']; // 给$content渲染html
 
         $post_comment = new PostComment();
         $post_comment->post_id = $post_id;
@@ -91,8 +91,16 @@ class PostController extends BaseController
         {
             $this->finishError(-1, 'save comment error');
         }
+        $commentlikecount = $post_comment->getCommentLikeCount();
+        $commentdislikecount = $post_comment->getCommentDisLikeCount();
         $data['post_id'] = $post_id;
         $data['content'] = $content;
+        $data['likecount'] = $commentlikecount;
+        $data['dislikecount'] = $commentdislikecount;
+
+        // $html = '';
+        // $html = $this->renderPartial('/site/comment-template', ['post_comment' => $post_comment]);
+        // $data['html'] = $html;
         $this->finish($data);
     }
 
