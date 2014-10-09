@@ -114,6 +114,7 @@ class PostController extends BaseController
             $this->finishError(-2, 'post not exists');
         }
 
+        
         $user_id = intval(user()->id);
 
         $post_action = new PostAction();

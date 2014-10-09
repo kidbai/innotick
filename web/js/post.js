@@ -49,7 +49,7 @@ function submit_comment(post_id)
         success: function(data)
         {
             console.log(data.content);
-            window.location.reload(false);
+            window.location.reload(false);  //重载界面
         }
     });
 }
