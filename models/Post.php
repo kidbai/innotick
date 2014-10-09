@@ -122,10 +122,18 @@ class Post extends \yii\db\ActiveRecord
         return sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
                 ->bindValues([':post_id' => $this->id, ':type' => PostAction::TYPE_DISLIKE])->queryScalar();
     }    
-    // public function getCommentLikeCount()
-    // {
-    //     return sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
-    //             ->bindValues([' post_id' => $this->id, ':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
-    // }
+    public function getCommentLikeCount()
+    {
+        $comment_like = sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
+                ->bindValues([':post_id' => $this->id, ':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
+        // $comment_id = sql('select count(*) from {{%post_comment}} where post_id = :post_id')
+        //         ->bindValues([':id' => $comment_id])->queryScalar();
+        return $comment_like;
+    }
+    public function getCommentDisLikeCount()
+    {
+        return sql(' select count(*) from {{%post_action}} where post_id = :post_id and type = :type ')
+                ->bindValues([':post_id' => $this->id,':type' => PostAction::TYPE_COMMENT_DISLIKE])->queryScalar();
+    } 
 
 }

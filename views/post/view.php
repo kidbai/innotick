@@ -71,15 +71,13 @@
                         <div class="fl l-designer ml-60 mt-15"><div class="fl fs-13 l-designer">登陆</div><div class="discuss fl ml-5 gray-1">后参与讨论</div></div>
                         <div class="fs-14 fr submit-btn" onclick="submit_comment(<?= $post->id ?>)">提交评论</div>
                     </div>
-                    <div class="comment">
-                        <?
-                            foreach ($post as $comment)
-                            {
-                                echo $this->render('/site/comment-item', ['comment' => $comment]);
-                            }
-                        ?> 
+                    <?
+                        foreach ($comment_list as $comment)
+                        {
+                            echo $this->render('/site/comment-item', ['comment' => $comment, 'post' => $post]);
+                        }
+                    ?> 
                               
-                    </div>
                 </div>
             </div>  
             <div class="right col-4">

@@ -32,6 +32,7 @@ class SiteController extends Controller
 
         return $this->render('/site/index', ['post_list' => $post_list, 'page' => $page]);
     }
+    
 
     public function actionPostList()
     {

@@ -46,7 +46,6 @@ class PostController extends BaseController
     {
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
-
         $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_DESC])->all();
 
         return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list]);
@@ -164,7 +163,13 @@ class PostController extends BaseController
                 break;
             case PostAction::TYPE_DISLIKE:
                 $count = $post->getDisLikeCount();
-
+                break;
+            case PostAction::TYPE_COMMENT_LIKE:
+                $count = $post->getCommentLikeCount();
+                break;
+            case PostAction::TYPE_COMMENT_DISLIKE:
+                $count = $post->getCommentDisLikeCount();
+                break;
             default:
                 # code...
                 break;

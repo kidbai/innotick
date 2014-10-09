@@ -48,19 +48,51 @@ function submit_comment(post_id)
         data: { post_id: post_id, content: comment_content, '_csrf': global.csrfToken },
         success: function(data)
         {
-            console.log("success");
-            console.log(data);
             console.log(data.content);
-            console.log(data.post_id);
+            window.location.reload(false);
         }
     });
 }
 
-// //comment_like
-// function comment_like(post_id)
-// {
 
-// }
+//comment_like
+function comment_like(post_id, id)
+{
+    console.log(id);
+    comment_id = id;
+    $.ajax({
+        url: '/post/action-save',
+        type: 'POST',
+        dataType: 'json',
+        data: { post_id: post_id, type: 3, comment_id: comment_id, '_csrf': global.csrfToken },
+        success: function(data)
+        {
+            console.log("success");
+            console.log(data.count);
+            console.log(data);
+            $("#" + id).children(".like").text("顶" + "(" + data.count + ")");
+        }
+    });
+}
+
+function comment_dislike(post_id, id)
+{
+    console.log(id);
+    comment_id = id;
+    $.ajax({
+        url: '/post/action-save',
+        type: 'POST',
+        dataType: 'json',
+        data: { post_id: post_id, type: 4, comment_id: comment_id, '_csrf': global.csrfToken },
+        success: function(data)
+        {
+            console.log("success");
+            console.log(data.count);
+            console.log(data);
+            $("#" + id).siblings().children(".dislike").text("踩" + "(" + data.count + ")");
+        }
+    });
+}
 
 
 $(function(){
