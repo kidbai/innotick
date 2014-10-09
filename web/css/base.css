@@ -300,6 +300,8 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .block { width: 660px; height: 100px;margin: auto;}
 #content .block .text { width: 600px;height: 50px;}
 #content .block .text p {padding: 0;}
+#content .block .text li { cursor: pointer; }
+#content .block .text .like { margin-right: 10px; }
 #content .load { width:880px; height: 40px; float: left; line-height: 40px; background-color: #f4f4f4;}
 #content .load .load-next { margin-left: 60px; color: #9fa0a0;}
 #content .load a { margin-right: 10px; color: #9fa0a0;}

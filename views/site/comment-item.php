@@ -1,5 +1,5 @@
 
-<div class="block border-bottom-1" id="<?= $comment->id?>">
+<div class="block border-bottom-1" >
     <div class="circle mt-20 fl bg-orange"></div>
     <div class="fl mt-20 ml-10 text">
         <div class="fl fs-14 orange">人生路</div>
@@ -9,8 +9,8 @@
         <div class="clear"></div>
         <div class="l-designer fs-14 mt-12 fl"><?= $comment->content?></div>
         <ul class="fr mt-13">
-            <li class="fl" onclick="comment_like(<?= $post->id?>)"><a href="#"><div class="fs-13 l-designer">顶(<? echo $post->commentlikecount ?>)</div></a></li>
-            <li class="fl ml-15"><a href="#"><div class="fs-13 l-designer">踩(<? echo $post->commentlikecount ?>)</div></a></li>
+            <li class="fl " id="<?= $comment->id?>" onclick="comment_like(<?= $post->id?>, this.id)"><div class="fs-13 l-designer like">顶(<? echo $post->commentlikecount ?>)</div></li>
+            <li class="fl  ml-15" id="<?= $comment->id?>" onclick="comment_dislike(<?= $post->id?>, this.id)"><div class="fs-13 l-designer dislike">踩(<? echo $post->commentdislikecount ?>)</div></li>
         </ul>
     </div>
 </div> 

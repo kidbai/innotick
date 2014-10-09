@@ -52,13 +52,13 @@ function createLoginInfo(icon){
               '</div>'+
               '<div class="login_btn">'+
                 '<div class="lgbtn fl ml-60">'+
-                  '<p class="fs-14">微博登陆</p>'+
+                  '<p class="fs-14">微博登录</p>'+
                 '</div>'+
                 '<div class="text_or fl ml-14 mr-14">'+
                   '<p class="fs-14">或</p>'+
                 '</div>'+
                 '<div class="lgbtn fl">'+
-                  '<p class="fs-14">QQ登陆</p>'+
+                  '<p class="fs-14">QQ登录</p>'+
                   '</div>'+
                 '</div>'
             '</div>';
