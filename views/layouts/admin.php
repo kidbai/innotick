@@ -30,6 +30,7 @@ JqueryAsset::register($this);
     <ul id="top-nav" class="nav nav-tabs nav-tabs-google">
         <li><span href="javascript:;" id="logo">后台管理</span></li>
         <li id="nav-5" class="nav-item <? if ($page == 1) echo 'active'; ?>"><a href="/admin/post">文章管理</a></li>
+        <li id="nav-5" class="nav-item <? if ($page == 2) echo 'active'; ?>"><a href="/admin/content">内容管理</a></li>
     </ul>
 
 

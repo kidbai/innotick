@@ -201,6 +201,21 @@ class AdminController extends BaseController
         }
 
         $this->finish($data);
-    }          
+    }  
+
+
+
+
+
+
+
+
+    public function actionContent()
+    {
+        app()->session['page'] = 2;
+
+        $
+
+    }        
     
 }
