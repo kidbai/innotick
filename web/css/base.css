@@ -348,14 +348,14 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .layout { width: 100%;height: 66px;padding: 10px 0px 10px 0px;position: relative;}
 #info .layout label { width: 180px; float: left;}
 #info .layout span { float: right; margin-right: 20px;color:#737d89; font-size: 15px;line-height: 46px;}
-#info .layout input { width: 380px; height: 46px; font-size: 14px; border: 1px solid #d9d9da;border-radius: 4px;}
+#info .layout input { width: 380px; height: 46px; font-size: 14px; border: 1px solid #d9d9da;border-radius: 4px;color: #737d89;}
 #info .avatar { width: 100%; height: 166px;}
 #info .avatar img { width: 166px; height: 166px;}
 #info .avatar .circle { width: 106px; height: 106px;}
 #info .avatar .img p { text-align: center;position: absolute; top:135px; left:202px;}
 #info .tel .getcode { cursor: pointer; margin: 4px 0px 0px 20px; width: 220px; height: 36px; border: 1px solid #27b5c6; float: left; background-color: #27b5c6; border-radius: 4px; line-height: 36px; text-align: center;}
-#info .sex input { width: 20px; height: 20px;margin-top: 15px;}
-#info .sex p { line-height: 46px; color:#737d89}
+#info .gender input { width: 20px; height: 20px;margin-top: 15px;}
+#info .gender p { line-height: 46px; color:#737d89}
 #info .area { position: relative;}
 #info select { width: 115px; height: 46px; border: 1px solid #d9d9da; border-radius: 4px; background-color: #ffffff; font-size: 14px;color: #737d89;}
 #info option { width: 100%; height: 20px; color:#737d89;}

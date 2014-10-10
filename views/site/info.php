@@ -61,11 +61,11 @@
 				<label><span>短信验证码</span></label>
 				<input type="text" placeholder="5位数字" maxlength="5"/>
 			</div>	
-			<div class="sex layout">
+			<div class="gender layout">
 				<label><span>性别</span></label>
-				<input type="radio" name="sex" value="男"/><p class="fl fs-15 ml-5 mr-10">男</p>
-				<input type="radio" name="sex" value="女"/><p class="fl fs-15 ml-5 mr-10">女</p>
-				<input type="radio" name="sex" value="保密"/><p class="fl fs-15 ml-5 mr-10">保密</p>
+				<input type="radio" name="gender" value="男"/><p class="fl fs-15 ml-5 mr-10">男</p>
+				<input type="radio" name="gender" value="女"/><p class="fl fs-15 ml-5 mr-10">女</p>
+				<input type="radio" name="gender" value="保密"/><p class="fl fs-15 ml-5 mr-10">保密</p>
 			</div>	
 			<div class="area layout">
 				<label><span>所在地区</span></label>
@@ -129,17 +129,41 @@
 		$("#info .column .info .menu li .list").removeClass("active_2");
 	});
 
-	var username = $("#top .nav .user .info .username").text();
-	$.ajax({
-		url: '/site/info',
-		type: 'POST',
-		dataType: 'json',
-		data: { username: username , '_csrf': global.csrfToken},
-		success: function(data)
-		{
-			console.log(data);
-			console.log("success");
-		}
+	
+	$(function(){
+		var username = $("#top .nav .user .info .username").text();
+		$.ajax({
+			url: '/site/get-info',
+			type: 'POST',
+			dataType: 'json',
+			data: { username: username , '_csrf': global.csrfToken},
+			success: function(data)
+			{
+				console.log(data);
+				console.log(data.userinfo.username);
+				console.log("success");
+				//email
+				//avatar
+				$("#info .user-name input").val(data.userinfo.username);//username
+				$("#info .tel input").val(data.userinfo.phone);//phone
+				// $("#info .area select[name='province']").val(data.userinfo.province); // province
+				// $("#info .area select[name='city']").val(data.userinfo.city);
+				// $("#info .area select[name=city'area']").val(data.userinfo.area);
+				$("#info textarea").val(data.userinfo.desc); // desc
+				$("#info .weibo input:eq(1)").val(data.userinfo.url); //url
+				if (data.userinfo.gender == 0) //gender
+				{
+					$("#info .gender input:eq(0)").attr("checked","checked");
+				}
+				else if(data.userinfo.gender == 1)
+				{
+					$("#info .gender input:eq(1)").attr("checked","checked");
+				}
+				else
+					$("#info .gender input:eq(2)").attr("checked","checked");
+
+			}
 	});
 
+	});
 </script>

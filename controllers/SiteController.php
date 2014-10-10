@@ -85,12 +85,14 @@ class SiteController extends BaseController
         return $this->render('/site/article');
     }
 
-    public function actionInfo(){
-
-        $data['userinfo'] = user()->attributes;
-
-        // $this->finish($data);
+    public function actionInfo()
+    {
         return $this->render('/site/info');
+    }
+    public function actionGetInfo()
+    {
+        $data['userinfo'] = user()->attributes;
+        $this->finish($data);
     }
 
     public function actionPost(){
