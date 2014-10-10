@@ -111,9 +111,11 @@
 
 	    	</div>
 	    </div>
-	    <div class="qrcode hide">
+	    <div class="clear-10"></div>
+	    <div class="qrcode">
+	    	<div class="clear-10"></div>
 			<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
-			<img src="#" alt="" width="155" height="155" />
+			<img src="/img/qr.png" alt="" width="155" height="155" />
 		</div>
 	</div>
 		
