@@ -98,6 +98,9 @@
                         <div class="fs-13 hot-text">打开创意之门其实不难</div>
                         
                     </div>
+                    <div class="clear-10"></div>
+                    <div class="clear-10"></div>
+                    <div class="clear-10"></div>
                     <!-- 屏幕header-->
                     <!--
                     <div class="header">
