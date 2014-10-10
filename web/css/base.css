@@ -268,7 +268,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .qrcode_2 img { float: left;margin: 0px 55px 0px 70px;border: 0;background: #cccccc;}
 
 #content .post-title { width: 800px; height: 180px;  overflow: hidden; position: relative; }
-#content .post-title .content { width: 800px; height: 180px; line-height: 180px; position: absolute; top: 0px; left: 0px; text-align: center; font-size: 24px; font-weight: bold; color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,0.8); }
+#content .post-title .content { width: 800px; height: 180px; line-height: 180px; position: absolute; top: 0px; left: 0px; text-align: center; font-size: 26px; font-weight: bold; color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,0.8); }
 #content .post-title .banner { width: 800px; height: 180px; margin: -1px; padding: -5px;}
 
 #content .article_content .main { width: 800px;}
