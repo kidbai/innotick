@@ -214,7 +214,7 @@ class AdminController extends BaseController
     {
         app()->session['page'] = 2;
 
-        $
+        // $
 
     }        
     
