@@ -43,15 +43,15 @@
 	    	<div class="hot-list bg-click">
 	    		<div class="hot">
 	    			<div class="img-line-up"></div>	
-	    			<a href="#"><img src="#" alt=""/></a>	
-	    			<div class="fs-13 hot-text">PayPal联合创始人Peter Thie焦点哲学</div>
+	    			<a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>	
+	    			<div class="fs-13 hot-text">更爱道歉的苹果，正在犯更多的错</div>
 	    		</div>
 	    		<div class="hot">
 	    			<div class="img-line-down"></div>	
 	    			<div>
-	    			<a href="#"><img src="#" alt=""/></a>	
+	    			<a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>	
 	    			</div>
-	    			<div class="fs-13 hot-text">PayPal联合创始人Peter Thie焦点哲学</div>
+	    			<div class="fs-13 hot-text">打开创意之门其实不难</div>
 	    			
 	    		</div>
 				<!-- 屏幕header-->
