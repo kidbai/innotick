@@ -49,7 +49,7 @@
 	    		<div class="hot">
 	    			<div class="img-line-down"></div>	
 	    			<div>
-	    			<a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>	
+	    				<a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>	
 	    			</div>
 	    			<div class="fs-13 hot-text">打开创意之门其实不难</div>
 	    			
@@ -111,7 +111,7 @@
 
 	    	</div>
 	    </div>
-	    <div class="qrcode">
+	    <div class="qrcode hide">
 			<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
 			<img src="#" alt="" width="155" height="155" />
 		</div>

@@ -50,7 +50,7 @@
                             <li class="sbtn-grass weibo ml-20 fl"><a href=""><p class="grass fs-15">分享到微博</p></a></li> -->
                         </ul>
                     </div>
-                    <div class="link border-bottom-1">
+                    <div class="link border-bottom-1 hide">
                         <img src="/img/icon/keyword.png" width="17" height="17" alt="" class="fl ml-60 mt-20"/>
                         <div class="fl fs-15"><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl linkedin ml-10" href="#">LinkedIn</div><div class="fs-14 fl ml-10">#</div><div class="fs-14 fl lingying ml-10" href="">领英</div></div>
                     </div>
@@ -89,19 +89,22 @@
                 <div class="hot-list bg-wt article">
                     <div class="hot">
                         <div class="img-line-up"></div> 
-                        <a href="#"><img src="#" alt=""/></a>   
-                        <div class="fs-13 hot-text">PayPal联合创始人Peter Thie焦点哲学</div>
+                        <a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>    
+                        <div class="fs-13 hot-text">更爱道歉的苹果，正在犯更多的错</div>
                     </div>
                     <div class="hot">
                         <div class="img-line-down"></div>   
-                        <a href="#"><img src="#" alt=""/></a>   
-                        <div class="fs-13 hot-text">PayPal联合创始人Peter Thie焦点哲学</div>
+                        <a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>    
+                        <div class="fs-13 hot-text">打开创意之门其实不难</div>
+                        
                     </div>
                     <!-- 屏幕header-->
+                    <!--
                     <div class="header">
                         <p class="fs-13">优质评论</p>
                     </div>
                     <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
+
                     <div class="small-article ml-20">
                         <div class="bg-click fl mt-10">
                             <img src="#" alt=""/>
@@ -143,7 +146,7 @@
                         </div>
                     </div>
                     
-                    
+                    -->
                     
                     
                     
