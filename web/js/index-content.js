@@ -197,28 +197,22 @@ $(function(){
   });
 
 
-      // post滑过效果 #移动互联网#电子商务#融资
-  var label = '<div class="keyword">'+
-                '<div class="keyword-1 fl ml-8 orange">#移动互联网</div>'+
-                '<div class="keyword-2 fl ml-8 orange">#电子商务</div>'+
-                '<div class="keyword-3 fl ml-8 orange">#融资</div>'+
-              '</div>';
-  // $(".post-label").after(label);
+  
 
   //TAG 事件
   $(".post .tag-like").mouseenter(function(){
-  if($(this).hasClass("on"))
-  {
-    $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
-  }
-  else
-  {
-    $(this).parent().siblings(".tag-label").children(".tag-label-like").show();
-  }
+    if($(this).hasClass("on"))
+    {
+      $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
+    }
+    else
+    {
+      $(this).parent().siblings(".tag-label").children(".tag-label-like").show();
+    }
   }).mouseleave(function(){
-  $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").hide();
-  $(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
-  });
+      $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").hide();
+      $(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
+    });
   $(".post .tag-like").click(function(){
   if(flag)
   {
@@ -384,9 +378,9 @@ $(function(){
   // setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
   });
 
-      //login
-      // $("#content").children(".content-down").children(".col-11").children(".login");
-      //评论 周鸿祎
+  //login
+  // $("#content").children(".content-down").children(".col-11").children(".login");
+  //评论 
   $("#content .from .from-text a").mouseover(function(){
     $(this).addClass("orange").removeClass("lightgray");
   }).mouseout(function(){
@@ -394,11 +388,11 @@ $(function(){
   });
 
     //post样式
-  $(".post").mouseenter(function(){
+  $("#post-holder").on("mouseenter", ".post",function(){
     $(this).children(".tag-list").show();
       $(this).addClass("bg-click");
       $(this).children(".text").children(".keyword").show();
-  }),$(".post").mouseleave(function(){
+  }),$("#post-holder").on("mouseleave", ".post", function(){
     $(this).children(".tag-list").hide();
       $(this).removeClass("bg-click");
       $(this).children(".text").children(".keyword").hide();

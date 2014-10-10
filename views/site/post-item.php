@@ -23,7 +23,31 @@ $desc = mb_substr($desc, 0, 80);
     </div>  
     <div class="text">
         <div class="title"><a class="fs-21 lp-3" href="<?= $post->url ?>"><?= $post->title ?></a></div>
-        <div class="fs-10 lp-1 post-label fl">作者<strong class="ml-4 author"><?= $post->author ?></strong> - <?= timeFormat($post->created) ?> </div>
+        <div class="fs-10 lp-1 post-label fl">
+            作者
+            <strong class="ml-4 author"><?= $post->author ?></strong>
+             - <?= timeFormat($post->created) ?> 
+            
+        </div>
+        <div class="keyword">
+
+        <?php
+            $tag_list = explode(",", $post->tag);
+            foreach ($tag_list as $tag)
+            {
+        ?>
+
+            <div class="keyword-item fl ml-8 fs-12 orange">
+        <?   echo  $tag ; ?>
+            </div>
+
+        <?            
+            }
+        ?>
+
+        </div>
+       
+        
         <div class="clear"></div>
         <div class="fs-15 lp-2 content"><?= $desc ?>...<a class="fs-15 read-all" href="<?= $post->url ?>">阅读全文</a></div>
         

@@ -44,14 +44,26 @@ class PostController extends BaseController
 
     public function actionView($id)
     {
+        // $this->checkParams([""])
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
         $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_ASC])->all();
+        $post_id_1 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 1')
+                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
+        $post_title_1 = sql (' select title from {{%post}} where id = :post_id')
+                    ->bindValues([':post_id' => $post_id_1])->queryScalar();
+        $post_id_2 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 1, 1')
+                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
+        $post_title_2 = sql (' select title from {{%post}} where id = :post_id')
+                    ->bindValues([':post_id' => $post_id_2])->queryScalar();
 
-        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list]);
+        // $post_comment_count = $post->getCommentCount();
+        // $data['comment_count'] = $post_comment_count;
+        // $this->finish($data);
+        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'post_title_1' => $post_title_1, 'post_title_2' => $post_title_2]);
     }
 
-    public function actionFavouriteAdd()
+    public function actionFavouriteAdd() //文章收藏
     {
         $this->checkParams(['post_id']);
         $data['code'] = 0;
@@ -197,5 +209,8 @@ class PostController extends BaseController
         $comment_list = PostComment::find()->where(['post_id' => $post_id])->orderBy(['id' => SORT_ASC])->all();
         return $this->renderPartial('/post/comment', ['comment_list' => $comment_list]);
     }
+
+
+    
 
 }

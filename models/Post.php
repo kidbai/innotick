@@ -126,4 +126,14 @@ class Post extends \yii\db\ActiveRecord
     {
         return sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')->bindValues([':post_id' => $this->id])->queryScalar();
     }
+
+   // public function getFavoritePost()
+   //  {
+   //      $post_id = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 2')
+   //                  ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
+
+   //      return $post_id;
+   //      //找到postid
+   //      //load post find the post title
+   //  } 
 }

@@ -90,7 +90,9 @@ $(function(){
         console.log(e);
         if(e.offsetX < 0 || e.offsetX > 200 || e.offsetY > 36){
             $(".user").removeClass("bg-orange");
-            $(".user a").addClass("orange").removeClass("sw");
+            $(".user .username").addClass("orange").removeClass("sw");
+            $(".user .info .down").removeClass("on");
+            $(".user .info .up").removeClass("on");
             $(".item").hide();
         }
     });
@@ -112,20 +114,31 @@ $(function(){
     $("#top .nav .menu li:eq(0) .nav-item").click(function(){
         if(!$("#top .carousel .content-special").hasClass("on"))
         {
-            $("#top .carousel").slideDown("fast");
+            $("#top .carousel").slideDown("fast").addClass("on");
             $("#top .carousel .content-special").addClass("on");
         }
         else
         {
-           $("#top .carousel").slideUp("fast");
+           $("#top .carousel").slideUp("fast").removeClass("on");
            $("#top .carousel .content-special").removeClass("on");
         }
+        if($("#top .carousel").hasClass("on"))
+        {
+            $("#top .nav .menu li:eq(2) .nav-item").click(function(){
+                $("#top .carousel").slideUp("fast").removeClass("on");
+            });
+        }
+        // if($(".carousel"))
     });
     $("#top .nav .menu li:eq(2) .nav-item").click(function(){
         if(!$("#top .carousel .content-product").hasClass("on"))
         {
             $("#top .carousel").slideDown("fast");
             $("#top .carousel .content-product").addClass("on");
+            // $("#top .nav .menu li:eq(0) .nav-item").click(function(){
+            //     $("#top .carousel").slideDown("fast");
+            //     $("#top .carousel .content-product").removeClass("on");
+            // });
         }
         else
         {
@@ -146,7 +159,6 @@ $(function(){
 
     //创建登陆窗口
     $("#top .nav .login-nav-right .btn").click(function(){
-        console.log($("#lg-window"));
         if(!$("#lg-window").hasClass("on"))
         {
             $("#lg-window").addClass("on");
@@ -172,7 +184,6 @@ $(function(){
         $("#lg-window .lg-window-signin").removeClass("on"); 
         $("#lg-window .fpassword").removeClass("on");
         $(".shade").hide();
-        console.log("shade hide");
     });   
 
     //注册

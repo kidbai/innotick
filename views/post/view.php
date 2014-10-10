@@ -90,12 +90,13 @@
                     <div class="hot">
                         <div class="img-line-up"></div> 
                         <a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text">更爱道歉的苹果，正在犯更多的错</div>
+                        <div class="fs-13 hot-text"><?= $post_title_1?></div>
+                         <!--  后台读取被赞次数最多的文章标题 -->
                     </div>
-                    <div class="hot">
+                    <div class="hot mt0">
                         <div class="img-line-down"></div>   
                         <a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text">打开创意之门其实不难</div>
+                        <div class="fs-13 hot-text"><?= $post_title_2?></div>
                         
                     </div>
                     <div class="clear-10"></div>

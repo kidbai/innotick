@@ -128,4 +128,18 @@
 		$("#info .column .info .menu li .color-line").removeClass("bg-orange-2");
 		$("#info .column .info .menu li .list").removeClass("active_2");
 	});
+
+	var username = $("#top .nav .user .info .username").text();
+	$.ajax({
+		url: '/site/info',
+		type: 'POST',
+		dataType: 'json',
+		data: { username: username , '_csrf': global.csrfToken},
+		success: function(data)
+		{
+			console.log(data);
+			console.log("success");
+		}
+	});
+
 </script>

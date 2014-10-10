@@ -44,14 +44,15 @@
 	    		<div class="hot">
 	    			<div class="img-line-up"></div>	
 	    			<a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>	
-	    			<div class="fs-13 hot-text">更爱道歉的苹果，正在犯更多的错</div>
+	    			<div class="fs-13 hot-text"><?= $post_title_1?></div> 
+	    			<!-- 需要后台传来文章被赞第一title -->
 	    		</div>
-	    		<div class="hot">
+	    		<div class="hot mt0">
 	    			<div class="img-line-down"></div>	
 	    			<div>
 	    				<a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>	
 	    			</div>
-	    			<div class="fs-13 hot-text">打开创意之门其实不难</div>
+	    			<div class="fs-13 hot-text"><?= $post_title_2?></div>
 	    			
 	    		</div>
 				<!-- 屏幕header-->
@@ -62,30 +63,30 @@
 
 	    		<div class="article border-bottom-1">
 	    			<div class="customer">
-	    				<div class="fs-14 orange fl">用户名</div>
+	    				<div class="fs-14 orange fl"><?= $fcomment_content_1->user->username?></div>
 	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12">一小时前 </div>
+	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_1->created, 'ago') ?></div>
 
 	    			</div>	
 	    			<div class="cont">
-	    				<div class="fs-14 text">看了那么多有关于创业的例子，成功的，失败的都有，只想说：成功的路上没有太多可鉴和复制的。别人走过的路，你可以走，但走的方式和方法要更出色。没人走过的路，你也可以走，但走的很坎坷很纠结。</div>
+	    				<div class="fs-14 text"><?= $fcomment_content_1->content?></div>
 	    			</div>
 	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于&nbsp;&nbsp;<a class="fs-14 lp-1 lightgray" href="#">周鸿祎的互联网方法论</a></div>
+	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_1?></a></div>
 	    			</div>
 	    		</div>
 	    		<div class="article border-bottom-1">
 	    			<div class="customer">
-	    				<div class="fs-14 orange fl">用户名</div>
+	    				<div class="fs-14 orange fl"><?= $fcomment_content_2->user->username?></div>
 	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12">一小时前 </div>
+	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_2->created, 'ago') ?></div>
 
 	    			</div>	
 	    			<div class="cont">
-	    				<div class="fs-14 text">看了那么多有关于创业的例子，成功的，失败的都有，只想说：成功的路上没有太多可鉴和复制的。别人走过的路，你可以走，但走的方式和方法要更出色。没人走过的路，你也可以走，但走的很坎坷很纠结。</div>
+	    				<div class="fs-14 text"><?= $fcomment_content_2->content?></div>
 	    			</div>
 	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于&nbsp;&nbsp;<a class="fs-14 lp-1 lightgray" href="#">周鸿祎的互联网方法论</a></div>
+	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_2?></a></div>
 	    			</div>
 	    		</div>
 	    		<div class="article border-bottom-1">

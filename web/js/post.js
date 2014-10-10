@@ -1,3 +1,5 @@
+
+
 //点赞
 function like(post_id)
 {
@@ -100,6 +102,14 @@ function comment_dislike(post_id, id)
 
 
 $(function(){
+
+    //comment_count
+    $.ajax({
+        url: '/post/view',
+        type: 'POST',
+        dataType: 'json',
+        data: { }
+    });
 
     // console.log($("#content .main .icon .sbtn-orange").children().children());
     $("#content .main .icon .sbtn-orange").mouseover(function(){

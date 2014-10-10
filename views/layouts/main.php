@@ -212,11 +212,11 @@ use yii\web\JqueryAsset;
                     
                      <div class="item fr bg-orange">
                         <ul>
-                            <li><img class="fl mt-7" src="/img/icon/homepage.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">我的主页</div></li>
-                            <li><img class="fl mt-7" src="/img/icon/notification.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">通知中心</div></li>
-                            <li><img class="fl mt-7" src="/img/icon/settings.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">个人设置</div></li>
-                            <li><img class="fl mt-7" src="/img/icon/save.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub" href="#">我的收藏</div></li>
-                            <a href="/user/logout"><li class="ml-0"><img class="fl mt-7 ml-46" src="/img/icon/log-out.png" width="18" height="18" alt=""><div class="fl sw ml-17 item-sub logout" href="#">注销登录</div></li></a>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/homepage.png" width="20" height="18" alt=""/></div><div class="fl sw ml-12 mt-6 item-sub">我的主页</div></li>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/notification.png" width="19" height="17" alt=""/></div><div class="fl sw ml-12 item-sub mt-4">通知中心</div></li>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/settings.png" width="20" height="18" alt=""/></div><div class="fl sw ml-12 item-sub mt-5" onclick="location='/site/info'">个人设置</div></li>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/save.png" width="18" height="16" alt=""/></div><div class="fl sw ml-12 item-sub mt-4" onclick="location='/site/collection'">我的收藏</div></li>
+                            <a href="/user/logout"><li class="ml-0"><div class="wrap-img mt-7"><img class="fl" src="/img/icon/log-out.png" width="18" height="17" alt=""/></div><div class="fl sw ml-12 item-sub logout mt-2">注销登录</div></li></a>
                         </ul> 
                     </div>
                 </div>
