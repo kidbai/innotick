@@ -203,7 +203,7 @@ $(function(){
                 '<div class="keyword-2 fl ml-8 orange">#电子商务</div>'+
                 '<div class="keyword-3 fl ml-8 orange">#融资</div>'+
               '</div>';
-  $(".post-label").after(label);
+  // $(".post-label").after(label);
 
   //TAG 事件
   $(".post .tag-like").mouseenter(function(){
