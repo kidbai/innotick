@@ -41,6 +41,7 @@ function submit_comment(post_id)
     console.log(post_id);
     console.log($("#comment_content").val());
     var comment_content = $("#comment_content").val();
+    $("#comment_content").val('');
     $.ajax({
         url: '/post/comment-add',
         type: 'POST',
@@ -52,6 +53,7 @@ function submit_comment(post_id)
             console.log(data.likecount);
             console.log(data.dislikecount);
             // window.location.reload(false);  //重载界面
+            $('#comment-holder').load('/post/comment?post_id=' + post_id);
         }
     });
 }

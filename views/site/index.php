@@ -1,7 +1,7 @@
 <div id="content" class="wrapper">	
 	<div class="column content-up">
 		<div class="title-img">
-			<img src="#" width="1200px" height="600" alt=""/>	
+			<img src="/img/background.jpg" width="1200" height="600" alt=""/>	
 		</div>	
 		<div class="nav">
 			

@@ -46,7 +46,7 @@ class PostController extends BaseController
     {
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
-        $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_DESC])->all();
+        $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_ASC])->all();
 
         return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list]);
     }
@@ -91,8 +91,8 @@ class PostController extends BaseController
         {
             $this->finishError(-1, 'save comment error');
         }
-        $commentlikecount = $post_comment->getCommentLikeCount();
-        $commentdislikecount = $post_comment->getCommentDisLikeCount();
+        $commentlikecount = $post_comment->getLikeCount();
+        $commentdislikecount = $post_comment->getDisLikeCount();
         $data['post_id'] = $post_id;
         $data['content'] = $content;
         $data['likecount'] = $commentlikecount;
@@ -176,10 +176,10 @@ class PostController extends BaseController
                 $count = $post->getDisLikeCount();
                 break;
             case PostAction::TYPE_COMMENT_LIKE:
-                $count = $post_comment->getCommentLikeCount();
+                $count = $post_comment->getLikeCount();
                 break;
             case PostAction::TYPE_COMMENT_DISLIKE:
-                $count = $post_comment->getCommentDisLikeCount();
+                $count = $post_comment->getDisLikeCount();
                 break;
             default:
                 # code...
@@ -188,6 +188,14 @@ class PostController extends BaseController
         $data['count'] = $count;
 
         $this->finish($data);
+    }
+
+    public function actionComment()
+    {
+        $this->checkParams(['post_id']);
+        $post_id = intval($_REQUEST['post_id']);
+        $comment_list = PostComment::find()->where(['post_id' => $post_id])->orderBy(['id' => SORT_ASC])->all();
+        return $this->renderPartial('/post/comment', ['comment_list' => $comment_list]);
     }
 
 }

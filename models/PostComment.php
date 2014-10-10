@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\User;
 
 /**
  * This is the model class for table "tbl_post_comment".
@@ -79,14 +80,18 @@ class PostComment extends \yii\db\ActiveRecord
     //             ->bindValues([':post_id' => $this->id,':type' => PostAction::TYPE_COMMENT_DISLIKE])->queryScalar();
     // } 
 
-    
-    public function getCommentLikeCount()
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }  
+
+    public function getLikeCount()
     {
         return sql(' select count(*) from {{%post_action}} where comment_id = :comment_id and type = :type ')
                 ->bindValues([':comment_id' => $this->id, ':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
     }
 
-    public function getCommentDisLikeCount()
+    public function getDisLikeCount()
     {
         return sql(' select count(*) from {{%post_action}} where comment_id = :comment_id and type = :type ')
                 ->bindValues([':comment_id' => $this->id, ':type' => PostAction::TYPE_COMMENT_DISLIKE])->queryScalar();        

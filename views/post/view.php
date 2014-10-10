@@ -66,18 +66,23 @@
                         </div>
                     </div> -->
                     <div class="comment-board border-bottom-1">
-                        <div class="l-designer fs-13 ml-60 mt-20">文章评论(10)</div>
+                        <div class="l-designer fs-13 ml-60 mt-20">文章评论(<?= $post->commentCount ?>)</div>
                         <textarea id="comment_content" class="fs-14 mt-15 ml-60 " cols="95" rows="5" placeholder="你怎么看?"></textarea>
-                        <div class="fl l-designer ml-60 mt-15"><div class="fl fs-13 l-designer">登陆</div><div class="discuss fl ml-5 gray-1">后参与讨论</div></div>
+                        <?
+                        if (app()->user->isGuest)
+                        {
+                        ?>
+                        <div class="fl l-designer ml-60 mt-15"><div class="fl fs-13 l-designer">登录</div><div class="discuss fl ml-5 gray-1">后参与讨论</div></div>
+                        <?
+                        }
+                        ?>
                         <div class="fs-14 fr submit-btn" onclick="submit_comment(<?= $post->id ?>)">提交评论</div>
                     </div>
+                    <div id="comment-holder" class="">
                     <?
-                        foreach ($comment_list as $comment)
-                        {
-                            echo $this->render('/site/comment-item', ['comment' => $comment, 'post' => $post]);
-                        }
+                    echo $this->render('/post/comment', ['comment_list' => $comment_list]);
                     ?> 
-                              
+                    </div>
                 </div>
             </div>  
             <div class="right col-4">
