@@ -62,8 +62,18 @@ class SiteController extends BaseController
                             ->bindValues([':post_id' => $fcomment_postid_2])->queryScalar();
         // $fcomment_2 = PostAction::find()->where(['type' => PostAction::TYPE_COMMENT_LIKE]->groupBy(['comment_id'])->orderBy([]))
 
+        $fcomment_id_3 = sql (' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 2, 1')
+                    ->bindValues([':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
+        $fcomment_postid_3 = sql (' select post_id from {{%post_action}} where comment_id = :comment_id')
+                            ->bindValues([':comment_id' => $fcomment_id_3])->queryScalar();
+        $fcomment_content_3 = PostComment::find()->where(['id' => $fcomment_id_3])->one();
+        $fcomment_title_3 = sql(' select title from {{%post}} where id = :post_id')
+                            ->bindValues([':post_id' => $fcomment_postid_3])->queryScalar();
 
-        return $this->render('/site/index', ['post_list' => $post_list, 'page' => $page, 'post_title_1' => $post_title_1, 'post_title_2' => $post_title_2, 'fcomment_content_1' => $fcomment_content_1, 'fcomment_content_2' => $fcomment_content_2,'fcomment_title_1' => $fcomment_title_1, 'fcomment_title_2' => $fcomment_title_2]);
+        //待优化
+
+
+        return $this->render('/site/index', ['post_list' => $post_list, 'page' => $page, 'post_title_1' => $post_title_1, 'post_title_2' => $post_title_2, 'fcomment_content_1' => $fcomment_content_1, 'fcomment_content_2' => $fcomment_content_2, 'fcomment_content_3' => $fcomment_content_3,'fcomment_title_1' => $fcomment_title_1, 'fcomment_title_2' => $fcomment_title_2, 'fcomment_title_3'=>$fcomment_title_3]);
     }
     
 

@@ -61,8 +61,10 @@ function timeFormat($time, $format = 'full')
 		
 		$unit*=30;
 		if ($p / $unit < 1) return intval($p / 60 / 60 / 24) . '天前';
+
+		return intval($p / (365 * 24 * 3600)) . '年前';		
 		
-		return tm($time, 'full');
+		return timeFormat($time, 'full');
 	}
 	if ($format == 'full')	return date('Y-m-d H:i:s', $time);
 	if ($format == 'date')	return date('Y-m-d', $time);

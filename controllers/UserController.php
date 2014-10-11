@@ -9,10 +9,16 @@ use app\component\UploadHandler;
 use app\component\WebUser;
 use yii\helpers\Url;
 use app\models\LoginForm;
+use app\models\PostFavourite;
+use app\models\Post;
+use app\models\PostComment;
+use yii\db\ActiveQuery;
+use yii\data\ActiveDataProvider;
 
 
 class UserController extends BaseController
 {
+    public $layout = 'main';
     public function actionLoginAjax()
     {
         $this->checkParams(['username', 'password']);
@@ -42,4 +48,64 @@ class UserController extends BaseController
         app()->user->logout();        
         $this->redirect('/');
     }    
+    
+    public function actionUserSave()
+    {
+       $data_info = ($_REQUEST['data']); 
+       user()->name = $data_info['username'];
+       user()->phone = $data_info['phone'];
+       user()->province = $data_info['province'];
+       user()->city = $data_info['city'];
+       user()->county = $data_info['county'];
+       user()->desc = $data_info['desc'];
+       user()->url = $data_info['url'];
+       $data = user()->attributes;
+        if(!user()->save())
+        {
+           $this->finishError(-5,'save action error', user()->errors);
+        } 
+      
+       $this->finish($data);
+    }
+
+    public function actionFavoritePost()
+    {
+        $user_id = user()->id;
+
+        $query = new ActiveQuery(PostFavourite::className());
+        $query->andWhere(['user_id' => $user_id]);
+        $query->orderBy(['created' => SORT_DESC]);
+
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('/user/collection', ['provider' => $provider]);
+    }
+
+    public function actionCollectionPost()
+    {
+        $post_id = ($_REQUEST['post_id']);
+        $user_id = user()->id;
+        $post_fav = new PostFavourite();
+        $post_fav->post_id = $post_id;
+        $post_fav->user_id = $user_id;
+        if(!$post_fav->save())
+        {
+            $this->finishError(-5, 'sava action error');
+        }
+        $this->finish($post_fav->post_id);
+    } 
+    public function actionCollection()
+    {
+        return $this->render('/user/collection');
+    }
+      public function actionInfo()
+    {
+        return $this->render('/user/info');
+    }
+
 }

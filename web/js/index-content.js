@@ -2,6 +2,9 @@ function nextPage(page_num)
 {
   var num = parseInt(page_num) + 1;
   console.log(parseInt(num));
+  $("#content .loadnext").addClass("on");
+  $("#content .load .spinner").addClass("on");
+
   window.location.href = '/?page=' + num;
 }
 
@@ -130,7 +133,6 @@ function scrollHandler()
       if (loading_post) return;
       loading_post = true;
 
-      $("#content .loadnext").addClass("on");
       $("#content .load .spinner").addClass("on");
       $.ajax({
         url: '/site/post-list',
@@ -141,7 +143,7 @@ function scrollHandler()
           //console.log(html);
           loading_post = false;
           $('#post-holder').append(html);
-          $("#content .loadnext").removeClass("on");
+          
           $("#content .load .spinner").removeClass("on");
         }
       });
@@ -161,6 +163,7 @@ $(window).scroll(scrollHandler);
 
 $(function(){
 
+  // console.log(<? app()->user->isGuest ?>);
 
   // 下拉加载
   var distance = 50; // 距离下边界长度 /px
@@ -204,6 +207,7 @@ $(function(){
     if($(this).hasClass("on"))
     {
       $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
+      console.log("he");
     }
     else
     {
@@ -214,30 +218,44 @@ $(function(){
       $(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
     });
   $(".post .tag-like").click(function(){
-  if(flag)
-  {
-    createLoginInfo($(this));
-      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
-      $(".login").addClass("bg-login-red").slideDown("fast");
-  }
-  flag = false;
-  $("#content .lgbtn").mouseenter(function(){
-    $(this).css({"backgroundColor": "#e86163"});
-  }).mouseleave(function(){
-  $(this).css({"backgroundColor": "#e23a3c"});
-  });
-  if($(this).hasClass("on"))
-  {
-    $(".login").slideUp("fast",function(){
-    $(this).remove();
-    flag = true;
+    if(flag)// 判断用户是否登录
+    {
+      createLoginInfo($(this));
+        $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+        $(".login").addClass("bg-login-red").slideDown("fast");
+    }
+    flag = false;
+    $("#content .lgbtn").mouseenter(function(){
+      $(this).css({"backgroundColor": "#e86163"});
+      }).mouseleave(function(){
+      $(this).css({"backgroundColor": "#e23a3c"});
     });
-    $(this).removeClass("on");
-  }
-  else
-  {
-    $(this).addClass("on");
-  }
+    if($(this).hasClass("on"))
+    {
+      $(".login").slideUp("fast",function(){
+        $(this).remove();
+        flag = true;
+      });
+      $(this).removeClass("on");
+
+    }
+    else
+    {
+      $(this).addClass("on");
+
+      //收藏文章
+      var post_id = $(this).parent().parent().attr("data-id");
+      $.ajax({
+        url: '/user/collection-post',
+        type: 'POST',
+        datatype: 'json',
+        data: { post_id: post_id, '_csrf': global.csrfToken },
+        success:function (data)
+        {
+          alert("收藏成功");
+        }
+      });
+    }
   });
 
   $(".post .tag-add-cont").mouseenter(function(){

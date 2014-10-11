@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Post;
 
 /**
  * This is the model class for table "tbl_post_favourite".
@@ -62,5 +63,10 @@ class PostFavourite extends \yii\db\ActiveRecord
             return false;
         } 
     } 
+
+    public function getPost()
+    {
+        return $this->hasOne(Post::className(), ['id' => 'post_id']);
+    }     
     
 }

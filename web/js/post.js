@@ -14,7 +14,14 @@ function like(post_id)
             console.log("success");
             console.log(data);
             console.log(data.count);
-            $("#content .icon-like").siblings("span").text("(" + data.count + ")");
+            if(data.code != -4)
+            {
+                $("#content .icon-like").siblings("span").text("(" + data.count + ")");
+            }
+            else
+            {
+                alert("您已经赞过了");
+            }
         }
     });    
 }
@@ -32,7 +39,14 @@ function dislike(post_id)
             console.log("success");
             console.log(data);
             console.log(data.count);
-            $("#content .icon-dislike").siblings("span").text("(" + data.count + ")");
+            if(data.code != -4)
+            {
+                $("#content .icon-dislike").siblings("span").text("(" + data.count + ")");
+            }
+            else
+            {
+                alert("您已经踩过了");
+            }
         }
     });    
 }
@@ -55,9 +69,24 @@ function submit_comment(post_id)
             console.log(data.likecount);
             console.log(data.dislikecount);
             // window.location.reload(false);  //重载界面
-            $('#comment-holder').load('/post/comment?post_id=' + post_id);
+            //update comment_count
+            var post_id = $("#content .comment-board div:eq(0)").attr("id");
+            console.log(post_id);
+            $.ajax({
+                url: '/post/comment-num',
+                type: 'POST',
+                dataType: 'json',
+                data: { post_id: post_id,'_csrf': global.csrfToken },
+                success:function(data)
+                {
+                    console.log(data.comment_num);
+                    $("#content .comment-board div:eq(0)").text("文章评论(" + data.comment_num + ")")
+                    $('#comment-holder').load('/post/comment?post_id=' + post_id);
+                }
+            });
         }
     });
+
 }
 
 
@@ -76,7 +105,14 @@ function comment_like(post_id, id)
             console.log("success");
             console.log(data.count);
             console.log(data);
-            $("#" + id).children(".like").text("顶" + "(" + data.count + ")");
+            if(data.code != -4)
+            {
+                $("#" + id).children(".like").text("顶" + "(" + data.count + ")");
+            }
+            else
+            {
+                alert("您已经赞过了");
+            }
         }
     });
 }
@@ -95,21 +131,24 @@ function comment_dislike(post_id, id)
             console.log("success");
             console.log(data.count);
             console.log(data);
-            $("#" + id).siblings().children(".dislike").text("踩" + "(" + data.count + ")");
+            if(data.code != -4)
+            {
+                $("#" + id).siblings().children(".dislike").text("踩" + "(" + data.count + ")");
+            }
+            else
+            {
+                alert("您已经  踩过了");
+            }
         }
     });
 }
 
 
+
+
 $(function(){
 
-    //comment_count
-    $.ajax({
-        url: '/post/view',
-        type: 'POST',
-        dataType: 'json',
-        data: { }
-    });
+    
 
     // console.log($("#content .main .icon .sbtn-orange").children().children());
     $("#content .main .icon .sbtn-orange").mouseover(function(){

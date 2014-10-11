@@ -1,3 +1,8 @@
+<?php
+use yii\widgets\ListView;
+use app\component\PrevNextPager;
+?>
+
 <div  id="info" class="wrapper">
 	<div class="column">
 		<div class="info col-15">
@@ -44,22 +49,19 @@
 				</ul>	
 			</div>	
 
-			<?php
-
-			echo $this->render('/user/collection-item', ['post_fav_list' => $post_fav_list]);
-			?>
-			<div class="collection-cont mr-20 ml-20">
-				<div class="collection-green site fl ml-38 category">网站</div>
-				<div class="title fl ml-46">韩国电子优惠券服务Spoqa融资200万美</div>
-				<div class="fr comment-num mr-60">22123</div>
-				<div class="fr time mr-50">五月前</div>
-			</div>
+            <?php
+			echo ListView::widget([
+			    'dataProvider' => $provider,
+			  	'itemView' => '/user/collection-item',
+			  	'layout' => '{items}<div class="clear"></div>{pager}',
+			  	'separator' => '',
+			  	'emptyText' => '',
+			  	'pager' => [
+			    	'class' => '\app\component\PrevNextPager'
+			  	 ]
+			]);
+            ?>			
 			
-
-			<div class="pagination">
-				<div class="next pagination-btn orange fr">下一页</div>
-				<div class="previous pagination-btn orange fr">上一页</div>
-			</div>
 		</div>	
 	</div>
 	

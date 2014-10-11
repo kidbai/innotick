@@ -214,8 +214,8 @@ use yii\web\JqueryAsset;
                         <ul>
                             <li><div class="wrap-img"><img class="fl" src="/img/icon/homepage.png" width="20" height="18" alt=""/></div><div class="fl sw ml-12 mt-6 item-sub">我的主页</div></li>
                             <li><div class="wrap-img"><img class="fl" src="/img/icon/notification.png" width="19" height="17" alt=""/></div><div class="fl sw ml-12 item-sub mt-4">通知中心</div></li>
-                            <li><div class="wrap-img"><img class="fl" src="/img/icon/settings.png" width="20" height="18" alt=""/></div><div class="fl sw ml-12 item-sub mt-5" onclick="location='/site/info'">个人设置</div></li>
-                            <li><div class="wrap-img"><img class="fl" src="/img/icon/save.png" width="18" height="16" alt=""/></div><div class="fl sw ml-12 item-sub mt-4" onclick="location='/site/collection'">我的收藏</div></li>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/settings.png" width="20" height="18" alt=""/></div><div class="fl sw ml-12 item-sub mt-5" onclick="location='/user/info'">个人设置</div></li>
+                            <li><div class="wrap-img"><img class="fl" src="/img/icon/save.png" width="18" height="16" alt=""/></div><div class="fl sw ml-12 item-sub mt-4" onclick="location='/user/favorite-post'">我的收藏</div></li>
                             <a href="/user/logout"><li class="ml-0"><div class="wrap-img mt-7"><img class="fl" src="/img/icon/log-out.png" width="18" height="17" alt=""/></div><div class="fl sw ml-12 item-sub logout mt-2">注销登录</div></li></a>
                         </ul> 
                     </div>

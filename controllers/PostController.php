@@ -13,6 +13,7 @@ use app\models\Post;
 use app\models\PostAction;
 use app\models\PostComment;
 use app\models\PostFavourite;
+use app\models\User;
 
 class PostController extends BaseController
 {
@@ -122,13 +123,21 @@ class PostController extends BaseController
         $data['code'] = 0;
         $type = intval($_REQUEST['type']);
         $post_id = intval($_REQUEST['post_id']);
-
+        $comment_id = intval($_REQUEST['comment_id']);
+        // //判断文章是否已经被点赞，被踩
+        // $post_like_dislike = PostAction::find()->where(['post_id' => $post_id,'type' => $type])->one();
+        // if($post_like_dislike)
+        // {
+        //    $this->finishError(-1,'already exist'); 
+        // }
+       
         if (!in_array($type, [PostAction::TYPE_LIKE, PostAction::TYPE_DISLIKE, PostAction::TYPE_COMMENT_LIKE, PostAction::TYPE_COMMENT_DISLIKE]))
         {
             $this->finishError(-1, 'wrong type');
         }
 
         $post = Post::find()->where(['id' => $post_id])->one(); // 获取文章
+
         if (!$post)
         {
             $this->finishError(-2, 'post not exists');
@@ -210,7 +219,15 @@ class PostController extends BaseController
         return $this->renderPartial('/post/comment', ['comment_list' => $comment_list]);
     }
 
+    public function actionCommentNum()
+    {
+        $this->checkParams(['post_id']);
+        $post_id = intval($_REQUEST['post_id']);
+        $comment_num = sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')->bindValues([':post_id' => $post_id])->queryScalar();
+        $data['comment_num'] = $comment_num;
+        $this->finish($data);
+    }
 
-    
+   
 
 }

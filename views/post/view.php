@@ -66,7 +66,7 @@
                         </div>
                     </div> -->
                     <div class="comment-board border-bottom-1">
-                        <div class="l-designer fs-13 ml-60 mt-20">文章评论(<?= $post->commentCount ?>)</div>
+                        <div id="<?= $post->id?>" class="l-designer fs-13 ml-60 mt-20">文章评论(<?= $post->commentCount ?>)</div>
                         <textarea id="comment_content" class="fs-14 mt-15 ml-60 " cols="95" rows="5" placeholder="你怎么看?"></textarea>
                         <?
                         if (app()->user->isGuest)

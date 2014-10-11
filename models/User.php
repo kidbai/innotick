@@ -1,7 +1,6 @@
 <?php
 
 namespace app\models;
-
 use Yii;
 
 /**
@@ -14,8 +13,8 @@ use Yii;
  * @property integer $gender
  * @property string $phone
  * @property string $province
- * @property string $area
  * @property string $city
+ * @property string $county
  * @property string $avatar
  * @property string $url
  * @property string $desc
@@ -38,10 +37,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password', 'name', 'gender', 'phone', 'province', 'area', 'city', 'avatar', 'url', 'desc', 'created', 'updated'], 'required'],
+            [['username', 'password', 'name', 'gender', 'phone', 'province', 'url', 'desc',], 'required'],
             [['gender', 'created', 'updated'], 'integer'],
             [['desc'], 'string'],
-            [['username', 'password', 'name', 'phone', 'province', 'area', 'city', 'avatar'], 'string', 'max' => 99],
+            [['username', 'password', 'name', 'phone', 'province', 'county', 'city', 'avatar'], 'string', 'max' => 99],
             [['url'], 'string', 'max' => 999]
         ];
     }
@@ -59,7 +58,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'gender' => 'Gender',
             'phone' => 'Phone',
             'province' => 'Province',
-            'area' => 'Area',
+            'county' => 'County',
             'city' => 'City',
             'avatar' => 'Avatar',
             'url' => 'Url',

@@ -33,7 +33,7 @@
 			        <div class="bounce2 load-animation"></div>
 			        <div class="bounce3 load-animation"></div>
 			    </div>
-				<div class="fs-14 fl loadnext">正在为您加载第X页面</div>	
+				<div class="fs-14 fl loadnext">正在为您加载第<?= $page + 1?>页面</div>	
 				<a class="fs-14 fr" href="javascript:;" onclick="nextPage(<?= $page?>)">下一页</a>
 			</div>
 	    </div>
@@ -91,16 +91,15 @@
 	    		</div>
 	    		<div class="article border-bottom-1">
 	    			<div class="customer">
-	    				<div class="fs-14 orange fl">用户名</div>
+	    				<div class="fs-14 orange fl"><?= $fcomment_content_3->user->username?></div>
 	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12">一小时前 </div>
-
+	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_3->created, 'ago')?></div>
 	    			</div>	
 	    			<div class="cont">
-	    				<div class="fs-14 text">看了那么多有关于创业的例子，成功的，失败的都有，只想说：成功的路上没有太多可鉴和复制的。别人走过的路，你可以走，但走的方式和方法要更出色。没人走过的路，你也可以走，但走的很坎坷很纠结。</div>
+	    				<div class="fs-14 text"><?= $fcomment_content_3->content?></div>
 	    			</div>
 	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于&nbsp;&nbsp;<a class="fs-14 lp-1 lightgray" href="#">周鸿祎的互联网方法论</a></div>
+	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_3?></a></div>
 	    			</div>
 	    		</div>
 				
