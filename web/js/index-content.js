@@ -217,7 +217,7 @@ $(function(){
   if(flag)
   {
     createLoginInfo($(this));
-      $(".login").children(".text").children("p").text("登陆账号，保存此文章后稍后阅读");
+      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
       $(".login").addClass("bg-login-red").slideDown("fast");
   }
   flag = false;
@@ -259,7 +259,7 @@ $(function(){
   if(flag)
     {
     createLoginInfo($(this));
-    $(".login").children(".text").children("p").text("登陆账号，我们将为您提供更多文章");
+    $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多文章");
     $(".login").addClass("bg-login-green").slideDown("fast");
   }
   flag = false;
@@ -312,7 +312,7 @@ $(function(){
     createLoginInfo($(this));
     var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
     $("#login .login_btn").append(del_btn);
-    $(".login").children(".text").children("p").text("登陆账号，我们将减少为您提供这类文章");
+    $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
     $(".login").addClass("bg-login-blue").slideDown("fast");
   }
   flag = false;

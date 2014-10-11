@@ -131,19 +131,23 @@ class AdminController extends BaseController
         $this->redirect('/admin/post-list');
     }
 
-    public function actionPostList($category_id = 1)
+    public function actionPostList($category_id = 0)
     {
         app()->session['page'] = 1;
 
         $category_id = intval($category_id);
         $category = getCategory();
-        if (!in_array($category_id, array_keys($category)))
+        if ($category_id != 0 && !in_array($category_id, array_keys($category)))
         {
             throw new NotFoundHttpException('类别不存在');
         }
 
         $query = new ActiveQuery(Post::className());
-        $query->andWhere(['category_id' => $category_id]);
+        if ($category_id != 0)
+        {
+            $query->andWhere(['category_id' => $category_id]);
+        }
+        
         $query->orderBy(['id' => SORT_DESC]);
 
         $provider = new ActiveDataProvider([
@@ -201,6 +205,21 @@ class AdminController extends BaseController
         }
 
         $this->finish($data);
-    }          
+    }  
+
+
+
+
+
+
+
+
+    public function actionContent()
+    {
+        app()->session['page'] = 2;
+
+        // $
+
+    }        
     
 }
