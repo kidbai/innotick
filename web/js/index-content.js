@@ -54,8 +54,8 @@ function createLoginInfo(icon){
                 '<p class="fs-13 lp-1 sw"></p>'+
               '</div>'+
               '<div class="login_btn">'+
-                '<div class="lgbtn fl ml-60" onclick="showloginwindow()"">'+
-                  '<p class="fs-14">登录</p>'+
+                '<div class="lgbtn fl ml-60" >'+
+                  '<p class="fs-14" onclick="showloginwindow()">登录</p>'+
                 '</div>'+
             '</div>';
     icon.parent().parent().after(icon_add);
@@ -71,6 +71,9 @@ function showloginwindow()
         $(".shade").show();
     } 
   });
+  $("html,body").animate({
+    scrollTop: '0px'
+  }, 200);
 }
 
 var one_second = function()
