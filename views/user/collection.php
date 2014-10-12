@@ -7,7 +7,7 @@ use app\component\PrevNextPager;
 	<div class="column">
 		<div class="info col-15">
 			<div class="img info-circle bg-pink fl ml-80 mt-45">
-				<div class="avatar-circle"></div>
+				<img class="avatar-circle" src="/upload/img/<?= user()->avatar?>" width="100" height="100" alt="">
 			</div>
 			<div class="text fl ml-30 mt-65">
 				<div class="fs-32 lp-4 wt"><?= user()->name?></div>

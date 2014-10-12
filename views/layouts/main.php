@@ -199,14 +199,12 @@ use yii\web\JqueryAsset;
                 <div class="user fr">
                     <div class="info mt-20 ml-25">
                         <!-- <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/> -->
-                        <div class="user-avatar mt-10 fl">
-                            <!-- img -->
-                        </div>
+                        <img class="user-avatar mt-10 fl" src="/upload/img/<?= user()->avatar?>" width="30" height="30" alt=""/>
                         <div class="fl orange username"><?= user()->username ?></div>
                         <div class="down-up">
                             
-                            <img class="down" src="/img/icon/icon2-3.png" width="9" height="4" alt=""/>
-                            <img class="up" src="/img/icon/dropdown-light.png" width="9" height="4" alt=""/>
+                            <img class="down icon" src="/img/icon/icon2-3.png" width="9" height="4" alt=""/>
+                            <img class="up icon" src="/img/icon/dropdown-light.png" width="9" height="4" alt=""/>
                         </div>
                     </div>
                     

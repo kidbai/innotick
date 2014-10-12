@@ -124,7 +124,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .user .info .up { display: block;}
 #top .nav .user .info .down.on { display: block;}
 #top .nav .user .info .up.on { display: none;}
-#top .nav .user .info img { position: absolute; left: 122px; top: 21px; }
+#top .nav .user .info img.icon { position: absolute; left: 122px; top: 21px; }
 #top .item { position: absolute; display: none; width: 200px; height: 180px;top: 80px;z-index: 999;}
 #top .item .wrap-img { width: 20px; height: 20px; float: left;  margin-left: 46px; margin-top: 10px;  }
 #top .item .wrap-img.mt-7 {width: 20px; height: 20px; float: left;  margin-left: 46px; margin-top: 7px;  }
@@ -245,6 +245,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .hot-list { height: auto; width: 300px;margin: 25px 0px 0px 25px;overflow: hidden;}
 #content .hot-list.article { height: auto; width: 300px;margin: 25px 0px 0px 0px;overflow: hidden;}
 #content .hot-list .hot { position:relative; width: 86.66666667%;margin:25px 20px 0px 20px;font-size: 10px;float: left;}
+#content .hot-list .hot:hover .hot-text { color: #ee6350; }
 #content .hot-list .hot.mt0 { position:relative; width: 86.66666667%;margin:0px 20px 0px 20px;font-size: 10px;float: left; }
 #content .hot-list .hot .img-line-up { background: #90bb32; height: 6px;}
 #content .hot-list .hot .img-line-down { background: #00bbe9; height: 6px;}
@@ -365,12 +366,13 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .tel .getcode { cursor: pointer; margin: 4px 0px 0px 20px; width: 220px; height: 36px; border: 1px solid #27b5c6; float: left; background-color: #27b5c6; border-radius: 4px; line-height: 36px; text-align: center;}
 #info .gender input { width: 20px; height: 20px;margin-top: 15px;}
 #info .gender p { line-height: 46px; color:#737d89}
-#info .area { position: relative;}
+#info .county { position: relative;}
+#info .county select { float: left;}
 #info select { width: 115px; height: 46px; border: 1px solid #d9d9da; border-radius: 4px; background-color: #ffffff; font-size: 14px;color: #737d89;}
 #info option { width: 100%; height: 20px; color:#737d89;}
 #info .weibo .http { font-size: 14px;color:#737d89; text-align: center; width: 64px; height: 46px; border: 1px solid #d9d9da;  border-radius: 4px 0px 0px 4px;line-height: 46px;}
 #info .weibo input { width: 317px; border-radius: 0px 4px 4px 0px; color:#737d89;}
-#info .can_no_null { height: 46px; line-height: 46px; text-align: center; color: red; font-size: 14px; margin-left: 20px; }
+#info .can-not-null { display: none; height: 46px; line-height: 46px; text-align: center; color: red; font-size: 14px; margin-left: 20px; }
 #username { position: absolute; left: 318px; top: 122px; }
 #info .introduce { position: relative;}
 #info .introduce textarea { width: 380px; height: 150px; background-color: #ffffff; border: 1px solid #d9d9da; border-radius: 4px; font-size: 14px; color:#737d89; padding: 10px;}

@@ -210,7 +210,7 @@ $(function(){
   
 
   //TAG 事件
-  $(".post .tag-like").mouseenter(function(){
+  $("#post-holder").delegate(".tag-like", "mouseenter",function(){
     if($(this).hasClass("on"))
     {
       $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
@@ -219,14 +219,14 @@ $(function(){
     {
       $(this).parent().siblings(".tag-label").children(".tag-label-like").show();
     }
-  }).mouseleave(function(){
+  }),$("#post-holder").delegate(".tag-like", "mouseleave",function(){
       $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").hide();
       $(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
     });
-  $(".post .tag-like").click(function(){
+  $("#post-holder").delegate(".tag-like", "click",function(){
     console.log(user.isGuest);
     
-    $("#content .lgbtn").mouseenter(function(){
+    $("#content .lgbtn").delegate(".lgbtn", "mouseenter", function(){
       $(this).css({"backgroundColor": "#e86163"});
       }).mouseleave(function(){
       $(this).css({"backgroundColor": "#e23a3c"});
@@ -265,6 +265,7 @@ $(function(){
       if(user.isGuest)// 判断用户是否登录 
       {
         createLoginInfo($(this));
+        console.log($(this));
         $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
         $(".login").addClass("bg-login-red").slideDown("fast");
       }
@@ -273,7 +274,7 @@ $(function(){
       {
         var post_id_add = $(this).parent().parent().attr("data-id");
         $.ajax({
-          url: '/user/collection-post',
+          url: '/post/collection-post',
           type: 'POST',
           datatype: 'json',
           data: { post_id: post_id_add, '_csrf': global.csrfToken },
@@ -296,7 +297,7 @@ $(function(){
     }
   });
 
-  $(".post .tag-add-cont").mouseenter(function(){
+  $("#post-holder").delegate(".tag-add-cont", "mouseenter", function(){
   if($(this).hasClass("on"))
   {
     $(this).parent().siblings(".tag-label").children(".tag-label-more-recall").show();
@@ -306,145 +307,124 @@ $(function(){
     $(this).parent().siblings(".tag-label").children(".tag-label-more").show(); 
   }
 
-  }).mouseleave(function(){
+  }),$("#post-holder").delegate(".tag-add-cont", "mouseleave", function(){
   $(this).parent().siblings(".tag-label").children(".tag-label-more").hide();
   $(this).parent().siblings(".tag-label").children(".tag-label-more-recall").hide();
-  //问题点
   });
-  $(".post .tag-add-cont").click(function(){
-  // if(flag)
-  //   {
-  //   createLoginInfo($(this));
-  //   $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多文章");
-  //   $(".login").addClass("bg-login-green").slideDown("fast");
-  // }
-  // flag = false;
-  $("#content .lgbtn").mouseenter(function(){
-    $(this).css({"backgroundColor": "#e23a3c"});
-  }).mouseleave(function(){
-  $(this).css({"backgroundColor": "#129592"}); //颜色
-  });
-  if($(this).hasClass("on"))
-  {
-    $(".login").slideUp("fast",function(){
-      $(this).remove();
-      // flag = true;
+  $("#post-holder").delegate(".tag-add-cont", "click", function(){
+  
+    $("#content .lgbtn").delegate(".lgbtn", "mouseenter", function(){
+      $(this).css({"backgroundColor": "#e23a3c"});
+    }).mouseleave(function(){
+      $(this).css({"backgroundColor": "#129592"}); //颜色
     });
-    $(this).removeClass("on");
-  }
-  else
-  {
-    $(this).addClass("on");
-    if(user.isGuest)// 判断用户是否登录 
+    if($(this).hasClass("on"))
     {
-      createLoginInfo($(this));
-      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
-      $(".login").addClass("bg-login-green").slideDown("fast");
-    }
-  }
-  if($(this).children(".tag-add-cancel").hasClass("active"))
-  {
-    $(this).children(".tag-add-cancel").removeClass("active");
-  }
-  else
-  {
-    $(this).children(".tag-add-cancel").addClass("active");
-  }
-
-  });
-
-  $(".post .tag-del-cont").mouseenter(function(){
-  if($(this).hasClass("active"))
-  {
-    $(this).parent().siblings(".tag-label").children(".tag-label-del-recall").show();
-  }
-  else
-  {
-    $(this).parent().siblings(".tag-label").children(".tag-label-del").show();  
-  }
-  console.log("hhh");
-  }).mouseleave(function(){
-    $(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
-    $(this).parent().siblings(".tag-label").children(".tag-label-del-recall").hide();
-    $(this).children(".tag-del-dark").removeClass("on");
-  });
-  $(".post .tag-del-cont").click(function(){
-  // if(flag)
-  // {
-  //   createLoginInfo($(this));
-  //   var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
-  //   $("#login .login_btn").append(del_btn);
-  //   $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
-  //   $(".login").addClass("bg-login-blue").slideDown("fast");
-  // }
-  // flag = false;
-    // $(this).parent().parent().slideUp("fast", function(){
-    //  $(this).remove();
-    //  $(".login").remove();
-    // });
-
-  $("#content .lgbtn").mouseenter(function(){
-    $(this).css({"backgroundColor":"#7185be"});
-  }).mouseleave(function(){
-    $(this).css({"backgroundColor":"#4d67ae"}); //颜色
-  });
-
-    
-  if($(this).hasClass("active"))
-  {
-
-    $(this).removeClass("active");
-  }
-  else
-  {
-    $(this).addClass("active");
-    if(user.isGuest)// 判断用户是否登录 
-    {
-      createLoginInfo($(this));
-      var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
-      $("#login .login_btn").append(del_btn);
-      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
-      $(".login").addClass("bg-login-blue").slideDown("fast");
-    }
-  }
-  $("#content .lgbtn:eq(2)").click(function(){
-      createDelInfo($(this));
-    $(".login").slideUp("fast",function(){
-    $(this).prev().slideUp("fast", function(){
-      $(this).remove();
-    });
-    $(this).slideUp("fast", function(){
+      $(".login").slideUp("fast",function(){
         $(this).remove();
-    });
-  });
-  setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
-  // $("")
-  // flag = true;
-  $("#content .del-info .right_text").click(function(){
-    if(!$(this).hasClass("on"))
-    {
-      $(this).addClass("on"); 
+        // flag = true;
+      });
+      $(this).removeClass("on");
     }
     else
     {
+      $(this).addClass("on");
+      if(user.isGuest)// 判断用户是否登录 
+      {
+        createLoginInfo($(this));
+        $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+        $(".login").addClass("bg-login-green").slideDown("fast");
+      }
+    }
+    if($(this).children(".tag-add-cancel").hasClass("active"))
+    {
+      $(this).children(".tag-add-cancel").removeClass("active");
+    }
+    else
+    {
+      $(this).children(".tag-add-cancel").addClass("active");
+    }
+
+  });
+
+  $("#post-holder").delegate(".tag-del-cont", "mouseenter", function(){
+    if($(this).hasClass("active"))
+    {
+      $(this).parent().siblings(".tag-label").children(".tag-label-del-recall").show();
+    }
+    else
+    {
+      $(this).parent().siblings(".tag-label").children(".tag-label-del").show();  
+    }
+    }),$("#post-holder").delegate(".tag-del-cont", "mouseleave", function(){
+      $(this).parent().siblings(".tag-label").children(".tag-label-del").hide();
+      $(this).parent().siblings(".tag-label").children(".tag-label-del-recall").hide();
+      $(this).children(".tag-del-dark").removeClass("on");
+    });
+    $("#post-holder").delegate(".tag-del-cont", "click", function(){
+    
+    $("#content .lgbtn").delegate(".lgbtn", "mouseenter", function(){
+      $(this).css({"backgroundColor":"#7185be"});
+    }).mouseleave(function(){
+      $(this).css({"backgroundColor":"#4d67ae"}); //颜色
+    });
+
+      
+    if($(this).hasClass("active"))
+    {
+
+      $(this).removeClass("active");
+    }
+    else
+    {
+      $(this).addClass("active");
+      if(user.isGuest)// 判断用户是否登录 
+      {
+        createLoginInfo($(this));
+        var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
+        $("#login .login_btn").append(del_btn);
+        $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+        $(".login").addClass("bg-login-blue").slideDown("fast");
+      }
+    }
+    $("#content .lgbtn:eq(1)").click(function(){
+        createDelInfo($(this));
+      $(".login").slideUp("fast",function(){
+      $(this).prev().slideUp("fast", function(){
+        $(this).remove();
+      });
+      $(this).slideUp("fast", function(){
+          $(this).remove();
+      });
+    });
+    setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
+    // $("")
+    // flag = true;
+    $("#content .del-info .right_text").click(function(){
+      if(!$(this).hasClass("on"))
+      {
+        $(this).addClass("on"); 
+      }
+      else
+      {
+        $(this).removeClass("on");
+      }
+    });
+            
+    });
+    if($(this).hasClass("on"))
+    {
+      $(".login").slideUp("fast",function(){
+        $(this).remove();
+        flag = true;
+      });
       $(this).removeClass("on");
     }
-  });
-          
-  });
-  if($(this).hasClass("on"))
-  {
-    $(".login").slideUp("fast",function(){
-      $(this).remove();
-      flag = true;
-    });
-    $(this).removeClass("on");
-  }
-  else
-  {
-    $(this).addClass("on");
-  }
-  setTimeout('$(".login").slideUp("fast", function(){$(this).prev().slideUp("fast",function(){$(this).remove()}); $(this).remove();flag=true})', 3000);
+    else
+    {
+      $(this).addClass("on");
+    }
+    setTimeout('$(".login").slideUp("fast", function(){$(this).prev().slideUp("fast",function(){$(this).remove()}); $(this).remove();flag=true})', 3000);
   // setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
   });
 
@@ -458,31 +438,11 @@ $(function(){
   });
 
     //post样式
-  $("#post-holder").on("mouseenter", ".post",function(){
-    // var post_id = $(this).attr("data-id");
-    // // console.log(post_id);
-    // $.ajax({
-    //   url: '/post/collection-post-exist',
-    //   type: 'POST',
-    //   datatype: 'json',
-    //   data:{ post_id:post_id, '_csrf': global.csrfToken },
-    //   success:function(data)
-    //   {
-    //     // console.log(data);
-    //     if(data.code == 4 )
-    //     {
-    //       $("#post-" + post_id).children(".tag-list").children(".tag-like").removeClass("on");
-    //     }
-    //     else
-    //     {
-    //       $("#post-" + post_id).children(".tag-list").children(".tag-like").addClass("on");
-    //     }
-    //   } 
-    // });
-    $(this).children(".tag-list").show();
+  $("#post-holder").delegate(".post", "mouseenter",function(){
+      $(this).children(".tag-list").show();
       $(this).addClass("bg-click");
       $(this).children(".text").children(".keyword").show();
-  }),$("#post-holder").on("mouseleave", ".post", function(){
+  }),$("#post-holder").delegate(".post", "mouseleave", function(){
     $(this).children(".tag-list").hide();
       $(this).removeClass("bg-click");
       $(this).children(".text").children(".keyword").hide();
