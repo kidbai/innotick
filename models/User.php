@@ -37,7 +37,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password', 'name', 'gender', 'phone', 'province', 'url', 'desc',], 'required'],
+            [['username', 'email' ,'password', 'name', 'gender', 'phone', 'province', 'url', 'desc'], 'required'],
             [['gender', 'created', 'updated'], 'integer'],
             [['desc'], 'string'],
             [['username', 'password', 'name', 'phone', 'province', 'county', 'city', 'avatar'], 'string', 'max' => 99],
@@ -52,6 +52,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
+            'email' => 'Email',
             'username' => 'Username',
             'password' => 'Password',
             'name' => 'Name',

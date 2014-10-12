@@ -52,7 +52,8 @@ class UserController extends BaseController
     public function actionUserSave()
     {
        $data_info = ($_REQUEST['data']); 
-       user()->name = $data_info['username'];
+       user()->email = $data_info['email'];
+       user()->name = $data_info['name'];
        user()->phone = $data_info['phone'];
        user()->province = $data_info['province'];
        user()->city = $data_info['city'];
@@ -60,6 +61,8 @@ class UserController extends BaseController
        user()->desc = $data_info['desc'];
        user()->url = $data_info['url'];
        user()->avatar = $data_info['avatar'];
+       user()->gender = intval($data_info['gender']);
+       // dump($data_info['gender']);
        $data = user()->attributes;
         if(!user()->save())
         {
