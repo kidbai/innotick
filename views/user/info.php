@@ -95,7 +95,7 @@
 			</div>	
 			<div class="introduce layout">
 				<label><span>个人简介</span></label>
-				<textarea name="" id="desc_info" class="lp-1 fl" cols="30" rows="10"><?= user()->desc?></textarea>
+				<textarea name="" id="desc-info" class="lp-1 fl" cols="30" rows="10"><?= user()->desc?></textarea>
 				<div class="fl can-not-null" id="error-desc">不能为空</div>
 			</div>
 			<div class="weibo layout mt-101">
@@ -153,8 +153,8 @@ function saveinfo()
 	var name = $("#user-name").val();
 	var phone = $("#user-phone").val();
 	var gender_val = $('input[type=radio][name=gender]:checked').val();
-	var desc = $("#desc_info").val();
-	var url = $("#url_addr").val();
+	var desc = $("#desc-info").val();
+	var url = $("#url-addr").val();
    	var province = $("#address-province").val();
    	var city = $("#address-city").val();
    	var county = $("#address-county").val(); 
