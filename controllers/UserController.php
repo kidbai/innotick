@@ -59,6 +59,7 @@ class UserController extends BaseController
        user()->county = $data_info['county'];
        user()->desc = $data_info['desc'];
        user()->url = $data_info['url'];
+       user()->avatar = $data_info['avatar'];
        $data = user()->attributes;
         if(!user()->save())
         {
@@ -86,42 +87,7 @@ class UserController extends BaseController
         return $this->render('/user/collection', ['provider' => $provider]);
     }
 
-    public function actionCollectionPost()
-    {
-        $post_id = ($_REQUEST['post_id']);
-        $user_id = user()->id;
-        $post_fav = new PostFavourite();
-        $post_fav->post_id = $post_id;
-        $post_fav->user_id = $user_id;
-       
-        
-        if(!$post_fav->save())
-        {
-            $this->finishError(-5, 'sava action error');
-        }
-
-        // $this->finish($post_fav->post_id);
-    } 
-
-    public function actionCollectionRecall()
-    {
-        $post_id = ($_REQUEST['post_id']);
-        $user_id = user()->id;
-        $post_fav_recall = PostFavourite::find()->where(['post_id' => $post_id,'user_id' => $user_id])->one();
-    }
-
-    public function actionCollectionPostExist()
-    {
-        $post_id = ($_REQUEST['post_id']);
-        $user_id = user()->id;
-        $post_fav_exist = PostFavourite::find()->where(['post_id' => $post_id,'user_id' => $user_id])->one();
-        if(!$post_fav_exist)
-        {
-            $this->finishError(4, 'no exist');
-        }
-        dump($post_fav_exist);die();
-        // $this->finish($post_fav_exist->post_id);
-    }
+    
 
     public function actionCollection()
     {

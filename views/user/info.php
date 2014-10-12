@@ -13,7 +13,7 @@
 				<ul>
 					<li>
 						<div class="color-line bg-orange"></div>
-						<div class="list bg-wt active"><a href="/site/info"><div class="fs-17 orange">基本信息</div></a></div>
+						<div class="list bg-wt active"><a href="/user/info"><div class="fs-17 orange">基本信息</div></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
@@ -25,7 +25,7 @@
 					</li>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="/site/collection"><div class="fs-17 orange">我的收藏</div></a></div>
+						<div class="list bg-wt"><a href="/user/favorite-post"><div class="fs-17 orange">我的收藏</div></a></div>
 					</li>
 				</ul>
 			</div>
@@ -43,10 +43,19 @@
 			<div class="avatar layout">
 				<label><span>头像</span></label>
 				<div class="img">
-					<div class="circle bg-orange fl">
-						<!-- <img src="circle" alt=""> -->
+					<div class="circle fl">
+						<img class="circle" id="file-upload-img" width="106" height="106" src="/upload/img/<?= user()->avatar?> "/>
 					</div>
-					<a href="#"><p class="orange fs-14">更改头像</p></a>
+					<!-- <a href="#"><p class="orange fs-14">更改头像</p></a>
+					<span class="img-upload" >
+						更改头像<input type="file" id="file-upload" name="file" />
+					</span>  -->
+					<span class="btn btn-success fl file-upload-btn img-upload" >
+						更改头像<input type="file" id="file-upload" name="file" />
+					</span>
+					<span class="fl file-upload-status" id="file-upload-status"></span>
+					<div class="clear-10"></div>
+					<input type="hidden" id="student-avatar" class="form-control" name="Student[avatar]" value="">
 				</div>
 				
 			</div>	
@@ -109,6 +118,10 @@
 <script>
 new PCAS("province=<?= user()->province ?>,请选择省份","city=<?= user()->city ?>,请选择城市","county=<?= user()->county ?>,请选择地区");
 </script>
+<script type="text/javascript" src="/res/jqueryfileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/res/jqueryfileupload/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/admin/upload.js"></script>
 <script type="text/javascript">
 
 $("#info .column .info .menu li").mouseover(function(){
@@ -121,10 +134,16 @@ $("#info .column .info .menu li").mouseover(function(){
 	$("#info .column .info .menu li .list").removeClass("active_2");
 });
 
+$("#img-upload").click(function(){
+	var img_src = $("#img-upload").val();
+	// $("#info .avatar .circle img").attr("src");
+});
+
 
 function saveinfo()
 {
-	var avatar = ''; //头像
+	var avatar = $("#student-avatar").val(); //头像
+	console.log(avatar + "123123123123");
 	var username = $("#info .user-name input").val();
 	var phone = $("#info .tel input").val();
 	var gender = 0;
@@ -134,7 +153,7 @@ function saveinfo()
    	var province = $("#address-province").val();
    	var city = $("#address-city").val();
    	var county = $("#address-county").val(); 
-    var data = {"phone": phone, "username":username, "province":province, "city":city, "county":county, "desc":desc, "url":url};
+    var data = { "avatar":avatar, "phone": phone, "username":username, "province":province, "city":city, "county":county, "desc":desc, "url":url};
 	$.ajax({
 		url: '/user/user-save',
 		type: 'POST',
@@ -149,10 +168,6 @@ function saveinfo()
 	});
 }
 
-$(function(){
-
-
-});
 
 
 </script>

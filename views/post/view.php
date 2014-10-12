@@ -87,18 +87,23 @@
             </div>  
             <div class="right col-4">
                 <div class="hot-list bg-wt article">
-                    <div class="hot">
-                        <div class="img-line-up"></div> 
-                        <a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post_id_1->post->title?></div>
-                         <!--  后台读取被赞次数最多的文章标题 -->
-                    </div>
-                    <div class="hot mt0">
-                        <div class="img-line-down"></div>   
-                        <a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post_id_2->post->title?></div>
-                        
-                    </div>
+
+                    <?
+                    $i = 0;
+                    foreach ($hot_post_list as $action)
+                    {
+                        $post = $action->post;
+                        if(!$post) continue;
+                        $i++; 
+                    ?>
+                        <div class="hot <? if($i > 1) echo 'mt0';?>">
+                            <div class="img-line-up"></div> 
+                            <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
+                            <div class="fs-13 hot-text"><?= $post->title ?></div>
+                        </div>
+                    <?
+                    }
+                    ?>
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>

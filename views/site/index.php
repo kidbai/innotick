@@ -42,12 +42,14 @@
 	    <div class="col-4 right">
 	    	<div class="hot-list bg-click">
 				<?
+				$i=0;
 				foreach ($action_hot_post_list as $action)
 				{
 					$post = $action->post;
 					if (!$post) continue;
+					$i++;
 				?>
-		    		<div class="hot">
+		    		<div class="hot <? if($i>0) echo 'mt0';?>">
 		    			<div class="img-line-down"></div>	
 						<a href="<?= $post->url ?>"><img src="/upload/img/<?= $post->img ?>" alt=""/></a>	
 		    			<div class="fs-13 hot-text"><?= $post->title ?></div>	

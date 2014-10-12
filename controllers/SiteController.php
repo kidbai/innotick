@@ -33,10 +33,10 @@ class SiteController extends BaseController
         $page = intval($page);
 
         $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->offset(($page - 1) * 20)->all();
-        
+
         $action_hot_post_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 2', [':type' => PostAction::TYPE_LIKE])->all();
 
-        $action_hot_comment_list = PostAction::findBySql(' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 0, 3', [':type' => PostAction::TYPE_COMMENT_LIKE])->all();
+        $action_hot_comment_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 0, 3', [':type' => PostAction::TYPE_COMMENT_LIKE])->all();
 
 
         return $this->render('/site/index', ['post_list' => $post_list, 

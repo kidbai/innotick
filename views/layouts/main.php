@@ -382,9 +382,11 @@ use yii\web\JqueryAsset;
 
 <script type="text/javascript">
 var global = global ? global : {};
+var user = {};
+user.isGuest = <?= app()->user->isGuest ? 'true' : 'false' ?>;
 global.csrfToken = '<? //app()->request->csrfToken ?>';
 </script>      
-<script src="/js/jquery-1.11.1.min.js"></script>
+<!-- <script src="/js/jquery-1.11.1.min.js"></script> -->
 <script src="/js/main.js"></script>
 <?php $this->endBody() ?>
 </body>

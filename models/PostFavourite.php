@@ -64,9 +64,24 @@ class PostFavourite extends \yii\db\ActiveRecord
         } 
     } 
 
+    //  public function actionPostFavDelete()
+    // {
+    //     $post_id = intval($_REQUEST['post_id']);
+
+    //     $data = ['code' => 0];
+
+    //     $count = PostFavourite::deleteAll(['post_id' => $post_id]);
+    //     if ($count < 1)
+    //     {
+    //         $data['code'] = 1;
+    //     }
+
+    //     $this->finish($data);
+    // }  
+
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
-    }     
-    
+    }
+
 }

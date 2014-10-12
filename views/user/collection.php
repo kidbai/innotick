@@ -17,7 +17,7 @@ use app\component\PrevNextPager;
 				<ul>
 					<li>
 						<div class="color-line"></div>
-						<div class="list bg-wt"><a href="/site/info"><p class="fs-17 orange">基本信息</p></a></div>
+						<div class="list bg-wt"><a href="/user/info"><p class="fs-17 orange">基本信息</p></a></div>
 					</li>
 					<li>
 						<div class="color-line"></div>
@@ -29,7 +29,7 @@ use app\component\PrevNextPager;
 					</li>
 					<li>
 						<div class="color-line  bg-orange"></div>
-						<div class="list bg-wt active"><a href="/site/collection"><p class="fs-17 orange">我的收藏</p></a></div>
+						<div class="list bg-wt active"><a href="/user/favorite-post"><p class="fs-17 orange">我的收藏</p></a></div>
 					</li>
 				</ul>
 			</div>

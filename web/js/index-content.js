@@ -54,19 +54,23 @@ function createLoginInfo(icon){
                 '<p class="fs-13 lp-1 sw"></p>'+
               '</div>'+
               '<div class="login_btn">'+
-                '<div class="lgbtn fl ml-60">'+
-                  '<p class="fs-14">微博登录</p>'+
+                '<div class="lgbtn fl ml-60" onclick="showloginwindow()"">'+
+                  '<p class="fs-14">登录</p>'+
                 '</div>'+
-                '<div class="text_or fl ml-14 mr-14">'+
-                  '<p class="fs-14">或</p>'+
-                '</div>'+
-                '<div class="lgbtn fl">'+
-                  '<p class="fs-14">QQ登录</p>'+
-                  '</div>'+
-                '</div>'
             '</div>';
     icon.parent().parent().after(icon_add);
     //添加提示信息
+}
+
+function showloginwindow()
+{
+  $("#content .login .lgbtn").click(function(){
+    if(!$("#lg-window").hasClass("on"))
+    {
+        $("#lg-window").addClass("on");
+        $(".shade").show();
+    } 
+  });
 }
 
 var one_second = function()
@@ -207,7 +211,6 @@ $(function(){
     if($(this).hasClass("on"))
     {
       $(this).parent().siblings(".tag-label").children(".tag-label-like-recall").show();
-      console.log("he");
     }
     else
     {
@@ -218,13 +221,8 @@ $(function(){
       $(this).parent().siblings(".tag-label").children(".tag-label-like").hide();
     });
   $(".post .tag-like").click(function(){
-    if(flag)// 判断用户是否登录
-    {
-      createLoginInfo($(this));
-        $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
-        $(".login").addClass("bg-login-red").slideDown("fast");
-    }
-    flag = false;
+    console.log(user.isGuest);
+    
     $("#content .lgbtn").mouseenter(function(){
       $(this).css({"backgroundColor": "#e86163"});
       }).mouseleave(function(){
@@ -232,57 +230,66 @@ $(function(){
     });
     if($(this).hasClass("on"))
     {
+      console.log($(this));
       $(".login").slideUp("fast",function(){
         $(this).remove();
-        flag = true;
       });
       $(this).removeClass("on");
       //撤回文章
-      var post_id = $(this).parent().parent.attr("data-id");
-      $.ajax({
-        url: '/user/collection-post',
-        type: 'POST',
-        datatype: 'json',
-        data: { post_id: post_id, '_csrf': global.csrfToken },
-        success:function (data)
-        {
-          console.log(data);
-          if(data.code != -4)
+      if(user.isGuest)
+      {
+        var post_id_recall = $(this).parent().parent.attr("data-id");
+        $.ajax({
+          url: '/user/collection-recall',
+          type: 'POST',
+          datatype: 'json',
+          data: { post_id: post_id_recall, '_csrf': global.csrfToken },
+          success:function (data)
           {
-            alert("收藏成功");
+            console.log(data.code);
+            
           }
-          else
-          {
-            alert("已收藏");
-          }
-        }
-      });
+        });
+      }
+      
+
 
     }
     else
     {
       $(this).addClass("on");
-
+      console.log("add on ");
+      if(user.isGuest)// 判断用户是否登录 
+      {
+        createLoginInfo($(this));
+        $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+        $(".login").addClass("bg-login-red").slideDown("fast");
+      }
       //收藏文章
-      var post_id = $(this).parent().parent().attr("data-id");
-      $.ajax({
-        url: '/user/collection-post',
-        type: 'POST',
-        datatype: 'json',
-        data: { post_id: post_id, '_csrf': global.csrfToken },
-        success:function (data)
-        {
-          console.log(data);
-          if(data.code != -4)
+      if(!user.isGuest)
+      {
+        var post_id_add = $(this).parent().parent().attr("data-id");
+        $.ajax({
+          url: '/user/collection-post',
+          type: 'POST',
+          datatype: 'json',
+          data: { post_id: post_id_add, '_csrf': global.csrfToken },
+          success:function (data)
           {
-            alert("收藏成功");
+            console.log(data.code);
+            if(data.code != -5)
+            {
+              alert("收藏成功");
+            }
+            else
+            {
+              alert("已收藏过");
+              console.log($("#post-" + post_id_add).children(".tag-list").children(".tag-like").removeClass("on"));
+            }
           }
-          else
-          {
-            alert("已收藏");
-          }
-        }
-      });
+        });
+      }
+      
     }
   });
 
@@ -302,13 +309,13 @@ $(function(){
   //问题点
   });
   $(".post .tag-add-cont").click(function(){
-  if(flag)
-    {
-    createLoginInfo($(this));
-    $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多文章");
-    $(".login").addClass("bg-login-green").slideDown("fast");
-  }
-  flag = false;
+  // if(flag)
+  //   {
+  //   createLoginInfo($(this));
+  //   $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多文章");
+  //   $(".login").addClass("bg-login-green").slideDown("fast");
+  // }
+  // flag = false;
   $("#content .lgbtn").mouseenter(function(){
     $(this).css({"backgroundColor": "#e23a3c"});
   }).mouseleave(function(){
@@ -318,13 +325,19 @@ $(function(){
   {
     $(".login").slideUp("fast",function(){
       $(this).remove();
-      flag = true;
+      // flag = true;
     });
     $(this).removeClass("on");
   }
   else
   {
     $(this).addClass("on");
+    if(user.isGuest)// 判断用户是否登录 
+    {
+      createLoginInfo($(this));
+      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+      $(".login").addClass("bg-login-green").slideDown("fast");
+    }
   }
   if($(this).children(".tag-add-cancel").hasClass("active"))
   {
@@ -353,15 +366,15 @@ $(function(){
     $(this).children(".tag-del-dark").removeClass("on");
   });
   $(".post .tag-del-cont").click(function(){
-  if(flag)
-  {
-    createLoginInfo($(this));
-    var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
-    $("#login .login_btn").append(del_btn);
-    $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
-    $(".login").addClass("bg-login-blue").slideDown("fast");
-  }
-  flag = false;
+  // if(flag)
+  // {
+  //   createLoginInfo($(this));
+  //   var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
+  //   $("#login .login_btn").append(del_btn);
+  //   $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
+  //   $(".login").addClass("bg-login-blue").slideDown("fast");
+  // }
+  // flag = false;
     // $(this).parent().parent().slideUp("fast", function(){
     //  $(this).remove();
     //  $(".login").remove();
@@ -382,6 +395,14 @@ $(function(){
   else
   {
     $(this).addClass("active");
+    if(user.isGuest)// 判断用户是否登录 
+    {
+      createLoginInfo($(this));
+      var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>"
+      $("#login .login_btn").append(del_btn);
+      $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
+      $(".login").addClass("bg-login-blue").slideDown("fast");
+    }
   }
   $("#content .lgbtn:eq(2)").click(function(){
       createDelInfo($(this));
@@ -395,7 +416,7 @@ $(function(){
   });
   setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
   // $("")
-  flag = true;
+  // flag = true;
   $("#content .del-info .right_text").click(function(){
     if(!$(this).hasClass("on"))
     {
@@ -435,26 +456,26 @@ $(function(){
 
     //post样式
   $("#post-holder").on("mouseenter", ".post",function(){
-    var post_id = $(this).attr("data-id");
-    // console.log(post_id);
-    $.ajax({
-      url: '/user/collection-post-exist',
-      type: 'POST',
-      datatype: 'json',
-      data:{ post_id:post_id, '_csrf': global.csrfToken },
-      success:function(data)
-      {
-        console.log(data);
-        if(data.code == 4 )
-        {
-          $("#post-" + post_id).children(".tag-list").children(".tag-like").removeClass("on");
-        }
-        else
-        {
-          $("#post-" + post_id).children(".tag-list").children(".tag-like").addClass("on");
-        }
-      } 
-    });
+    // var post_id = $(this).attr("data-id");
+    // // console.log(post_id);
+    // $.ajax({
+    //   url: '/post/collection-post-exist',
+    //   type: 'POST',
+    //   datatype: 'json',
+    //   data:{ post_id:post_id, '_csrf': global.csrfToken },
+    //   success:function(data)
+    //   {
+    //     // console.log(data);
+    //     if(data.code == 4 )
+    //     {
+    //       $("#post-" + post_id).children(".tag-list").children(".tag-like").removeClass("on");
+    //     }
+    //     else
+    //     {
+    //       $("#post-" + post_id).children(".tag-list").children(".tag-like").addClass("on");
+    //     }
+    //   } 
+    // });
     $(this).children(".tag-list").show();
       $(this).addClass("bg-click");
       $(this).children(".text").children(".keyword").show();

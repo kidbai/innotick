@@ -208,12 +208,6 @@ class AdminController extends BaseController
     }  
 
 
-
-
-
-
-
-
     public function actionContent()
     {
         app()->session['page'] = 2;
