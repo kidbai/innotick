@@ -33,47 +33,16 @@ class SiteController extends BaseController
         $page = intval($page);
 
         $post_list = Post::find()->orderBy(['created' => SORT_DESC])->limit(10)->offset(($page - 1) * 20)->all();
-        $post_id_1 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 1')
-                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
-        $post_title_1 = sql (' select title from {{%post}} where id = :post_id')
-                    ->bindValues([':post_id' => $post_id_1])->queryScalar();
-        $post_id_2 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 1, 1')
-                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
-        $post_title_2 = sql (' select title from {{%post}} where id = :post_id')
-                    ->bindValues([':post_id' => $post_id_2])->queryScalar();
+        
+        $action_hot_post_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 2', [':type' => PostAction::TYPE_LIKE])->all();
 
-        $fcomment_id_1 = sql (' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 0, 1')
-                    ->bindValues([':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
-        // $fcomment_content_1 = sql(' select content from {{%post_comment}} where id = :comment_id')
-        //             ->bindValues([':comment_id' => $fcomment_id_1])->queryScalar();
-        $fcomment_postid_1 = sql (' select post_id from {{%post_action}} where comment_id = :comment_id')
-                            ->bindValues([':comment_id' => $fcomment_id_1])->queryScalar();
-        $fcomment_title_1 = sql(' select title from {{%post}} where id = :post_id')
-                            ->bindValues([':post_id' => $fcomment_postid_1])->queryScalar();
-        $fcomment_content_1 = PostComment::find()->where(['id' => $fcomment_id_1])->one();
+        $action_hot_comment_list = PostAction::findBySql(' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 0, 3', [':type' => PostAction::TYPE_COMMENT_LIKE])->all();
 
 
-        $fcomment_id_2 = sql (' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 1, 1')
-                    ->bindValues([':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
-        $fcomment_postid_2 = sql (' select post_id from {{%post_action}} where comment_id = :comment_id')
-                            ->bindValues([':comment_id' => $fcomment_id_2])->queryScalar();
-        $fcomment_content_2 = PostComment::find()->where(['id' => $fcomment_id_2])->one();
-        $fcomment_title_2 = sql(' select title from {{%post}} where id = :post_id')
-                            ->bindValues([':post_id' => $fcomment_postid_2])->queryScalar();
-        // $fcomment_2 = PostAction::find()->where(['type' => PostAction::TYPE_COMMENT_LIKE]->groupBy(['comment_id'])->orderBy([]))
-
-        $fcomment_id_3 = sql (' select comment_id from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 2, 1')
-                    ->bindValues([':type' => PostAction::TYPE_COMMENT_LIKE])->queryScalar();
-        $fcomment_postid_3 = sql (' select post_id from {{%post_action}} where comment_id = :comment_id')
-                            ->bindValues([':comment_id' => $fcomment_id_3])->queryScalar();
-        $fcomment_content_3 = PostComment::find()->where(['id' => $fcomment_id_3])->one();
-        $fcomment_title_3 = sql(' select title from {{%post}} where id = :post_id')
-                            ->bindValues([':post_id' => $fcomment_postid_3])->queryScalar();
-
-        //待优化
-
-
-        return $this->render('/site/index', ['post_list' => $post_list, 'page' => $page, 'post_title_1' => $post_title_1, 'post_title_2' => $post_title_2, 'fcomment_content_1' => $fcomment_content_1, 'fcomment_content_2' => $fcomment_content_2, 'fcomment_content_3' => $fcomment_content_3,'fcomment_title_1' => $fcomment_title_1, 'fcomment_title_2' => $fcomment_title_2, 'fcomment_title_3'=>$fcomment_title_3]);
+        return $this->render('/site/index', ['post_list' => $post_list, 
+                                            'page' => $page, 
+                                            'action_hot_post_list' => $action_hot_post_list,
+                                            'action_hot_comment_list' => $action_hot_comment_list]);
     }
     
 

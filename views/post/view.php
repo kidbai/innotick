@@ -90,13 +90,13 @@
                     <div class="hot">
                         <div class="img-line-up"></div> 
                         <a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post_title_1?></div>
+                        <div class="fs-13 hot-text"><?= $post_id_1->post->title?></div>
                          <!--  后台读取被赞次数最多的文章标题 -->
                     </div>
                     <div class="hot mt0">
                         <div class="img-line-down"></div>   
                         <a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post_title_2?></div>
+                        <div class="fs-13 hot-text"><?= $post_id_2->post->title?></div>
                         
                     </div>
                     <div class="clear-10"></div>

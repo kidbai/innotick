@@ -49,19 +49,24 @@ class PostController extends BaseController
         $id = intval($id);
         $post = Post::find()->where(['id' => $id])->one();
         $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_ASC])->all();
-        $post_id_1 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 1')
-                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
-        $post_title_1 = sql (' select title from {{%post}} where id = :post_id')
-                    ->bindValues([':post_id' => $post_id_1])->queryScalar();
-        $post_id_2 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 1, 1')
-                    ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
-        $post_title_2 = sql (' select title from {{%post}} where id = :post_id')
-                    ->bindValues([':post_id' => $post_id_2])->queryScalar();
+
+
+        // $post_id_1 = sql(' select post_id from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 1')
+        //             ->bindValues([':type' => PostAction::TYPE_LIKE])->queryScalar();
+        $hot_post_list = PostAction::find()->where(['type' => PostAction::TYPE_LIKE])->groupBy('post_id')->orderBy('count(post_id) desc')->limit(2)->all();
+        // $post_title_1 = sql (' select title from {{%post}} where id = :post_id')
+        //             ->bindValues([':post_id' => $post_id_1])->queryScalar();
+
+        $hot_post_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 2', [':type' => PostAction::TYPE_LIKE])->all();
+
+        dump($hot_post_list);die();
 
         // $post_comment_count = $post->getCommentCount();
         // $data['comment_count'] = $post_comment_count;
         // $this->finish($data);
-        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'post_title_1' => $post_title_1, 'post_title_2' => $post_title_2]);
+        // dump($post_id_1);
+        // dump($post_id_2);die();
+        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'post_id_1' => $post_id_1, 'post_id_2' => $post_id_2]);
     }
 
     public function actionFavouriteAdd() //文章收藏

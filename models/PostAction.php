@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use app\models\Post;
+use app\models\PostComment;
 
 /**
  * This is the model class for table "tbl_post_action".
@@ -70,7 +72,16 @@ class PostAction extends \yii\db\ActiveRecord
         {
             return false;
         } 
-    }  
-    
+    }
+
+    public function getPost()
+    {
+        return $this->hasOne(Post::className(), ['id' => 'post_id']);
+    }
+
+    public function getComment()
+    {
+        return $this->hasOne(PostComment::className(), ['id' => 'comment_id']);
+    }
 
 }

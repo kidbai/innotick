@@ -41,67 +41,52 @@
 	   <!--中右内容--> 
 	    <div class="col-4 right">
 	    	<div class="hot-list bg-click">
-	    		<div class="hot">
-	    			<div class="img-line-up"></div>	
-	    			<a href="/post/121"><img src="/upload/img/5ca0a6d7ae7ca12449a7ed9e06c0209e.jpg" alt=""/></a>	
-	    			<div class="fs-13 hot-text"><?= $post_title_1?></div> 
-	    			<!-- 需要后台传来文章被赞第一title -->
-	    		</div>
-	    		<div class="hot mt0">
-	    			<div class="img-line-down"></div>	
-	    			<div>
-	    				<a href="/post/119"><img src="/upload/img/0f62a6992b1add433f74805078c50297.jpg" alt=""/></a>	
-	    			</div>
-	    			<div class="fs-13 hot-text"><?= $post_title_2?></div>
-	    			
-	    		</div>
+				<?
+				foreach ($action_hot_post_list as $action)
+				{
+					$post = $action->post;
+					if (!$post) continue;
+				?>
+		    		<div class="hot">
+		    			<div class="img-line-down"></div>	
+						<a href="<?= $post->url ?>"><img src="/upload/img/<?= $post->img ?>" alt=""/></a>	
+		    			<div class="fs-13 hot-text"><?= $post->title ?></div>	
+		    		</div>
+				<?
+				}
+				?>
+
 				<!-- 屏幕header-->
 	    		<div class="header">
 	    			<p class="fs-13">优质评论</p>
 	    		</div>
 	    		<HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
 
-	    		<div class="article border-bottom-1">
-	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $fcomment_content_1->user->username?></div>
-	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_1->created, 'ago') ?></div>
+				<?
+				foreach ($action_hot_comment_list as $action)
+				{
+					$comment = $action->comment;
+					if (!$comment) continue;
+					$post = $comment->post;
+					if (!$post) continue;
+				?>
+		    		<div class="article border-bottom-1">
+		    			<div class="customer">
+		    				<div class="fs-14 orange fl"><?= $comment->user->username?></div>
+		    				<div class="ml-12 fl dot">·</div>
+		    				<div class="fs-14 fl time ml-12"><?= timeFormat($comment->created, 'ago') ?></div>
 
-	    			</div>	
-	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $fcomment_content_1->content?></div>
-	    			</div>
-	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_1?></a></div>
-	    			</div>
-	    		</div>
-	    		<div class="article border-bottom-1">
-	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $fcomment_content_2->user->username?></div>
-	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_2->created, 'ago') ?></div>
-
-	    			</div>	
-	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $fcomment_content_2->content?></div>
-	    			</div>
-	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_2?></a></div>
-	    			</div>
-	    		</div>
-	    		<div class="article border-bottom-1">
-	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $fcomment_content_3->user->username?></div>
-	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($fcomment_content_3->created, 'ago')?></div>
-	    			</div>	
-	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $fcomment_content_3->content?></div>
-	    			</div>
-	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $fcomment_title_3?></a></div>
-	    			</div>
-	    		</div>
+		    			</div>	
+		    			<div class="cont">
+		    				<div class="fs-14 text"><?= $comment->content?></div>
+		    			</div>
+		    			<div class="from fs-15 lp-1">
+		    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $post->title ?></a></div>
+		    			</div>
+		    		</div>
+				<?
+				}
+				?>
 				
 				<!-- 二维码-->
 				<!-- <div class="qrcode">

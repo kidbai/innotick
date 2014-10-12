@@ -237,6 +237,26 @@ $(function(){
         flag = true;
       });
       $(this).removeClass("on");
+      //撤回文章
+      var post_id = $(this).parent().parent.attr("data-id");
+      $.ajax({
+        url: '/user/collection-post',
+        type: 'POST',
+        datatype: 'json',
+        data: { post_id: post_id, '_csrf': global.csrfToken },
+        success:function (data)
+        {
+          console.log(data);
+          if(data.code != -4)
+          {
+            alert("收藏成功");
+          }
+          else
+          {
+            alert("已收藏");
+          }
+        }
+      });
 
     }
     else
@@ -252,7 +272,15 @@ $(function(){
         data: { post_id: post_id, '_csrf': global.csrfToken },
         success:function (data)
         {
-          alert("收藏成功");
+          console.log(data);
+          if(data.code != -4)
+          {
+            alert("收藏成功");
+          }
+          else
+          {
+            alert("已收藏");
+          }
         }
       });
     }
@@ -407,6 +435,26 @@ $(function(){
 
     //post样式
   $("#post-holder").on("mouseenter", ".post",function(){
+    var post_id = $(this).attr("data-id");
+    // console.log(post_id);
+    $.ajax({
+      url: '/user/collection-post-exist',
+      type: 'POST',
+      datatype: 'json',
+      data:{ post_id:post_id, '_csrf': global.csrfToken },
+      success:function(data)
+      {
+        console.log(data);
+        if(data.code == 4 )
+        {
+          $("#post-" + post_id).children(".tag-list").children(".tag-like").removeClass("on");
+        }
+        else
+        {
+          $("#post-" + post_id).children(".tag-list").children(".tag-like").addClass("on");
+        }
+      } 
+    });
     $(this).children(".tag-list").show();
       $(this).addClass("bg-click");
       $(this).children(".text").children(".keyword").show();
