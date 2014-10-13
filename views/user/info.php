@@ -95,13 +95,13 @@
 			</div>	
 			<div class="introduce layout">
 				<label><span>个人简介</span></label>
-				<textarea name="" id="desc_info" class="lp-1 fl" cols="30" rows="10"><?= user()->desc?></textarea>
+				<textarea name="" id="desc-info" class="lp-1 fl" cols="30" rows="10"><?= user()->desc?></textarea>
 				<div class="fl can-not-null" id="error-desc">不能为空</div>
 			</div>
 			<div class="weibo layout mt-101">
 				<label><span>网站或微博</span></label>
 				<input class="http fl" type="text" value="http://">
-				<input class="gray-2 pl-10" id="url-addr" type="text fl" value="<?= user()->url?>" >
+				<input class="gray-2 pl-10" id="url-addr" type="text fl" value="<?= user()->url?>">
 				<div class="fl can-not-null" id="error-url">不能为空</div>
 			</div>
 			<div class="add mt-15">
@@ -143,9 +143,6 @@ $("#img-upload").click(function(){
 	// $("#info .avatar .circle img").attr("src");
 });
 
-
-
-
 function saveinfo()
 {
 	var email = $("#email_addr").val();
@@ -153,8 +150,8 @@ function saveinfo()
 	var name = $("#user-name").val();
 	var phone = $("#user-phone").val();
 	var gender_val = $('input[type=radio][name=gender]:checked').val();
-	var desc = $("#desc_info").val();
-	var url = $("#url_addr").val();
+	var desc = $("#desc-info").val();
+	var url = $("#url-addr").val();
    	var province = $("#address-province").val();
    	var city = $("#address-city").val();
    	var county = $("#address-county").val(); 
@@ -212,6 +209,15 @@ function saveinfo()
 }
 
 $(function(){
+	$(".setting input").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
+	$(".setting select").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
+	$(".setting textarea").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
 });
 
 
