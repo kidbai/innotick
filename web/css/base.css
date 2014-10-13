@@ -257,7 +257,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .hot-list .article .customer {width: 260px; height: 40px; line-height: 40px;font-weight: bold;}
 #content .hot-list .article .customer .time { color: #686868;}
 #content .hot-list .article .customer .dot { color: #686868;}
-#content .hot-list .article .cont { height:145px; width: 260px;background-color: #ebebeb;text-align: left; }
+#content .hot-list .article .cont { width: 260px;background-color: #ebebeb;text-align: left; }
 #content .hot-list .article .cont .text { color: #686868;letter-spacing: 1px;padding: 10px; }
 #content .hot-list .article .from { width: 260px;line-height: 34px; height: 34px; overflow: hidden; }
 #content .hot-list .article .from .from-text { color: #9fa0a0;}
