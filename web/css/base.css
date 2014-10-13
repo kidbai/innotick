@@ -119,7 +119,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .user.on { display: block; }
 #top .nav .user .info { height: 40px;width: 150px;line-height: 40px; position: relative; }
 #top .nav .user .info .username { height: 30px; line-height: 30px; text-align: center; font-size: 16px; margin: 10px 0px 0px 14px;}
-#top .nav .user .info .user-avatar { margin-left: 6px; }
+#top .nav .user .info .user-avatar { margin-left: 6px; cursor: pointer; }
 #top .nav .user .info .down { display: none;}
 #top .nav .user .info .up { display: block;}
 #top .nav .user .info .down.on { display: block;}
@@ -285,7 +285,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .icon li { height: 40px; cursor: pointer; line-height: 40px; text-align: center; overflow: hidden; list-style-type: none; };
 #content .icon-list { overflow: hidden;}
 #content .icon-list .off { position: absolute;display: block;}
-#content .icon-list .on { position: absolute;top:0px;display: none;}
+#content .icon-list .on { position: absolute;display: none;}
 #content .icon-list:hover .on { display: block;}
 #content .icon-list:hover .off { display: none;}
 #content .icon-list.active .on { display: block;}
@@ -362,7 +362,8 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #info .avatar .file-upload { cursor: pointer; color: #ee6350; position: absolute; top:130px; left: 192px; width: 72px; height: 30px; line-height: 30px;text-align: center; }
 #info .avatar .img .img-upload { cursor: pointer; left: 200px; top: 124px; position: absolute; color: #ee6350;}
 #info .avatar .img .img-upload input { opacity: 0; position: absolute; left: -6px; top: 7px; }
-#file-upload-status { position: absolute; top: 123px; }
+#error-avatar { position: absolute; left: 420px; top: 124px;}
+#file-upload-status { position: absolute; top: 124px; }
 #info .tel .getcode { cursor: pointer; margin: 4px 0px 0px 20px; width: 220px; height: 36px; border: 1px solid #27b5c6; float: left; background-color: #27b5c6; border-radius: 4px; line-height: 36px; text-align: center;}
 #info .gender input { width: 20px; height: 20px;margin-top: 15px;}
 #info .gender p { line-height: 46px; color:#737d89}

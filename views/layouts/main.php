@@ -199,7 +199,7 @@ use yii\web\JqueryAsset;
                 <div class="user fr">
                     <div class="info mt-20 ml-25">
                         <!-- <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/> -->
-                        <img class="user-avatar mt-10 fl" src="/upload/img/<?= user()->avatar?>" width="30" height="30" alt=""/>
+                        <img class="user-avatar mt-10 fl" src="/upload/img/<?= user()->avatar?>" onclick="location='/user/info'" width="30" height="30" alt=""/>
                         <div class="fl orange username"><?= user()->username ?></div>
                         <div class="down-up">
                             

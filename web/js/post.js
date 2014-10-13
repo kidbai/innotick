@@ -22,6 +22,10 @@ function like(post_id)
             {
                 alert("您已经赞过了");
             }
+            if(data.code == -5)
+            {
+                alert("保存失败");
+            }
         }
     });    
 }
@@ -47,8 +51,40 @@ function dislike(post_id)
             {
                 alert("您已经踩过了");
             }
+            if(data.code == -5)
+            {
+                alert("保存失败");
+            }
         }
     });    
+}
+
+//收藏
+function collected_post(post_id)
+{
+    $.ajax({
+        url: '/post/collection-post',
+        type: 'POST',
+        dataType: 'json',
+        data:{ post_id: post_id, '_csrf': global.csrfToken },
+        success:function(data)
+        {
+            console.log(data);
+            if(data != 4)
+            {
+                alert("您已经收藏过了");
+
+            }
+            else
+            {
+                $("#content .icon-collected-num").text("(" + data + ")");
+            }
+            if(data == -5)
+            {
+                alert("保存失败");
+            }
+        }
+    }) 
 }
 
 //提交评论
@@ -111,7 +147,7 @@ function comment_like(post_id, id)
             }
             else
             {
-                alert("您已经赞过了");
+                alert("您已经顶过了");
             }
         }
     });
@@ -137,7 +173,7 @@ function comment_dislike(post_id, id)
             }
             else
             {
-                alert("您已经  踩过了");
+                alert("您已经踩过了");
             }
         }
     });

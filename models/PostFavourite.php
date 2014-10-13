@@ -84,4 +84,10 @@ class PostFavourite extends \yii\db\ActiveRecord
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }
 
+    public function getCollectedNum()
+    {
+        return sql(' select count(*) from {{%post_favourite}} where post_id = :post_id ')
+                ->bindValues([':post_id' => $this->id])->queryScalar();
+    }
+
 }
