@@ -126,5 +126,4 @@ new PCAS("province=<?= user()->province ?>,请选择省份","city=<?= user()->ci
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.fileupload.js"></script>
 <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/admin/upload.js"></script>
 <script type="text/javascript" src="/js/info.js"></script>
