@@ -101,7 +101,7 @@
 			<div class="weibo layout mt-101">
 				<label><span>网站或微博</span></label>
 				<input class="http fl" type="text" value="http://">
-				<input class="gray-2 pl-10" id="url-addr" type="text fl" value="<?= user()->url?>" >
+				<input class="gray-2 pl-10" id="url-addr" type="text fl" value="<?= user()->url?>">
 				<div class="fl can-not-null" id="error-url">不能为空</div>
 			</div>
 			<div class="add mt-15">
@@ -142,9 +142,6 @@ $("#img-upload").click(function(){
 	var img_src = $("#img-upload").val();
 	// $("#info .avatar .circle img").attr("src");
 });
-
-
-
 
 function saveinfo()
 {
@@ -212,6 +209,15 @@ function saveinfo()
 }
 
 $(function(){
+	$(".setting input").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
+	$(".setting select").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
+	$(".setting textarea").change(function(){
+		$(this).siblings(".can-not-null").hide();
+	});
 });
 
 
