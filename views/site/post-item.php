@@ -9,7 +9,7 @@ $category_map = [
 ];
 
 $desc = trim(strip_tags($post->content));
-$desc = mb_substr($desc, 0, 80);
+$desc = mb_substr($desc, 0, 80, 'utf-8');
 ?>
 
 <div id="post-<?= $post->id ?>" data-id="<?= $post->id ?>" class="post border-bottom-1">

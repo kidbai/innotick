@@ -54,7 +54,11 @@ class PostController extends BaseController
         
         $hot_post_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 2', [':type' => PostAction::TYPE_LIKE])->all();
 
-        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'hot_post_list' => $hot_post_list ]);
+        $post_favourite = sql(' select count(*) from {{%post_favourite}} where post_id = :post_id ')
+                            ->bindValues([':post_id' => $id])->queryScalar();
+        // dump($post_favourite);die();
+
+        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'hot_post_list' => $hot_post_list, 'post_favourite' =>$post_favourite ]);
     }
 
     public function actionFavouriteAdd() //文章收藏
@@ -116,13 +120,8 @@ class PostController extends BaseController
         $data['code'] = 0;
         $type = intval($_REQUEST['type']);
         $post_id = intval($_REQUEST['post_id']);
-        $comment_id = intval($_REQUEST['comment_id']);
-        // //判断文章是否已经被点赞，被踩
-        // $post_like_dislike = PostAction::find()->where(['post_id' => $post_id,'type' => $type])->one();
-        // if($post_like_dislike)
-        // {
-        //    $this->finishError(-1,'already exist'); 
-        // }
+        // $comment_id = intval($_REQUEST['comment_id']);
+       
        
         if (!in_array($type, [PostAction::TYPE_LIKE, PostAction::TYPE_DISLIKE, PostAction::TYPE_COMMENT_LIKE, PostAction::TYPE_COMMENT_DISLIKE]))
         {
@@ -216,23 +215,12 @@ class PostController extends BaseController
     {
         $this->checkParams(['post_id']);
         $post_id = intval($_REQUEST['post_id']);
-        $comment_num = sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')->bindValues([':post_id' => $post_id])->queryScalar();
+        $comment_num = sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')
+                        ->bindValues([':post_id' => $post_id])->queryScalar();
         $data['comment_num'] = $comment_num;
         $this->finish($data);
     }
 
-    // public function actionCollectionPostExist()
-    // {
-    //     $post_id = ($_REQUEST['post_id']);
-    //     $user_id = user()->id;
-    //     $post_fav_exist = PostFavourite::find()->where(['post_id' => $post_id,'user_id' => $user_id])->one();
-    //     if(!$post_fav_exist)
-    //     {
-    //         $this->finishError(4, 'no exist');
-    //     }
-    //     dump($post_fav_exist);die();
-    //     // $this->finish($post_fav_exist->post_id);
-    // }
 
 
     public function actionCollectionPost()
@@ -244,19 +232,22 @@ class PostController extends BaseController
         $post_fav->user_id = $user_id;
 
         $post_fav_exist = PostFavourite::find()->where(['post_id' => $post_id,'user_id' => $user_id])->one();
+        // dump($post_fav_num);die();
         if($post_fav_exist)
         {
-            $this->finishError(4, 'no exist');
-        } 
+            $this->finishError(4, 'exist');
+        }  
         if(!$post_fav->save())
         {
             $this->finishError(-5, 'sava action error');
         }
+        $post_fav_num = sql(' select count(*) from {{%post_favourite}} where post_id = :post_id ')
+                            ->bindValues([':post_id' => $post_id])->queryScalar(); 
+        
 
-        // $this->finish($post_fav->post_id);
+        // $data['post_fav_num'] = $post_fav_num;
+        $this->finish($post_fav_num);
     } 
 
-
-   
 
 }

@@ -124,7 +124,8 @@ class Post extends \yii\db\ActiveRecord
 
     public function getCommentCount()
     {
-        return sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')->bindValues([':post_id' => $this->id])->queryScalar();
+        return sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')
+                ->bindValues([':post_id' => $this->id])->queryScalar();
     }
 
    // public function getFavoritePost()

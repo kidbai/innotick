@@ -23,6 +23,5 @@ $(function(){
         $('#file-upload-status').text('文件上传失败');
         
     });	
-    console.log(avatar);
     
 });

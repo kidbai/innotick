@@ -141,12 +141,12 @@ $(function(){
         if(!$("#top .carousel .content-product").hasClass("on"))
         {
             special_show = true;
-            $("#top .carousel").slideDown("fast");
+            $("#top .carousel").slideDown("fast").addClass("on");
             $("#top .carousel .content-product").addClass("on");
         }
         else
         {
-            $("#top .carousel").slideUp("fast");
+            $("#top .carousel").slideUp("fast").removeClass("on");
             $("#top .carousel .content-product").removeClass("on");
         }
     });

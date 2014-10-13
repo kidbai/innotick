@@ -96,9 +96,11 @@ class UserController extends BaseController
     {
         return $this->render('/user/collection');
     }
-      public function actionInfo()
+    public function actionInfo()
     {
         return $this->render('/user/info');
     }
+
+  
 
 }

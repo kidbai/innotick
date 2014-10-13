@@ -36,13 +36,13 @@
                                 </div>
                                 <span class="fs-15 ml-2 icon-share-num fl">(45)</span>
                             </li> -->
-                            <li class="fl ml-25">
+                            <li class="fl ml-25" onclick="collected_post(<?= $post->id?>)">
                                 <div class="icon-list icon-collected fl">
                                     <img class="off" src="/img/icon/collected.png" width="30" height="23" alt=""/>
                                     <img class="on" src="/img/icon/collected-light.png" width="30" height="23" alt="">
                                     <div class="clear"></div>
                                 </div>
-                                <span class="fs-15 ml-4 icon-collected-num fl">(45)</span>
+                                <span class="fs-15 ml-4 icon-collected-num fl">(<?= $post_favourite?>)</span>
                             </li>
 
                             
