@@ -4,7 +4,12 @@ $index_pic_data = getConfig(DXConst::KEY_CONFIG_INDEX_PIC);
 if ($index_pic_data != null)
 {
     $index_pic = json_decode($index_pic_data, true);
-    // dump($index_pic);die();
+}
+else
+{
+    $index_pic[0]['img'] = "background.jpg";    
+    $index_pic[0]['url'] = "can not find";
+
 }
  $section = '1-1';
 

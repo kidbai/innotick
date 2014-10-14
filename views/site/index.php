@@ -4,6 +4,11 @@ $index_pic_data = getConfig(DXConst::KEY_CONFIG_INDEX_PIC);
 if ($index_pic_data != null)
 {
 	$index_pic = json_decode($index_pic_data, true);
+	// dump($index_pic);die();	
+}
+else
+{
+    $index_pic[0]['img'] = "background.jpg";    
 }
 ?>
 <div id="content" class="wrapper">	
