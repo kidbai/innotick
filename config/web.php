@@ -42,6 +42,7 @@ $config = [
         'urlManager' => [
             'rules' => [
                 '<controller:.+>/<id:\d+>' => '<controller>/view',
+                // '<controller:.+>/<num:\d+>' => '<controller>/show-num',
                 // '<controller:.+>/<action:.+>/<id:\d+>' => '<controller>/<action>',
                 // '<controller:.+>/<action:.+>' => '<controller>/<action>',
             ],

@@ -6,7 +6,7 @@ if ($index_pic_data != null)
     $index_pic = json_decode($index_pic_data, true);
     // dump($index_pic);die();
 }
-$section = '1-1';
+ $section = '1-1';
 
 ?>
 
@@ -21,14 +21,14 @@ $section = '1-1';
         </div>
 
         <div class="col-md-10">
-            <div class="btn btn-success">添加焦点图</div>
+            <div class="btn btn-success">首页大图</div>
             <div class="clear-15"></div>
-            <div id="hot-holder">
-                <div class="hot panel panel-default col-md-7">
+            <div id="picture-holder">
+                <div class="picture panel panel-default col-md-7">
                     <div class="panel-body">
                         <img class="bg" width="180" height="90" src="/upload/img/<?= $index_pic[0]['img']?>">
                         <input type="hidden" id="hot-img" value="<?= $index_pic[0]['img']?>" />
-                        <input type="text" id="hot-url" placeholder="链接" value="<?= $index_pic[0]['url']?>" class="form-control url">
+                        <input type="text" id="hot-url" value="<?= $index_pic[0]['url']?>" class="form-control url">
                         <div class="clear-20"></div>
                         <div class="action">
                             <div class="fl">
@@ -37,7 +37,7 @@ $section = '1-1';
                                 </span>
                                 <span class="fl file-upload-status" id="file-upload-status"></span>
                             </div>
-                            <a class="btn btn-danger fr" href="javascript:;" onclick="" >删除</a>
+                            <!-- <a class="btn btn-danger fr" href="javascript:;" onclick="" >删除</a> -->
                         </div>
                     </div>
                 </div>

@@ -88,10 +88,10 @@ table {
 
 .input-group[class*=col-] { padding-left: 15px; padding-right: 15px; float: left; }
 
-#hot-holder { padding: 0px;  }
-#hot-holder .hot .panel-body img { float: left; }
-#hot-holder .hot .panel-body .url { float: left; width: 300px; margin-left: 30px; margin-top: 30px; }
-#hot-holder .hot { list-style: none; padding: 0px; cursor: move; }
+#picture-holder { padding: 0px;  }
+#picture-holder .picture .panel-body img { float: left; }
+#picture-holder .picture .panel-body .url { float: left; width: 300px; margin-left: 30px; margin-top: 30px; }
+#picture-holder .picture { list-style: none; padding: 0px; cursor: move; }
 
 .img-upload-url img { float: left; }
 .img-upload-url .title { float: left; width: 300px; margin-left: 30px; margin-top: 10px; }

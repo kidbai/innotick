@@ -13,6 +13,7 @@ use app\models\MeetingAgenda;
 use app\models\Questionnaire;
 use app\models\Question;
 use app\models\Vote;
+use app\models\Config;
 use app\component\WebUser;
 use app\component\DXConst;
 use yii\db\ActiveQuery;
@@ -212,8 +213,45 @@ class AdminController extends BaseController
     {
         app()->session['page'] = 2;
 
-        // $
+        return $this->render('/admin/content-index-big-pic');
+    }
 
-    }        
+    public function actionContentIndexBigPic()
+    {
+        return $this->render('/admin/content-index-big-pic');
+    }
+    public function actionContentIndexBigPicSave()
+    {
+        $data = $_REQUEST['data'];
+
+        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_PIC, $data);
+        if ($ok)
+        {
+            $this->finish(['error' => 0]);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+    } 
+
+    public function actionContentIndexTag()
+    {
+        return $this->render('/admin/content-index-tag');
+    }
+
+    public function actionContentIndexTagSave()
+    {
+        $data = $_REQUEST['data'];
+        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_NAV_CONTENT, $data);
+        if ($ok)
+        {
+            $this->finish(['error' => 0]);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+    }
     
 }

@@ -1,7 +1,15 @@
+<?php
+use app\component\DXConst;
+$index_pic_data = getConfig(DXConst::KEY_CONFIG_INDEX_PIC);
+if ($index_pic_data != null)
+{
+	$index_pic = json_decode($index_pic_data, true);
+}
+?>
 <div id="content" class="wrapper">	
 	<div class="column content-up">
 		<div class="title-img">
-			<img src="/img/background.jpg" width="1200" height="600" alt=""/>	
+			<img src="/upload/img/<?= $index_pic[0]['img']?>" width="1200" height="600" alt=""/>	
 		</div>	
 		<div class="nav">
 			
@@ -83,7 +91,7 @@
 		    				<div class="fs-14 text"><?= $comment->content?></div>
 		    			</div>
 		    			<div class="from fs-15 lp-1">
-		    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="#"><?= $post->title ?></a></div>
+		    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $post->url?>"><?= $post->title ?></a></div>
 		    			</div>
 		    		</div>
 				<?
@@ -108,7 +116,8 @@
 		
 </div>
 
-<script src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
 <!-- // var page = <?= $page ?>; -->
-<script src="/js/index-content.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/js/index-content.js"></script>
 

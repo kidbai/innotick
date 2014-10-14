@@ -459,8 +459,6 @@ $(function(){
       });
     });
     setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
-    // $("")
-    // flag = true;
     $("#content .del-info .right_text").click(function(){
       if(!$(this).hasClass("on"))
       {
@@ -508,5 +506,16 @@ $(function(){
       $(this).removeClass("bg-click");
       $(this).children(".text").children(".keyword").hide();
   });
+
+
+  //cookie
+  // console.log(user.isGuest);
+  // var myary = [1, 2, 3];
+  // $.cookie('name',JSON.stringify(myary)); 
 });
+
+
+
+
+
 // });

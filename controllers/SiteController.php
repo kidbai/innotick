@@ -38,7 +38,6 @@ class SiteController extends BaseController
 
         $action_hot_comment_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by comment_id order by count(comment_id) desc limit 0, 3', [':type' => PostAction::TYPE_COMMENT_LIKE])->all();
 
-
         return $this->render('/site/index', ['post_list' => $post_list, 
                                             'page' => $page, 
                                             'action_hot_post_list' => $action_hot_post_list,
@@ -106,5 +105,7 @@ class SiteController extends BaseController
     //     dump(sprintf("%.8f", 1200.0 / 1200));
     //     die();
     // }
+
+   
 
 }
