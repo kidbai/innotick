@@ -1,4 +1,26 @@
 <?
+use yii\widgets\ActiveForm;
+use app\component\DXConst;
+
+$index_tag_data = getConfig(DXConst::KEY_CONFIG_INDEX_TAG);
+
+if($index_tag_data != null)
+{
+    $index_tag = json_decode($index_tag_data, true);
+    // dump($index_tag) ;dump($index_tag['tag']['tag1']);die();
+
+}
+else
+{
+    $index_tag['tag']['tag1'] = '小米';
+    $index_tag['tag']['tag2'] = 'Tesla';
+    $index_tag['tag']['tag3'] = 'Oculus';
+    $index_tag['tag']['tag4'] = 'Uber';
+    $index_tag['tag']['tag5'] = '比特币';
+    $index_tag['tag']['tag6'] = 'More';
+  
+}
+
 
  $section = '1-2';
 
@@ -18,85 +40,39 @@
         <div class="col-md-8">
             <div class="form-horizontal" >
                 <div class="clear-5"></div>
-
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">头条标题</label>
-                    <div class="col-sm-6"><input type="text" id="post-title" value="<?= @$post['title'] ?>" class="form-control" placeholder="标题"></div>
+                    <label class="col-sm-2 control-label">第一个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag1" class="form-control" value = "<?= $index_tag['tag']['tag1']?>"/></div>
                 </div>
                 <div class="clear-2"></div>
+
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">头条链接</label>
-                    <div class="col-sm-6"><input type="text" id="post-url" value="<?= @$post['url'] ?>" class="form-control" placeholder="链接"></div>
+                    <label class="col-sm-2 control-label">第二个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag2" class="form-control" placeholder="tag2" value = "<?= $index_tag['tag']['tag2']?>"/></div>
                 </div>
                 <div class="clear-2"></div> 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">头条描述</label>
-                    <div class="col-sm-6"><input type="text" id="post-desc" value="<?= @$post['desc'] ?>" class="form-control" placeholder="描述"></div>
 
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">第三个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag3" class="form-control" placeholder="tag3" value = "<?= $index_tag['tag']['tag3']?>"/></div>
                 </div>
-                <div class="clear-20"></div>    
 
-
+                <div class="clear-5"></div>    
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">小文章1标题</label>
-                    <div class="col-sm-6"><input type="text" id="post-1-title" value="<?= @$post1['title'] ?>" class="form-control" placeholder="标题"></div>
-                </div>
-                <div class="clear-2"></div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">小文章1链接</label>
-                    <div class="col-sm-6"><input type="text" id="post-1-url" value="<?= @$post1['url'] ?>" class="form-control" placeholder="链接"></div>
-                </div>  
-                <div class="clear-20"></div>    
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">小文章2标题</label>
-                    <div class="col-sm-6"><input type="text" id="post-2-title" value="<?= @$post2['title'] ?>" class="form-control" placeholder="标题"></div>
+                    <label class="col-sm-2 control-label">第四个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag4" class="form-control" placeholder="tag4" value = "<?= $index_tag['tag']['tag4']?>"/></div>
                 </div>
                 <div class="clear-2"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">小文章2链接</label>
-                    <div class="col-sm-6"><input type="text" id="post-2-url" value="<?= @$post2['url'] ?>" class="form-control" placeholder="链接"></div>
+                    <label class="col-sm-2 control-label">第五个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag5" class="form-control" placeholder="tag5" value = "<?= $index_tag['tag']['tag5']?>"/></div>
                 </div>  
-                <div class="clear-20"></div>    
-
+                <div class="clear-5"></div>    
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" >小文章3标题</label>
-                    <div class="col-sm-6"><input type="text" id="post-3-title" value="<?= @$post3['title'] ?>" class="form-control" placeholder="标题"></div>
+                    <label class="col-sm-2 control-label">第六个Tag</label>
+                    <div class="col-sm-6"><input type="text" id="tag6" class="form-control" placeholder="tag6" value = "<?= $index_tag['tag']['tag6']?>"/></div>
                 </div>
-                <div class="clear-2"></div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" >小文章3链接</label>
-                    <div class="col-sm-6"><input type="text" id="post-3-url" value="<?= @$post3['url'] ?>" class="form-control" placeholder="链接"></div>
-                </div>  
-                <div class="clear-20"></div>    
-
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" >banner</label>
-                    <div class="hot panel panel-default col-sm-6 ml-15">
-                        <div id="banner" class="panel-body">
-                            <img class="bg" width="180" height="90" src="<?= imgUrlPrefix() ?>/upload/img/<?= @$banner['img'] ?>">
-                            <input type="hidden" id="banner-img" value="<?= @$banner['img'] ?>" />
-                            <div class="clear-20"></div>
-                            <input type="text" id="banner-url" placeholder="链接" value="<?= @$banner['url'] ?>" class="form-control url">
-                            <div class="clear-20"></div>
-                            <div class="action">
-                                <div class="fl">
-                                    <span class="btn btn-success fl file-upload-btn" >
-                                        上传<input type="file" id="file-upload-1" name="file" />
-                                    </span>
-                                    <span class="fl file-upload-status" id="file-upload-status-1"></span>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-                </div>  
-                <div class="clear-20"></div>    
-
-
                 <div class="clear-20"></div>            
                                                                                         
                 <div class="form-group">
@@ -113,4 +89,4 @@
 <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="/res/jqueryfileupload/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/admin/change-index-pic.js"></script>
+<script type="text/javascript" src="/js/admin/change-index-tag.js"></script>

@@ -57,6 +57,7 @@ class PostController extends BaseController
         $post_favourite = sql(' select count(*) from {{%post_favourite}} where post_id = :post_id ')
                             ->bindValues([':post_id' => $id])->queryScalar();
         // dump($post_favourite);die();
+        
 
         return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'hot_post_list' => $hot_post_list, 'post_favourite' =>$post_favourite ]);
     }

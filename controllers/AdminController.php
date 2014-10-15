@@ -209,6 +209,7 @@ class AdminController extends BaseController
     }  
 
 
+    //index content
     public function actionContent()
     {
         app()->session['page'] = 2;
@@ -223,7 +224,6 @@ class AdminController extends BaseController
     public function actionContentIndexBigPicSave()
     {
         $data = $_REQUEST['data'];
-
         $ok = setConfig(DXConst::KEY_CONFIG_INDEX_PIC, $data);
         if ($ok)
         {
@@ -242,16 +242,61 @@ class AdminController extends BaseController
 
     public function actionContentIndexTagSave()
     {
+
         $data = $_REQUEST['data'];
-        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_NAV_CONTENT, $data);
+        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_TAG, $data);
+        // dump($ok);die();
         if ($ok)
         {
             $this->finish(['error' => 0]);
+            // $this->finish($data);
         }
         else
         {
             $this->finish(['error' => 1]);
         }
+    }
+    public function actionContentIndexPost()
+    {
+        
+        return $this->render('/admin/content-index-post');
+    }
+
+    public function actionContentIndexPostSave()
+    {
+       $data = $_REQUEST['data'];
+       $ok = setConfig(DXConst::KEY_CONFIG_INDEX_POST,$data);
+       if ($ok)
+        {
+            $this->finish(['error' => 0]);
+            // $this->finish($data);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+       $this->finish($data);
+    }
+
+    public function actionContentIndexComment()
+    {
+        return $this->render('/admin/content-index-comment');
+    }
+
+    public function actionContentIndexCommentSave()
+    {
+       $data = $_REQUEST['data'];
+       $ok = setConfig(DXConst::KEY_CONFIG_INDEX_COMMENT,$data);
+       if ($ok)
+        {
+            $this->finish(['error' => 0]);
+            // $this->finish($data);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+       $this->finish($data); 
     }
     
 }

@@ -88,6 +88,8 @@ class DXConst extends \yii\base\Object
 	const PAPER_VOTE = 2;
 
 	const KEY_CONFIG_INDEX_PIC = 'index-pic';
-	const KEY_CONFIG_INDEX_NAV_CONTENT = 'index-nav-content';	
+	const KEY_CONFIG_INDEX_TAG = 'index-tag';	
+	const KEY_CONFIG_INDEX_POST = 'index-post';
+	const KEY_CONFIG_INDEX_COMMENT = 'index-comment';
 
 }
