@@ -7,6 +7,7 @@ $category_map = [
     5 => '创意',
     6 => '观点'
 ];
+// dump($category_map['1']);die();
 
 $desc = trim(strip_tags($post->content));
 $desc = mb_substr($desc, 0, 80, 'utf-8');

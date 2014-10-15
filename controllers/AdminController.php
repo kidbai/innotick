@@ -298,5 +298,43 @@ class AdminController extends BaseController
         }
        $this->finish($data); 
     }
+
+    public function actionContentViewPost()
+    {
+        return $this->render('/admin/content-view-post'); 
+    }
     
+    public function actionContentViewPostSave()
+    {
+       $data = $_REQUEST['data'];
+       $ok = setConfig(DXConst::KEY_CONFIG_VIEW_POST,$data);
+       if ($ok)
+        {
+            $this->finish(['error' => 0]);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+       $this->finish($data);     
+    }
+    public function actionContentViewComment()
+    {
+        return $this->render('/admin/content-view-comment');
+    }
+
+    public function actionContentViewCommentSave()
+    {
+       $data = $_REQUEST['data'];
+       $ok = setConfig(DXConst::KEY_CONFIG_VIEW_COMMENT,$data);
+       if ($ok)
+        {
+            $this->finish(['error' => 0]);
+        }
+        else
+        {
+            $this->finish(['error' => 1]);
+        }
+       $this->finish($data);    
+    }
 }

@@ -42,8 +42,16 @@ function save()
 {
     var data = [];
     var pic = {};
-    pic['img'] = $('#pic').val();
-    pic['url'] = $('#pic-url').val();
+    if($('#pic-url').val() && $('#pic').val())
+    {
+        pic['img'] = $('#pic').val();
+        pic['url'] = $('#pic-url').val();
+    }
+    else
+    {
+        alert("请检查是否填写完整");
+        return false;
+    }
     data.push(pic);
     console.log(data);
     // data = JSON.stringify(data);

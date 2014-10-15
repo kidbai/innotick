@@ -5,7 +5,7 @@ function save (comment_id_list) {
     comment1_exist = $.inArray(comment1, comment_id_list);
     comment2_exist = $.inArray(comment2, comment_id_list);
     comment3_exist = $.inArray(comment3, comment_id_list);
-    console.log($.inArray(comment1, comment_id_list));
+    // console.log($.inArray(comment1, comment_id_list));
     if( comment1_exist != -1 && comment2_exist != -1 && comment3_exist != -1)
     {
         var comment = {};

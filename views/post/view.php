@@ -1,3 +1,33 @@
+<?
+use yii\widgets\ActiveForm;
+use app\component\DXConst;
+use app\models\Post;
+
+$index_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+
+
+if($index_post_data != null)
+{
+    $index_post = json_decode($index_post_data,true);
+    $post1_id = intval($index_post['post']['post1']);
+    // dump($post1_id);
+    $post2_id = intval($index_post['post']['post2']);
+    $post1 = Post::find()->where(['id' => $post1_id])->one();
+    // dump($post1);die();
+}
+else
+{
+    $post1_id = 100;
+    $post2_id = 99;
+}
+
+$post1 = Post::find()->where(['id' => $post1_id])->one();
+$post2 = Post::find()->where(['id' => $post2_id])->one();
+// dump($post1);die();
+
+
+?>
+
 <div id="content" class="wrapper">
     <div class="column content-down bg-click">
         <div class="article_content border-right-1">
@@ -87,28 +117,23 @@
             </div>  
             <div class="right col-4">
                 <div class="hot-list bg-wt article">
-
-                    <?
-                    $i = 0;
-                    foreach ($hot_post_list as $action)
-                    {
-                        $post = $action->post;
-                        if(!$post) continue;
-                        $i++; 
-                    ?>
-                        <div class="hot <? if($i > 1) echo 'mt0';?>">
-                            <div class="img-line-up"></div> 
-                            <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
-                            <div class="fs-13 hot-text"><?= $post->title ?></div>
-                        </div>
-                    <?
-                    }
-                    ?>
+                    
+                    <div class="hot ">
+                        <div class="img-line-up"></div> 
+                        <a href="<?= $post1->url?>"><img src="/upload/img/<?= $post1->img?>" alt=""/></a>    
+                        <div class="fs-13 hot-text"><?= $post1->title ?></div>
+                    </div>
+                    <div class="hot mt0">
+                        <div class="img-line-up"></div> 
+                        <a href="<?= $post2->url?>"><img src="/upload/img/<?= $post2->img?>" alt=""/></a>    
+                        <div class="fs-13 hot-text"><?= $post2->title ?></div>
+                    </div>
+                    
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
                     <!-- 屏幕header-->
-                    <!--
+                    
                     <div class="header">
                         <p class="fs-13">优质评论</p>
                     </div>
@@ -155,7 +180,7 @@
                         </div>
                     </div>
                     
-                    -->
+                    
                     
                     
                     
