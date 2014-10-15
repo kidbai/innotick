@@ -10,12 +10,12 @@ if($view_comment_data != null)
 {
     $view_comment = json_decode($view_comment_data,true);
     $comment_id = @$view_comment['comment'];
+    // $comment_id['comment1'] = '';
+    // dump(!!$comment_id['comment1']);die();
     // dump($comment_id['comment3']);die();
 }
 else
 {
-
-
 }
 
 $view_comment_all = PostComment::find()->orderBy('id')->all();

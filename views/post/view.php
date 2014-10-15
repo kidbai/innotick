@@ -2,8 +2,31 @@
 use yii\widgets\ActiveForm;
 use app\component\DXConst;
 use app\models\Post;
+use app\models\PostComment;
 
 $index_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+$view_comment_data = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
+if($view_comment_data != null)
+{
+    $view_comment = json_decode($view_comment_data,true);
+    $comment_id = @$view_comment['comment'];
+    $id1 = $comment_id['comment1'];
+    $id2 = $comment_id['comment2'];
+    $id3 = $comment_id['comment3'];
+    $id4 = $comment_id['comment4'];
+    $id5 = $comment_id['comment5'];
+    
+}
+
+$comment_list = PostComment::findBySql('select * from {{%post_comment}} where id = :id1 or id = :id2 or id = :id3 or id = :id4 or id = :id5',
+                                        [':id1' => $id1, ':id2' => $id2, ':id3' => $id3, ':id4' => $id4, ':id5' => $id5])->all();
+// dump($comment_list);
+// foreach ($comment_list as $comment)
+// {
+//     dump($comment->post->title);die();
+// }
+       
+// die();
 
 
 if($index_post_data != null)
@@ -138,47 +161,22 @@ $post2 = Post::find()->where(['id' => $post2_id])->one();
                         <p class="fs-13">优质评论</p>
                     </div>
                     <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
-
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
+                    
+                    <?
+                    foreach ($comment_list as $comment)
+                    {
+                    ?>
+                        <!-- dump($comment->post->title); -->
+                        <div class="small-article ml-20">
+                            <div class="bg-click fl mt-10">
+                                <img src="/upload/img/<?= $comment->post->img?>" width="60" height="60" alt="" />
+                            </div>
+                            <a class="text fl" href="<?= $comment->post->url?>"><?= mb_substr($comment->post->title,0,20,'utf-8')?></a>
                         </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
+                    <?
+                    }
+                    ?>
+                    
                     
                     
                     
