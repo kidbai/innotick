@@ -189,22 +189,29 @@ $(function(){
 
   //过滤掉删除的文章
   var username = $("#cookie_username").val();
-  // console.log($.cookie(username));
-  if($.cookie(username))
+  console.log(username);
+  if(username)
   {
-    console.log("找到cookie");
-    var postid_list = $.cookie(username).split(',');
-    var post_id = {};
-    post_id['post_id'] = postid_list;
-    post_id = JSON.stringify(post_id);
-    console.log(post_id);
-    $.each($('.post'), function(){
-      console.log($(this).attr("data-id"));
-      if($.inArray($(this).attr('data-id'),postid_list) != -1)
-      {
-        $(this).remove();
-      }
+    console.log("找到user");
+    if($.cookie(username))
+    {
+      console.log('该user存有del-post的cookie');
+      var postid_list = $.cookie(username).split(',');
+      var post_id = {};
+      post_id['post_id'] = postid_list;
+      post_id = JSON.stringify(post_id);
+      $.each($('.post'), function(){
+        if($.inArray($(this).attr('data-id'),postid_list) != -1)
+        {
+          $(this).remove();
+        }
     });
+    }
+    else
+    {
+      console.log('还没有cookie');
+    }
+   
   }
   // 下拉加载
   var distance = 50; // 距离下边界长度 /px
