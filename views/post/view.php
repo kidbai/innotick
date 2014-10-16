@@ -144,12 +144,12 @@ $post2 = Post::find()->where(['id' => $post2_id])->one();
                     <div class="hot ">
                         <div class="img-line-up"></div> 
                         <a href="<?= $post1->url?>"><img src="/upload/img/<?= $post1->img?>" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post1->title ?></div>
+                        <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post1->title ?></a>
                     </div>
                     <div class="hot mt0">
                         <div class="img-line-up"></div> 
                         <a href="<?= $post2->url?>"><img src="/upload/img/<?= $post2->img?>" alt=""/></a>    
-                        <div class="fs-13 hot-text"><?= $post2->title ?></div>
+                        <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post2->title ?></a>
                     </div>
                     
                     <div class="clear-10"></div>

@@ -201,6 +201,7 @@ use yii\web\JqueryAsset;
                         <!-- <img class="fl ml-30 mt-10" src="/img/icon/user.png" width="20" height="20" alt=""/> -->
                         <img class="user-avatar mt-10 fl" src="/upload/img/<?= user()->avatar?>" onclick="location='/user/info'" width="30" height="30" alt=""/>
                         <div class="fl orange username"><?= user()->username ?></div>
+                        <input type="text" id="cookie_username" class="hidden" value="<?= user()->username ?>" />
                         <div class="down-up">
                             
                             <img class="down icon" src="/img/icon/icon2-3.png" width="9" height="4" alt=""/>
@@ -382,10 +383,19 @@ use yii\web\JqueryAsset;
 var global = global ? global : {};
 var user = {};
 user.isGuest = <?= app()->user->isGuest ? 'true' : 'false' ?>;
+if(!user.isGuest)
+{
+    console.log(user.isGuest);
+}
+else
+{
+    console.log("我是游客");
+}
+// console.log(username);
 global.csrfToken = '<? //app()->request->csrfToken ?>';
 </script>      
 <!-- <script src="/js/jquery-1.11.1.min.js"></script> -->
-<script src="/js/main.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 <?php $this->endBody() ?>
 </body>
 </html>

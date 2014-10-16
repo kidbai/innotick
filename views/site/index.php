@@ -67,9 +67,11 @@ else
     $comment3_id = 12;  //default
 }
 
-$comment1 = PostComment::find()->where(['id' => $comment1_id])->one();
-$comment2 = PostComment::find()->where(['id' => $comment2_id])->one();
-$comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
+// $comment1 = PostComment::find()->where(['id' => $comment1_id])->one();
+// $comment2 = PostComment::find()->where(['id' => $comment2_id])->one();
+// $comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
+$comment_list = PostComment::findBySql('select * from {{%post_comment}} where id = :id1 or id = :id2 or id = :id3',
+                                        [':id1' => $comment1_id, ':id2' => $comment2_id, ':id3' => $comment3_id])->all();
 // $comment_test = PostComment::findBySql(' select id from {{%post_comment}} where id = :comment1_id or id = :comment2_id or id = comment3_id', [':comment1_id' => $comment1_id, ':comment2_id' => $comment2_id, 'comment3_id' => $comment3_id])->all();
 // dump($comment_test);die();
 ?>
@@ -120,12 +122,12 @@ $comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
 		    	<div class="hot ">
 				    <div class="img-line-down"></div>   
 				    <a href="<?= $post1->url?>"><img src="/upload/img/<?= $post1->img?>" alt=""/></a>   
-				    <div class="fs-13 hot-text"><?= $post1->title?></div>   
+				    <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post1->title?></a>   
 				</div>
 				<div class="hot mt0">
 				    <div class="img-line-down"></div>   
 				    <a href="<?= $post2->url?>"><img src="/upload/img/<?= $post2->img?>" alt=""/></a>   
-				    <div class="fs-13 hot-text"><?= $post2->title?></div>   
+				    <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post2->title?></a>   
 				</div>
 				
 				<!-- 屏幕header-->
@@ -135,50 +137,30 @@ $comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
 	    		<HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
 
 					<!-- comment1 -->
+				<?
+				foreach ($comment_list as $comment)
+				{
+				?>
+				
 	    		<div class="article border-bottom-1">
 	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $comment1->user->username?></div>
+	    				<div class="fs-14 orange fl"><?= $comment->user->username?></div>
 	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($comment1->created, 'ago') ?></div>
+	    				<div class="fs-14 fl time ml-12"><?= timeFormat($comment->created, 'ago') ?></div>
 
 	    			</div>	
 	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $comment1->content?></div>
+	    				<div class="fs-14 text"><?= $comment->content?></div>
 	    			</div>
 	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment1->post->url?>"><?= $comment1->post->title ?></a></div>
+	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment->post->url?>"><?= $comment->post->title ?></a></div>
 	    			</div>
 	    		</div>
-					<!-- comment2 -->
-	    		<div class="article border-bottom-1">
-	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $comment2->user->username?></div>
-	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($comment2->created, 'ago') ?></div>
 
-	    			</div>	
-	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $comment2->content?></div>
-	    			</div>
-	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment2->post->url?>"><?= $comment2->post->title ?></a></div>
-	    			</div>
-	    		</div>
-					<!-- comment3 -->
-	    		<div class="article border-bottom-1">
-	    			<div class="customer">
-	    				<div class="fs-14 orange fl"><?= $comment3->user->username?></div>
-	    				<div class="ml-12 fl dot">·</div>
-	    				<div class="fs-14 fl time ml-12"><?= timeFormat($comment3->created, 'ago') ?></div>
-
-	    			</div>	
-	    			<div class="cont">
-	    				<div class="fs-14 text"><?= $comment3->content?></div>
-	    			</div>
-	    			<div class="from fs-15 lp-1">
-	    				<div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment1->post->url?>"><?= $comment3->post->title ?></a></div>
-	    			</div>
-	    		</div>
+	    		<?
+	    		}
+	    		?>
+					
 				
 				
 				<!-- 二维码-->

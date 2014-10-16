@@ -1,6 +1,6 @@
 img { border: 0px; }
 li { list-style: none; }
-
+.hidden { display: none; }
 .icon-book { display: inline-block; width: 19px; height: 19px; background: url(/img/icon/book.png); }
 .icon-call { display: inline-block; width: 64px; height: 64px; background: url(/img/icon/call.png); }
 
@@ -107,7 +107,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .nav .search .search-btn { height: 80px; width: 76px; float: left;}
 #top .nav .search .search-btn img { margin: 30px 24px;}
 #top .nav .search .field { float: left; margin-top: 28px;}
-#top .nav .search .field input{ border: 0px; font-size: 16px; padding-left: 0px; margin-top: -5px;}
+#top .nav .search .field input{ border: 0px; font-size: 16px; padding-left: 0px; margin-top: -2px; line-height: 34px; color: #b4b4b5;}
 #top .nav .menu ul li { list-style: none; float: left; width: 70px; height: 80px; margin-left: 15px;}
 #top .nav .menu .nav-item { height: 30px ; width: 46px; line-height: 30px; text-align: center; font-weight: bold; font-size: 16px; margin-top: 28px; color: #5d5d5e;}
 #top .nav .menu .nav-item-list:hover .nav-item { color: #ee6350;}
@@ -130,7 +130,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #top .item .wrap-img.mt-7 {width: 20px; height: 20px; float: left;  margin-left: 46px; margin-top: 7px;  }
 #top .item li { width: 200px; height: 36px;text-align: center;}
 /*#top .item li img {margin-left: 46px; margin-top: 8px; } */
-#top .item li > div { font-size: 16px; font-weight: bold; }
+#top .item li > div { font-size: 16px;  }
 #top .item li.ml-0{ width: 200px; height: 36px;text-align: center; margin-left: 0px; }
 #top .item .item-sub { line-height: 30px; cursor: pointer; }
 #top .carousel { height: 320px; width: 1200px; z-index: 99999; display: none; background-color: #f7f7f7;}
