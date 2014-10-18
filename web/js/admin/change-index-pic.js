@@ -42,10 +42,9 @@ function save()
 {
     var data = [];
     var pic = {};
-    if($('#pic-url').val() && $('#pic').val())
+    if($('#pic').val())
     {
         pic['img'] = $('#pic').val();
-        pic['url'] = $('#pic-url').val();
     }
     else
     {

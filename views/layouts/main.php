@@ -383,15 +383,6 @@ use yii\web\JqueryAsset;
 var global = global ? global : {};
 var user = {};
 user.isGuest = <?= app()->user->isGuest ? 'true' : 'false' ?>;
-if(!user.isGuest)
-{
-    console.log(user.isGuest);
-}
-else
-{
-    console.log("我是游客");
-}
-// console.log(username);
 global.csrfToken = '<? //app()->request->csrfToken ?>';
 </script>      
 <!-- <script src="/js/jquery-1.11.1.min.js"></script> -->

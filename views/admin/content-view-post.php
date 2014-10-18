@@ -3,26 +3,17 @@ use yii\widgets\ActiveForm;
 use app\component\DXConst;
 use app\models\Post;
 
-$index_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+$view_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
 
 
-if($index_post_data != null)
+if($view_post_data != null)
 {
-    $index_post = json_decode($index_post_data,true);
-    $post1_id = intval($index_post['post']['post1']);
-    // dump($post1_id);
-    $post2_id = intval($index_post['post']['post2']);
-    $post1 = Post::find()->where(['id' => $post1_id])->one();
-    // dump($post1);die();
-}
-else
-{
-    $post1_id = 100;
-    $post2_id = 99;
+    $index_post = json_decode($view_post_data,true);
+    $hot_post_list = @$index_post['post'];
+    $hot_post_list = implode('-', $hot_post_list);
 }
 
-$post1 = Post::find()->where(['id' => $post1_id])->one();
-$post2 = Post::find()->where(['id' => $post2_id])->one();
+
 $post_all = Post::find()->orderBy('id')->all();
 $post_id_list = array();
 foreach ($post_all as $post)
@@ -50,16 +41,11 @@ $post_id_list = json_encode($post_id_list,true);
             <div class="form-horizontal" >
                 <div class="clear-5"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">第一篇文章(ID)</label>
-                    <div class="col-sm-6"><input type="text" id="post1" class="form-control" placeholder="ID: " value = "<?= $post1->id?>"/></div>
+                    <label class="col-sm-2 control-label">文章(ID,用'-'符号分开)</label>
+                    <div class="col-sm-6"><input type="text" id="post" class="form-control" placeholder="ID: " value = "<?= $hot_post_list?>"/></div>
                 </div>
                 <div class="clear-2"></div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">第二篇文章(ID)</label>
-                    <div class="col-sm-6"><input type="text" id="post2" class="form-control" placeholder="ID: " value = "<?= $post2->id?>"/></div>
-                </div>
-                <div class="clear-2"></div>
-
+                
                 
                 <div class="clear-20"></div>            
                                                                                         

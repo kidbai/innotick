@@ -189,7 +189,6 @@ $(function(){
 
   //过滤掉删除的文章
   var username = $("#cookie_username").val();
-  console.log(username);
   if(username)
   {
     console.log("找到user");

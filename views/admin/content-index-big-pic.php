@@ -33,7 +33,6 @@ else
                     <div class="panel-body">
                         <img class="bg" width="180" height="90" src="/upload/img/<?= $index_pic[0]['img']?>">
                         <input type="hidden" id="pic" value="<?= $index_pic[0]['img']?>" />
-                        <input type="text" id="pic-url" value="<?= $index_pic[0]['url']?>" class="form-control url">
                         <div class="clear-20"></div>
                         <div class="action">
                             <div class="fl">

@@ -18,62 +18,46 @@ else
     $index_pic[0]['img'] = "background.jpg";    
 }
 
+$index_tag = [];
 if($index_tag_data != null)
 {
     $index_tag = json_decode($index_tag_data, true);
     // dump($index_tag) ;dump($index_tag['tag']['tag1']);die();
-
-}
-else
-{
-    $index_tag['tag']['tag1'] = '小米';
-    $index_tag['tag']['tag2'] = 'Tesla';
-    $index_tag['tag']['tag3'] = 'Oculus';
-    $index_tag['tag']['tag4'] = 'Uber';
-    $index_tag['tag']['tag5'] = '比特币';
-    $index_tag['tag']['tag6'] = '更多';
-  
 }
 
-if($index_post_data != null)
-{
-	$index_post = json_decode($index_post_data,true);
-	$post1_id = intval($index_post['post']['post1']);
-	// dump($post1_id);
-	$post2_id = intval($index_post['post']['post2']);
-	$post1 = Post::find()->where(['id' => $post1_id])->one();
-	// dump($post1);die();
-}
-else
-{
-	$post1_id = 100;
-	$post2_id = 99;
-}
-
-$post1 = Post::find()->where(['id' => $post1_id])->one();
-$post2 = Post::find()->where(['id' => $post2_id])->one();
-
+$hot_comment = null;
+$hot_comment_list = [];
 if($index_comment_data != null)
 {
-    $index_comment = json_decode($index_comment_data, true);
-    $comment1_id = $index_comment['comment']['comment1'];
-    $comment2_id = $index_comment['comment']['comment2'];
-    $comment3_id = $index_comment['comment']['comment3'];
-}
-else
-{
-    $comment1_id = 10;  //default
-    $comment2_id = 11;  //default
-    $comment3_id = 12;  //default
+	$index_comment = json_decode($index_comment_data, true);
+	$hot_comment = @$index_comment['comment'];
 }
 
-// $comment1 = PostComment::find()->where(['id' => $comment1_id])->one();
-// $comment2 = PostComment::find()->where(['id' => $comment2_id])->one();
-// $comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
-$comment_list = PostComment::findBySql('select * from {{%post_comment}} where id = :id1 or id = :id2 or id = :id3',
-                                        [':id1' => $comment1_id, ':id2' => $comment2_id, ':id3' => $comment3_id])->all();
-// $comment_test = PostComment::findBySql(' select id from {{%post_comment}} where id = :comment1_id or id = :comment2_id or id = comment3_id', [':comment1_id' => $comment1_id, ':comment2_id' => $comment2_id, 'comment3_id' => $comment3_id])->all();
-// dump($comment_test);die();
+if(is_array($hot_comment))
+{
+	$hot_comment = implode(',', $hot_comment);
+	$hot_comment_list = PostComment::findBySql("select * from {{%post_comment}} where id in ($hot_comment)")->all();
+}
+
+
+$hot_post = null;
+$hot_post_list = [];
+if($index_post_data != null)
+{
+	$index_post = json_decode($index_post_data, true);
+	$hot_post = @$index_post['post'];
+}
+if(is_array($hot_post))
+{
+	$hot_post = implode(',', $hot_post);
+	$hot_post_list = Post::findBySql("select * from {{%post}} where id in ($hot_post)")->all();
+}
+
+// dump($hot_post);die();
+
+
+
+
 ?>
 <div id="content" class="wrapper">	
 	<div class="column content-up">
@@ -118,18 +102,20 @@ $comment_list = PostComment::findBySql('select * from {{%post_comment}} where id
 	   <!--中右内容--> 
 	    <div class="col-4 right">
 	    	<div class="hot-list bg-click">
-				
-		    	<div class="hot ">
-				    <div class="img-line-down"></div>   
-				    <a href="<?= $post1->url?>"><img src="/upload/img/<?= $post1->img?>" alt=""/></a>   
-				    <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post1->title?></a>   
-				</div>
-				<div class="hot mt0">
-				    <div class="img-line-down"></div>   
-				    <a href="<?= $post2->url?>"><img src="/upload/img/<?= $post2->img?>" alt=""/></a>   
-				    <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post2->title?></a>   
-				</div>
-				
+				<?
+				$i = 0;
+				foreach ($hot_post_list as $hot_post)
+				{
+					$i++;
+				?>	
+			    	<div class="hot <? if($i > 0){ echo 'mt0';}?>">
+					    <div class="img-line-down"></div>   
+					    <a href="<?= $hot_post->url?>"><img src="/upload/img/<?= $hot_post->img?>" alt=""/></a>   
+					    <a href="<?= $hot_post->url?>" class="fs-13 hot-text"><?= $hot_post->title?></a>   
+					</div>
+				<?
+				}
+				?>
 				<!-- 屏幕header-->
 	    		<div class="header">
 	    			<p class="fs-13">优质评论</p>
@@ -138,7 +124,7 @@ $comment_list = PostComment::findBySql('select * from {{%post_comment}} where id
 
 					<!-- comment1 -->
 				<?
-				foreach ($comment_list as $comment)
+				foreach ($hot_comment_list as $comment)
 				{
 				?>
 				
@@ -160,8 +146,12 @@ $comment_list = PostComment::findBySql('select * from {{%post_comment}} where id
 	    		<?
 	    		}
 	    		?>
-					
-				
+		     	<div class="qrcode">
+			    	<div class="clear-10"></div>
+					<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
+					<img src="/img/qr.png" alt="" width="155" height="155" />
+				</div>	
+						
 				
 				<!-- 二维码-->
 				<!-- <div class="qrcode">
@@ -172,11 +162,7 @@ $comment_list = PostComment::findBySql('select * from {{%post_comment}} where id
 	    	</div>
 	    </div>
 	    <div class="clear-10"></div>
-	    <div class="qrcode">
-	    	<div class="clear-10"></div>
-			<div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>
-			<img src="/img/qr.png" alt="" width="155" height="155" />
-		</div>
+	  
 	</div>
 		
 </div>

@@ -7,20 +7,13 @@ $index_comment_data = getConfig(DXConst::KEY_CONFIG_INDEX_COMMENT);
 if($index_comment_data != null)
 {
     $index_comment = json_decode($index_comment_data, true);
-    $comment1_id = $index_comment['comment']['comment1'];
-    $comment2_id = $index_comment['comment']['comment2'];
-    $comment3_id = $index_comment['comment']['comment3'];
-}
-else
-{
-    $comment1_id = 10;  //default
-    $comment2_id = 11;  //default
-    $comment3_id = 12;  //default
+    // dump($index_comment);die();
+    $comment = @$index_comment['comment'];
+    $comment_list = implode('-', $comment);
 }
 
-$comment1 = PostComment::find()->where(['id' => $comment1_id])->one();
-$comment2 = PostComment::find()->where(['id' => $comment2_id])->one();
-$comment3 = PostComment::find()->where(['id' => $comment3_id])->one();
+
+
 $comment_all = PostComment::find()->orderBy('id')->all();
 $comment_id_list = array();
 foreach ($comment_all as $comment)
@@ -48,21 +41,10 @@ $comment_id_list = json_encode($comment_id_list,true);
             <div class="form-horizontal" >
                 <div class="clear-5"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">第一条评论(ID)</label>
-                    <div class="col-sm-6"><input type="text" id="comment1" class="form-control" placeholder="" value = "<?= $comment1->id?>"/></div>
+                    <label class="col-sm-2 control-label">评论(ID,用'-'符号分开)</label>
+                    <div class="col-sm-6"><input type="text" id="comment" class="form-control" placeholder="" value = "<?= $comment_list?>"/></div>
                 </div>
                 <div class="clear-2"></div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">第二条评论(ID)</label>
-                    <div class="col-sm-6"><input type="text" id="comment2" class="form-control" placeholder="" value = "<?= $comment2->id?>"/></div>
-                </div>
-                <div class="clear-2"></div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">第三条评论(ID)</label>
-                    <div class="col-sm-6"><input type="text" id="comment3" class="form-control" placeholder="" value = "<?= $comment3->id?>"/></div>
-                </div>
-                <div class="clear-2"></div>
-
                 
                 <div class="clear-20"></div>            
                                                                                         

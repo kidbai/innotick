@@ -1,28 +1,24 @@
 function save (comment_id_list) {
-    var data = {};
-    
-    var keyMapPost = { comment1: 'comment1', comment2: 'comment2', comment3: 'comment3', comment4: 'comment4', comment5 : 'comment5'};
-    var comment = {};
-    var comment_id_exist = true;
-    for (var key in keyMapPost)
+    var comment_list = [];
+    if(!$('#comment'))
     {
-        var value = $('#' + keyMapPost[key]).val();
-        if (!value)
-        {
-            alert('请填写完整');
-            $('#' + keyMapPost[key]).focus();
-            return;
-        }
-        // console.log($.inArray(parseInt(value), comment_id_list));
-        if($.inArray(parseInt(value), comment_id_list) == -1)
-        {
-            comment_id_exist = false;
-            alert("这个ID:" + value + "不存在");
-            return;
-        }
-        comment[key] = value;
+        alert("请查看是否没有填写信息");
+        $("#comment").focus();
+        return;
     }
-    data['comment'] = comment;
+    comment_list = $('#comment').val().split('-');
+    console.log(comment_id_list);
+    for(var id in comment_list)
+    {
+        var comment_exist = $.inArray(parseInt(comment_list[id]), comment_id_list);
+        if(comment_exist == -1)
+        {
+            alert('这个ID' + comment_list[id] + '不存在或是否格式错误');
+            return;
+        }
+    }
+    var data = {};
+    data['comment'] = comment_list;
     console.log(data);
     data = JSON.stringify(data);
     console.log(data);

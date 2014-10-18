@@ -4,49 +4,38 @@ use app\component\DXConst;
 use app\models\Post;
 use app\models\PostComment;
 
-$index_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+$view_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
 $view_comment_data = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
+$hot_comment = null;
+$hot_comment_list = [];
 if($view_comment_data != null)
 {
     $view_comment = json_decode($view_comment_data,true);
-    $comment_id = @$view_comment['comment'];
-    $id1 = $comment_id['comment1'];
-    $id2 = $comment_id['comment2'];
-    $id3 = $comment_id['comment3'];
-    $id4 = $comment_id['comment4'];
-    $id5 = $comment_id['comment5'];
-    
+    $hot_comment = @$view_comment['comment'];
 }
 
-$comment_list = PostComment::findBySql('select * from {{%post_comment}} where id = :id1 or id = :id2 or id = :id3 or id = :id4 or id = :id5',
-                                        [':id1' => $id1, ':id2' => $id2, ':id3' => $id3, ':id4' => $id4, ':id5' => $id5])->all();
-// dump($comment_list);
-// foreach ($comment_list as $comment)
-// {
-//     dump($comment->post->title);die();
-// }
-       
-// die();
-
-
-if($index_post_data != null)
+if(is_array($hot_comment))
 {
-    $index_post = json_decode($index_post_data,true);
-    $post1_id = intval($index_post['post']['post1']);
-    // dump($post1_id);
-    $post2_id = intval($index_post['post']['post2']);
-    $post1 = Post::find()->where(['id' => $post1_id])->one();
-    // dump($post1);die();
-}
-else
-{
-    $post1_id = 100;
-    $post2_id = 99;
+    $hot_comment = implode(',', $hot_comment);
+    $hot_comment_list = PostComment::findBySql("select * from {{%post_comment}} where id in ($hot_comment)")->all();
 }
 
-$post1 = Post::find()->where(['id' => $post1_id])->one();
-$post2 = Post::find()->where(['id' => $post2_id])->one();
-// dump($post1);die();
+
+
+$hot_post = null;
+$hot_post_list = [];
+if($view_post_data != null)
+{
+    $view_post = json_decode($view_post_data,true);
+    $hot_post = @$view_post['post'];
+}
+
+if(is_array($hot_post))
+{
+    $hot_post = implode(',', $hot_post);
+    $hot_post_list = Post::findBySql("select * from {{%post}} where id in ($hot_post)")->all();
+}
+
 
 
 ?>
@@ -141,16 +130,22 @@ $post2 = Post::find()->where(['id' => $post2_id])->one();
             <div class="right col-4">
                 <div class="hot-list bg-wt article">
                     
-                    <div class="hot ">
+                    <?
+                    $i = 0;
+                    foreach ($hot_post_list as $post)
+                    {
+                        $i++;
+                    ?>   
+
+                    <div class="hot <?if($i > 0)echo 'mt0';?> ">
                         <div class="img-line-up"></div> 
-                        <a href="<?= $post1->url?>"><img src="/upload/img/<?= $post1->img?>" alt=""/></a>    
-                        <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post1->title ?></a>
+                        <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
+                        <a href="<?= $post->url?>" class="fs-13 hot-text"><?= $post->title ?></a>
                     </div>
-                    <div class="hot mt0">
-                        <div class="img-line-up"></div> 
-                        <a href="<?= $post2->url?>"><img src="/upload/img/<?= $post2->img?>" alt=""/></a>    
-                        <a href="<?= $post1->url?>" class="fs-13 hot-text"><?= $post2->title ?></a>
-                    </div>
+                    
+                    <?
+                    }
+                    ?> 
                     
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
@@ -163,15 +158,14 @@ $post2 = Post::find()->where(['id' => $post2_id])->one();
                     <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
                     
                     <?
-                    foreach ($comment_list as $comment)
+                    foreach ($hot_comment_list as $hot_comment)
                     {
                     ?>
-                        <!-- dump($comment->post->title); -->
                         <div class="small-article ml-20">
                             <div class="bg-click fl mt-10">
-                                <img src="/upload/img/<?= $comment->post->img?>" width="60" height="60" alt="" />
+                                <img src="<?= $hot_comment->post->img?>" width="60" height="60" alt="" />
                             </div>
-                            <a class="text fl" href="<?= $comment->post->url?>"><?= mb_substr($comment->post->title,0,20,'utf-8')?></a>
+                            <a class="text fl" href="<?= $hot_comment->post->url?>"><?= mb_substr($hot_comment->post->title,0,20,'utf-8')?></a>
                         </div>
                     <?
                     }

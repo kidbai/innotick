@@ -9,10 +9,11 @@ $category_map = [
 ];
 
 $post_fav = $model;
+// dump($model);die();
 ?>
 <div class="collection-cont mr-20 ml-20">
     <div class="collection-green site fl ml-38 category"><?= @$category_map[$post_fav->post->category_id] ?></div>
-    <div class="title fl ml-46" onclick="location='<?= $post_fav->post->url?>'"><?= $post_fav->post->title ?></div>
+    <div class="title fl ml-46" onclick="location='<?= $post_fav->post->url?>'"><?= mb_substr($post_fav->post->title, 0, 20, 'utf-8') ?></div>
     <div class="fr comment-num mr-60"><?= $post_fav->post->commentCount ?></div>
     <div class="fr time mr-50"><?= timeFormat($post_fav->created, 'ago') ?></div>
 </div>
