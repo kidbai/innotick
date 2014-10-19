@@ -1,3 +1,45 @@
+<?
+use yii\widgets\ActiveForm;
+use app\component\DXConst;
+use app\models\Post;
+use app\models\PostComment;
+
+$view_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+$view_comment_data = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
+$hot_comment = null;
+$hot_comment_list = [];
+if($view_comment_data != null)
+{
+    $view_comment = json_decode($view_comment_data,true);
+    $hot_comment = @$view_comment['comment'];
+}
+
+if(is_array($hot_comment))
+{
+    $hot_comment = implode(',', $hot_comment);
+    $hot_comment_list = PostComment::findBySql("select * from {{%post_comment}} where id in ($hot_comment)")->all();
+}
+
+
+
+$hot_post = null;
+$hot_post_list = [];
+if($view_post_data != null)
+{
+    $view_post = json_decode($view_post_data,true);
+    $hot_post = @$view_post['post'];
+}
+
+if(is_array($hot_post))
+{
+    $hot_post = implode(',', $hot_post);
+    $hot_post_list = Post::findBySql("select * from {{%post}} where id in ($hot_post)")->all();
+}
+
+
+
+?>
+
 <div id="content" class="wrapper">
     <div class="column content-down bg-click">
         <div class="article_content border-right-1">
@@ -87,75 +129,50 @@
             </div>  
             <div class="right col-4">
                 <div class="hot-list bg-wt article">
-
+                    
                     <?
                     $i = 0;
-                    foreach ($hot_post_list as $action)
+                    foreach ($hot_post_list as $post)
                     {
-                        $post = $action->post;
-                        if(!$post) continue;
-                        $i++; 
-                    ?>
-                        <div class="hot <? if($i > 1) echo 'mt0';?>">
-                            <div class="img-line-up"></div> 
-                            <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
-                            <div class="fs-13 hot-text"><?= $post->title ?></div>
-                        </div>
+                        $i++;
+                    ?>   
+
+                    <div class="hot <?if($i > 0)echo 'mt0';?> ">
+                        <div class="img-line-up"></div> 
+                        <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
+                        <a href="<?= $post->url?>" class="fs-13 hot-text"><?= $post->title ?></a>
+                    </div>
+                    
                     <?
                     }
-                    ?>
+                    ?> 
+                    
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
                     <div class="clear-10"></div>
                     <!-- 屏幕header-->
-                    <!--
+                    
                     <div class="header">
                         <p class="fs-13">优质评论</p>
                     </div>
                     <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
-
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
-                    <div class="small-article ml-20">
-                        <div class="bg-click fl mt-10">
-                            <img src="#" alt=""/>
-                        </div>
-                        <div class="text fl">
-                            周鸿祎的互联网方法论</br>互网法论
-                        </div>
-                    </div>
                     
-                    -->
+                    <?
+                    foreach ($hot_comment_list as $hot_comment)
+                    {
+                    ?>
+                        <div class="small-article ml-20">
+                            <div class="bg-click fl mt-10">
+                                <img src="<?= $hot_comment->post->img?>" width="60" height="60" alt="" />
+                            </div>
+                            <a class="text fl" href="<?= $hot_comment->post->url?>"><?= mb_substr($hot_comment->post->title,0,20,'utf-8')?></a>
+                        </div>
+                    <?
+                    }
+                    ?>
+                    
+                    
+                    
                     
                     
                     

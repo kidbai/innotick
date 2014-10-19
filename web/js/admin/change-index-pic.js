@@ -6,7 +6,7 @@ $(function(){
     var statusSelector = '#file-upload-status';
     var uploadSelector = '#file-upload';
     var hotSelector = '#picture';
-    var hotImgSelector = '#hot-img';
+    var hotImgSelector = '#pic';
 
     $(uploadSelector).fileupload({
         url: '/res/img-upload',
@@ -41,10 +41,17 @@ function deleteHot(id)
 function save()
 {
     var data = [];
-    var hot = {};
-    hot['img'] = $('#hot-img').val();
-    hot['url'] = $('#hot-url').val();
-    data.push(hot);
+    var pic = {};
+    if($('#pic').val())
+    {
+        pic['img'] = $('#pic').val();
+    }
+    else
+    {
+        alert("请检查是否填写完整");
+        return false;
+    }
+    data.push(pic);
     console.log(data);
     // data = JSON.stringify(data);
     data = JSON.stringify(data);

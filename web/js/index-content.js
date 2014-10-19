@@ -1,7 +1,7 @@
 function nextPage(page_num)
 {
   var num = parseInt(page_num) + 1;
-  console.log(parseInt(num));
+  // console.log(parseInt(num));
   $("#content .loadnext").addClass("on");
   $("#content .load .spinner").addClass("on");
 
@@ -130,7 +130,7 @@ function scrollHandler()
 {
     if(get_scroll_height() - get_client_height() - 310 <= get_scroll_top() && num < maxnum)
     {
-      console.log('in', loading_post, num);
+      // console.log('in', loading_post, num);
       $(".spinner .load-animation").addClass("show");
       var last_post_id = $('.post').last().attr('data-id');
       if (!last_post_id)
@@ -163,16 +163,55 @@ function scrollHandler()
     }
 }
 
+function unique(data){   
+    data = data || [];   
+        var a = {};   
+    for (var i=0; i<data.length; i++) {   
+        var id = data[i];   
+        if (typeof(a[id]) == 'undefined'){   
+            a[id] = 1;   
+        }   
+    };   
+    data.length=0;   
+    for (var i in a){   
+        data[data.length] = i;   
+    }   
+    return data;   
+} 
+
 $(window).scroll(scrollHandler);
 
 
 
 var lgbtn_window = false;
-
+var cookie_postid_list = [];
 $(function(){
 
-  // console.log(<? app()->user->isGuest ?>);
-
+  //过滤掉删除的文章
+  var username = $("#cookie_username").val();
+  if(username)
+  {
+    console.log("找到user");
+    if($.cookie(username))
+    {
+      console.log('该user存有del-post的cookie');
+      var postid_list = $.cookie(username).split(',');
+      var post_id = {};
+      post_id['post_id'] = postid_list;
+      post_id = JSON.stringify(post_id);
+      $.each($('.post'), function(){
+        if($.inArray($(this).attr('data-id'),postid_list) != -1)
+        {
+          $(this).remove();
+        }
+    });
+    }
+    else
+    {
+      console.log('还没有cookie');
+    }
+   
+  }
   // 下拉加载
   var distance = 50; // 距离下边界长度 /px
   var height = 230; //插入元素高度
@@ -271,7 +310,7 @@ $(function(){
       $(this).addClass("on");
       if(user.isGuest)// 判断用户是否登录 
       {
-        console.log(lgbtn_window);
+        // console.log(lgbtn_window);
         if(lgbtn_window)
         {
           $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
@@ -286,7 +325,7 @@ $(function(){
         {
           createLoginInfo($(this));
           lgbtn_window = true;
-          console.log($(this));
+          // console.log($(this));
           $(".login").children(".text").children("p").text("登录账号，保存此文章后稍后阅读");
           $(".login").addClass("bg-login-red").slideDown("fast");
         }
@@ -303,7 +342,7 @@ $(function(){
           data: { post_id: post_id_add, '_csrf': global.csrfToken },
           success:function (data)
           {
-            console.log(data.code);
+            // console.log(data.code);
             if(data.code != 4)
             {
               alert("收藏成功");
@@ -377,6 +416,7 @@ $(function(){
         }
         
       }
+
     }
     if($(this).children(".tag-add-cancel").hasClass("active"))
     {
@@ -406,85 +446,118 @@ $(function(){
     });
     $("#post-holder").delegate(".tag-del-cont", "click", function(){
     
-    $("#content .lgbtn").delegate(".lgbtn", "mouseenter", function(){
-      $(this).css({"backgroundColor":"#7185be"});
-    }).mouseleave(function(){
-      $(this).css({"backgroundColor":"#4d67ae"}); //颜色
-    });
+      $("#content .lgbtn").delegate(".lgbtn", "mouseenter", function(){
+        $(this).css({"backgroundColor":"#7185be"});
+      }).mouseleave(function(){
+        $(this).css({"backgroundColor":"#4d67ae"}); //颜色
+      });
 
       
-    if($(this).hasClass("active"))
-    {
+      if($(this).hasClass("active"))
+      {
 
-      $(this).removeClass("active");
-      lgbtn_window = false;
-    }
-    else
-    {
-      $(this).addClass("active");
-      if(user.isGuest)// 判断用户是否登录 
-      {
-          if(lgbtn_window)
-          {
-            $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多这类文章");
-            $(".login").removeClass("bg-login-green");
-            $(".login").removeClass("bg-login-red").addClass("bg-login-blue");
-            $(".login").prev().children(".tag-list").children(".tag-like").removeClass("on");
-            $(".login").prev().children(".tag-list").children(".tag-add-cont").removeClass("on");
-            $(".login").prev().children(".tag-list").children(".tag-add-cont").children(".tag-add-cancel").removeClass("active");
-            var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>";
-            $("#login .login_btn").append(del_btn);
-          }
-          else
-          {
-            createLoginInfo($(this));
-            lgbtn_window = true;
-            var del_btn = "<div class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>";
-            $("#login .login_btn").append(del_btn);
-            $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
-            $(".login").addClass("bg-login-blue").slideDown("fast");
-          }
-          
-      }
-    }
-    $("#content .lgbtn:eq(1)").click(function(){
-        createDelInfo($(this));
+        $(this).removeClass("active");
         lgbtn_window = false;
-      $(".login").slideUp("fast",function(){
-      $(this).prev().slideUp("fast", function(){
-        $(this).remove();
-      });
-      $(this).slideUp("fast", function(){
-          $(this).remove();
-      });
-    });
-    setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
-    $("#content .del-info .right_text").click(function(){
-      if(!$(this).hasClass("on"))
-      {
-        $(this).addClass("on"); 
       }
       else
       {
+        $(this).addClass("active");
+        if(user.isGuest)// 判断用户是否登录 
+        {
+            if(lgbtn_window)
+            {
+              $(".login").children(".text").children("p").text("登录账号，我们将为您提供更多这类文章");
+              $(".login").removeClass("bg-login-green");
+              $(".login").removeClass("bg-login-red").addClass("bg-login-blue");
+              $(".login").prev().children(".tag-list").children(".tag-like").removeClass("on");
+              $(".login").prev().children(".tag-list").children(".tag-add-cont").removeClass("on");
+              $(".login").prev().children(".tag-list").children(".tag-add-cont").children(".tag-add-cancel").removeClass("active");
+              var del_btn = "<div id='del-post-btn' class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>";
+              $("#login .login_btn").append(del_btn);
+            }
+            else
+            {
+              createLoginInfo($(this));
+              lgbtn_window = true;
+              var del_btn = "<div id='del-post-btn' class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>";
+              $("#login .login_btn").append(del_btn);
+              $(".login").children(".text").children("p").text("登录账号，我们将减少为您提供这类文章");
+              $(".login").addClass("bg-login-blue").slideDown("fast");
+            }
+            
+        }else
+        {
+          createLoginInfo($(this));
+          lgbtn_window = true;
+          var del_btn = "<div id='del-post-btn' class='lgbtn fr mr-30'><p class='fs-14'>确认删除</p></div>";
+          $("#login .login_btn").append(del_btn);
+          $("#login .lgbtn:eq(0)").remove();
+          $(".login").children(".text").children("p").text("确认删除，我们将减少为您提供这类文章");
+          $(".login").addClass("bg-login-blue").slideDown("fast");
+
+        }
+
+      }
+
+      $(".login").delegate("#del-post-btn", "click", function(){
+        //post id 存入 cookie ----------------------------------
+        console.log("开始cookie cookie cookie cookie cookie cookie cookie cookie ");
+        var cookie_post_id = $("#del-post-btn").parent().parent().prev().attr("data-id");
+        cookie_postid_list.push(cookie_post_id);
+        console.log(cookie_postid_list);
+        console.log(cookie_post_id);
+        var cookie_username = $("#cookie_username").val();
+        console.log(cookie_username);
+        if(!$.cookie(cookie_username))
+        {
+          console.log("no exist");
+          $.cookie(cookie_username, cookie_postid_list);
+        }
+        else
+        {
+          var list = $.cookie(cookie_username).split(',').concat(cookie_postid_list);
+          var new_postid_list  = unique(list);
+          console.log(new_postid_list);
+          $.cookie(cookie_username, new_postid_list);
+        }
+        // cookie ----------------------------------------------
+        createDelInfo($(this));
+        lgbtn_window = false;
+        $(".login").slideUp("fast",function(){
+          $(this).prev().slideUp("fast", function(){
+            $(this).remove();
+          });
+          $(this).slideUp("fast", function(){
+              $(this).remove();
+          });
+        });
+        setTimeout('$(".del-info").slideUp("fast", function(){ $(this).remove})',3000);
+        $("#content .del-info .right_text").click(function(){
+          if(!$(this).hasClass("on"))
+          {
+            $(this).addClass("on"); 
+          }
+          else
+          {
+            $(this).removeClass("on");
+          }
+        });
+            
+      });
+      if($(this).hasClass("on"))
+      {
+        $(".login").slideUp("fast",function(){
+          $(this).remove();
+          flag = true;
+        });
         $(this).removeClass("on");
       }
-    });
-            
-    });
-    if($(this).hasClass("on"))
-    {
-      $(".login").slideUp("fast",function(){
-        $(this).remove();
-        flag = true;
-      });
-      $(this).removeClass("on");
-    }
-    else
-    {
-      $(this).addClass("on");
-    }
-    // setTimeout('$(".login").slideUp("fast", function(){$(this).prev().slideUp("fast",function(){$(this).remove()}); $(this).remove();flag=true})', 3000);
-  // setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
+      else
+      {
+        $(this).addClass("on");
+      }
+     // setTimeout('$(".login").slideUp("fast", function(){$(this).prev().slideUp("fast",function(){$(this).remove()}); $(this).remove();flag=true})', 3000);
+     // setTimeout('$(".del-info").slideUp("fast", function(){$(this).remove()})', 3000);
   });
 
   //login
@@ -509,8 +582,7 @@ $(function(){
 
 
   //cookie
-  // console.log(user.isGuest);
-  // var myary = [1, 2, 3];
+  
   // $.cookie('name',JSON.stringify(myary)); 
 });
 
