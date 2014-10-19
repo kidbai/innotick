@@ -71,6 +71,9 @@ if (count($hot_post_id_list) > 0)
 			<ul>
 				<li class="ml-60 wt active"><div class="line"></div>最新</li>
 				<li class="wt ml-10">智能</li>
+			</ul>
+
+            <ul class="fr">
                 <?
                 if (is_array($tag_list))
                 {
@@ -82,7 +85,7 @@ if (count($hot_post_id_list) > 0)
 
                 }
                 ?>
-			</ul>
+            </ul>
 		</div>
 	</div>
 	<div class="column content-down">
