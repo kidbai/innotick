@@ -23,8 +23,7 @@ $(function(){
         var file = data.result.file[0];
         $(statusSelector).text('文件上传成功');
         $(hotImgSelector).val(file.name);
-        console.log(file.url+ "url========");
-        $('#picture-holder .picture .panel-body img').attr('src', file.url);
+        $('#picture-holder .picture img').attr('src', file.url);
     }).on('fileuploadfail', function (e, data) {
         $(statusSelector).text('文件上传失败');
     });         
@@ -38,44 +37,16 @@ function deleteHot(id)
     $('#hot-' + id).remove();
 }
 
-function save()
+function save(key)
 {
-    var data = [];
-    var pic = {};
-    if($('#pic').val())
-    {
-        pic['img'] = $('#pic').val();
-    }
-    else
+    var pic = $('#pic').val();
+    if(!pic)
     {
         alert("请检查是否填写完整");
         return false;
     }
-    data.push(pic);
-    console.log(data);
-    // data = JSON.stringify(data);
-    data = JSON.stringify(data);
-    console.log(data);
 
-    $.ajax({
-        url: '/admin/content-index-big-pic-save',
-        type: 'POST',
-        dataType: 'json',
-        data: { data: data, '_csrf': global.csrfToken },
-        success: function(data)
-        {
-            console.log(data);
-            if (data.error == 0)
-            {
-                alert('保存成功');
-                // window.location.reload();
-            }
-            else
-            {
-                alert('保存失败，请稍后再试');
-            }
-        }
-    }); 
+    setConfig(key, pic);
 
 }
 

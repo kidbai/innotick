@@ -99,10 +99,8 @@ function setConfig($key, $value)
 		$config = new app\models\Config();
 		$config->key = $key;
 	}
-	
+
 	$config->value = $value;
-
-
 
 	return $config->save();
 }

@@ -5,23 +5,9 @@ use app\models\Post;
 use app\models\PostComment;
 
  
-$view_comment_data = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
-if($view_comment_data != null)
-{
-    $view_comment = json_decode($view_comment_data,true);
-    $hot_comment = @$view_comment['comment'];
-    $hot_comment_list = implode('-', $hot_comment);
-}
+$key = DXConst::KEY_CONFIG_VIEW_COMMENT;
 
-
-$view_comment_all = PostComment::find()->orderBy('id')->all();
-$comment_id_list = array();
-foreach ($view_comment_all as $comment)
-{
-    array_push($comment_id_list, $comment->id);
-}
-$comment_id_list = json_encode($comment_id_list, true);
- $section = '2-2';
+$section = '2-2';
 
 ?>
 
@@ -39,15 +25,15 @@ $comment_id_list = json_encode($comment_id_list, true);
             <div class="form-horizontal" >
                 <div class="clear-5"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">文章(ID,用'-'符号分开)</label>
-                    <div class="col-sm-6"><input type="text" id="comment" class="form-control" placeholder="ID: " value = "<?= $hot_comment_list?>"/></div>
+                    <label class="col-sm-2 control-label">评论ID列表</label>
+                    <div class="col-sm-6"><input type="text" id="comment" class="form-control" placeholder="用'-'符号分割" value = "<?= getConfig($key) ?>"/></div>
                 </div>
                 
                 <div class="clear-20"></div>            
                                                                                         
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-2">
-                        <button class="btn btn-primary" onclick="save(<?= $comment_id_list?>)">保存</button>
+                        <button class="btn btn-primary" onclick="save('<?= $key ?>')">保存</button>
                     </div>
                 </div>
             </div> 

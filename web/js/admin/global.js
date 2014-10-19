@@ -98,7 +98,34 @@ function logout()
     });
 }
 
+function setConfig(key, value)
+{
+    // var value = $('#' + key).val();
+    if (!value)
+    {
+        alert('请填写完整');
+        // $('#' + key).focus();
+        return;
+    }
 
+    $.ajax({
+        url: '/admin/set-config',
+        type: 'POST',
+        dataType: 'json',
+        data: { key: key, value: value, '_csrf': global.csrfToken },
+        success: function(data)
+        {
+            if (data.code == 1)
+            {
+                alert('保存成功');
+            }
+            else
+            {
+                alert('未更新');
+            }
+        }
+    });
+}
 
 
 

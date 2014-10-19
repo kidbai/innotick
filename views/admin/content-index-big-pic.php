@@ -1,17 +1,9 @@
 <?
 use app\component\DXConst;
-$index_pic_data = getConfig(DXConst::KEY_CONFIG_INDEX_PIC);
-// dump($index_pic_data);die();
-if ($index_pic_data != null)
-{
-    $index_pic = json_decode($index_pic_data, true);
-}
-else
-{
-    $index_pic[0]['img'] = "background.jpg";    
-    $index_pic[0]['url'] = "can not find";
-}
- $section = '1-1';
+
+$key = DXConst::KEY_CONFIG_INDEX_PIC;
+
+$section = '1-1';
 
 ?>
 
@@ -26,13 +18,12 @@ else
         </div>
 
         <div class="col-md-10">
-            <div class="btn btn-success">首页大图</div>
             <div class="clear-15"></div>
             <div id="picture-holder">
-                <div class="picture panel panel-default col-md-7">
-                    <div class="panel-body">
-                        <img class="bg" width="180" height="90" src="/upload/img/<?= $index_pic[0]['img']?>">
-                        <input type="hidden" id="pic" value="<?= $index_pic[0]['img']?>" />
+                <div class="picture col-md-7">
+                    <div class="">
+                        <img class="bg" width="180" height="90" src="/upload/img/<?= getConfig($key) ?>">
+                        <input type="hidden" id="pic" value="<?= getConfig($key) ?>" />
                         <div class="clear-20"></div>
                         <div class="action">
                             <div class="fl">
@@ -47,8 +38,8 @@ else
                 </div>
             </div>
 
-            <div class="clear-15"></div>
-            <a class="btn btn-primary" href="javascript:;" onclick="save()" >保存</a>
+            <div class="clear-30"></div>
+            <a class="btn btn-primary" href="javascript:" onclick="save('<?= $key ?>')" >保存</a>
             <div class="clear-40"></div>
         </div>        
     </div>

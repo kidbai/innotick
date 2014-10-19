@@ -4,38 +4,50 @@ use app\component\DXConst;
 use app\models\Post;
 use app\models\PostComment;
 
-$view_post_data = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
-$view_comment_data = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
-$hot_comment = null;
-$hot_comment_list = [];
-if($view_comment_data != null)
+$hot_post_ids = getConfig(DXConst::KEY_CONFIG_VIEW_POST);
+$hot_comment_ids = getConfig(DXConst::KEY_CONFIG_VIEW_COMMENT);
+
+
+$hot_comment_list = null;
+$hot_comment_id_list = [];
+$hot_comment_ids = explode('-', trim(trim($hot_comment_ids), '-'));
+if (is_array($hot_comment_ids))
 {
-    $view_comment = json_decode($view_comment_data,true);
-    $hot_comment = @$view_comment['comment'];
+    foreach ($hot_comment_ids as $comment_id)
+    {
+        if (!in_array(intval($comment_id), $hot_comment_id_list))
+        {
+            $hot_comment_id_list[] = intval($comment_id);
+        }
+    }
+}
+if (count($hot_comment_id_list) > 0)
+{
+    $hot_comment_ids = implode(',', $hot_comment_id_list);
+    $hot_comment_list = PostComment::findBySql("select * from {{%post_comment}} where id in ($hot_comment_ids)")->all();
 }
 
-if(is_array($hot_comment))
+
+
+
+$hot_post_list = null;
+$hot_post_id_list = [];
+$hot_post_ids = explode('-', trim(trim($hot_post_ids), '-'));
+if (is_array($hot_post_ids))
 {
-    $hot_comment = implode(',', $hot_comment);
-    $hot_comment_list = PostComment::findBySql("select * from {{%post_comment}} where id in ($hot_comment)")->all();
+    foreach ($hot_post_ids as $post_id)
+    {
+        if (!in_array(intval($post_id), $hot_post_id_list))
+        {
+            $hot_post_id_list[] = intval($post_id);
+        }
+    }
 }
-
-
-
-$hot_post = null;
-$hot_post_list = [];
-if($view_post_data != null)
+if (count($hot_post_id_list) > 0)
 {
-    $view_post = json_decode($view_post_data,true);
-    $hot_post = @$view_post['post'];
+    $hot_post_ids = implode(',', $hot_post_id_list);
+    $hot_post_list = Post::findBySql("select * from {{%post}} where id in ($hot_post_ids)")->all();
 }
-
-if(is_array($hot_post))
-{
-    $hot_post = implode(',', $hot_post);
-    $hot_post_list = Post::findBySql("select * from {{%post}} where id in ($hot_post)")->all();
-}
-
 
 
 ?>
@@ -129,54 +141,63 @@ if(is_array($hot_post))
             </div>  
             <div class="right col-4">
                 <div class="hot-list bg-wt article">
-                    
+                    <div class="clear-20"></div>
                     <?
-                    $i = 0;
-                    foreach ($hot_post_list as $post)
+                    if (is_array($hot_post_list) && count($hot_post_list) > 0)
                     {
-                        $i++;
-                    ?>   
-
-                    <div class="hot <?if($i > 0)echo 'mt0';?> ">
-                        <div class="img-line-up"></div> 
-                        <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>    
-                        <a href="<?= $post->url?>" class="fs-13 hot-text"><?= $post->title ?></a>
-                    </div>
-                    
-                    <?
-                    }
-                    ?> 
-                    
-                    <div class="clear-10"></div>
-                    <div class="clear-10"></div>
-                    <div class="clear-10"></div>
-                    <!-- 屏幕header-->
-                    
-                    <div class="header">
-                        <p class="fs-13">优质评论</p>
-                    </div>
-                    <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
-                    
-                    <?
-                    foreach ($hot_comment_list as $hot_comment)
-                    {
-                    ?>
-                        <div class="small-article ml-20">
-                            <div class="bg-click fl mt-10">
-                                <img src="<?= $hot_comment->post->img?>" width="60" height="60" alt="" />
+                        $i = 0;
+                        foreach ($hot_post_list as $hot_post)
+                        {
+                            $i++;
+                            ?>
+                            <div class="hot <? if($i > 0){ echo 'mt0';}?>">
+                                <div class="img-line-down"></div>
+                                <a href="<?= $hot_post->url?>"><img src="/upload/img/<?= $hot_post->img?>" alt=""/></a>
+                                <a href="<?= $hot_post->url?>" class="fs-13 hot-text"><?= $hot_post->title?></a>
                             </div>
-                            <a class="text fl" href="<?= $hot_comment->post->url?>"><?= mb_substr($hot_comment->post->title,0,20,'utf-8')?></a>
+                        <?
+                        }
+                    }
+
+
+                    if (is_array($hot_comment_list) && count($hot_comment_list) > 0)
+                    {
+                        ?>
+                        <div class="header">
+                            <p class="fs-13">优质评论</p>
                         </div>
-                    <?
+                        <HR align=center width=86.66666667% color=#ee6350 SIZE=2 style="margin-left:20px;" noShade>
+
+
+                        <?
+                        foreach ($hot_comment_list as $comment)
+                        {
+                            ?>
+
+                            <div class="article border-bottom-1">
+                                <div class="customer">
+                                    <div class="fs-14 orange fl"><?= $comment->user->username?></div>
+                                    <div class="ml-12 fl dot">·</div>
+                                    <div class="fs-14 fl time ml-12"><?= timeFormat($comment->created, 'ago') ?></div>
+
+                                </div>
+                                <div class="cont">
+                                    <div class="fs-14 text"><?= $comment->content?></div>
+                                </div>
+                                <div class="from fs-15 lp-1">
+                                    <div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment->post->url?>"><?= $comment->post->title ?></a></div>
+                                </div>
+                            </div>
+
+                        <?
+                        }
                     }
                     ?>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+                    <div class="clear-20"></div>
+
+
                     <!-- 二维码-->
                     <div class="qrcode">
                         <div class="text fs-12 lp-2">微信公众平台：搜索“创新设计”或扫描一下二维码:</div>

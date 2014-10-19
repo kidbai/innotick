@@ -221,61 +221,15 @@ class AdminController extends BaseController
     {
         return $this->render('/admin/content-index-big-pic');
     }
-    public function actionContentIndexBigPicSave()
-    {
-        $data = $_REQUEST['data'];
-        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_PIC, $data);
-        if ($ok)
-        {
-            $this->finish(['error' => 0]);
-        }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-    }
 
     public function actionContentIndexTag()
     {
         return $this->render('/admin/content-index-tag');
     }
 
-    public function actionContentIndexTagSave()
-    {
-
-        $data = $_REQUEST['data'];
-        $ok = setConfig(DXConst::KEY_CONFIG_INDEX_TAG, $data);
-        // dump($ok);die();
-        if ($ok)
-        {
-            $this->finish(['error' => 0]);
-            // $this->finish($data);
-        }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-    }
     public function actionContentIndexPost()
     {
-        
         return $this->render('/admin/content-index-post');
-    }
-
-    public function actionContentIndexPostSave()
-    {
-       $data = $_REQUEST['data'];
-       $ok = setConfig(DXConst::KEY_CONFIG_INDEX_POST,$data);
-       if ($ok)
-        {
-            $this->finish(['error' => 0]);
-            // $this->finish($data);
-        }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-       $this->finish($data);
     }
 
     public function actionContentIndexComment()
@@ -283,58 +237,27 @@ class AdminController extends BaseController
         return $this->render('/admin/content-index-comment');
     }
 
-    public function actionContentIndexCommentSave()
+    public function actionContentPostHotPost()
     {
-       $data = $_REQUEST['data'];
-       $ok = setConfig(DXConst::KEY_CONFIG_INDEX_COMMENT,$data);
-       if ($ok)
-        {
-            $this->finish(['error' => 0]);
-            // $this->finish($data);
-        }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-       $this->finish($data); 
+        return $this->render('/admin/content-view-post');
     }
 
-    public function actionContentViewPost()
-    {
-        return $this->render('/admin/content-view-post'); 
-    }
-    
-    public function actionContentViewPostSave()
-    {
-       $data = $_REQUEST['data'];
-       $ok = setConfig(DXConst::KEY_CONFIG_VIEW_POST,$data);
-       if ($ok)
-        {
-            $this->finish(['error' => 0]);
-        }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-       $this->finish($data);     
-    }
-    public function actionContentViewComment()
+    public function actionContentPostHotComment()
     {
         return $this->render('/admin/content-view-comment');
     }
 
-    public function actionContentViewCommentSave()
+    public function actionSetConfig()
     {
-       $data = $_REQUEST['data'];
-       $ok = setConfig(DXConst::KEY_CONFIG_VIEW_COMMENT,$data);
-       if ($ok)
+        $key = $_REQUEST['key'];
+        $value = $_REQUEST['value'];
+
+        $data['code'] = 0;
+        if (setConfig($key, $value))
         {
-            $this->finish(['error' => 0]);
+            $data['code'] = 1;
         }
-        else
-        {
-            $this->finish(['error' => 1]);
-        }
-       $this->finish($data);    
+
+        $this->finish($data);
     }
 }

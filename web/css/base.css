@@ -267,7 +267,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .hot-list .small-article img { height: 60px; width: 60px;}
 #content .hot-list .small-article .text { width:160px; cursor: pointer; font-size: 16px; line-height: 25px; margin:5px 0px 0px 12px; color: #686868; }
 #content .hot-list .small-article .text:hover { color: #ee6350;}
-#content .qrcode { height: 281px; width: 295px;float: left;position: relative; background-color: #f7f7f7;z-index: 9999;}
+#content .qrcode { height: 281px; width: 295px;float: left;position: relative; z-index: 9999;}
 #content .qrcode .text { width: 150px; height: 82px;text-align: left;margin: auto;color: #9fa0a0;line-height: 25px;}
 #content .qrcode img { float: left;margin: 0px 55px 0px 70px;border: 0;background: #cccccc;}
 #content .qrcode_2 { height: 281px; width: 298px;float: left;position: absolute; left: 902px; top: 907px; background-color: #fff;z-index: 9999;}

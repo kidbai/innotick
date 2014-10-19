@@ -3,27 +3,9 @@ use yii\widgets\ActiveForm;
 use app\component\DXConst;
 use app\models\PostComment;
 
-$index_comment_data = getConfig(DXConst::KEY_CONFIG_INDEX_COMMENT);
-if($index_comment_data != null)
-{
-    $index_comment = json_decode($index_comment_data, true);
-    // dump($index_comment);die();
-    $comment = @$index_comment['comment'];
-    $comment_list = implode('-', $comment);
-}
+$key = DXConst::KEY_CONFIG_INDEX_COMMENT;
 
-
-
-$comment_all = PostComment::find()->orderBy('id')->all();
-$comment_id_list = array();
-foreach ($comment_all as $comment)
-{
-    array_push($comment_id_list, $comment->id);
-}
-$comment_id_list = json_encode($comment_id_list,true);
-// dump($comment_id_list);die();
-
- $section = '1-4';
+$section = '1-4';
 
 ?>
 
@@ -41,8 +23,8 @@ $comment_id_list = json_encode($comment_id_list,true);
             <div class="form-horizontal" >
                 <div class="clear-5"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">评论(ID,用'-'符号分开)</label>
-                    <div class="col-sm-6"><input type="text" id="comment" class="form-control" placeholder="" value = "<?= $comment_list?>"/></div>
+                    <label class="col-sm-2 control-label">评论ID列表</label>
+                    <div class="col-sm-6"><input type="text" id="comment" class="form-control" placeholder="用'-'符号分割" value = "<?= getConfig($key) ?>"/></div>
                 </div>
                 <div class="clear-2"></div>
                 
@@ -50,7 +32,7 @@ $comment_id_list = json_encode($comment_id_list,true);
                                                                                         
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-2">
-                        <button class="btn btn-primary" onclick="save(<?= $comment_id_list?>)">保存</button>
+                        <button class="btn btn-primary" onclick="save('<?= $key ?>')">保存</button>
                     </div>
                 </div>
             </div> 
