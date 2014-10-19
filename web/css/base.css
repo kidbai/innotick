@@ -1,4 +1,4 @@
-img { border: 0px; }
+img { border: none; }
 li { list-style: none; }
 
 .icon-book { display: inline-block; width: 19px; height: 19px; background: url(/img/icon/book.png); }
@@ -32,7 +32,7 @@ textarea {
 body { background: #fff; }
 * { -webkit-box-sizing: border-box; color: #111;
 -moz-box-sizing: border-box;
-box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-size:12px; font-family:  Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif; outline: none; -webkit-font-smoothing: antialiased; }
+box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-size:12px; font-family:  Arial, 'Hiragino Sans GB', 'Microsoft YaHei', "微软雅黑", STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif; outline: none; -webkit-font-smoothing: antialiased; }
 
 .wrapper { width: 100%; position: relative; }
 .wrapper.grey { background: #f8f8f8; }
@@ -282,7 +282,7 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 #content .left .main .article p { font-size: 18px; letter-spacing: 1px; padding: 10px 20px 0px 20px;line-height: 33px;text-indent: 2em;text-align: left; color: #3f484f; }
 #content .left .main .article p * { font-size: 18px; color: #3f484f; }
 #content .icon { width: 800px; height: 60px;position: relative;}
-#content .icon li { height: 40px; cursor: pointer; line-height: 40px; text-align: center; overflow: hidden; list-style-type: none; };
+#content .icon li { height: 40px; cursor: pointer; line-height: 40px; text-align: center; overflow: hidden; list-style-type: none; }
 #content .icon-list { overflow: hidden;}
 #content .icon-list .off { position: absolute;display: block;}
 #content .icon-list .on { position: absolute;display: none;}
@@ -420,7 +420,8 @@ box-sizing: border-box; z-index: 0; outline: none; padding:0px; margin:0px;font-
 .footer { height: 40px; background: #0c0c0c;}
 .footer .bottom .text { margin-left: 64px; line-height: 40px;}
 
-#article .column .left img { width: 780px; height: 179px;}
+#article .column .left img { width: 780px; height: 179px; }
+}
 
 
 

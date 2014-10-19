@@ -68,9 +68,9 @@ class AdminController extends BaseController
             if ($model->login(WebUser::TYPE_ADMIN))
             {
                 $this->redirect('/admin/index');
-            }          
-        }       
-        
+            }
+        }
+
         return $this->render('login', [
             'model' => $model
         ]);
@@ -78,7 +78,7 @@ class AdminController extends BaseController
 
     public function actionLogout()
     {
-        app()->admin->logout();        
+        app()->admin->logout();
         $this->redirect('/admin/login');
     }
 
@@ -96,7 +96,7 @@ class AdminController extends BaseController
         $user['username'] = admin()->username;
 
         $this->finish($user);
-    }     
+    }
 
     public function actionChangePassword()
     {
@@ -117,7 +117,7 @@ class AdminController extends BaseController
         {
             $this->finish(['error' => 1, 'message' => '修改失败，请稍后再试']);
         }
-    }    
+    }
 
 
 
@@ -148,7 +148,7 @@ class AdminController extends BaseController
         {
             $query->andWhere(['category_id' => $category_id]);
         }
-        
+
         $query->orderBy(['id' => SORT_DESC]);
 
         $provider = new ActiveDataProvider([
@@ -156,7 +156,7 @@ class AdminController extends BaseController
             'pagination' => [
                 'pageSize' => 20,
             ],
-        ]);        
+        ]);
 
         return $this->render('/admin/post-list', ['category' => $category, 'category_id' => $category_id, 'provider' => $provider]);
     }
@@ -183,11 +183,11 @@ class AdminController extends BaseController
                 $post->status = Post::STATUS_ON;
             }
             $post->user_id = admin()->id;
-            if ($post->save()) 
+            if ($post->save())
             {
                 $this->redirect(url(['/admin/post-list', 'category_id' => $post->category_id]));
-            }       
-        }          
+            }
+        }
 
         return $this->render('/admin/post-edit', ['category' => $category, 'model' => $post, 'category_id' => $category_id]);
     }
@@ -206,7 +206,7 @@ class AdminController extends BaseController
         }
 
         $this->finish($data);
-    }  
+    }
 
 
     public function actionContent()
@@ -233,7 +233,7 @@ class AdminController extends BaseController
         {
             $this->finish(['error' => 1]);
         }
-    } 
+    }
 
     public function actionContentIndexTag()
     {
@@ -253,5 +253,5 @@ class AdminController extends BaseController
             $this->finish(['error' => 1]);
         }
     }
-    
+
 }
