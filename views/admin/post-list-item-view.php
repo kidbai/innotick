@@ -5,6 +5,7 @@ use app\component\DXConst;
 
 $id = $model->id;
 $edit_url = url(['/admin/post-edit', 'id' => $id]);
+$comment_url = url(['/admin/post-comment', 'id' => $id]);
 $view_url = $model->url;
 
 
@@ -16,6 +17,7 @@ $post = $model;
     <td class="col col-action"><a href="javascript:;" onclick="deletePost(<?=$id?>)">删除</a></td>
     <td class="col col-action"><?= $id ?></td>
     <td class="col col-action"><a href="<?= $view_url ?>" class="title" target="_blank"><?= $model->title ?></a></td>
+    <td class="col col-action"><a href="<?= $comment_url ?>">查看</a></td>
     <td class="col tc"><?= timeFormat($model->created) ?></td>
     <td class="col tc"><?= timeFormat($model->updated) ?></td>
     <td class="col tc"><?= @$post->admin->username ?></td>

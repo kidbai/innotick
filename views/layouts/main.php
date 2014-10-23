@@ -15,6 +15,7 @@ use yii\web\JqueryAsset;
 <body>
 <?php $this->beginBody() ?>
 
+<a href="#" class="scroll-top"></a>
 <!--遮罩-->
 <div class="shade"></div>
     
@@ -376,6 +377,13 @@ use yii\web\JqueryAsset;
         <div class="bottom">
             <p class="text fs-14 wt">&copy;2013-2014 创新设计 浙ICP备13036478号-5</p> 
         </div>    
+        <!-- <div class="banner">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div> -->
     </div>
 
 

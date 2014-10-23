@@ -31,6 +31,7 @@ $section = '1-' . $category_id;
 				                        <th class="tc">删除</th>
 				                        <th class="tc">ID</th>
 				                        <th class="tc">标题</th>
+                                        <th class="tc">查看评论内容</th>
 				                        <th class="tc">发布时间</th>
 				                        <th class="tc">更新时间</th>
 				                        <th class="tc">发布者</th>

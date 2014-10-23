@@ -128,7 +128,7 @@ var maxnum = 2;
 var loading_post = false;
 function scrollHandler()
 {
-    if(get_scroll_height() - get_client_height() - 310 <= get_scroll_top() && num < maxnum)
+    if(get_scroll_height() - get_client_height() - 310 <= get_scroll_top() && num < maxnum && !author)
     {
       // console.log('in', loading_post, num);
       $(".spinner .load-animation").addClass("show");
@@ -185,7 +185,57 @@ $(window).scroll(scrollHandler);
 
 var lgbtn_window = false;
 var cookie_postid_list = [];
+
+
+var author = false;
+function author_post(name)
+{
+
+  window.open('/site/find-author-post?name=' + name);
+}
+
+function label_post(label)
+{
+  window.open('/site/find-label-post?label=' + label); 
+}
+
+
+
+
 $(function(){
+
+  // $('.banner').unslider();
+
+  $("#top-search-field").keydown(function(e){
+    console.log(e.which);
+    if(e.which == 13)
+    {
+      var keyword = $(this).val();
+      if(!keyword)
+      {
+        alert("请输入您需要查询的文章");
+        return false;
+      } 
+      else
+      {
+        window.open('/site/search-post?keyword=' + keyword);
+      }
+    }
+  });
+
+  $(".search-btn img").click(function(){
+    var keyword = $("#top-search-field").val();
+    console.log(keyword);
+    if(!keyword)
+    {
+      alert("请输入您需要查询的文章");
+      return false;
+    }
+    else
+    {
+      window.open('/site/search-post?keyword=' + keyword);
+    }
+  });
 
   //过滤掉删除的文章
   var username = $("#cookie_username").val();

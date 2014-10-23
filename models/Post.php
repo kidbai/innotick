@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use app\models\PostAction;
+use app\models\PostComment;
 /**
  * This is the model class for table "tbl_post".
  *
@@ -42,7 +43,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'img', 'content', 'category_id', 'status', 'user_id'], 'required', 'message' => '{attribute}不能为空'],
-            [['img', 'content', 'tag', 'author', 'source_name', 'source_url'], 'string'],
+            [['img', 'content', 'tag', 'author', 'source_name', 'source_url', 'desc'], 'string'],
             [['category_id', 'type', 'status', 'user_id', 'created', 'updated'], 'integer'],
             [['title'], 'string', 'max' => 999]
         ];
@@ -58,6 +59,7 @@ class Post extends \yii\db\ActiveRecord
             'title' => '标题',
             'img' => '图片',
             'content' => '内容',
+            'desc' => '摘要',
             'author' => '作者',
             'source_name' => '来源名',
             'source_url' => '来源网址',
@@ -126,6 +128,12 @@ class Post extends \yii\db\ActiveRecord
     {
         return sql(' select count(*) from {{%post_comment}} where post_id = :post_id ')
                 ->bindValues([':post_id' => $this->id])->queryScalar();
+    }
+
+    public function getComment()
+    {
+        $post_comment = PostComment::findBySql("select * from {{%post_comment}} where post_id = :post_id",[':post_id' => $this->id])->all();
+        return $post_comment;
     }
 
    // public function getFavoritePost()

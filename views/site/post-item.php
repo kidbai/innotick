@@ -8,7 +8,6 @@ $category_map = [
     6 => '观点'
 ];
 // dump($category_map['1']);die();
-
 $desc = trim(strip_tags($post->content));
 $desc = mb_substr($desc, 0, 80, 'utf-8');
 ?>
@@ -25,9 +24,16 @@ $desc = mb_substr($desc, 0, 80, 'utf-8');
     <div class="text">
         <div class="title"><a class="fs-21 lp-3" href="<?= $post->url ?>"><?= $post->title ?></a></div>
         <div class="fs-10 lp-1 post-label fl">
-            作者
-            <strong class="ml-4 author"><?= $post->author ?></strong>
-             - <?= timeFormat($post->created) ?> 
+            <?
+            if($post->author != '') 
+            echo '<div class="fl author-label">作者</div>';
+            ?>
+            <strong class="ml-4 author fl" onclick="author_post('<?= $post->author?>')"><?= $post->author ?></strong>
+            <?
+            if($post->author != '')
+            echo '<div class="fl author-symbol"> - </div>';
+            ?>
+            <div class="fl"><?= timeFormat($post->created) ?> </div>
             
         </div>
         <div class="keyword">
@@ -38,7 +44,7 @@ $desc = mb_substr($desc, 0, 80, 'utf-8');
             {
         ?>
 
-            <div class="keyword-item fl ml-8 fs-12 orange">
+            <div class="keyword-item fl ml-8 fs-12 orange" onclick="label_post('<?= $tag?>')">
         <?   echo  $tag ; ?>
             </div>
 

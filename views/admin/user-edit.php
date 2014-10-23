@@ -3,9 +3,7 @@ use yii\widgets\ActiveForm;
 
 $section = '1-1';
 
-$user_company_map = param('user-company-type');
 
-$model->password = '';
 
 ?>
 
@@ -31,16 +29,34 @@ $model->password = '';
                 ],
             ]); ?>
     
-            <?= $form->field($model, 'name', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <?= $form->field($model, 'email', ['inputOptions' => ['class' => 'form-control']]) ?>
             <div class="clear-2"></div>         
 
-            <?= $form->field($model, 'phone', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <?= $form->field($model, 'username', ['inputOptions' => ['class' => 'form-control']]) ?>
             <div class="clear-2"></div>      
 
-            <?= $form->field($model, 'company', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <?= $form->field($model, 'password', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>      
+
+            <?= $form->field($model, 'name', ['inputOptions' => ['class' => 'form-control']]) ?>
             <div class="clear-2"></div>
 
-            <?= $form->field($model, 'company_position', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <?= $form->field($model, 'gender', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>  
+
+            <?= $form->field($model, 'phone', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>  
+
+            <?= $form->field($model, 'province', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>  
+
+            <?= $form->field($model, 'city', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>  
+
+            <?= $form->field($model, 'county', ['inputOptions' => ['class' => 'form-control']]) ?>
+            <div class="clear-2"></div>  
+
+            <?= $form->field($model, 'url', ['inputOptions' => ['class' => 'form-control']]) ?>
             <div class="clear-2"></div>  
 
             <?= $form->field($model, 'desc', ['inputOptions' => ['class' => 'form-control']]) ?>

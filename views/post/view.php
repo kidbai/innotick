@@ -143,26 +143,23 @@ if (count($hot_post_id_list) > 0)
                 <div class="hot-list bg-wt article">
                     <div class="clear-20"></div>
                     <?
-                    if (is_array($hot_post_list) && count($hot_post_list) > 0)
+                    
+                    $i = 0;
+                    foreach ($correlate_post as $post)
                     {
-                        $i = 0;
-                        foreach ($hot_post_list as $hot_post)
-                        {
-                            $i++;
-                            ?>
-                            <div class="hot <? if($i > 0){ echo 'mt0';}?>">
-                                <div class="img-line-down"></div>
-                                <a href="<?= $hot_post->url?>"><img src="/upload/img/<?= $hot_post->img?>" alt=""/></a>
-                                <a href="<?= $hot_post->url?>" class="fs-13 hot-text"><?= $hot_post->title?></a>
-                            </div>
-                        <?
-                        }
+                        $i++;
+                    ?>
+                        <div class="hot <? if($i > 0){ echo 'mt0';}?>">
+                            <div class="img-line-down"></div>
+                            <a href="<?= $post->url?>"><img src="/upload/img/<?= $post->img?>" alt=""/></a>
+                            <a href="<?= $post->url?>" class="fs-13 hot-text"><?= $post->title?></a>
+                        </div>
+                    <?
                     }
+                    ?> 
 
 
-                    if (is_array($hot_comment_list) && count($hot_comment_list) > 0)
-                    {
-                        ?>
+                    
                         <div class="header">
                             <p class="fs-13">优质评论</p>
                         </div>
@@ -170,29 +167,29 @@ if (count($hot_post_id_list) > 0)
 
 
                         <?
-                        foreach ($hot_comment_list as $comment)
+                        foreach ($hot_post_comment_list as $hot_post_comment)
                         {
-                            ?>
+                            $hot_post_comment = $hot_post_comment->comment;
+                        ?>
 
                             <div class="article border-bottom-1">
                                 <div class="customer">
-                                    <div class="fs-14 orange fl"><?= $comment->user->username?></div>
+                                    <div class="fs-14 orange fl"><?= $hot_post_comment->user->username?></div>
                                     <div class="ml-12 fl dot">·</div>
-                                    <div class="fs-14 fl time ml-12"><?= timeFormat($comment->created, 'ago') ?></div>
+                                    <div class="fs-14 fl time ml-12"><?= timeFormat($hot_post_comment->created, 'ago') ?></div>
 
                                 </div>
                                 <div class="cont">
-                                    <div class="fs-14 text"><?= $comment->content?></div>
+                                    <div class="fs-14 text"><?= $hot_post_comment->content?></div>
                                 </div>
                                 <div class="from fs-15 lp-1">
-                                    <div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $comment->post->url?>"><?= $comment->post->title ?></a></div>
+                                    <div class="fs-14 lp-1 from-text">评论于<a class="fs-14 lp-1 lightgray comment_title" href="<?= $hot_post_comment->post->url?>"><?= $hot_post_comment->post->title ?></a></div>
                                 </div>
                             </div>
 
                         <?
                         }
-                    }
-                    ?>
+                        ?>
 
 
                     <div class="clear-20"></div>

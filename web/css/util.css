@@ -1,3 +1,7 @@
+textarea.on
+{
+    height: 300px;
+}
 .red { color: red; }
 .error-red { color: #A03246;}
 .pink { color: #e63c5a; }

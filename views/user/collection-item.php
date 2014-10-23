@@ -9,7 +9,6 @@ $category_map = [
 ];
 
 $post_fav = $model;
-// dump($model);die();
 ?>
 <div class="collection-cont mr-20 ml-20">
     <div class="collection-green site fl ml-38 category"><?= @$category_map[$post_fav->post->category_id] ?></div>

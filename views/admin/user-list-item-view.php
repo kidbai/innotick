@@ -11,8 +11,16 @@ $user = $model;
     <td class="col col-action"><a href="<?= $edit_url ?>">编辑</a></td>
     <td class="col col-action"><a href="javascript:;" onclick="deletePost(<?=$id?>)">删除</a></td>
     <td class="col tc"><?= $id ?></td>
-    <td class="col tc" name><?= $user->name ?></td>
+    <td class="col tc"><?= $user->email ?></td>
+    <td class="col tc"><?= $user->username ?></td>
+    <td class="col tc"><?= $user->password ?></td>
+    <td class="col tc"><?= $user->name ?></td>
+    <td class="col tc"><?= $user->gender ?></td>
     <td class="col tc"><?= $user->phone ?></td>
-    <td class="col tc"><?= $user->company ?></td>
-    <td class="col tc"><?= $user->company_position ?></td>
+    <td class="col tc"><?= $user->province ?></td>
+    <td class="col tc"><?= $user->city ?></td>
+    <td class="col tc"><?= $user->county ?></td>
+    <td class="col tc"><?= $user->avatar ?></td>
+    <td class="col tc"><?= $user->url ?></td>
+    <td class="col tc"><?= $user->desc ?></td>
 </tr>

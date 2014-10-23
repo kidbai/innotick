@@ -7,4 +7,8 @@
     <li class="dropdown-header">文章页管理</li>
     <li class="<? if ($section == '2-1') echo 'active'; ?>"><a href="<?= url(['/admin/content-post-hot-post']) ?>">文章内右侧热门文章</a></li>
     <li class="<? if ($section == '2-2') echo 'active'; ?>"><a href="<?= url(['/admin/content-post-hot-comment']) ?>">文章内右侧热门评论</a></li>
+    <li class="dropdown-header">轮播页管理</li>
+    <li class="<? if ($section == '3-1') echo 'active'; ?>"><a href="<?= url(['/admin/content-special-column']) ?>">专栏</a></li>
+   <!--  <li class="dropdown-header">文章评论管理</li>
+    <li class="<? if ($section == '4-1') echo 'active'; ?>"><a href="<?= url(['/admin/content-comment']) ?>">评论内容管理</a></li> -->
 </ul>

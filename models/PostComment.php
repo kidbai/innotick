@@ -91,6 +91,11 @@ class PostComment extends \yii\db\ActiveRecord
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }      
 
+    public function getPostAction()
+    {
+        return $this->hasOne(PostAction::className(),['comment_id' => 'comment_id']);
+    }
+
     public function getLikeCount()
     {
         return sql(' select count(*) from {{%post_action}} where comment_id = :comment_id and type = :type ')

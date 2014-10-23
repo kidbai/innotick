@@ -7,6 +7,8 @@ use app\component\BaseController;
 use app\models\LoginForm;
 use app\models\Admin;
 use app\models\Post;
+use app\models\PostComment;
+use app\models\PostAction;
 use app\models\User;
 use app\models\Meeting;
 use app\models\MeetingAgenda;
@@ -192,6 +194,36 @@ class AdminController extends BaseController
         return $this->render('/admin/post-edit', ['category' => $category, 'model' => $post, 'category_id' => $category_id]);
     }
 
+    public function actionPostComment($id = 0, $category_id = 0)
+    {
+        app()->session['page'] = 1;
+
+        $id = intval($id);
+        $post = Post::find()->where(['id' => $id])->one();
+        if (!$post)
+        {
+            $post = new Post();
+        }
+        else
+        {
+            $category_id = intval($post->category_id);
+        }
+        $category = getCategory();
+        if ($post->load(app()->request->post()))
+        {
+            if ($post->status < 1)
+            {
+                $post->status = Post::STATUS_ON;
+            }
+            $post->user_id = admin()->id;
+            if ($post->save())
+            {
+                $this->redirect(url(['/admin/post-list', 'category_id' => $post->category_id]));
+            }
+        }
+
+        return $this->render('/admin/post-comment', ['category' => $category, 'model' => $post, 'category_id' => $category_id]);
+    }
 
     public function actionPostDelete()
     {
@@ -260,4 +292,85 @@ class AdminController extends BaseController
 
         $this->finish($data);
     }
+
+    public function actionContentSpecialColumn()
+    {
+        return $this->render('/admin/content-special-column');
+    }
+
+
+    //用户模块
+    public function actionUser()
+    {
+        return $this->render('/admin/user-list');
+    }
+
+    public function actionUserList()
+    {
+        app()->session['page'] = 3;
+        $query = new ActiveQuery(User::className());
+        $query->orderBy(['id' => SORT_DESC]);
+
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]); 
+
+        return $this->render('/admin/user-list',['provider' => $provider]);
+    }
+
+    public function actionUserEdit($id = 0)
+    {
+        app()->session['page'] = 3;
+
+        $id = intval($id);
+        $user = User::find()->where(['id' => $id])->one();
+        if (!$user)
+        {
+            $user = new User();
+        }
+        if ($user->load(app()->request->post()))
+        {
+            // dump($user->load(app()->request->post()));
+            if ($user->save())
+            {
+                $this->redirect(url('/admin/user-list'));
+            }
+        }
+        return $this->render('/admin/user-edit',['model' => $user]);
+    }
+
+    public function actionUserDelete()
+    {
+        $id = intval($_REQUEST['id']);
+
+        $data = ['code' => 0];
+
+        $count = User::deleteAll(['id' => $id]);
+        if ($count < 1)
+        {
+            $data['code'] = 1;
+        }
+
+        $this->finish($data);
+    }
+    // public function actionContentComment()
+    // {
+    //     // $comment_list = PostComment::findBySql("select * from {{%post_comment}} order by post_id")->all();
+    //     // dump($comment_list);die();
+    //     // $post_list = Post::findBySql("select * from {{%post}} where title like \"%$keyword%\" or content like \"%$keyword%\" or tag like  \"%$keyword%\" ")->all();
+    //     $query = new ActiveQuery(Post::className());
+    //     $query->orderBy(['id' => SORT_DESC]);
+
+    //     $provider = new ActiveDataProvider([
+    //         'query' => $query,
+    //         'pagination' => [
+    //             'pageSize' => 20,
+    //         ],
+    //     ]);
+    //     return $this->render('/admin/content-comment',['provider' => $provider]);
+    // }
+
 }

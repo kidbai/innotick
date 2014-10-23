@@ -6,7 +6,7 @@ $section = '1-' . $category_id;
 $model->category_id = $category_id;
 
 ?>
-
+<link rel="stylesheet" href="/web/css/util.css"/>
 <link href="/res/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
 <link href="/res/jqueryfileupload/jquery.fileupload.css" rel="stylesheet" />
 <div class="clear-20"></div>
@@ -62,6 +62,10 @@ $model->category_id = $category_id;
 
 		    <?= $form->field($model, 'content', ['template' => "{label}<div class=\"col-sm-9\">{input}</div>\n<div class=\"clear-10\"></div><div class=\"error-msg col-sm-offset-1 col-sm-4\">{error}</div>", 'inputOptions' => ['placeholder' => '介绍', 'class' => 'form-control']])->textarea() ?>		    
 		    <div class="clear-2"></div>
+
+
+            <?= $form->field($model, 'desc', ['inputOptions' => ['class' => 'form-control on']])->textarea() ?>
+            <div class="clear-2"></div> 
 
 		    <div class="clear-2"></div>
 			<div class="form-group ">

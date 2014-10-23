@@ -93,5 +93,6 @@ class DXConst extends \yii\base\Object
 	const KEY_CONFIG_INDEX_COMMENT = 'index-comment';
 	const KEY_CONFIG_VIEW_POST = 'view-post';
 	const KEY_CONFIG_VIEW_COMMENT = 'view-comment';
+	const KEY_CONFIG_SPECIAL_COLUMN = 'special-column';
 
 }

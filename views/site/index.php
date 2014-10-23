@@ -8,7 +8,9 @@ $pic = getConfig(DXConst::KEY_CONFIG_INDEX_PIC);
 $tags = getConfig(DXConst::KEY_CONFIG_INDEX_TAG);
 $hot_post_ids = getConfig(DXConst::KEY_CONFIG_INDEX_POST);
 $hot_comment_ids = getConfig(DXConst::KEY_CONFIG_INDEX_COMMENT);
-
+$special_column = getConfig(DXConst::KEY_CONFIG_SPECIAL_COLUMN);
+$special_column = json_decode($special_column, true);
+// dump($special_column);die();
 
 $tag_list = explode('-', trim(trim($tags, '-')));
 
@@ -184,7 +186,6 @@ if (count($hot_post_id_list) > 0)
 
 	    	</div>
 	    </div>
-	    <div class="clear-10"></div>
 	  
 	</div>
 		

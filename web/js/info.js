@@ -77,6 +77,7 @@ function saveinfo()
             console.log("success"); 
             console.log(data);
             alert("保存成功");
+            window.location.reload(false);
         }
     });
 }

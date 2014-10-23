@@ -14,6 +14,8 @@ use app\models\Post;
 use app\models\PostAction;
 use app\models\PostComment;
 use app\models\User;
+use yii\db\ActiveQuery;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends BaseController
 {
@@ -88,6 +90,69 @@ class SiteController extends BaseController
         dump(md5(md5('inno')));
     }
 
+    public function actionFindAuthorPost()
+    {
+        // $author_name = $_REQUEST['name'];
+        // $post_list = Post::findBySql("select * from {{%post}} where author = :author",[':author' => $author_name])->all();
+        // $html = '';
+        // foreach ($post_list as $post)
+        // {
+        //     $html .= $this->renderPartial('/site/author-post', ['post' => $post]) . "\n";
+        // }
+        // return $html;
+        // $post_list = Post::findBySql("select * from {{%post}} where author = :author",[':author' => $author_name])->all();
+        $author_name = $_REQUEST['name'];
+        $query = new ActiveQuery(Post::className());
+        $query->andWhere(['author' => $author_name]);
+        $query->orderBy(['created' => SORT_DESC]);
+
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('/site/author-post',['provider' => $provider]);
+    }
+
+    public function actionFindLabelPost()
+    {
+        $label = $_REQUEST['label'];
+        $post_list = Post::findBySql("select * from {{%post}} where tag like \"%$label%\"",[':tag' => $label])->all();
+        $query = new ActiveQuery(Post::className());
+        $query->andWhere("tag like \"%$label%\" ");
+        $query->orderBy(['created' => SORT_DESC]);
+
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('/site/label-post', ['provider' => $provider]);
+        
+    }
+
+    public function actionSearchPost()
+    {
+        $keyword = $_REQUEST['keyword'];
+        $post_list = Post::findBySql("select * from {{%post}} where title like \"%$keyword%\" or content like \"%$keyword%\" or tag like  \"%$keyword%\" ")->all();
+        $query = new ActiveQuery(Post::className());
+        $query->andWhere("title like \"%$keyword%\" ");
+        $query->orderBy(['created' => SORT_DESC]);
+
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
+
+        return $this->render('/site/search-post', ['provider' => $provider]);
+        
+    }
     // public function actionCalColumn()
     // {
     //     dump(sprintf("%.8f", 80.0 / 1200));

@@ -23,17 +23,25 @@ $section = '1-1';
             echo ListView::widget([
                 'dataProvider' => $provider,
                 'itemView' => '/admin/user-list-item-view',
-                'layout' => '<div class="table-holder col-md-8">
+                'layout' => '<div class="table-holder col-md-12">
                                 <table class="table table-condensed table-hover table-bordered data-table">
                                     <thread>
                                       <tr>
                                         <th class="tc">编辑</th>
                                         <th class="tc">删除</th>
                                         <th class="tc">ID</th>
-                                        <th class="tc">姓名</th>
-                                        <th class="tc">手机号</th>
-                                        <th class="tc">公司</th>
-                                        <th class="tc">职位</th>
+                                        <th class="tc">email</th>
+                                        <th class="tc">username</th>
+                                        <th class="tc">password</th>
+                                        <th class="tc">name</th>
+                                        <th class="tc">gender</th>
+                                        <th class="tc">phone</th>
+                                        <th class="tc">province</th>
+                                        <th class="tc">city</th>
+                                        <th class="tc">county</th>
+                                        <th class="tc">avatar</th>
+                                        <th class="tc">url</th>
+                                        <th class="tc">desc</th>
                                       </tr>
                                     </thred>
                                   {items}  

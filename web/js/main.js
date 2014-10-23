@@ -56,6 +56,26 @@ function get_scroll_height()
 }
 
 
+$(window).scroll(function(){
+    if(get_scroll_top() > 200)
+    {
+        $(".scroll-top").removeClass("off").addClass("on");
+    }
+    else
+    {
+        $(".scroll-top").removeClass("on").addClass("off");
+    }
+    
+});
+$(".scroll-top").click(function(event){
+    event.preventDefault();
+    $(".scroll-top").removeClass("on").addClass("off");
+    $("html, body").animate({
+        scrollTop: 0
+    }, "slow");
+    return false;
+});
+
 
 
 
@@ -63,6 +83,9 @@ function get_scroll_height()
 
 
 $(function(){
+
+    
+
     $("#top .nav .menu li .nav-item-list").mouseover(function(){
        // $("#top .nav .menu li img").prop("src","/img/icon/dropdown-light.png");
        $(this).children("img").prop("src","/img/icon/dropdown-light.png");

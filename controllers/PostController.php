@@ -51,15 +51,27 @@ class PostController extends BaseController
         $comment_list = PostComment::find()->where(['post_id' => $id])->orderBy(['id' => SORT_ASC])->all();
 
         // $hot_post_list = PostAction::find()->where(['type' => PostAction::TYPE_LIKE])->groupBy('post_id')->orderBy('count(post_id) desc')->limit(2)->all();
-        
+
+        $post_tag = Post::findBySql("select * from {{%post}} where id = :id", [':id' => $id])->one();
+        $tag = [];
+        $tag = explode(',', $post_tag->tag);
+        if(count($tag) == 1)
+        {
+            $correlate_post = Post::findBySql(" select * from {{%post}} where tag like \"%$tag[0]%\" and id <> :id order by id limit 2",[':id' => $id])->all();
+        }
+        else
+        {
+            $correlate_post = Post::findBySql(" select * from {{%post}} where (tag like \"%$tag[0]%\" or tag like \"%$tag[1]%\") and id <> :id order by id limit 2 ",[':id' => $id])->all();
+        }
         $hot_post_list = PostAction::findBySql(' select * from {{%post_action}} where type = :type group by post_id order by count(post_id) desc limit 0, 2', [':type' => PostAction::TYPE_LIKE])->all();
+        $hot_post_comment_list = PostAction::findBySql(" select * from {{%post_action}} where type = :type and post_id = :post_id group by comment_id order by count(comment_id) desc limit 10", [':type' => PostAction::TYPE_COMMENT_LIKE, ':post_id' => $id])->all();
+        // dump($hot_post_comment_list);die();
 
         $post_favourite = sql(' select count(*) from {{%post_favourite}} where post_id = :post_id ')
                             ->bindValues([':post_id' => $id])->queryScalar();
-        // dump($post_favourite);die();
         
 
-        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'hot_post_list' => $hot_post_list, 'post_favourite' =>$post_favourite ]);
+        return $this->render('/post/view', ['post' => $post, 'comment_list' => $comment_list, 'correlate_post' => $correlate_post, 'post_favourite' =>$post_favourite, 'hot_post_comment_list' => $hot_post_comment_list ]);
     }
 
     public function actionFavouriteAdd() //文章收藏
@@ -92,7 +104,7 @@ class PostController extends BaseController
         $this->checkParams(['post_id', 'content']);
         $data['code'] = 0;
         $post_id = intval($_REQUEST['post_id']);
-        $content = $_REQUEST['content']; // 给$content渲染html
+        $content = $_REQUEST['content']; 
 
         $post_comment = new PostComment();
         $post_comment->post_id = $post_id;
@@ -249,6 +261,8 @@ class PostController extends BaseController
         // $data['post_fav_num'] = $post_fav_num;
         $this->finish($post_fav_num);
     } 
+
+
 
 
 }

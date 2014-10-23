@@ -1,5 +1,4 @@
 
-
 //点赞
 function like(post_id)
 {
@@ -185,8 +184,18 @@ function comment_dislike(post_id, id)
 $(function(){
 
     
+    //comment-login
+    $("#comment-login").click(function(){
+        if(!$("#lg-window").hasClass("on"))
+        {
+            $("#lg-window").addClass("on");
+            $(".shade").show();
+        }
+        $("html, body").animate({
+            scrollTop: 0
+        },"fast");
+    });
 
-    // console.log($("#content .main .icon .sbtn-orange").children().children());
     $("#content .main .icon .sbtn-orange").mouseover(function(){
         console.log("aaa");
         $(this).css({"backgroundColor":"#d44137"});
